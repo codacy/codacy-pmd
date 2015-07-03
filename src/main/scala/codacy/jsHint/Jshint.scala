@@ -5,8 +5,6 @@ import java.nio.file.{Files, Path, StandardOpenOption}
 
 import codacy.dockerApi._
 import codacy.jshint.JsHintPattern._
-import play.api.libs.json.Reads.StringReads
-import play.api.libs.json.Writes.StringWrites
 import play.api.libs.json._
 
 import scala.sys.process._
@@ -22,10 +20,10 @@ object Jshint extends Tool{
 
   private[this] lazy val minusPrefix = "$minus"
 
-  def apply(sourcePath:Path, patterns:Seq[PatternDef]): Try[Iterable[Result]] = {
+  def apply(sourcePath:Path, patterns:Seq[PatternDef],spec:Set[PatternSpec]): Try[Iterable[Result]] = {
     lazy val ruleIds = patterns.map(_.patternId).toSet
 
-    fileForConfig(configFromPatterns(patterns)).map{ case configFile =>
+    fileForConfig(configFromPatterns(patterns,spec)).map{ case configFile =>
 
       val configPath = configFile.toAbsolutePath().toString
       val cmd = Seq("jshint", "--config", configPath, "--verbose", sourcePath.toAbsolutePath.toString)
@@ -44,19 +42,25 @@ object Jshint extends Tool{
       }
   }.flatten
 
-  private[this] def configFromPatterns(patterns:Seq[PatternDef]): JsObject = {
+  private[this] def configFromPatterns(patterns:Seq[PatternDef],spec:Set[PatternSpec]): JsObject = {
     val settings = patterns.foldLeft( BaseSettings ){ (settings,pattern) =>
 
       def settingSet[A](param:JsHintPattern, value:A = true )(implicit writes: Writes[A]) =
         settings.+((param,Json.toJson(value)))
 
-      def settingWithParamValue[A](paramName:JsHintPattern,default:A)(implicit fmt: Format[A]) = {
+      def settingWithParamValue(paramName:JsHintPattern) = {
+
+        lazy val default = spec.collectFirst{ case patternSpec if patternSpec.patternId == pattern.patternId =>
+          patternSpec.parameters.getOrElse(Set.empty).collectFirst{ case paramSpec if paramSpec.name == paramName =>
+            paramSpec.default
+          }
+        }.flatten
 
         val value = pattern.parameters.flatMap(_.collectFirst{
           case paramDef if paramDef.name == ParameterName(paramName.toString) => paramDef.value
-        }).getOrElse( Json.toJson(default) )
+        }).orElse( default )
 
-        settingSet(paramName,value)
+        value.map( settingSet(paramName,_) ).getOrElse(settings)
       }
 
       pattern.patternId.asJsHintPattern.collect{
@@ -75,7 +79,7 @@ object Jshint extends Tool{
         case v @ `immed` =>
           settingSet(v) - `-W062`
         case v @ `latedef` =>
-          settingWithParamValue(v, "nofunc") - `-W003`
+          settingWithParamValue(v) - `-W003`
         case v @ `newcap` =>
           settingSet(v) - `-W055`
         case v @ `noarg` =>
@@ -91,19 +95,19 @@ object Jshint extends Tool{
         case v @ `unused` =>
           settingSet(v) - `-W098`
         case v @ `maxlen` =>
-          settingWithParamValue(v,200) - `-W101`
+          settingWithParamValue(v) - `-W101`
         case v @ `trail` =>
           settingSet(v) - `-W044`
         case v @ `maxparams` =>
-          settingWithParamValue(v, 7) - `-W072`
+          settingWithParamValue(v) - `-W072`
         case v @ `maxdepth` =>
           settingSet(v,3) - `-W073`
         case v @ `maxstatements` =>
-          settingWithParamValue(v, 7) - `-W071`
+          settingWithParamValue(v) - `-W071`
         case v @ `maxcomplexity` =>
-          settingWithParamValue(v, 7) - `-W074`
+          settingWithParamValue(v) - `-W074`
         case v @ `indent` =>
-          settingWithParamValue(v, 2) - `-W015`
+          settingWithParamValue(v) - `-W015`
         case v @ `asi` =>
           settingSet(v, false) - `-W033`
         case v @ `boss` =>

@@ -51,12 +51,12 @@ object Jshint extends Tool{
       def settingWithParamValue(paramName:JsHintPattern) = {
 
         lazy val default = spec.collectFirst{ case patternSpec if patternSpec.patternId == pattern.patternId =>
-          patternSpec.parameters.getOrElse(Set.empty).collectFirst{ case paramSpec if paramSpec.name == paramName =>
+          patternSpec.parameters.getOrElse(Set.empty).collectFirst{ case paramSpec if paramSpec.name == ParameterName(paramName.toString) =>
             paramSpec.default
           }
         }.flatten
 
-        val value = pattern.parameters.flatMap(_.collectFirst{
+        val value = pattern.parameters.flatMap( _.collectFirst{
           case paramDef if paramDef.name == ParameterName(paramName.toString) => paramDef.value
         }).orElse( default )
 

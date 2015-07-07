@@ -20,7 +20,7 @@ object Jshint extends Tool{
 
   private[this] lazy val minusPrefix = "$minus"
 
-  def apply(sourcePath:Path, patterns:Seq[PatternDef])(implicit spec:Spec): Try[Iterable[Result]] = {
+  def apply(sourcePath:Path, patterns:Seq[PatternDef], files:Option[Set[Path]])(implicit spec:Spec): Try[Iterable[Result]] = {
     lazy val ruleIds = patterns.map(_.patternId).toSet
 
     fileForConfig(configFromPatterns(patterns,spec.patterns)).map{ case configFile =>

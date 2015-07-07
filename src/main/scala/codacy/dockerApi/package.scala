@@ -10,33 +10,33 @@ import scala.util.Try
 
 package dockerApi{
 
-  trait Tool{ def apply(path: Path,conf: Seq[PatternDef])(implicit spec: Spec): Try[Iterable[Result]] }
+trait Tool{ def apply(path: Path,conf: Seq[PatternDef], files:Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] }
 
-  class PatternId(       val value:String) extends AnyVal{ override def toString = value.toString }
-  class SourcePath(      val value:String) extends AnyVal{ override def toString = value.toString }
-  class ResultMessage(   val value:String) extends AnyVal{ override def toString = value.toString }
-  class ResultLine(      val value:Int)    extends AnyVal{ override def toString = value.toString }
-  class ToolName(        val value:String) extends AnyVal{ override def toString = value.toString }
-  class ParameterName(   val value:String) extends AnyVal{ override def toString = value.toString }
+class PatternId(       val value:String) extends AnyVal{ override def toString = value.toString }
+class SourcePath(      val value:String) extends AnyVal{ override def toString = value.toString }
+class ResultMessage(   val value:String) extends AnyVal{ override def toString = value.toString }
+class ResultLine(      val value:Int)    extends AnyVal{ override def toString = value.toString }
+class ToolName(        val value:String) extends AnyVal{ override def toString = value.toString }
+class ParameterName(   val value:String) extends AnyVal{ override def toString = value.toString }
 
-  object PatternId{        def apply(v:String): PatternId        = new PatternId(v)       }
-  object SourcePath{       def apply(v:String): SourcePath       = new SourcePath(v)      }
-  object ResultMessage{    def apply(v:String): ResultMessage    = new ResultMessage(v)   }
-  object ResultLine{       def apply(v:Int):    ResultLine       = new ResultLine(v)      }
-  object ToolName{         def apply(v:String): ToolName         = new ToolName(v)        }
-  object ParameterName{    def apply(v:String): ParameterName    = new ParameterName(v)   }
+object PatternId{        def apply(v:String): PatternId        = new PatternId(v)       }
+object SourcePath{       def apply(v:String): SourcePath       = new SourcePath(v)      }
+object ResultMessage{    def apply(v:String): ResultMessage    = new ResultMessage(v)   }
+object ResultLine{       def apply(v:Int):    ResultLine       = new ResultLine(v)      }
+object ToolName{         def apply(v:String): ToolName         = new ToolName(v)        }
+object ParameterName{    def apply(v:String): ParameterName    = new ParameterName(v)   }
 
-  case class ParameterDef(name:ParameterName,value:JsValue)
-  case class PatternDef(patternId: PatternId, parameters:Option[Set[ParameterDef]])
-  case class ToolConfig(name:ToolName, patterns:Seq[PatternDef])
-  private[dockerApi] case class FullConfig(tools:Set[ToolConfig])
+case class ParameterDef(name:ParameterName,value:JsValue)
+case class PatternDef(patternId: PatternId, parameters:Option[Set[ParameterDef]])
+case class ToolConfig(name:ToolName, patterns:Seq[PatternDef])
+private[dockerApi] case class FullConfig(tools:Set[ToolConfig],files:Option[Set[SourcePath]])
 
-  //there are other fields like name and description but i don't care about them inside the tool
-  case class ParameterSpec(name:ParameterName, default:JsValue)
-  case class PatternSpec(patternId: PatternId, parameters:Option[Set[ParameterSpec]])
-  case class Spec(name:ToolName,patterns:Set[PatternSpec])
+//there are other fields like name and description but i don't care about them inside the tool
+case class ParameterSpec(name:ParameterName, default:JsValue)
+case class PatternSpec(patternId: PatternId, parameters:Option[Set[ParameterSpec]])
+case class Spec(name:ToolName,patterns:Set[PatternSpec])
 
-  case class Result(filename:SourcePath,message:ResultMessage,patternId:PatternId,line: ResultLine)
+case class Result(filename:SourcePath,message:ResultMessage,patternId:PatternId,line: ResultLine)
 }
 
 package object dockerApi {
@@ -59,23 +59,23 @@ package object dockerApi {
     Json.reads[Spec]
   }
 
-  implicit def configReader(implicit spec:Spec): Reads[ToolConfig] = {
-    implicit val r06 = Json.reads[ParameterDef]
-    implicit val r02 = Json.reads[PatternDef].flatMap{ case pattern =>
+  implicit def configReader(implicit spec:Spec): Reads[FullConfig] = {
+    implicit val r2 = StringReads.map( SourcePath.apply )
+    implicit val r1 = Json.reads[ParameterDef]
+    implicit val r0 = Json.reads[PatternDef].flatMap{ case pattern =>
       Reads((_:JsValue) =>
         if (spec.patterns.exists(_.patternId == pattern.patternId)) JsSuccess(pattern)
-        else JsError(s"don't know this pattern: ${pattern.patternId}")
+        else JsError(s"invalid patternId: ${pattern.patternId}")
       )
     }
     implicit val r01: Reads[Set[ToolConfig]] = Reads.set(Json.reads[ToolConfig])
 
-    Json.reads[FullConfig].flatMap{ case fullCfg =>
-      Reads[ToolConfig]((_: JsValue) =>
-        fullCfg.tools.collectFirst{ case tool if tool.name == spec.name =>
-          JsSuccess(tool)
-        }.getOrElse(JsError(s"no config for ${spec.name} found"))
-      ).filter(ValidationError("no patterns selected"))(_.patterns.nonEmpty)
-    }
+    Json.reads[FullConfig].flatMap{ case fullCfg => Reads((_:JsValue) =>
+      fullCfg.tools.collectFirst{ case tool if tool.name == spec.name =>
+        if(tool.patterns.isEmpty) JsError("no patterns selected")
+        else JsSuccess(fullCfg)
+      }.getOrElse(JsError(s"no config for ${spec.name} found"))
+    )}
   }
 
   implicit lazy val writer: Writes[Result] = {

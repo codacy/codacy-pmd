@@ -70,6 +70,8 @@ mappings in Universal <++= (resourceDirectory in Compile) map { (resourceDir: Fi
     } yield path -> path.toString.replaceFirst(src.toString, dest)
 }
 
+daemonUser in Docker := "root"
+
 dockerCommands := Seq(
   Cmd("FROM","gliderlabs/alpine:3.2"),
   Cmd("RUN", installAll),

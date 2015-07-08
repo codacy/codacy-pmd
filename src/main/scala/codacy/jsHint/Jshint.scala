@@ -25,8 +25,11 @@ object Jshint extends Tool{
 
     fileForConfig(configFromPatterns(patterns,spec.patterns)).map{ case configFile =>
 
+      val finalPath = files.map(_.map(_.toString).mkString(" ")).getOrElse(sourcePath.toAbsolutePath.toString)
+
       val configPath = configFile.toAbsolutePath().toString
-      val cmd = Seq("jshint", "--config", configPath, "--verbose", sourcePath.toAbsolutePath.toString)
+
+      val cmd = s"""jshint --config $configPath --verbose $finalPath""".split(" ").toList
 
       cmd.lineStream_!.map( outputLineAsResult ).
       collect{ case Some(result) if ruleIds.contains(result.patternId) => result }

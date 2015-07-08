@@ -1,6 +1,6 @@
 import com.typesafe.sbt.packager.docker._
 
-name := """codacy-engine-jshint"""
+name := """codacy-engine-pmdjava"""
 
 version := "1.0-SNAPSHOT"
 
@@ -9,7 +9,8 @@ val languageVersion = "2.11.7"
 scalaVersion := languageVersion
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-json" % "2.3.8"
+  "com.typesafe.play" %% "play-json" % "2.3.8" withSources(),
+  "org.scala-lang.modules" %% "scala-xml" % "1.0.4" withSources()
 )
 
 enablePlugins(JavaAppPackaging)
@@ -33,16 +34,21 @@ val jreUrl = s"http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION_MAJOR" 
 val jreExtractedFolderName = s"""jdk1.$JAVA_VERSION_MAJOR.0_$JAVA_VERSION_MINOR/jre"""
 
 val installAll =
-  s"""apk-install bash curl ca-certificates nodejs python make gcc g++ libc-dev &&
-    |npm install -g jshint &&
+  s"""apk-install bash curl ca-certificates make gcc g++ libc-dev &&
     |cd /tmp &&
+    |curl -L -o pmd-bin-5.3.2.zip "http://sourceforge.net/projects/pmd/files/pmd/5.3.2/pmd-bin-5.3.2.zip/download" &&
+    |unzip pmd-bin-5.3.2.zip &&
+    |mv pmd-bin-5.3.2/ /usr/local/ &&
+    |rm /tmp/pmd-bin-5.3.2.zip &&
     |curl -o glibc-2.21-r2.apk "https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-2.21-r2.apk" &&
     |apk add --allow-untrusted glibc-2.21-r2.apk &&
     |curl -o glibc-bin-2.21-r2.apk "https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-bin-2.21-r2.apk" &&
     |apk add --allow-untrusted glibc-bin-2.21-r2.apk &&
     |/usr/glibc/usr/bin/ldconfig /lib /usr/glibc/usr/lib &&
     |curl -L -O -H "Cookie: oraclelicense=accept-securebackup-cookie" -k "$jreUrl" &&
-    |gunzip -c $jreFilenameGzip | tar -xf - && mv $jreExtractedFolderName /jre && rm /jre/bin/jjs &&
+    |gunzip -c $jreFilenameGzip | tar -xf - &&
+    |mv $jreExtractedFolderName /jre &&
+    |rm /jre/bin/jjs &&
     |rm /jre/bin/keytool &&
     |rm /jre/bin/orbd &&
     |rm /jre/bin/pack200 &&

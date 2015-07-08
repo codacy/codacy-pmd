@@ -10,7 +10,7 @@ import scala.util.Try
 
 package dockerApi{
 
-trait Tool{ def apply(path: Path,conf: Seq[PatternDef], files:Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] }
+trait Tool{ def apply(path: Path,conf: Option[Seq[PatternDef]], files:Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] }
 
 class PatternId(       val value:String) extends AnyVal{ override def toString = value.toString }
 class SourcePath(      val value:String) extends AnyVal{ override def toString = value.toString }

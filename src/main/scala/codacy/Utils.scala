@@ -3,9 +3,10 @@ package codacy
 import java.io.File
 
 
+import scala.collection.immutable
 import scala.io.Source
 import scala.sys.process._
-import scala.util.Try
+import scala.util.{Properties, Try}
 import scala.util.control.NonFatal
 
 /**
@@ -13,13 +14,12 @@ import scala.util.control.NonFatal
  */
 object Utils {
 
-  def runCommand(cmdCommand: Seq[String]): Seq[String] = {
-    cmdCommand.lineStream_!.force
+  def runCommand(cmdCommand: Seq[String]): String = {
+//    cmdCommand.lineStream_!.mkString(Properties.lineSeparator)
+
+    cmdCommand.lineStream_!.mkString(Properties.lineSeparator)
   }
 
-  def runCommandLazy(cmdCommand: Seq[String]): Stream[String] = {
-    cmdCommand.lineStream_!
-  }
 
 
 }

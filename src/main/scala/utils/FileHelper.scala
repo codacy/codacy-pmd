@@ -21,9 +21,22 @@ object FileHelper {
     java.nio.file.Paths.get(path)
   }
 
+  def getStringFromPath(path: java.nio.file.Path): String = {
+    path.toString
+  }
+
   def readFileByName(path: String): String = {
     readFile(new File(path)).get.mkString
   }
+
+  def getFileNameWithoutExtension(path: String): String = {
+    java.nio.file.Paths.get(path).getFileName().toString().split('.').head
+  }
+
+  def getFileName(path: String): String = {
+    java.nio.file.Paths.get(path).getFileName().toString()
+  }
+
 
   def readFile(file: File): Option[Seq[String]] = {
     val sourceOpt = Try(Source.fromFile(file)).toOption.orElse {

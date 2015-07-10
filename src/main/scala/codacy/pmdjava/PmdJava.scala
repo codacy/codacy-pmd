@@ -1,6 +1,7 @@
 package codacy.pmdjava
 
 import java.io
+import java.io.File
 import java.nio.file.Path
 
 import codacy.dockerApi._
@@ -10,38 +11,70 @@ import utils.FileHelper
 
 
 import scala.util.{Properties, Failure, Success, Try}
-
-
+import scala.xml.XML
 
 
 object PmdJava extends Tool{
+
   override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
 
     val dummyResultsGood = Seq(Result(SourcePath("filenameDummy"), ResultMessage("messageDummy"), PatternId("patternIdDummy"), ResultLine(1)))
 
+    val confFile = getConfigFile(spec)
 
-    val confFile = getConfigFile(spec) //vai gerar o config file que tem de trocar os _ por / e tal
-    /* path.toString match {
-      case "pathDummy" => Success(dummyResultsGood)
-    } */ //dummy test
+    val dummyTestFileName = files.get.head.toString //dummyTest
 
-    println(confFile)
 
-    Success(dummyResultsGood)
+
+    val cmd : Seq[String] = generatePMDCommand(confFile.get.getAbsolutePath , dummyTestFileName)
+
+    //val result : Seq[String] = Utils.runCommand(cmd)
+    val result : String = Utils.runCommand(cmd)
+
+    println("Result Start")
+
+
+    val parsedResults = parseResult(result)
+
+    //for(it <- result)
+    //  println(it)
+    //result.map(println)
+
+    println("Result End")
+
+    Success(parsedResults.toIterable)
    }
 
-/*
-  def getCommandFor(rootDirectory: String, files: Seq[String], configuration: PluginConfiguration): Seq[String] = {
-    val configurationFile = getConfigFile(configuration)
-      .map(f => Seq("-rulesets", f.getAbsolutePath))
-      .getOrElse(Seq.empty)
-
-    val filesParameter = files.mkString(",")
-
-    Seq("pmd", "pmd", "-d", filesParameter, "-f", "xml") ++ configurationFile
+  def generatePMDCommand(confFilePath: String, testFilePath: String): Seq[String] = {
+    Seq("pmd", "pmd", "-d", testFilePath, "-f", "xml", "-rulesets", confFilePath)
   }
-*/
 
+
+  def parseResult(resultFromTool: String): Seq[Result] = {
+
+    val result = XML.loadString(resultFromTool)
+
+    val matches = (result \ "file").flatMap { file =>
+      (file \ "violation").flatMap { violation =>
+        val filename = (file \ "@name").toString()
+        //val relativeFilename = FileHelper.getFileName(filename) //not sure if we will need it
+        val lineBegin = (violation \ "@beginline").toString().toInt
+        //val rule = (violation \ "@rule").toString() //pasta
+        //val ruleSet = (violation \ "@ruleset").toString() //pasta
+        val message = violation.text
+
+        createMatch(filename, lineBegin, message)
+      }
+    }
+    matches
+  }
+
+  //case class Result(filename:SourcePath,message:ResultMessage,patternId:PatternId,line: ResultLine)
+
+  private def createMatch(filePath: String, line: Int, message: String): Option[Result] = {
+
+    Some(Result(SourcePath(filePath), ResultMessage(message), getPatternIdByAbsoluteFileName(filePath) ,ResultLine(line)))
+  }
 
   private def getConfigFile(spec: Spec): Option[io.File] = {
     val rules = for {
@@ -59,6 +92,11 @@ object PmdJava extends Tool{
 
     FileHelper.write(xmlConfiguration)
   }
+
+  def getPatternIdByAbsoluteFileName(path: String): PatternId = {
+    PatternId(FileHelper.getFileName(path))
+  }
+
 
   def getPatternNameById(patternId: PatternId): String = {
     patternId.value.replace('_', '/')

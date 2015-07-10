@@ -42,7 +42,7 @@ object MySandbox {
       //val dummyPatternDef = Some(getJsonDescription("/home/maxadoj/src/patterns.json").get.patterns.toSeq)
 
 
-      val dummyFiles = Some(Set(java.nio.file.Paths.get("filesDummy")))
+      val dummyFiles = Some(Set(FileHelper.getPathFromString("/home/maxadoj/src/rulesets_java_design.xml_NonThreadSafeSingleton.java")))
 
 
       val resultDummy = PmdJava.apply(dummyPath, dummyPatternDef, dummyFiles)

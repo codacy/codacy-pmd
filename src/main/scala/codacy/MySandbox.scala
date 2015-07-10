@@ -45,7 +45,10 @@ object MySandbox {
       val dummyFiles = Some(Set(FileHelper.getPathFromString("/home/maxadoj/src/myFileToTest.java")))
 
 
-      val resultDummy = PmdJava.apply(dummyPath, dummyPatternDef, dummyFiles)
+      val resultDummy = PmdJava.apply(dummyPath, None, None)
+
+      //val resultDummy = PmdJava.apply(dummyPath, dummyPatternDef, dummyFiles)
+      //val resultDummy = PmdJava.apply(dummyPath, None, None)
 
 
       //printDebug

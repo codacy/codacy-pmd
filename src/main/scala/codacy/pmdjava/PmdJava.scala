@@ -20,16 +20,14 @@ object PmdJava extends Tool{
 
   override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
 
-    val dummyTestFileName = files.get.head.toString //dummyTest
+    val resultFile = FileHelper.randomFile("outPMDJava")
 
-    val cmd : Seq[String] = getCommandFor(path, conf, files, spec)
+    val cmd : Seq[String] = getCommandFor(path, conf, files, spec, resultFile.getAbsolutePath) //dont delete me
 
-    val result : String = Utils.runCommand(cmd)
-
-    println("Result Start")
+    val resultState : String = Utils.runCommand(cmd) // dont delete me
 
 
-    val parsedResults = parseResult(result)
+    val parsedResults = parseResult(getToolResultFromFile(resultFile))
 
     //for(it <- result)
     //  println(it)
@@ -40,7 +38,7 @@ object PmdJava extends Tool{
     Success(parsedResults.toIterable)
    }
 
-  def getCommandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec): Seq[String] = {
+  def getCommandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: String): Seq[String] = {
     val configurationCmd = conf.filter(_.nonEmpty).map { patternDefs =>
 
       val confFilePath = getConfigFile(patternDefs).map(_.getAbsolutePath).getOrElse(ruleSetsDefault)
@@ -52,7 +50,7 @@ object PmdJava extends Tool{
 
     val filesCmd = files.filter(_.nonEmpty).map(_.mkString(",")).getOrElse(FileHelper.getStringFromPath(path))
 
-    Seq("pmd", "pmd", "-d", filesCmd, "-f", "xml") ++ configurationCmd
+    Seq("pmd", "pmd", "-d", filesCmd, "-f", "xml", "-r", outputFilePath) ++ configurationCmd
 
   }
 
@@ -73,6 +71,10 @@ object PmdJava extends Tool{
       }
     }
     matches
+  }
+
+  def getToolResultFromFile(resultFile: File): String = {
+      FileHelper.readFileByName(resultFile.getAbsolutePath)
   }
 
   //case class Result(filename:SourcePath,message:ResultMessage,patternId:PatternId,line: ResultLine)

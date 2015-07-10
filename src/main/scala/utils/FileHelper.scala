@@ -70,7 +70,7 @@ object FileHelper {
     }.toOption
   }
 
-  private def randomFile(extension: String = "conf"): File = {
+  def randomFile(extension: String = "conf"): File = {
     Files.createTempFile(getPathFromString("/home/maxadoj/src/tmp/"), "codacy-", s".$extension").toFile //TODO: remove first argument from createTempFile (will put on docker /tmp)
   }
 }

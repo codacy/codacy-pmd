@@ -34,15 +34,15 @@ object MySandbox {
       implicit val specification: Spec = getJsonDescription("/home/maxadoj/src/patterns.json").get
 
       //val dummyParameters = Some(Set(ParameterDef(ParameterName("parameterNameDummy"), new JsString("valueDummy"))))
-      val dummyParameters = None
+      val dummyParameters = Some(Set(ParameterDef(ParameterName("minimum"), JsNumber(17))))
 
       val dummyPath = FileHelper.getPathFromString("/home/maxadoj/src/")
 
-      val dummyPatternDef = Some(Seq(PatternDef(PatternId("patternIdDummy"), dummyParameters)))
-      //val dummyPatternDef = Some(getJsonDescription("/home/maxadoj/src/patterns.json").get.patterns.toSeq)
+      val dummyPatternDef = Some(Seq(PatternDef(PatternId("rulesets_java_naming.xml_LongVariable"), dummyParameters)))
 
 
-      val dummyFiles = Some(Set(FileHelper.getPathFromString("/home/maxadoj/src/rulesets_java_design.xml_NonThreadSafeSingleton.java")))
+
+      val dummyFiles = Some(Set(FileHelper.getPathFromString("/home/maxadoj/src/myFileToTest.java")))
 
 
       val resultDummy = PmdJava.apply(dummyPath, dummyPatternDef, dummyFiles)

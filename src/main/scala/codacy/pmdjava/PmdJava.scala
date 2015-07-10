@@ -16,19 +16,14 @@ import scala.xml.XML
 
 object PmdJava extends Tool{
 
+  private val ruleSetsDefault = "java-android,java-basic,java-braces,java-clone,java-codesize,java-comments,java-controversial,java-coupling,java-design,java-empty,java-finalizers,java-imports,java-junit,java-migrating,java-naming,java-optimizations,java-sunsecure,java-strictexception,java-strings,java-typeresolution,java-unnecessary,java-unusedcode"
+
   override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
-
-    val dummyResultsGood = Seq(Result(SourcePath("filenameDummy"), ResultMessage("messageDummy"), PatternId("patternIdDummy"), ResultLine(1)))
-
-    val confFile = getConfigFile(spec)
 
     val dummyTestFileName = files.get.head.toString //dummyTest
 
+    val cmd : Seq[String] = getCommandFor(path, conf, files, spec)
 
-
-    val cmd : Seq[String] = generatePMDCommand(confFile.get.getAbsolutePath , dummyTestFileName)
-
-    //val result : Seq[String] = Utils.runCommand(cmd)
     val result : String = Utils.runCommand(cmd)
 
     println("Result Start")
@@ -45,10 +40,21 @@ object PmdJava extends Tool{
     Success(parsedResults.toIterable)
    }
 
-  def generatePMDCommand(confFilePath: String, testFilePath: String): Seq[String] = {
-    Seq("pmd", "pmd", "-d", testFilePath, "-f", "xml", "-rulesets", confFilePath)
-  }
+  def getCommandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec): Seq[String] = {
+    val configurationCmd = conf.filter(_.nonEmpty).map { patternDefs =>
 
+      val confFilePath = getConfigFile(patternDefs).map(_.getAbsolutePath).getOrElse(ruleSetsDefault)
+      Seq("-rulesets", confFilePath)
+
+    }.getOrElse{
+      Seq("-rulesets", ruleSetsDefault)
+    }
+
+    val filesCmd = files.filter(_.nonEmpty).map(_.mkString(",")).getOrElse(FileHelper.getStringFromPath(path))
+
+    Seq("pmd", "pmd", "-d", filesCmd, "-f", "xml") ++ configurationCmd
+
+  }
 
   def parseResult(resultFromTool: String): Seq[Result] = {
 
@@ -76,10 +82,10 @@ object PmdJava extends Tool{
     Some(Result(SourcePath(filePath), ResultMessage(message), getPatternIdByAbsoluteFileName(filePath) ,ResultLine(line)))
   }
 
-  private def getConfigFile(spec: Spec): Option[io.File] = {
+  private def getConfigFile(conf: Seq[PatternDef]): Option[io.File] = {
     val rules = for {
-      pattern <- spec.patterns
-      patternConfiguration <- generateRule(pattern.patternId, pattern.parameters)
+      pattern <- conf
+      patternConfiguration <- generateRule(pattern.patternId, pattern.parameters)//pattern.parameters)
     } yield patternConfiguration
 
     val xmlConfiguration =
@@ -102,15 +108,20 @@ object PmdJava extends Tool{
     patternId.value.replace('_', '/')
   }
 
-  private def generateRule(patternId: PatternId, parameters: Option[Set[ParameterSpec]]): Option[String] = {
+  private def generateRule(patternId: PatternId, parameters: Option[Set[ParameterDef]]): Option[String] = {
 
       val params = parameters.map(_.map(generateParameter).mkString(Properties.lineSeparator)).getOrElse("")
 
       Some("<rule ref=\"" + getPatternNameById(patternId) + "\"><properties>" + params + "</properties> </rule>")
   }
 
-  private def generateParameter(parameter: ParameterSpec): String = {
-      "<property name=\"" + parameter.name + "\" value=" + parameter.default + " />"  //If the double quotes are here, it places too many
+  private def generateParameter(parameter: ParameterDef): String = {
+    val parameterValue = Utils.getStringValue(parameter.value)
+
+    s"""<property name="${parameter.name}" value="$parameterValue" />"""
+
   }
+
+
 
 }

@@ -61,7 +61,7 @@
         },
         {
           "name": "checkAll",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -164,7 +164,7 @@
         },
         {
           "name": "strict",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -289,7 +289,7 @@
       "parameters": [
         {
           "name": "minimum",
-          "default": "17"
+          "default": 17
         }
       ]
     },
@@ -447,7 +447,7 @@
       "parameters": [
         {
           "name": "checkParameterizedMethods",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -458,7 +458,7 @@
       "parameters": [
         {
           "name": "minimum",
-          "default": "5"
+          "default": 5
         }
       ]
     },
@@ -558,7 +558,7 @@
         },
         {
           "name": "threshold",
-          "default": "20"
+          "default": 20
         }
       ]
     },
@@ -577,7 +577,7 @@
         },
         {
           "name": "minimum",
-          "default": "30"
+          "default": 30
         }
       ]
     },
@@ -775,19 +775,19 @@
         },
         {
           "name": "allowIncrementDecrement",
-          "default": "false"
+          "default": false
         },
         {
           "name": "allowWhile",
-          "default": "false"
+          "default": false
         },
         {
           "name": "allowFor",
-          "default": "false"
+          "default": false
         },
         {
           "name": "allowIf",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -869,7 +869,7 @@
         },
         {
           "name": "problemDepth",
-          "default": "3"
+          "default": 3
         }
       ]
     },
@@ -903,7 +903,7 @@
         },
         {
           "name": "minimum",
-          "default": "10"
+          "default": 10
         }
       ]
     },
@@ -1015,7 +1015,7 @@
         },
         {
           "name": "ignoreElseIf",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -1094,11 +1094,11 @@
         },
         {
           "name": "maxViolations",
-          "default": "100"
+          "default": 100
         },
         {
           "name": "maxPaths",
-          "default": "1000"
+          "default": 1000
         }
       ]
     },
@@ -1133,7 +1133,7 @@
       "parameters": [
         {
           "name": "strictMode",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -1248,11 +1248,11 @@
         },
         {
           "name": "IgnoreJUnitCompletely",
-          "default": "false"
+          "default": false
         },
         {
           "name": "IgnoreJUnitCompletely",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -1263,7 +1263,7 @@
       "parameters": [
         {
           "name": "allowCommentedBlocks",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -1393,11 +1393,11 @@
         },
         {
           "name": "checkNonStaticFields",
-          "default": "false"
+          "default": false
         },
         {
           "name": "checkNonStaticMethods",
-          "default": "true"
+          "default": true
         }
       ]
     },
@@ -1414,7 +1414,7 @@
       "parameters": [
         {
           "name": "ignoreExplicitConstructorInvocation",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -1496,11 +1496,11 @@
         },
         {
           "name": "disallowNotAssignment",
-          "default": "false"
+          "default": false
         },
         {
           "name": "checkInnerClasses",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -1523,7 +1523,7 @@
       "parameters": [
         {
           "name": "minimumNumberCaseForASwitch",
-          "default": "3"
+          "default": 3
         }
       ]
     },
@@ -1554,11 +1554,11 @@
         },
         {
           "name": "ignoreAnonymousClassDeclarations",
-          "default": "true"
+          "default": true
         },
         {
           "name": "ignoreEnumDeclarations",
-          "default": "true"
+          "default": true
         }
       ]
     },
@@ -1682,7 +1682,7 @@
         },
         {
           "name": "ignoreAnnotations",
-          "default": "false"
+          "default": false
         }
       ]
     },
@@ -1791,7 +1791,7 @@
         },
         {
           "name": "minimum",
-          "default": "15.0"
+          "default": 15.0
         }
       ]
     },
@@ -1810,7 +1810,7 @@
         },
         {
           "name": "minimum",
-          "default": "75"
+          "default": 75
         }
       ]
     },
@@ -1829,7 +1829,7 @@
         },
         {
           "name": "minimum",
-          "default": "5.0"
+          "default": 5.0
         }
       ]
     },
@@ -1848,7 +1848,7 @@
         },
         {
           "name": "minimum",
-          "default": "1500.0"
+          "default": 1500.0
         }
       ]
     },
@@ -1867,15 +1867,15 @@
         },
         {
           "name": "showMethodsComplexity",
-          "default": "true"
+          "default": true
         },
         {
           "name": "showClassesComplexity",
-          "default": "true"
+          "default": true
         },
         {
           "name": "reportLevel",
-          "default": "8"
+          "default": 8
         }
       ]
     },
@@ -1894,7 +1894,7 @@
         },
         {
           "name": "minimum",
-          "default": "5.0"
+          "default": 5.0
         }
       ]
     },
@@ -1913,7 +1913,7 @@
         },
         {
           "name": "maxfields",
-          "default": "15"
+          "default": 15
         }
       ]
     },
@@ -1932,7 +1932,7 @@
         },
         {
           "name": "minimum",
-          "default": "100.0"
+          "default": 100.0
         }
       ]
     },
@@ -1951,7 +1951,7 @@
         },
         {
           "name": "minimum",
-          "default": "100.0"
+          "default": 100.0
         }
       ]
     },
@@ -1970,7 +1970,7 @@
         },
         {
           "name": "minimum",
-          "default": "100.0"
+          "default": 100.0
         }
       ]
     },
@@ -1989,7 +1989,7 @@
         },
         {
           "name": "maxmethods",
-          "default": "15"
+          "default": 15
         }
       ]
     },

@@ -1,22 +1,19 @@
 package codacy.pmdjava
 
 import java.nio.charset.StandardCharsets
-import java.nio.file.{StandardOpenOption, Files, Path}
+import java.nio.file.{Paths, StandardOpenOption, Files, Path}
 import codacy.dockerApi._
 import play.api.libs.json.{JsString, Json}
-import scala.io.Source
 import scala.sys.process._
-import scala.util.{Success, Try}
-import scala.xml.{Unparsed, Elem, XML}
+import scala.util.{Properties, Success, Try}
+import scala.xml.{Elem, XML}
 
 object PmdJava extends Tool{
 
   override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
-    resultFile().flatMap{ case resultFilePMD =>
-      getCommandFor(path, conf, files, spec, resultFilePMD).flatMap{ case cmd =>
-        cmd.!(discardingLogger)
-        Try(XML.loadFile(resultFilePMD.toFile)).map(outputParsed)
-      }
+    getCommandFor(path, conf, files, spec, resultFilePath).flatMap{ case cmd =>
+      cmd.!(discardingLogger)
+      Try(XML.loadFile(resultFilePath.toFile)).map(outputParsed)
     }
   }
 
@@ -27,12 +24,9 @@ object PmdJava extends Tool{
     "typeresolution","unnecessary","unusedcode").map{ case base => s"java-$base"}.mkString(",")
 
   //we are using an output file we don't care for stdout or err...
-  private[this] val discardingLogger = ProcessLogger((_:String) => ())
+  private[this] lazy val discardingLogger = ProcessLogger((_:String) => ())
 
-
-  private[this] def resultFile(): Try[Path] = Try(
-    Files.createTempFile("pmd-result",".xml")
-  )
+  private[this] lazy val resultFilePath = Paths.get(Properties.tmpDir,"pmd-result.xml")
 
   private[this] def getCommandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[Seq[String]] = {
 

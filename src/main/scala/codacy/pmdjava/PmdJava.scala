@@ -1,112 +1,130 @@
 package codacy.pmdjava
 
-import java.io
-import java.io.File
-import java.nio.file.Path
-
+import java.nio.charset.StandardCharsets
+import java.nio.file.{StandardOpenOption, Files, Path}
 import codacy.dockerApi._
-
-import codacy.Utils
-import utils.FileHelper
-
-
-import scala.util.{Properties, Failure, Success, Try}
-import scala.xml.XML
+import play.api.libs.json.Json
+import scala.sys.process._
+import scala.util.{Success, Try}
+import scala.xml.{Elem, XML}
 
 
 object PmdJava extends Tool{
 
-  private val ruleSetsDefault = "java-android,java-basic,java-braces,java-clone,java-codesize,java-comments,java-controversial,java-coupling,java-design,java-empty,java-finalizers,java-imports,java-junit,java-migrating,java-naming,java-optimizations,java-sunsecure,java-strictexception,java-strings,java-typeresolution,java-unnecessary,java-unusedcode"
-
   override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
-
-    val resultFilePMD = FileHelper.randomFile("xml")
-
-    val cmd : Seq[String] = getCommandFor(path, conf, files, spec, resultFilePMD.getAbsolutePath)
-
-    // the cmd already has the path to the temporary file to store the results from pmd
-    Utils.runCommand(cmd)
-
-    FileHelper.readFile(resultFilePMD)
-      .map(lines => Success(parseResult(lines.mkString).toIterable))
-      .getOrElse(Failure(new Exception("Failed to read output")))
-
-   }
-
-  def getCommandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: String): Seq[String] = {
-
-    val configuration = conf.filter(_.nonEmpty).flatMap { patternDefs =>
-     getConfigFile(patternDefs).map(_.getAbsolutePath)
-    }.getOrElse(ruleSetsDefault)
-
-    val configurationCmd = Seq("-rulesets", configuration)
-
-    val filesCmd = files.filter(_.nonEmpty).map(_.mkString(",")).getOrElse(FileHelper.getStringFromPath(path))
-
-    Seq("pmd", "pmd", "-d", filesCmd, "-f", "xml", "-r", outputFilePath) ++ configurationCmd
-
-  }
-
-  def parseResult(resultFromTool: String): Seq[Result] = {
-
-    val result = XML.loadString(resultFromTool)
-
-    val matches = (result \ "file").flatMap { file =>
-      (file \ "violation").flatMap { violation =>
-        val filename = (file \@ "name")
-        val lineBegin = (violation \@ "beginline").toInt
-        val message = violation.text
-
-        createMatch(filename, lineBegin, message)
+    pmdConfFilePath().flatMap{ case resultFilePMD =>
+      getCommandFor(path, conf, files, spec, resultFilePMD).flatMap{ case cmd =>
+        cmd.!(discardingLogger)
+        Try(XML.loadFile(resultFilePMD.toFile)).map(outputParsed)
       }
     }
-    matches
   }
 
-  private def createMatch(filePath: String, line: Int, message: String): Option[Result] = {
+  private[this] lazy val ruleSetsDefault = Seq(
+    "android","basic","braces","clone","codesize","comments","controversial",
+    "coupling","design","empty","finalizers","imports","junit","migrating",
+    "naming","optimizations","sunsecure","strictexception","strings",
+    "typeresolution","unnecessary","unusedcode").map{ case base => s"java-$base"}.mkString(",")
 
-    Some(Result(SourcePath(filePath), ResultMessage(message), getPatternIdByAbsoluteFileName(filePath) ,ResultLine(line)))
+  //we are using an output file we don't care for stdout or err...
+  private[this] val discardingLogger = ProcessLogger((_:String) => ())
+
+
+  private[this] def pmdConfFilePath(): Try[Path] = Try(
+    Files.createTempFile(".pmdrc",".xml")
+  )
+
+  private[this] def getCommandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[Seq[String]] = {
+
+    val configPath = conf.map{ case config =>
+      getConfigFile(config).map(_.toAbsolutePath.toString)
+    }.getOrElse( Success(ruleSetsDefault) )
+
+    configPath.map{ case configuration =>
+      val configurationCmd = Seq("-rulesets", configuration)
+
+      val filesCmd = files.filter(_.nonEmpty).map(_.mkString(",")).getOrElse(path.toAbsolutePath.toString)
+      //maybe someone want's to create a symlink for this in build.sbt
+      Seq("/usr/local/pmd-bin-5.3.2/bin/run.sh", "pmd", "-d", filesCmd, "-f", "xml", "-r", outputFilePath.toAbsolutePath.toString) ++ configurationCmd
+    }
   }
 
-  private def getConfigFile(conf: Seq[PatternDef]): Option[io.File] = {
+  private[this] def xmlLocation(ruleName:String,ruleSet:String) = {
+    val rsPart = ruleSet.dropRight("Rules".length).replaceAll(" ","").toLowerCase()
+    s"rulesets_$rsPart.xml_$ruleName"
+  }
+
+  private[this] def patternIdByRuleNameAndRuleSet(ruleName: String, ruleSet:String)(implicit spec: Spec):Option[PatternId] = {
+    spec.patterns.collectFirst{ case pattern if pattern.patternId.value == xmlLocation(ruleName,ruleSet) =>
+      pattern.patternId
+    }
+  }
+
+  private[this] def outputParsed(outputXml:Elem)(implicit spec: Spec) = {
+    (outputXml \ "file").flatMap{ case file =>
+      lazy val fileName = SourcePath((file \@ "name"))
+
+      (file \ "violation").flatMap{ case violation =>
+        Try(
+          patternIdByRuleNameAndRuleSet(
+            ruleName = violation \@ "rule",
+            ruleSet = violation \@ "ruleset"
+          ).map{ case patternId =>
+            Result(
+              filename = fileName,
+              message = ResultMessage(violation.text.trim),
+              patternId = patternId,
+              line = ResultLine((violation \@ "beginline").toInt)
+            )
+          }
+        ).toOption.flatten[Result]
+      }
+    }
+  }
+
+  private[this] def getConfigFile(conf: Seq[PatternDef]): Try[Path] = {
     val rules = for {
       pattern <- conf
       patternConfiguration <- generateRule(pattern.patternId, pattern.parameters)//pattern.parameters)
     } yield patternConfiguration
 
     val xmlConfiguration =
-      """
+
         <ruleset name="All Java Rules"
             xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
-      """ + rules.mkString(Properties.lineSeparator) + "</ruleset>"
+          { rules }
+        </ruleset>
 
-    FileHelper.write(xmlConfiguration)
+    fileForConfig(xmlConfiguration)
   }
 
-  def getPatternIdByAbsoluteFileName(path: String): PatternId = {
-    PatternId(FileHelper.getFileName(path))
+  private[this] def fileForConfig(config:Elem) = tmpfile(config.toString())
+
+  private[this] def tmpfile(content:String,prefix:String="ruleset",suffix:String=".xml"): Try[Path] = {
+    Try(Files.write(
+      Files.createTempFile(prefix,suffix),
+      content.getBytes(StandardCharsets.UTF_8),
+      StandardOpenOption.CREATE
+    ))
   }
 
-
-  def getPatternNameById(patternId: PatternId): String = {
+  private[this] def getPatternNameById(patternId: PatternId): String = {
     patternId.value.replace('_', '/')
   }
 
-  private def generateRule(patternId: PatternId, parameters: Option[Set[ParameterDef]]): Option[String] = {
+  private[this] def generateRule(patternId: PatternId, parameters: Option[Set[ParameterDef]]): Elem = {
 
-      val params = parameters.map(_.map(generateParameter).mkString(Properties.lineSeparator)).getOrElse("")
+    val xmlPorperties = parameters.map(_.map(generateParameter)).getOrElse(Set.empty)
 
-      Some("<rule ref=\"" + getPatternNameById(patternId) + "\"><properties>" + params + "</properties> </rule>")
+    <rule ref={ getPatternNameById(patternId) }>
+      <properties>{ xmlPorperties }</properties>
+    </rule>
   }
 
-  private def generateParameter(parameter: ParameterDef): String = {
-    val parameterValue = Utils.getStringValue(parameter.value)
-
-    s"""<property name="${parameter.name}" value="$parameterValue" />"""
-
+  private[this] def generateParameter(parameter: ParameterDef): Elem = {
+    val parameterValue = Json.stringify(parameter.value)
+    <property name={parameter.name} value={parameterValue} />
   }
-
-
 }

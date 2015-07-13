@@ -129,6 +129,4 @@ object PmdJava extends Tool{
     }
     <property name={parameter.name} value={parameterValue} />
   }
-
-
 }

@@ -20,33 +20,26 @@ object PmdJava extends Tool{
 
   override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
 
-    val resultFile = FileHelper.randomFile("outPMDJava")
+    val resultFilePMD = FileHelper.randomFile("xml")
 
-    val cmd : Seq[String] = getCommandFor(path, conf, files, spec, resultFile.getAbsolutePath) //dont delete me
+    val cmd : Seq[String] = getCommandFor(path, conf, files, spec, resultFilePMD.getAbsolutePath)
 
-    val resultState : String = Utils.runCommand(cmd) // dont delete me
+    // the cmd already has the path to the temporary file to store the results from pmd
+    Utils.runCommand(cmd)
 
+    FileHelper.readFile(resultFilePMD)
+      .map(lines => Success(parseResult(lines.mkString).toIterable))
+      .getOrElse(Failure(new Exception("Failed to read output")))
 
-    val parsedResults = parseResult(getToolResultFromFile(resultFile))
-
-    //for(it <- result)
-    //  println(it)
-    //result.map(println)
-
-    println("Result End")
-
-    Success(parsedResults.toIterable)
    }
 
   def getCommandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: String): Seq[String] = {
-    val configurationCmd = conf.filter(_.nonEmpty).map { patternDefs =>
 
-      val confFilePath = getConfigFile(patternDefs).map(_.getAbsolutePath).getOrElse(ruleSetsDefault)
-      Seq("-rulesets", confFilePath)
+    val configuration = conf.filter(_.nonEmpty).flatMap { patternDefs =>
+     getConfigFile(patternDefs).map(_.getAbsolutePath)
+    }.getOrElse(ruleSetsDefault)
 
-    }.getOrElse{
-      Seq("-rulesets", ruleSetsDefault)
-    }
+    val configurationCmd = Seq("-rulesets", configuration)
 
     val filesCmd = files.filter(_.nonEmpty).map(_.mkString(",")).getOrElse(FileHelper.getStringFromPath(path))
 
@@ -60,11 +53,8 @@ object PmdJava extends Tool{
 
     val matches = (result \ "file").flatMap { file =>
       (file \ "violation").flatMap { violation =>
-        val filename = (file \ "@name").toString()
-        //val relativeFilename = FileHelper.getFileName(filename) //not sure if we will need it
-        val lineBegin = (violation \ "@beginline").toString().toInt
-        //val rule = (violation \ "@rule").toString() //pasta
-        //val ruleSet = (violation \ "@ruleset").toString() //pasta
+        val filename = (file \@ "name")
+        val lineBegin = (violation \@ "beginline").toInt
         val message = violation.text
 
         createMatch(filename, lineBegin, message)
@@ -72,12 +62,6 @@ object PmdJava extends Tool{
     }
     matches
   }
-
-  def getToolResultFromFile(resultFile: File): String = {
-      FileHelper.readFileByName(resultFile.getAbsolutePath)
-  }
-
-  //case class Result(filename:SourcePath,message:ResultMessage,patternId:PatternId,line: ResultLine)
 
   private def createMatch(filePath: String, line: Int, message: String): Option[Result] = {
 
@@ -123,7 +107,6 @@ object PmdJava extends Tool{
     s"""<property name="${parameter.name}" value="$parameterValue" />"""
 
   }
-
 
 
 }

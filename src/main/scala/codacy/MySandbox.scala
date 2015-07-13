@@ -11,9 +11,7 @@ import scala.util.Try
 
 import utils.FileHelper
 
-/**
- * Created by maxadoj on 08-07-2015.
- */
+
 object MySandbox {
 
     def debug1 = {
@@ -29,7 +27,7 @@ object MySandbox {
     }
 
     def run: Try[Iterable[Result]] = {
-      println("ALO!!!!!!")
+      println("Sandbox start!")
 
       implicit val specification: Spec = getJsonDescription("/home/maxadoj/src/patterns.json").get
 
@@ -45,13 +43,10 @@ object MySandbox {
       val dummyFiles = Some(Set(FileHelper.getPathFromString("/home/maxadoj/src/myFileToTest.java")))
 
 
-      val resultDummy = PmdJava.apply(dummyPath, None, None)
+      val resultDummy = PmdJava.apply(dummyPath, dummyPatternDef, None)
 
       //val resultDummy = PmdJava.apply(dummyPath, dummyPatternDef, dummyFiles)
       //val resultDummy = PmdJava.apply(dummyPath, None, None)
-
-
-      //printDebug
 
       resultDummy
     }
@@ -67,18 +62,4 @@ object MySandbox {
     }
 
 
-/*
-  def readPluginDefinition(packagePath: String): Option[Spec] = {
-    val resourceDirectory = packagePath.replace(".", File.separator)
-
-
-    ResourceHelper.listResourceDirectory(resourceDirectory).collectFirst {
-      case resourceFile if resourceFile.endsWith(".json") =>
-        val directory = resourceDirectory.stripSuffix(File.separator)
-        val filename = resourceFile.stripPrefix(File.separator)
-        val filePath = directory + File.separator + filename
-        ResourceHelper.getResourceContent(filePath)
-    }.flatten.flatMap(ls => Json.parse(ls.mkString).asOpt[PluginDetail])
-  }
-*/
 }

@@ -8,9 +8,6 @@ import scala.io.{Codec, Source}
 import scala.util.Try
 import scala.util.control.NonFatal
 
-/**
- * Created by maxadoj on 09-07-2015.
- */
 object FileHelper {
 
   implicit val codec = Codec("UTF-8")
@@ -36,7 +33,6 @@ object FileHelper {
   def getFileName(path: String): String = {
     java.nio.file.Paths.get(path).getFileName().toString()
   }
-
 
   def readFile(file: File): Option[Seq[String]] = {
     val sourceOpt = Try(Source.fromFile(file)).toOption.orElse {
@@ -71,6 +67,6 @@ object FileHelper {
   }
 
   def randomFile(extension: String = "conf"): File = {
-    Files.createTempFile(getPathFromString("/home/maxadoj/src/tmp/"), "codacy-", s".$extension").toFile //TODO: remove first argument from createTempFile (will put on docker /tmp)
+    Files.createTempFile("codacy-", s".$extension").toFile
   }
 }

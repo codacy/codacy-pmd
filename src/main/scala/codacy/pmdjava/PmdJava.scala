@@ -50,8 +50,7 @@ object PmdJava extends Tool{
   }
 
   private[this] def xmlLocation(ruleName:String,ruleSet:String) = {
-    val rsPart = ruleSet.dropRight("Rules".length).replaceAll(" ","").toLowerCase()
-    s"rulesets_$rsPart.xml_$ruleName"
+    s"rulesets_java_${ ruleSet.toLowerCase() }.xml_$ruleName"
   }
 
   private[this] def patternIdByRuleNameAndRuleSet(ruleName: String, ruleSet:String)(implicit spec: Spec):Option[PatternId] = {

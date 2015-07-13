@@ -3,18 +3,24 @@ package codacy.pmdjava
 import java.nio.charset.StandardCharsets
 import java.nio.file.{StandardOpenOption, Files, Path}
 import codacy.dockerApi._
-import play.api.libs.json.Json
+import play.api.libs.json.{JsString, Json}
+import scala.io.Source
 import scala.sys.process._
 import scala.util.{Success, Try}
-import scala.xml.{Elem, XML}
-
+import scala.xml.{Unparsed, Elem, XML}
 
 object PmdJava extends Tool{
 
   override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
-    pmdConfFilePath().flatMap{ case resultFilePMD =>
+    resultFile().flatMap{ case resultFilePMD =>
+      println(resultFilePMD)
       getCommandFor(path, conf, files, spec, resultFilePMD).flatMap{ case cmd =>
-        cmd.!(discardingLogger)
+        println(cmd)
+
+        val tt = cmd.!(discardingLogger)
+        println(
+          Source.fromFile(resultFilePMD.toFile).getLines().mkString(System.lineSeparator())
+        )
         Try(XML.loadFile(resultFilePMD.toFile)).map(outputParsed)
       }
     }
@@ -27,11 +33,11 @@ object PmdJava extends Tool{
     "typeresolution","unnecessary","unusedcode").map{ case base => s"java-$base"}.mkString(",")
 
   //we are using an output file we don't care for stdout or err...
-  private[this] val discardingLogger = ProcessLogger((_:String) => ())
+  private[this] val discardingLogger = ProcessLogger((l:String) => println(s"ERR $l"))
 
 
-  private[this] def pmdConfFilePath(): Try[Path] = Try(
-    Files.createTempFile(".pmdrc",".xml")
+  private[this] def resultFile(): Try[Path] = Try(
+    Files.createTempFile("pmd-result",".xml")
   )
 
   private[this] def getCommandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[Seq[String]] = {
@@ -102,6 +108,12 @@ object PmdJava extends Tool{
   private[this] def fileForConfig(config:Elem) = tmpfile(config.toString())
 
   private[this] def tmpfile(content:String,prefix:String="ruleset",suffix:String=".xml"): Try[Path] = {
+    println(".---------.")
+
+    println(content)
+
+    println(".---------.")
+
     Try(Files.write(
       Files.createTempFile(prefix,suffix),
       content.getBytes(StandardCharsets.UTF_8),
@@ -123,7 +135,12 @@ object PmdJava extends Tool{
   }
 
   private[this] def generateParameter(parameter: ParameterDef): Elem = {
-    val parameterValue = Json.stringify(parameter.value)
+    val parameterValue = parameter.value match{
+      case JsString(value) => value
+      case other => Json.stringify(other)
+    }
     <property name={parameter.name} value={parameterValue} />
   }
+
+
 }

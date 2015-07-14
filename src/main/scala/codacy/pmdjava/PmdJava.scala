@@ -21,7 +21,7 @@ object PmdJava extends Tool{
     "android","basic","braces","clone","codesize","comments","controversial",
     "coupling","design","empty","finalizers","imports","junit","migrating",
     "naming","optimizations","sunsecure","strictexception","strings",
-    "typeresolution","unnecessary","unusedcode").map{ case base => s"java-$base"}.mkString(",")
+    "typeresolution","unnecessary","unusedcode").map{ case base => s"java-$base" }.mkString(",")
 
   //we are using an output file we don't care for stdout or err...
   private[this] lazy val discardingLogger = ProcessLogger((_:String) => ())
@@ -58,19 +58,19 @@ object PmdJava extends Tool{
       lazy val fileName = SourcePath((file \@ "name"))
 
       (file \ "violation").flatMap{ case violation =>
-        Try(
-          patternIdByRuleNameAndRuleSet(
-            ruleName = violation \@ "rule",
-            ruleSet = violation \@ "ruleset"
-          ).map{ case patternId =>
+        patternIdByRuleNameAndRuleSet(
+          ruleName = violation \@ "rule",
+          ruleSet = violation \@ "ruleset"
+        ).flatMap{ case patternId =>
+          Try(
             Result(
               filename = fileName,
               message = ResultMessage(violation.text.trim),
               patternId = patternId,
               line = ResultLine((violation \@ "beginline").toInt)
             )
-          }
-        ).toOption.flatten[Result]
+          ).toOption
+        }
       }
     }
   }
@@ -78,7 +78,7 @@ object PmdJava extends Tool{
   private[this] def getConfigFile(conf: Seq[PatternDef]): Try[Path] = {
     val rules = for {
       pattern <- conf
-      patternConfiguration <- generateRule(pattern.patternId, pattern.parameters)//pattern.parameters)
+      patternConfiguration <- generateRule(pattern.patternId, pattern.parameters)
     } yield patternConfiguration
 
     val xmlConfiguration =

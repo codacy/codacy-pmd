@@ -21,7 +21,7 @@ object PmdJava extends Tool{
     "android","basic","braces","clone","codesize","comments","controversial",
     "coupling","design","empty","finalizers","imports","junit","migrating",
     "naming","optimizations","sunsecure","strictexception","strings",
-    "typeresolution","unnecessary","unusedcode").map{ case base => s"java-$base" }.mkString(",")
+    "typeresolution","unnecessary","unusedcode").map{ case group => s"java-$group" }.mkString(",")
 
   //we are using an output file we don't care for stdout or err...
   private[this] lazy val discardingLogger = ProcessLogger((_:String) => ())
@@ -30,9 +30,7 @@ object PmdJava extends Tool{
 
   private[this] def getCommandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[Seq[String]] = {
 
-    val configPath = conf.map{ case config =>
-      getConfigFile(config).map(_.toAbsolutePath.toString)
-    }.getOrElse( Success(ruleSetsDefault) )
+    val configPath = conf.map( getConfigFile(_).map(_.toAbsolutePath.toString) ).getOrElse( Success(ruleSetsDefault) )
 
     configPath.map{ case configuration =>
       val configurationCmd = Seq("-rulesets", configuration)

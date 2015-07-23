@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_codesize.xml_NPathComplexity
+//#Patterns: rulesets_java_codesize.xml_NPathComplexity : { "minimum": "5" }
 
 public class Foo {
     //#Info: rulesets_java_codesize.xml_NPathComplexity

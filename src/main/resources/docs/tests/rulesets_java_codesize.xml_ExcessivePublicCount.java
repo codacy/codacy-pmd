@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_codesize.xml_ExcessivePublicCount
+//#Patterns: rulesets_java_codesize.xml_ExcessivePublicCount : { "minimum": "5" }
 
 //#Err: rulesets_java_codesize.xml_ExcessivePublicCount
 public class Foo {

@@ -544,25 +544,6 @@
       ]
     },
     {
-      "patternId": "rulesets_java_coupling.xml_CouplingBetweenObjects",
-      "level": "Warning",
-      "category": "Compatibility",
-      "parameters": [
-        {
-          "name": "violationSuppressRegex",
-          "default": ""
-        },
-        {
-          "name": "violationSuppressXPath",
-          "default": ""
-        },
-        {
-          "name": "threshold",
-          "default": 20
-        }
-      ]
-    },
-    {
       "patternId": "rulesets_java_coupling.xml_ExcessiveImports",
       "level": "Warning",
       "category": "Compatibility",
@@ -592,29 +573,6 @@
         },
         {
           "name": "violationSuppressXPath",
-          "default": ""
-        }
-      ]
-    },
-    {
-      "patternId": "rulesets_java_coupling.xml_LoosePackageCoupling",
-      "level": "Warning",
-      "category": "Compatibility",
-      "parameters": [
-        {
-          "name": "violationSuppressRegex",
-          "default": ""
-        },
-        {
-          "name": "violationSuppressXPath",
-          "default": ""
-        },
-        {
-          "name": "classes",
-          "default": ""
-        },
-        {
-          "name": "packages",
           "default": ""
         }
       ]
@@ -889,25 +847,6 @@
       ]
     },
     {
-      "patternId": "rulesets_java_design.xml_SwitchDensity",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [
-        {
-          "name": "violationSuppressRegex",
-          "default": ""
-        },
-        {
-          "name": "violationSuppressXPath",
-          "default": ""
-        },
-        {
-          "name": "minimum",
-          "default": 10
-        }
-      ]
-    },
-    {
       "patternId": "rulesets_java_design.xml_ConstructorCallsOverridableMethod",
       "level": "Error",
       "category": "ErrorProne",
@@ -1165,12 +1104,6 @@
       "parameters": []
     },
     {
-      "patternId": "rulesets_java_controversial.xml_UseConcurrentHashMap",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": []
-    },
-    {
       "patternId": "rulesets_java_controversial.xml_DefaultPackage",
       "level": "Error",
       "category": "ErrorProne",
@@ -1187,21 +1120,6 @@
       "level": "Error",
       "category": "Security",
       "parameters": []
-    },
-    {
-      "patternId": "rulesets_java_typeresolution.xml_LooseCoupling",
-      "level": "Warning",
-      "category": "Performance",
-      "parameters": [
-        {
-          "name": "violationSuppressRegex",
-          "default": ""
-        },
-        {
-          "name": "violationSuppressXPath",
-          "default": ""
-        }
-      ]
     },
     {
       "patternId": "rulesets_java_typeresolution.xml_CloneMethodMustImplementCloneable",
@@ -1356,27 +1274,6 @@
       "level": "Error",
       "category": "ErrorProne",
       "parameters": []
-    },
-    {
-      "patternId": "rulesets_java_design.xml_PositionLiteralsFirstInCaseInsensitiveComparisons",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": []
-    },
-    {
-      "patternId": "rulesets_java_design.xml_UnnecessaryLocalBeforeReturn",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "violationSuppressRegex",
-          "default": ""
-        },
-        {
-          "name": "violationSuppressXPath",
-          "default": ""
-        }
-      ]
     },
     {
       "patternId": "rulesets_java_design.xml_NonThreadSafeSingleton",
@@ -1559,21 +1456,6 @@
         {
           "name": "ignoreEnumDeclarations",
           "default": true
-        }
-      ]
-    },
-    {
-      "patternId": "rulesets_java_design.xml_GodClass",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "violationSuppressRegex",
-          "default": ""
-        },
-        {
-          "name": "violationSuppressXPath",
-          "default": ""
         }
       ]
     },
@@ -1951,7 +1833,7 @@
         },
         {
           "name": "minimum",
-          "default": 100.0
+          "default": 50.0
         }
       ]
     },

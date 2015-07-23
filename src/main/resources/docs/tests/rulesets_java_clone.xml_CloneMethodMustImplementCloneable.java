@@ -1,13 +1,13 @@
-//#Patterns: PMDJava_CloneMethodMustImplementCloneable
+//#Patterns: rulesets_java_typeresolution.xml_CloneMethodMustImplementCloneable
 
 public class Foo {
 
-    //#Err: PMDJava_CloneMethodMustImplementCloneable
+    //#Err: rulesets_java_typeresolution.xml_CloneMethodMustImplementCloneable
     public Object clone() {
         return foo;
     }
 
-    //#Err: PMDJava_CloneMethodMustImplementCloneable
+    //#Err: rulesets_java_typeresolution.xml_CloneMethodMustImplementCloneable
     public Object clone() throws CloneNotSupportedException {
         return bar;
     }

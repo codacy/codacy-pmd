@@ -1,6 +1,6 @@
 //#Patterns: rulesets_java_design.xml_UncommentedEmptyMethodBody
 public class Foo {
-    //#Err: rulesets_java_design.xml_UncommentedEmptyMethodBody
+    //#Info: rulesets_java_design.xml_UncommentedEmptyMethodBody
     public void bar() {
     }
 

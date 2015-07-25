@@ -1608,12 +1608,6 @@
       "parameters": []
     },
     {
-      "patternId": "rulesets_java_clone.xml_CloneMethodMustImplementCloneable",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": []
-    },
-    {
       "patternId": "rulesets_java_finalizers.xml_EmptyFinalizer",
       "level": "Warning",
       "category": "UnusedCode",

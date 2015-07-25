@@ -11,4 +11,5 @@ public class Foo {
     public Object clone() throws CloneNotSupportedException {
         return bar;
     }
+
 }

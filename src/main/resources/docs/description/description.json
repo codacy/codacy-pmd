@@ -1441,9 +1441,9 @@
   },
   {
     "patternId": "rulesets_java_design.xml_NonThreadSafeSingleton",
-    "title": "Non-thread safe singletons can result in bad state changes. Eliminate static singletons if possible by instantiating the object directly. Static singletons are usually not needed as only a single instance exists anyway. Other possible fixes are to synchronize the entire method or to use an initialize-on-demand holder class (do not use the double-check idiom).",
-    "description": "Non-thread safe singletons can result in bad state changes. Eliminate static singletons if possible by instantiating the object directly. Static singletons are usually not needed as only a single instance exists anyway. Other possible fixes are to synchronize the entire method or to use an initialize-on-demand holder class (do not use the double-check idiom).",
-    "timeToFix": 5,
+    "title": "Prohibits non-thread safe singletons",
+    "description": "Prohibits usage of non-thread safe singletons. It can result in bad state changes.",
+    "timeToFix": 20,
     "parameters": [
       {
         "name": "violationSuppressRegex",

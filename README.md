@@ -1,4 +1,4 @@
-[![Build Status](https://circleci.com/gh/codacy/codacy-pmdJava.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/codacy/codacy-pmdJava)
+[![Build Status](https://circleci.com/gh/codacy/codacy-pmd-java.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/codacy/codacy-pmd-java)
 
 create the docker: sbt docker:publishLocal
 

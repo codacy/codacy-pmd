@@ -23,27 +23,33 @@ version in Docker := "1.0"
 
 val installAll =
   s"""apk update && apk add bash curl &&
-    |cd /tmp &&
-    |curl -L -o pmd-bin-5.3.2.zip "http://sourceforge.net/projects/pmd/files/pmd/5.3.2/pmd-bin-5.3.2.zip/download" &&
-    |unzip pmd-bin-5.3.2.zip &&
-    |mv pmd-bin-5.3.2/ /usr/local/ &&
-    |rm /tmp/pmd-bin-5.3.2.zip""".stripMargin.replaceAll(System.lineSeparator()," ")
+     |cd /tmp &&
+     |curl -L -o pmd-bin-5.3.2.zip "http://sourceforge.net/projects/pmd/files/pmd/5.3.2/pmd-bin-5.3.2.zip/download" &&
+     |unzip pmd-bin-5.3.2.zip &&
+     |mv pmd-bin-5.3.2/ /usr/local/ &&
+     |rm /tmp/pmd-bin-5.3.2.zip""".stripMargin.replaceAll(System.lineSeparator(), " ")
 
 mappings in Universal <++= (resourceDirectory in Compile) map { (resourceDir: File) =>
   val src = resourceDir / "docs"
   val dest = "/docs"
 
   for {
-      path <- (src ***).get
-      if !path.isDirectory
-    } yield path -> path.toString.replaceFirst(src.toString, dest)
+    path <- (src ***).get
+    if !path.isDirectory
+  } yield path -> path.toString.replaceFirst(src.toString, dest)
 }
 
 daemonUser in Docker := "docker"
 
 dockerBaseImage := "frolvlad/alpine-oraclejdk8"
 
-dockerCommands := dockerCommands.value.take(3) ++
-  List(Cmd("RUN", installAll), Cmd("RUN", "mv /opt/docker/docs /docs")) ++
-  List(Cmd("RUN", "adduser -u 2004 -D docker")) ++
-  dockerCommands.value.drop(3)
+dockerCommands := dockerCommands.value.flatMap {
+  case cmd@Cmd("WORKDIR", _) => List(cmd,
+    Cmd("RUN", installAll)
+  )
+  case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
+    Cmd("RUN", "mv /opt/docker/docs /docs"),
+    Cmd("RUN", "adduser -u 2004 -D docker")
+  )
+  case other => List(other)
+}

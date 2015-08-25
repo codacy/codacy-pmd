@@ -4,6 +4,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path, Paths, StandardOpenOption}
 import codacy.dockerApi._
 import play.api.libs.json.{JsString, Json}
+import scala.collection.immutable
 import scala.sys.process._
 import scala.util.{Properties, Success, Try}
 import scala.xml.{Elem, XML}
@@ -11,9 +12,19 @@ import scala.xml.{Elem, XML}
 object PmdJava extends Tool {
 
   override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
-    commandFor(path, conf, files, spec, resultFilePath).flatMap { case cmd =>
+    commandFor(path, conf, files, spec, resultFilePath).flatMap{ case cmd =>
+      println(
+        s"""cmd:
+           |${cmd.mkString(" ")}
+         """.stripMargin)
       cmd.!(discardingLogger)
-      Try(XML.loadFile(resultFilePath.toFile)).map(outputParsed)
+      Try(XML.loadFile(resultFilePath.toFile)).map{ case res =>
+        println(
+          s"""result:
+             |$res
+           """.stripMargin)
+        outputParsed(res)
+      }//(outputParsed)
     }
   }
 
@@ -32,7 +43,10 @@ object PmdJava extends Tool {
   private[this] lazy val resultFilePath = Paths.get(Properties.tmpDir, "pmd-result.xml")
 
   private[this] def commandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[Seq[String]] = {
-
+    println(
+      s"""config:
+         |$conf
+       """.stripMargin)
     val configPath = conf.map(configFile(_).map(_.toAbsolutePath.toString)).getOrElse(Success(ruleSetsDefault))
 
     configPath.map{ case configuration =>
@@ -47,6 +61,7 @@ object PmdJava extends Tool {
     }
   }
 
+  //"Java Logging" -> "logging-java" -> rulesets_java_logging-java.xml_GuardLogStatementJavaUtil
   private[this] def patternIdByRuleNameAndRuleSet(ruleName: String, ruleSet: String)(implicit spec:Spec): Option[PatternId] = {
     RuleSets.byRuleSetName(ruleSet).flatMap{ case ruleSet =>
       val patternId = PatternId(s"rulesets_java_$ruleSet.xml_$ruleName")
@@ -54,9 +69,17 @@ object PmdJava extends Tool {
     }
   }
 
-  private[this] def outputParsed(outputXml: Elem)(implicit spec: Spec) = {
-    (outputXml \ "file").flatMap{ case file =>
-      lazy val fileName = SourcePath(file \@ "name")
+  private[this] def relativizeToolOutputPath(path:String):SourcePath = {
+    SourcePath( DockerEnvironment.sourcePath.relativize(Paths.get(path)).toString )
+  }
+
+  private[this] def outputParsed(outputXml: Elem)(implicit spec: Spec): Iterable[Result] = {
+    val issues = (outputXml \ "file").flatMap{ case file =>
+      lazy val fileName = {
+        val path = Paths.get(file \@ "name")
+        val relativePath = DockerEnvironment.sourcePath.relativize(path)
+        SourcePath(relativePath.toString)
+      }
 
       (file \ "violation").flatMap{ case violation =>
         patternIdByRuleNameAndRuleSet(
@@ -74,6 +97,13 @@ object PmdJava extends Tool {
         }
       }
     }
+
+    val errors = (outputXml \ "error").map{ case error =>
+      val path = relativizeToolOutputPath(error \@ "filename")
+      val message = Option((error \@ "msg")).collect{ case msg if msg.nonEmpty => ErrorMessage(msg) }
+      FileError(path,message)
+    }
+    issues.toSet ++ errors
   }
 
   private[this] def configFile(conf: Seq[PatternDef]): Try[Path] = {
@@ -94,6 +124,11 @@ object PmdJava extends Tool {
   private[this] def fileForConfig(config: Elem) = tmpfile(config.toString())
 
   private[this] def tmpfile(content: String, prefix: String = "ruleset", suffix: String = ".xml"): Try[Path] = {
+    println(
+      s"""config:
+         |$content
+       """.stripMargin)
+
     Try(Files.write(
       Files.createTempFile(prefix, suffix),
       content.getBytes(StandardCharsets.UTF_8),

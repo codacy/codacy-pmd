@@ -570,26 +570,6 @@
     ]
   },
   {
-    "patternId":"rulesets_java_coupling.xml_CouplingBetweenObjects",
-    "title":"Enforces coupling conventions between objects",
-    "description":"Enforces conventions based on the number of unique attributes, local variables, and return types within an object.",
-    "timeToFix":180,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name":"threshold",
-        "description":"Unique type reporting threshold"
-      }
-    ]
-  },
-  {
     "patternId":"rulesets_java_coupling.xml_ExcessiveImports",
     "title":"Prohibits a high number of imports",
     "description":"Prohibits a high number of imports in the same file",
@@ -622,30 +602,6 @@
       {
         "name":"violationSuppressXPath",
         "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId":"rulesets_java_coupling.xml_LoosePackageCoupling",
-    "title":"Prohibits the use of packages outside of hierarchy",
-    "description":"Prohibits the use of classes from the configured package hierarchy outside of the package hierarchy.",
-    "timeToFix":50,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name":"classes",
-        "description":"Allowed classes"
-      },
-      {
-        "name":"packages",
-        "description":"Restricted packages"
       }
     ]
   },
@@ -932,26 +888,6 @@
     ]
   },
   {
-    "patternId":"rulesets_java_design.xml_SwitchDensity",
-    "title":"Prohibits a high ratio of statements in a switch statement",
-    "description":"Prohibits a high ratio of statements in a switch statement.",
-    "timeToFix":90,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name":"minimum",
-        "description":"Minimum reporting threshold"
-      }
-    ]
-  },
-  {
     "patternId":"rulesets_java_design.xml_ConstructorCallsOverridableMethod",
     "title":"Prohibits calling overridable methods during construction",
     "description":"Prohibits the call of overridable methods during construction of an object.",
@@ -1218,12 +1154,6 @@
     "timeToFix":5
   },
   {
-    "patternId":"rulesets_java_controversial.xml_UseConcurrentHashMap",
-    "title":"Enforces the use of Concurrent HashMap",
-    "description":"Since Java5 brought a new implementation of the Map designed for multi-threaded access, you can perform efficient map reads without blocking other threads.",
-    "timeToFix":5
-  },
-  {
     "patternId":"rulesets_java_controversial.xml_DefaultPackage",
     "title":"Enforces the use of explicit scoping",
     "description":"Use explicit scoping instead of the default package private level.",
@@ -1240,78 +1170,6 @@
     "title":"Prohibits the alteration of a variable accessibility",
     "description":"Methods such as getDeclaredConstructors(), getDeclaredConstructor(Class[]) and setAccessible(), as the interface PrivilegedAction, allows for the runtime alteration of variable, class, or method visibility, even if they are private. This violates the principle of encapsulation.",
     "timeToFix":5
-  },
-  {
-    "patternId":"rulesets_java_typeresolution.xml_LooseCoupling",
-    "title":"Enforces use of the interface instead of implementation types",
-    "description":"Avoid using implementation types (i.e., HashSet); use the interface (i.e, Set) instead",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId":"rulesets_java_typeresolution.xml_CloneMethodMustImplementCloneable",
-    "title":"Enforces the implementation of Cloneable interface when using clone()",
-    "description":"The method clone() should only be implemented if the class implements the Cloneable interface with the exception of a final method that only throws CloneNotSupportedException. This version uses PMD’s type resolution facilities, and can detect if the class implements or extends a Cloneable class.",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId":"rulesets_java_typeresolution.xml_UnusedImports",
-    "title":"Prohibits unused import statements",
-    "description":"Avoid unused import statements. This rule will find unused on demand imports, i.e. import com.foo.*.",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId":"rulesets_java_typeresolution.xml_SignatureDeclareThrowsException",
-    "title":"Enforces the use of either a class derived from RunTimeException or a checked exception",
-    "description":"It is unclear which exceptions that can be thrown from the methods. It might be difficult to document and understand the vague interfaces. Use either a class derived from RuntimeException or a checked exception.",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name":"IgnoreJUnitCompletely",
-        "description":"If true, all methods in a JUnit testcase may throw Exception"
-      },
-      {
-        "name":"IgnoreJUnitCompletely",
-        "description":"Allow all methods in a JUnit testcase to throw Exceptions"
-      }
-    ]
   },
   {
     "patternId":"rulesets_java_empty.xml_EmptyCatchBlock",
@@ -1416,28 +1274,6 @@
     "title":"Enforces literals first in comparisons",
     "description":"Enforces literals to be positioned first in comparisons",
     "timeToFix":10
-  },
-  {
-    "patternId":"rulesets_java_design.xml_PositionLiteralsFirstInCaseInsensitiveComparisons",
-    "title":"Enforces literals first in comparisons",
-    "description":"Enforces literals to be positioned first in case insensitive comparisons",
-    "timeToFix":10
-  },
-  {
-    "patternId":"rulesets_java_design.xml_UnnecessaryLocalBeforeReturn",
-    "title":"Prohibits unnecessary local variables",
-    "description":"Prohibits the creation of unnecessary local variables",
-    "timeToFix":10,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
   },
   {
     "patternId":"rulesets_java_design.xml_NonThreadSafeSingleton",
@@ -1628,22 +1464,6 @@
       {
         "name":"ignoreEnumDeclarations",
         "description":"Ignore Enum Declarations that precede fields."
-      }
-    ]
-  },
-  {
-    "patternId":"rulesets_java_design.xml_GodClass",
-    "title":"Prohibits the usage of a God Class",
-    "description":"Prohibits the usage of a class that have and does too many things",
-    "timeToFix":480,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
       }
     ]
   },
@@ -2182,70 +2002,6 @@
     "timeToFix":5
   },
   {
-    "patternId":"rulesets_java_comments.xml_CommentRequired",
-    "title":"Denotes whether comments are required (or unwanted) for specific language elements.",
-    "description":"Denotes whether comments are required (or unwanted) for specific language elements.",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId":"rulesets_java_comments.xml_CommentSize",
-    "title":"Determines whether the dimensions of non-header comments found are within the specified limits.",
-    "description":"Determines whether the dimensions of non-header comments found are within the specified limits.",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId":"rulesets_java_comments.xml_CommentContent",
-    "title":"A rule for the politically correct… we don’t want to offend anyone.",
-    "description":"A rule for the politically correct… we don’t want to offend anyone.",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId":"rulesets_java_imports.xml_DuplicateImports",
-    "title":"Duplicate or overlapping import statements should be avoided.",
-    "description":"Duplicate or overlapping import statements should be avoided.",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
     "patternId":"rulesets_java_imports.xml_DontImportJavaLang",
     "title":"Avoid importing anything from the package ‘java.lang’. These classes are automatically imported (JLS 7.5.3).",
     "description":"Avoid importing anything from the package ‘java.lang’. These classes are automatically imported (JLS 7.5.3).",
@@ -2380,22 +2136,6 @@
     "timeToFix":5
   },
   {
-    "patternId":"rulesets_java_javabeans.xml_BeanMembersShouldSerialize",
-    "title":"If a class is a bean, or is referenced by a bean directly or indirectly it needs to be serializable. Member variables need to be marked as transient, static, or have accessor methods in the class. Marking variables as transient is the safest and easiest modification. Accessor methods should follow the Java naming conventions, i.e. for a variable named foo, getFoo() and setFoo() accessor methods should be provided.",
-    "description":"If a class is a bean, or is referenced by a bean directly or indirectly it needs to be serializable. Member variables need to be marked as transient, static, or have accessor methods in the class. Marking variables as transient is the safest and easiest modification. Accessor methods should follow the Java naming conventions, i.e. for a variable named foo, getFoo() and setFoo() accessor methods should be provided.",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
     "patternId":"rulesets_java_javabeans.xml_MissingSerialVersionUID",
     "title":"Serializable classes should provide a serialVersionUID field.",
     "description":"Serializable classes should provide a serialVersionUID field.",
@@ -2433,22 +2173,6 @@
     "patternId":"rulesets_java_junit.xml_JUnitTestsShouldIncludeAssert",
     "title":"JUnit tests should include at least one assertion. This makes the tests more robust, and using assert with messages provide the developer a clearer idea of what the test does.",
     "description":"JUnit tests should include at least one assertion. This makes the tests more robust, and using assert with messages provide the developer a clearer idea of what the test does.",
-    "timeToFix":5,
-    "parameters":[
-      {
-        "name":"violationSuppressRegex",
-        "description":"Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name":"violationSuppressXPath",
-        "description":"Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId":"rulesets_java_junit.xml_TestClassWithoutTestCases",
-    "title":"Test classes end with the suffix Test. Having a non-test class with that name is not a good practice, since most people will assume it is a test case. Test classes have test methods named testXXX.",
-    "description":"Test classes end with the suffix Test. Having a non-test class with that name is not a good practice, since most people will assume it is a test case. Test classes have test methods named testXXX.",
     "timeToFix":5,
     "parameters":[
       {
@@ -2568,7 +2292,7 @@
     ]
   },
   {
-    "patternId":"rulesets_java_logging-jakarta-commons.xml_MoreThanOneLogger",
+    "patternId":"rulesets_java_logging-java.xml_MoreThanOneLogger",
     "title":"Normally only one logger is used in each class.",
     "description":"Normally only one logger is used in each class.",
     "timeToFix":5,
@@ -2584,25 +2308,25 @@
     ]
   },
   {
-    "patternId":"rulesets_java_logging-jakarta-commons.xml_LoggerIsNotStaticFinal",
+    "patternId":"rulesets_java_logging-java.xml_LoggerIsNotStaticFinal",
     "title":"In most cases, the Logger reference can be declared as static and final.",
     "description":"In most cases, the Logger reference can be declared as static and final.",
     "timeToFix":5
   },
   {
-    "patternId":"rulesets_java_logging-jakarta-commons.xml_SystemPrintln",
+    "patternId":"rulesets_java_logging-java.xml_SystemPrintln",
     "title":"References to System.(out|err).print are usually intended for debugging purposes and can remain in the codebase even in production code. By using a logger one can enable/disable this behaviour at will (and by priority) and avoid clogging the Standard out log.",
     "description":"References to System.(out|err).print are usually intended for debugging purposes and can remain in the codebase even in production code. By using a logger one can enable/disable this behaviour at will (and by priority) and avoid clogging the Standard out log.",
     "timeToFix":5
   },
   {
-    "patternId":"rulesets_java_logging-jakarta-commons.xml_AvoidPrintStackTrace",
+    "patternId":"rulesets_java_logging-java.xml_AvoidPrintStackTrace",
     "title":"Avoid printStackTrace(); use a logger call instead.",
     "description":"Avoid printStackTrace(); use a logger call instead.",
     "timeToFix":5
   },
   {
-    "patternId":"rulesets_java_logging-jakarta-commons.xml_GuardLogStatementJavaUtil",
+    "patternId":"rulesets_java_logging-java.xml_GuardLogStatementJavaUtil",
     "title":"Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
     "description":"Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
     "timeToFix":5,
@@ -2633,18 +2357,6 @@
     "patternId":"rulesets_java_migrating.xml_ReplaceEnumerationWithIterator",
     "title":"Consider replacing Enumeration usages with the newer java.util.Iterator",
     "description":"Consider replacing Enumeration usages with the newer java.util.Iterator",
-    "timeToFix":5
-  },
-  {
-    "patternId":"rulesets_java_migrating.xml_AvoidEnumAsIdentifier",
-    "title":"Use of the term ‘enum’ will conflict with newer versions of Java since it is a reserved word.",
-    "description":"Use of the term ‘enum’ will conflict with newer versions of Java since it is a reserved word.",
-    "timeToFix":5
-  },
-  {
-    "patternId":"rulesets_java_migrating.xml_AvoidAssertAsIdentifier",
-    "title":"Use of the term ‘assert’ will conflict with newer versions of Java since it is a reserved word.",
-    "description":"Use of the term ‘assert’ will conflict with newer versions of Java since it is a reserved word.",
     "timeToFix":5
   },
   {

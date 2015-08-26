@@ -2152,94 +2152,6 @@
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_comments.xml_CommentRequired",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"enumCommentRequirement",
-          "default":"Required"
-        },
-        {
-          "name":"protectedMethodCommentRequirement",
-          "default":"Required"
-        },
-        {
-          "name":"publicMethodCommentRequirement",
-          "default":"Required"
-        },
-        {
-          "name":"fieldCommentRequirement",
-          "default":"Required"
-        },
-        {
-          "name":"headerCommentRequirement",
-          "default":"Required"
-        }
-      ]
-    },
-    {
-      "patternId":"rulesets_java_comments.xml_CommentSize",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"maxLines",
-          "default":6
-        },
-        {
-          "name":"maxLineLength",
-          "default":80
-        }
-      ]
-    },
-    {
-      "patternId":"rulesets_java_comments.xml_CommentContent",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"rulesets_java_imports.xml_DuplicateImports",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
       "patternId":"rulesets_java_imports.xml_DontImportJavaLang",
       "level":"Warning",
       "category":"ErrorProne",
@@ -2360,21 +2272,6 @@
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_javabeans.xml_BeanMembersShouldSerialize",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
       "patternId":"rulesets_java_javabeans.xml_MissingSerialVersionUID",
       "level":"Warning",
       "category":"ErrorProne"
@@ -2406,21 +2303,6 @@
     },
     {
       "patternId":"rulesets_java_junit.xml_JUnitTestsShouldIncludeAssert",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"rulesets_java_junit.xml_TestClassWithoutTestCases",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2586,16 +2468,6 @@
     },
     {
       "patternId":"rulesets_java_migrating.xml_ReplaceEnumerationWithIterator",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"rulesets_java_migrating.xml_AvoidEnumAsIdentifier",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"rulesets_java_migrating.xml_AvoidAssertAsIdentifier",
       "level":"Warning",
       "category":"ErrorProne"
     },

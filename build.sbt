@@ -12,12 +12,14 @@ scalaVersion := languageVersion
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.3.8" withSources(),
-  "org.scala-lang.modules" %% "scala-xml" % "1.0.4" withSources()
+  "org.scala-lang.modules" %% "scala-xml" % "1.0.4" withSources(),
+  "com.codacy" %% "codacy-engine-scala-seed" % "1.0.0"
+
 )
 
-lazy val root = project.in(file(".")).dependsOn(codacyEngine)
+//lazy val root = project.in(file(".")).dependsOn(codacyEngine)
 
-lazy val codacyEngine = uri("ssh://git@github.com/codacy/codacy-engine-scala-seed.git")
+//lazy val codacyEngine = uri("ssh://git@github.com/codacy/codacy-engine-scala-seed.git")
 
 enablePlugins(JavaAppPackaging)
 

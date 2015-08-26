@@ -130,6 +130,39 @@
     "patternId":"rulesets_java_migrating.xml_AvoidEnumAsIdentifier",
     "level":"Warning",
     "category":"ErrorProne"
+  },
+  {
+    "patternId":"rulesets_java_typeresolution.xml_UnusedImports",
+    "level":"Info",
+    "category":"CodeStyle",
+    "parameters":[
+      {
+        "name":"violationSuppressRegex",
+        "default":null
+      },
+      {
+        "name":"violationSuppressXPath",
+        "default":null
+      }
+    ]
+  },
+  {
+    "patternId":"rulesets_java_typeresolution.xml_SignatureDeclareThrowsException",
+    "level":"Info",
+    "category":"Documentation",
+    "parameters":[
+      {
+        "name":"violationSuppressRegex",
+        "default":null
+      },
+      {
+        "name":"violationSuppressXPath",
+        "default":null
+      },
+      {
+        "name":"IgnoreJUnitCompletely",
+        "default":false
+      }
+    ]
   }
-
 ]

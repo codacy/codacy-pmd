@@ -2,9 +2,10 @@ package codacy.pmdjava
 
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path, Paths, StandardOpenOption}
+
 import codacy.dockerApi._
 import play.api.libs.json.{JsString, Json}
-import scala.collection.immutable
+
 import scala.sys.process._
 import scala.util.{Properties, Success, Try}
 import scala.xml.{Elem, XML}
@@ -12,19 +13,11 @@ import scala.xml.{Elem, XML}
 object PmdJava extends Tool {
 
   override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
-    commandFor(path, conf, files, spec, resultFilePath).flatMap{ case cmd =>
-      println(
-        s"""cmd:
-           |${cmd.mkString(" ")}
-         """.stripMargin)
+    commandFor(path, conf, files, spec, resultFilePath).flatMap { cmd =>
       cmd.!(discardingLogger)
-      Try(XML.loadFile(resultFilePath.toFile)).map{ case res =>
-        println(
-          s"""result:
-             |$res
-           """.stripMargin)
+      Try(XML.loadFile(resultFilePath.toFile)).map { res =>
         outputParsed(res)
-      }//(outputParsed)
+      }
     }
   }
 
@@ -34,22 +27,18 @@ object PmdJava extends Tool {
       android, basic, braces, clone_, codesize, comments, controversial,
       coupling, design, empty, finalizers, imports, junit, migrating,
       naming, optimizations, sunsecure, strictexception, strings,
-      typeresolution, unnecessary, unusedcode).map{ case group => s"java-$group" }.mkString(",")
+      typeresolution, unnecessary, unusedcode).map { group => s"java-$group" }.mkString(",")
   }
 
-  //we are using an output file we don't care for stdout or err...
+  // we are using an output file we don't care for stdout or err...
   private[this] lazy val discardingLogger = ProcessLogger((_: String) => ())
 
   private[this] lazy val resultFilePath = Paths.get(Properties.tmpDir, "pmd-result.xml")
 
   private[this] def commandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[Seq[String]] = {
-    println(
-      s"""config:
-         |$conf
-       """.stripMargin)
     val configPath = conf.map(configFile(_).map(_.toAbsolutePath.toString)).getOrElse(Success(ruleSetsDefault))
 
-    configPath.map{ case configuration =>
+    configPath.map { case configuration =>
       val configurationCmd = Seq("-rulesets", configuration)
 
       val filesCmd = files.map(_.mkString(",")).getOrElse(path.toAbsolutePath.toString)
@@ -57,31 +46,31 @@ object PmdJava extends Tool {
       Seq(
         "/usr/local/pmd-bin-5.3.2/bin/run.sh", "pmd",
         "-d", filesCmd, "-f", "xml",
-        "-r", outputFilePath.toAbsolutePath.toString ) ++ configurationCmd
+        "-r", outputFilePath.toAbsolutePath.toString) ++ configurationCmd
     }
   }
 
   //"Java Logging" -> "logging-java" -> rulesets_java_logging-java.xml_GuardLogStatementJavaUtil
-  private[this] def patternIdByRuleNameAndRuleSet(ruleName: String, ruleSet: String)(implicit spec:Spec): Option[PatternId] = {
-    RuleSets.byRuleSetName(ruleSet).flatMap{ case ruleSet =>
+  private[this] def patternIdByRuleNameAndRuleSet(ruleName: String, ruleSet: String)(implicit spec: Spec): Option[PatternId] = {
+    RuleSets.byRuleSetName(ruleSet).flatMap { ruleSet =>
       val patternId = PatternId(s"rulesets_java_$ruleSet.xml_$ruleName")
-      spec.patterns.collectFirst{ case patternDef if patternDef.patternId == patternId => patternDef.patternId }
+      spec.patterns.collectFirst { case patternDef if patternDef.patternId == patternId => patternDef.patternId }
     }
   }
 
-  private[this] def relativizeToolOutputPath(path:String):SourcePath = {
-    SourcePath( DockerEnvironment.sourcePath.relativize(Paths.get(path)).toString )
+  private[this] def relativizeToolOutputPath(path: String): SourcePath = {
+    SourcePath(DockerEnvironment.sourcePath.relativize(Paths.get(path)).toString)
   }
 
   private[this] def outputParsed(outputXml: Elem)(implicit spec: Spec): Iterable[Result] = {
-    val issues = (outputXml \ "file").flatMap{ case file =>
+    val issues = (outputXml \ "file").flatMap { case file =>
       lazy val fileName = {
         val path = Paths.get(file \@ "name")
         val relativePath = DockerEnvironment.sourcePath.relativize(path)
         SourcePath(relativePath.toString)
       }
 
-      (file \ "violation").flatMap{ case violation =>
+      (file \ "violation").flatMap { case violation =>
         patternIdByRuleNameAndRuleSet(
           ruleName = violation \@ "rule",
           ruleSet = violation \@ "ruleset"
@@ -98,16 +87,16 @@ object PmdJava extends Tool {
       }
     }
 
-    val errors = (outputXml \ "error").map{ case error =>
+    val errors = (outputXml \ "error").map { case error =>
       val path = relativizeToolOutputPath(error \@ "filename")
-      val message = Option((error \@ "msg")).collect{ case msg if msg.nonEmpty => ErrorMessage(msg) }
-      FileError(path,message)
+      val message = Option(error \@ "msg").collect { case msg if msg.nonEmpty => ErrorMessage(msg) }
+      FileError(path, message)
     }
     issues.toSet ++ errors
   }
 
   private[this] def configFile(conf: Seq[PatternDef]): Try[Path] = {
-    val rules = conf.map( generateRule )
+    val rules = conf.map(generateRule)
 
     val xmlConfiguration =
 
@@ -136,13 +125,15 @@ object PmdJava extends Tool {
     ))
   }
 
-  private[this] def patternNameById(patternId: PatternId): String = patternId.replace('_', '/')
+  private[this] def patternNameById(patternId: PatternId): String = patternId.value.replace('_', '/')
 
-  private[this] def generateRule(patternDef:PatternDef): Elem = {
-    val xmlPorperties = patternDef.parameters.map(_.map(generateParameter)).getOrElse(Set.empty)
+  private[this] def generateRule(patternDef: PatternDef): Elem = {
+    val xmlProperties = patternDef.parameters.map(_.map(generateParameter)).getOrElse(Set.empty)
 
-    <rule ref={ patternNameById(patternDef.patternId) }>
-      <properties> {xmlPorperties} </properties>
+    <rule ref={patternNameById(patternDef.patternId)}>
+      <properties>
+        {xmlProperties}
+      </properties>
     </rule>
   }
 
@@ -152,6 +143,6 @@ object PmdJava extends Tool {
       case other => Json.stringify(other)
     }
 
-    <property name={parameter.name} value={parameterValue}/>
+      <property name={parameter.name} value={parameterValue}/>
   }
 }

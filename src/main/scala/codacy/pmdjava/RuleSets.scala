@@ -1,6 +1,6 @@
 package codacy.pmdjava
 
-private[pmdjava] object RuleSets extends Enumeration{
+private[pmdjava] object RuleSets extends Enumeration {
   type RuleSets = Value
   val android,
   basic,
@@ -32,36 +32,36 @@ private[pmdjava] object RuleSets extends Enumeration{
 
   private[this] lazy val RuleNameToSet = {
     Map(
-      "Android"                  -> android,
-      "Basic"                    -> basic,
-      "Braces"                   -> braces,
-      "Clone Implementation"     -> clone_,
-      "Code Size"                -> codesize,
-      "Comments"                 -> comments,
-      "Controversial"            -> controversial,
-      "Coupling"                 -> coupling,
-      "Design"                   -> design,
-      "Empty Code"               -> empty,
-      "Finalizer"                -> finalizers,
-      "Import Statements"        -> imports,
-      "J2EE"                     -> j2ee,
-      "JUnit"                    -> junit,
-      "JavaBeans"                -> javabeans,
-      "Jakarta Commons Logging"  -> loggingJakartaCommons,
-      "Java Logging"             -> loggingJava,
-      "Migration"                -> migrating,
-      "Migration13"              -> migrating,
-      "Migration14"              -> migrating,
-      "Migration15"              -> migrating,
-      "MigratingToJUnit4"        -> migrating,
-      "Naming"                   -> naming,
-      "Optimization"             -> optimizations,
-      "Strict Exceptions"        -> strictexception,
-      "String and StringBuffer"  -> strings,
+      "Android" -> android,
+      "Basic" -> basic,
+      "Braces" -> braces,
+      "Clone Implementation" -> clone_,
+      "Code Size" -> codesize,
+      "Comments" -> comments,
+      "Controversial" -> controversial,
+      "Coupling" -> coupling,
+      "Design" -> design,
+      "Empty Code" -> empty,
+      "Finalizer" -> finalizers,
+      "Import Statements" -> imports,
+      "J2EE" -> j2ee,
+      "JUnit" -> junit,
+      "JavaBeans" -> javabeans,
+      "Jakarta Commons Logging" -> loggingJakartaCommons,
+      "Java Logging" -> loggingJava,
+      "Migration" -> migrating,
+      "Migration13" -> migrating,
+      "Migration14" -> migrating,
+      "Migration15" -> migrating,
+      "MigratingToJUnit4" -> migrating,
+      "Naming" -> naming,
+      "Optimization" -> optimizations,
+      "Strict Exceptions" -> strictexception,
+      "String and StringBuffer" -> strings,
       "Security Code Guidelines" -> sunsecure,
-      "Type Resolution"          -> typeresolution,
-      "Unnecessary"              -> unnecessary,
-      "Unused Code"              -> unusedcode
+      "Type Resolution" -> typeresolution,
+      "Unnecessary" -> unnecessary,
+      "Unused Code" -> unusedcode
     )
   }
 

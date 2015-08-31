@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_controversial.xml_CallSuperInConstructor
+//#Patterns: controversial_CallSuperInConstructor
 
 public class Foo extends Bar {
     
-    //#Err: rulesets_java_controversial.xml_CallSuperInConstructor
+    //#Err: controversial_CallSuperInConstructor
     public Foo() {  
 
     }

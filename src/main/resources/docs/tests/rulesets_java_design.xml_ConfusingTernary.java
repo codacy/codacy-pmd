@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_design.xml_ConfusingTernary
+//#Patterns: design_ConfusingTernary
 public class Foo {
 
 	boolean bar(int x, int y) {
-		//#Info: rulesets_java_design.xml_ConfusingTernary
+		//#Info: design_ConfusingTernary
 		return (x != y) ? diff : same;
 	}
 

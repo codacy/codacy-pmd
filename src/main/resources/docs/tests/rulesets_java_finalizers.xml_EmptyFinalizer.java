@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_finalizers.xml_EmptyFinalizer
+//#Patterns: finalizers_EmptyFinalizer
 
 public class Foo {
-    //#Warn: rulesets_java_finalizers.xml_EmptyFinalizer
+    //#Warn: finalizers_EmptyFinalizer
     protected void finalize() {  }
 }

@@ -1,11 +1,11 @@
-//#Patterns: rulesets_java_design.xml_NonThreadSafeSingleton
+//#Patterns: design_NonThreadSafeSingleton
 public class Foo {
 
 	private static Foo fooInstance = null;
 
 
 	public static Foo getInstance() {
-        //#Err: rulesets_java_design.xml_NonThreadSafeSingleton
+        //#Err: design_NonThreadSafeSingleton
 	    if (fooInstance==null)
 	        fooInstance = new Foo();
 	    return fooInstance;

@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_migrating.xml_JUnit4TestShouldUseAfterAnnotation
+//#Patterns: migrating_JUnit4TestShouldUseAfterAnnotation
 
 public class MyTest {
-    //#Warn: rulesets_java_migrating.xml_JUnit4TestShouldUseAfterAnnotation
+    //#Warn: migrating_JUnit4TestShouldUseAfterAnnotation
     public void tearDown() {
         bad();
     }

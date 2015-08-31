@@ -1,10 +1,10 @@
-//#Patterns: rulesets_java_design.xml_SimplifyBooleanReturns
+//#Patterns: design_SimplifyBooleanReturns
 
 public class Foo {
 
     public boolean isBarEqualTo(int x) {
 
-        //#Err: rulesets_java_design.xml_SimplifyBooleanReturns
+        //#Err: design_SimplifyBooleanReturns
         if (bar == x) {         // this bit of code...
             return true;
         } else {

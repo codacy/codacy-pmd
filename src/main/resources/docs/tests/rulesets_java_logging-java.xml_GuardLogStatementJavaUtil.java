@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_logging-java.xml_GuardLogStatementJavaUtil
+//#Patterns: logging-java_GuardLogStatementJavaUtil
 
 public class Foo {
 
@@ -12,7 +12,7 @@ public class Foo {
             log.fine("log something" + " and " + "concat strings");
         }
 
-        //#Warn: rulesets_java_logging-java.xml_GuardLogStatementJavaUtil
+        //#Warn: logging-java_GuardLogStatementJavaUtil
         log.fine("log something" + " and " + "concat strings");
     }
 }

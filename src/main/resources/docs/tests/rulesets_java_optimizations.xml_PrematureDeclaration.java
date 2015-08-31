@@ -1,10 +1,10 @@
-//#Patterns: rulesets_java_optimizations.xml_PrematureDeclaration
+//#Patterns: optimizations_PrematureDeclaration
 
 public class Foo {
 
     public void bar(String[] strings) {
 
-        //#Err: rulesets_java_optimizations.xml_PrematureDeclaration
+        //#Err: optimizations_PrematureDeclaration
         int length = 0;
 
         if (strings  == null || strings.length == 0) {

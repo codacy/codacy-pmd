@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_empty.xml_EmptySynchronizedBlock
+//#Patterns: empty_EmptySynchronizedBlock
 
 public class Foo {
     public void bar() {
-        //#Warn: rulesets_java_empty.xml_EmptySynchronizedBlock
+        //#Warn: empty_EmptySynchronizedBlock
         synchronized(this) {
         }
     }

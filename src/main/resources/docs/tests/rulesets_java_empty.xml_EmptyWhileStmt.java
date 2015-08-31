@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_empty.xml_EmptyWhileStmt
+//#Patterns: empty_EmptyWhileStmt
 
 public class Foo {
     public void bar(int a, int b) {
-        //#Warn: rulesets_java_empty.xml_EmptyWhileStmt
+        //#Warn: empty_EmptyWhileStmt
         while(a == b) {
             //do nothing!
         }

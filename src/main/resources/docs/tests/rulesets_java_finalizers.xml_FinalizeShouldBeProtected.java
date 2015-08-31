@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_finalizers.xml_FinalizeShouldBeProtected
+//#Patterns: finalizers_FinalizeShouldBeProtected
 
 public class Foo {
-    //#Err: rulesets_java_finalizers.xml_FinalizeShouldBeProtected
+    //#Err: finalizers_FinalizeShouldBeProtected
     private void finalize() {  }
-    //#Err: rulesets_java_finalizers.xml_FinalizeShouldBeProtected
+    //#Err: finalizers_FinalizeShouldBeProtected
     public void finalize() {  }
 
     protected void finalize() {  }

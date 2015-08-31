@@ -1,10 +1,10 @@
-//#Patterns: rulesets_java_naming.xml_MisleadingVariableName
+//#Patterns: naming_MisleadingVariableName
 public class Foo {
     private int m_foo; // OK
 
-    //#Info: rulesets_java_naming.xml_MisleadingVariableName
+    //#Info: naming_MisleadingVariableName
     public void bar(String m_baz) {  // Bad
-      //#Info: rulesets_java_naming.xml_MisleadingVariableName
+      //#Info: naming_MisleadingVariableName
       int m_boz = 42; // Bad
     }
 }

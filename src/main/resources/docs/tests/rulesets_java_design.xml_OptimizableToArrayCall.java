@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_OptimizableToArrayCall
+//#Patterns: design_OptimizableToArrayCall
 public class Foo {
 
     public void Bar() {
@@ -7,7 +7,7 @@ public class Foo {
 	List foos = getFoos();
 	  
 	    // inefficient, the array will be discarded
-	//#Warn: rulesets_java_design.xml_OptimizableToArrayCall
+	//#Warn: design_OptimizableToArrayCall
 	Foo[] fooArray = foos.toArray(new Foo[0]);
 	    
 	    // much better; this one sizes the destination array, 

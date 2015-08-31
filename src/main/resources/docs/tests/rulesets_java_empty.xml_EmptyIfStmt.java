@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_empty.xml_EmptyIfStmt
+//#Patterns: empty_EmptyIfStmt
 
 public class Foo {
     public void bar(int x) {
-        //#Warn: rulesets_java_empty.xml_EmptyIfStmt
+        //#Warn: empty_EmptyIfStmt
         if(x == 0) {  }
     }
 }

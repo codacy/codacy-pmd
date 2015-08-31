@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_design.xml_SimplifyBooleanExpressions
+//#Patterns: design_SimplifyBooleanExpressions
 
 public class Bar {
     // can be simplified to
     // bar = isFoo();
-    //#Err: rulesets_java_design.xml_SimplifyBooleanExpressions
+    //#Err: design_SimplifyBooleanExpressions
     private boolean bar = (isFoo() == true);
 
     public isFoo() { return false;}

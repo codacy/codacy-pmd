@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_braces.xml_IfElseStmtsMustUseBraces
+//#Patterns: braces_IfElseStmtsMustUseBraces
 public class Foo {
 
     public void bar() {
@@ -13,10 +13,10 @@ public class Foo {
         }
 
         if (foo)
-            //#Info: rulesets_java_braces.xml_IfElseStmtsMustUseBraces
+            //#Info: braces_IfElseStmtsMustUseBraces
             x = x+1;
         else
-            //#Info: rulesets_java_braces.xml_IfElseStmtsMustUseBraces
+            //#Info: braces_IfElseStmtsMustUseBraces
             x = x-1;
     }
 

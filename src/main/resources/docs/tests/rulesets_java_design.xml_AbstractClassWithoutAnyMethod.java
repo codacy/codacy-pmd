@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_design.xml_AbstractClassWithoutAnyMethod
+//#Patterns: design_AbstractClassWithoutAnyMethod
 
-//#Info: rulesets_java_design.xml_AbstractClassWithoutAnyMethod
+//#Info: design_AbstractClassWithoutAnyMethod
 	public abstract class Example {
 		String field;
 		int otherField;

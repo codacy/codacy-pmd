@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_strings.xml_UseIndexOfChar
+//#Patterns: strings_UseIndexOfChar
 
 public class Foo {
 
@@ -7,7 +7,7 @@ public class Foo {
         String s = "hello world";
 
         // avoid this
-        //#Warn: rulesets_java_strings.xml_UseIndexOfChar
+        //#Warn: strings_UseIndexOfChar
         if (s.indexOf("d") == 1) {
 
         }

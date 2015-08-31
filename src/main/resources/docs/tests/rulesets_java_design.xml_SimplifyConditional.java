@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_design.xml_SimplifyConditional
+//#Patterns: design_SimplifyConditional
 public class Foo {
   void bar(Object x) {
-  	//#Warn: rulesets_java_design.xml_SimplifyConditional
+  	//#Warn: design_SimplifyConditional
     if (x != null && x instanceof Bar) {
       // just drop the "x != null" check
     }

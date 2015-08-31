@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_basic.xml_AvoidMultipleUnaryOperators
+//#Patterns: basic_AvoidMultipleUnaryOperators
 
 public class Foo {
 
@@ -6,11 +6,11 @@ public class Foo {
 
     {
         // These are typo bugs, or at best needlessly complex and confusing:
-        //#Err: rulesets_java_basic.xml_AvoidMultipleUnaryOperators
+        //#Err: basic_AvoidMultipleUnaryOperators
         int i = - -1;
-        //#Err: rulesets_java_basic.xml_AvoidMultipleUnaryOperators
+        //#Err: basic_AvoidMultipleUnaryOperators
         int z = ~~2;
-        //#Err: rulesets_java_basic.xml_AvoidMultipleUnaryOperators
+        //#Err: basic_AvoidMultipleUnaryOperators
         boolean b = !!true;
 
         // These are better:

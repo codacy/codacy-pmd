@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_AvoidInstanceofChecksInCatchClause
+//#Patterns: design_AvoidInstanceofChecksInCatchClause
 public class Foo {
     public void Bar() {
 
@@ -10,7 +10,7 @@ public class Foo {
 
 		} 
 		catch (Exception ee) {
-//#Info: rulesets_java_design.xml_AvoidInstanceofChecksInCatchClause
+//#Info: design_AvoidInstanceofChecksInCatchClause
             if (ee instanceof IOException) {
 				cleanup();
 			}

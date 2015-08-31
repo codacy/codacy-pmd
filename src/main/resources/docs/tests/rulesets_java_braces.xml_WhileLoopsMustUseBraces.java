@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_braces.xml_WhileLoopsMustUseBraces
+//#Patterns: braces_WhileLoopsMustUseBraces
 public class Foo {
 
     public void bar() {
-        //#Info: rulesets_java_braces.xml_WhileLoopsMustUseBraces
+        //#Info: braces_WhileLoopsMustUseBraces
         while (true)	// not recommended
             x++;
 

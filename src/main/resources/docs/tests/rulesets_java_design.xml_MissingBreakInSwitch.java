@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_design.xml_MissingBreakInSwitch
+//#Patterns: design_MissingBreakInSwitch
 public class Foo {
 
 public void bar(int status) {
-//#Err: rulesets_java_design.xml_MissingBreakInSwitch
+//#Err: design_MissingBreakInSwitch
     switch(status) {
       case CANCELLED:
         doCancelled();

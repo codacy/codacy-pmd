@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_naming.xml_AbstractNaming
+//#Patterns: naming_AbstractNaming
 
-//#Info: rulesets_java_naming.xml_AbstractNaming
+//#Info: naming_AbstractNaming
 public abstract class Foo { }// should be AbstractFoo

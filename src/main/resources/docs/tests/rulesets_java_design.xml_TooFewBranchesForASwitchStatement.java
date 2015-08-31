@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_design.xml_TooFewBranchesForASwitchStatement
+//#Patterns: design_TooFewBranchesForASwitchStatement
 
 
 public class Foo {
     public void bar() {
-//#Info: rulesets_java_design.xml_TooFewBranchesForASwitchStatement
+//#Info: design_TooFewBranchesForASwitchStatement
         switch (condition) {
             case ONE:
                 instruction;

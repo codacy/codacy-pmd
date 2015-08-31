@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_sunsecure.xml_MethodReturnsInternalArray
+//#Patterns: sunsecure_MethodReturnsInternalArray
 
     public class SecureSystem {
         UserData [] ud;
         public UserData [] getUserData() {
-            //#Err: rulesets_java_sunsecure.xml_MethodReturnsInternalArray
+            //#Err: sunsecure_MethodReturnsInternalArray
             return ud;
         }
 

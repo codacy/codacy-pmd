@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_unnecessary.xml_UnusedNullCheckInEquals
+//#Patterns: unnecessary_UnusedNullCheckInEquals
 
 public class Foo {
     public String bar() {
@@ -11,7 +11,7 @@ public class Foo {
 
     public void method2(String a) {
         
-        //#Err: rulesets_java_unnecessary.xml_UnusedNullCheckInEquals
+        //#Err: unnecessary_UnusedNullCheckInEquals
         if (a != null && bar().equals(a)) {  }
 
         if (bar().equals(a) && a != null) {  }

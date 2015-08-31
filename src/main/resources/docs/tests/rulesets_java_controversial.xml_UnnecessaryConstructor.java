@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_controversial.xml_UnnecessaryConstructor
+//#Patterns: controversial_UnnecessaryConstructor
 
 public class Foo {
 
-  //#Warn: rulesets_java_controversial.xml_UnnecessaryConstructor
+  //#Warn: controversial_UnnecessaryConstructor
   public Foo() {  }
 
 }

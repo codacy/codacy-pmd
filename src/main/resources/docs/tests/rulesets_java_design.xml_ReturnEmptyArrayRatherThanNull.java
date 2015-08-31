@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_design.xml_ReturnEmptyArrayRatherThanNull
+//#Patterns: design_ReturnEmptyArrayRatherThanNull
 
 public class Example {
     // Not a good idea...
-    //#Err: rulesets_java_design.xml_ReturnEmptyArrayRatherThanNull
+    //#Err: design_ReturnEmptyArrayRatherThanNull
     public int[] badBehavior() {
                    // ...
         return null;

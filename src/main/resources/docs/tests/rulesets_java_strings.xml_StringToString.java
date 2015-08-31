@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_strings.xml_StringToString
+//#Patterns: strings_StringToString
 public class Foo {
 
     private String baz() {
-        //#Warn: rulesets_java_strings.xml_StringToString
+        //#Warn: strings_StringToString
         String bar = "howdy"; return bar.toString();
     }
 }

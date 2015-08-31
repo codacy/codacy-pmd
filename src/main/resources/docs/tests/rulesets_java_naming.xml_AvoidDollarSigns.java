@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_naming.xml_AvoidDollarSigns
+//#Patterns: naming_AvoidDollarSigns
 public class Foo {
-	//#Info: rulesets_java_naming.xml_AvoidDollarSigns
+	//#Info: naming_AvoidDollarSigns
     public void ba$r() {
     }
 }

@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_design.xml_MissingStaticMethodInNonInstantiatableClass
+//#Patterns: design_MissingStaticMethodInNonInstantiatableClass
 
-//#Warn: rulesets_java_design.xml_MissingStaticMethodInNonInstantiatableClass
+//#Warn: design_MissingStaticMethodInNonInstantiatableClass
 public class Foo {
   private Foo() {}
   void foo() {}

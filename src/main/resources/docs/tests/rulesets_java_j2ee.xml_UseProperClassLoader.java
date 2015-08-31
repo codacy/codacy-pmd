@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_j2ee.xml_UseProperClassLoader
+//#Patterns: j2ee_UseProperClassLoader
 
 public class Foo {
-    //#Warn: rulesets_java_j2ee.xml_UseProperClassLoader
+    //#Warn: j2ee_UseProperClassLoader
     ClassLoader cl = Bar.class.getClassLoader();
 }

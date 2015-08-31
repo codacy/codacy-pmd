@@ -1,5 +1,5 @@
-//#Patterns: rulesets_java_naming.xml_ShortClassName
-//#Info: rulesets_java_naming.xml_ShortClassName
+//#Patterns: naming_ShortClassName
+//#Info: naming_ShortClassName
 public class Foo {
 
 }

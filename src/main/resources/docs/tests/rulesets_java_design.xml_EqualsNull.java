@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_EqualsNull
+//#Patterns: design_EqualsNull
 public class Foo {
 
     public void Bar() {
@@ -6,7 +6,7 @@ public class Foo {
       
 	String x = "foo";
 
-	//#Err: rulesets_java_design.xml_EqualsNull
+	//#Err: design_EqualsNull
 	if (x.equals(null)) { // bad form
 	   	doSomething();
 		}

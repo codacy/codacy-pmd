@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_controversial.xml_AvoidUsingShortType
+//#Patterns: controversial_AvoidUsingShortType
 
 public class Foo {
 
     public void bar() {
-        //#Warn: rulesets_java_controversial.xml_AvoidUsingShortType
+        //#Warn: controversial_AvoidUsingShortType
         short acc = 0;
 
     }

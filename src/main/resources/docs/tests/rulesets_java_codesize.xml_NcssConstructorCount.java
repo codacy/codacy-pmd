@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_codesize.xml_NcssConstructorCount
+//#Patterns: codesize_NcssConstructorCount
 
 public class Foo {
-    //#Info: rulesets_java_codesize.xml_NcssConstructorCount
+    //#Info: codesize_NcssConstructorCount
     public Foo() {
         System.out.println("Hello");
         System.out.println("Hello");

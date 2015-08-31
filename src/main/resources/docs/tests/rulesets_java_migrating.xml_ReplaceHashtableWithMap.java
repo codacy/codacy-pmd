@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_migrating.xml_ReplaceHashtableWithMap
+//#Patterns: migrating_ReplaceHashtableWithMap
 
 public class Foo {
     void bar() {
-        //#Warn: rulesets_java_migrating.xml_ReplaceHashtableWithMap
+        //#Warn: migrating_ReplaceHashtableWithMap
         Hashtable h = new Hashtable();
     }
 }

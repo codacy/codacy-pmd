@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_codesize.xml_ExcessiveMethodLength
+//#Patterns: codesize_ExcessiveMethodLength
 
 public class Foo {
 
-    //#Info: rulesets_java_codesize.xml_ExcessiveMethodLength
+    //#Info: codesize_ExcessiveMethodLength
     public void bar() {
         System.out.println("Hello World");
         System.out.println("Hello World");

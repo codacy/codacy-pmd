@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_design.xml_SingularField
+//#Patterns: design_SingularField
 
 
 public class Foo {
-	//#Warn: rulesets_java_design.xml_SingularField
+	//#Warn: design_SingularField
     private int x;  // no reason to exist at the Foo instance level
     private int z;
     

@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_naming.xml_BooleanGetMethodName
+//#Patterns: naming_BooleanGetMethodName
 public class Foo {
     public void bar() {
     }
-    //#Info: rulesets_java_naming.xml_BooleanGetMethodName
+    //#Info: naming_BooleanGetMethodName
    	public boolean getFoo() {
     }
     public boolean isReady() {

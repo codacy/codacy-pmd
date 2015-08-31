@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_logging-java.xml_LoggerIsNotStaticFinal
+//#Patterns: logging-java_LoggerIsNotStaticFinal
 
 public class Foo{
 
-    //#Warn: rulesets_java_logging-java.xml_LoggerIsNotStaticFinal
+    //#Warn: logging-java_LoggerIsNotStaticFinal
     public Logger log = Logger.getLogger(Foo.class.getName());
     // not recommended
 

@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_design.xml_DefaultLabelNotLastInSwitchStmt
+//#Patterns: design_DefaultLabelNotLastInSwitchStmt
    
 public class Foo {
   void bar(int a) {
-      //#Err: rulesets_java_design.xml_DefaultLabelNotLastInSwitchStmt
+      //#Err: design_DefaultLabelNotLastInSwitchStmt
    switch (a) {
     case 1:  // do something
        break;

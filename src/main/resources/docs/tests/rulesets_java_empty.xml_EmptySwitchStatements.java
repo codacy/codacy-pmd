@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_empty.xml_EmptySwitchStatements
+//#Patterns: empty_EmptySwitchStatements
 
 public class Foo {
     public void bar() {
         int x = 2;
-        //#Warn: rulesets_java_empty.xml_EmptySwitchStatements
+        //#Warn: empty_EmptySwitchStatements
         switch(x) {  
         }
     }

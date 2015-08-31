@@ -1,11 +1,11 @@
-//#Patterns: rulesets_java_design.xml_AvoidDeeplyNestedIfStmts
+//#Patterns: design_AvoidDeeplyNestedIfStmts
 
 
 public class Foo {
   public void bar(int x, int y, int z) {
     if (x>y) {
       if (y>z) {
-      //#Err: rulesets_java_design.xml_AvoidDeeplyNestedIfStmts
+      //#Err: design_AvoidDeeplyNestedIfStmts
         if (z==x) {
          // !! too deep
         }

@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_optimizations.xml_AvoidArrayLoops
+//#Patterns: optimizations_AvoidArrayLoops
 
 public class Foo {
 
@@ -6,7 +6,7 @@ public class Foo {
         int [] a = new int[10];
         int [] b = new int[10];
 
-        //#Warn: rulesets_java_optimizations.xml_AvoidArrayLoops
+        //#Warn: optimizations_AvoidArrayLoops
         for (int i = 0; i < 10; i++) {
             b[i] = a[i];
         }

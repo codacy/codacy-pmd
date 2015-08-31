@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_codesize.xml_NcssTypeCount : { "minimum": "5" }
+//#Patterns: codesize_NcssTypeCount : { "minimum": "5" }
 
-//#Info: rulesets_java_codesize.xml_NcssTypeCount
+//#Info: codesize_NcssTypeCount
 public class Foo {
     public bar() {
         System.out.println("My");

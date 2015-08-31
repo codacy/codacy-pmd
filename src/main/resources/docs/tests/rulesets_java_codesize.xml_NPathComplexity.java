@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_codesize.xml_NPathComplexity : { "minimum": "5" }
+//#Patterns: codesize_NPathComplexity : { "minimum": "5" }
 
 public class Foo {
-    //#Info: rulesets_java_codesize.xml_NPathComplexity
+    //#Info: codesize_NPathComplexity
     void bar() {// this is something more complex than it needs to be,
         if (y) {
             for (j = 0; j < m; j++) {

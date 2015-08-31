@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_finalizers.xml_FinalizeDoesNotCallSuperFinalize
+//#Patterns: finalizers_FinalizeDoesNotCallSuperFinalize
 
 public class Foo {
     protected void finalize() {
-      //#Err: rulesets_java_finalizers.xml_FinalizeDoesNotCallSuperFinalize
+      //#Err: finalizers_FinalizeDoesNotCallSuperFinalize
       doSomething();
     }
 }

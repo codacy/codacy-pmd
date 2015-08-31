@@ -1,10 +1,10 @@
-//#Patterns: rulesets_java_optimizations.xml_AvoidInstantiatingObjectsInLoops
+//#Patterns: optimizations_AvoidInstantiatingObjectsInLoops
 
 public class Foo {
     
     public void foo() {
         for (int i = 0; i < 10; i++) {
-            //#Warn: rulesets_java_optimizations.xml_AvoidInstantiatingObjectsInLoops
+            //#Warn: optimizations_AvoidInstantiatingObjectsInLoops
             String f = new String("ola");
         }
 

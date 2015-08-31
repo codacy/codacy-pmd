@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_design.xml_NonStaticInitializer
+//#Patterns: design_NonStaticInitializer
 
 public class MyClass {
-  //#Info: rulesets_java_design.xml_NonStaticInitializer
+  //#Info: design_NonStaticInitializer
   {
    System.out.println("I am about to construct myself");
   }

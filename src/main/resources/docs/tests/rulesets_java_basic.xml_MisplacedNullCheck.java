@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_basic.xml_MisplacedNullCheck
+//#Patterns: basic_MisplacedNullCheck
    
 public class Foo {
 	void bar() {
-//#Err: rulesets_java_basic.xml_MisplacedNullCheck
+//#Err: basic_MisplacedNullCheck
 		if (a.equals(baz) && a != null) {}
 		}
 }

@@ -1,13 +1,13 @@
-//#Patterns: rulesets_java_strings.xml_ConsecutiveAppendsShouldReuse
+//#Patterns: strings_ConsecutiveAppendsShouldReuse
 public class Foo {
 
     public void bar() {
         String foo = " ";
 
         StringBuffer buf = new StringBuffer();
-        //#Warn: rulesets_java_strings.xml_ConsecutiveAppendsShouldReuse
+        //#Warn: strings_ConsecutiveAppendsShouldReuse
         buf.append("Hello"); // poor
-        //#Warn: rulesets_java_strings.xml_ConsecutiveAppendsShouldReuse
+        //#Warn: strings_ConsecutiveAppendsShouldReuse
         buf.append(foo);
         buf.append("World");
 

@@ -1,10 +1,10 @@
-//#Patterns: rulesets_java_design.xml_SwitchStmtsShouldHaveDefault
+//#Patterns: design_SwitchStmtsShouldHaveDefault
 
 public class Foo {
     public void bar() {
         int x = 2;
         int j = 0;
-        //#Err: rulesets_java_design.xml_SwitchStmtsShouldHaveDefault
+        //#Err: design_SwitchStmtsShouldHaveDefault
         switch (x) {
             case 1:
                 j = 6;

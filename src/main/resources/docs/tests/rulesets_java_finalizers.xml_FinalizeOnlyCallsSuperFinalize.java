@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_finalizers.xml_FinalizeOnlyCallsSuperFinalize
+//#Patterns: finalizers_FinalizeOnlyCallsSuperFinalize
 
 public class Foo {
     protected void finalize() {
-        //#Warn: rulesets_java_finalizers.xml_FinalizeOnlyCallsSuperFinalize
+        //#Warn: finalizers_FinalizeOnlyCallsSuperFinalize
         super.finalize();
     }
 }

@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_j2ee.xml_StaticEJBFieldShouldBeFinal
+//#Patterns: j2ee_StaticEJBFieldShouldBeFinal
 
-//#Warn: rulesets_java_j2ee.xml_StaticEJBFieldShouldBeFinal
+//#Warn: j2ee_StaticEJBFieldShouldBeFinal
 public class SomeEJB extends EJBObject implements EJBLocalHome {
     private static int CountA;
     // poor, field can be edited

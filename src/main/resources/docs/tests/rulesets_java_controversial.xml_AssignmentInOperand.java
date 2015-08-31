@@ -1,11 +1,11 @@
-//#Patterns: rulesets_java_controversial.xml_AssignmentInOperand
+//#Patterns: controversial_AssignmentInOperand
 
 public class Foo {
 
     public void bar() {
         int x = 2;
 
-        //#Info: rulesets_java_controversial.xml_AssignmentInOperand
+        //#Info: controversial_AssignmentInOperand
         if ((x = getX()) == 3) {
             //insert code
         }

@@ -1,19 +1,19 @@
-//#Patterns: rulesets_java_controversial.xml_DoNotCallGarbageCollectionExplicitly
+//#Patterns: controversial_DoNotCallGarbageCollectionExplicitly
 
 public class Foo {
 
     public CGCall() {
-        //#Warn: rulesets_java_controversial.xml_DoNotCallGarbageCollectionExplicitly
+        //#Warn: controversial_DoNotCallGarbageCollectionExplicitly
         System.gc();
     }
 
     public void doSomething() {
-        //#Warn: rulesets_java_controversial.xml_DoNotCallGarbageCollectionExplicitly
+        //#Warn: controversial_DoNotCallGarbageCollectionExplicitly
         Runtime.getRuntime().gc();
     }
 
     public void doSomething() {
-        //#Warn: rulesets_java_controversial.xml_DoNotCallGarbageCollectionExplicitly
+        //#Warn: controversial_DoNotCallGarbageCollectionExplicitly
         Runtime.getRuntime().gc();
     }
 

@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_junit.xml_JUnitTestsShouldIncludeAssert
+//#Patterns: junit_JUnitTestsShouldIncludeAssert
 
 public class Foo extends TestCase {
 
-    //#Warn: rulesets_java_junit.xml_JUnitTestsShouldIncludeAssert
+    //#Warn: junit_JUnitTestsShouldIncludeAssert
     public void testSomething() {
         Bar b = findBar();
 

@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_design.xml_ConstructorCallsOverridableMethod
+//#Patterns: design_ConstructorCallsOverridableMethod
 
 public class SeniorClass {
   public SeniorClass(){
-      //#Err: rulesets_java_design.xml_ConstructorCallsOverridableMethod
+      //#Err: design_ConstructorCallsOverridableMethod
       toString(); //may throw NullPointerException if overridden
   }
   public String toString(){

@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_basic.xml_CollapsibleIfStatements
+//#Patterns: basic_CollapsibleIfStatements
 public class Foo {
 
 	void bar() {
 		if (x) {			// original implementation
-            //#Info: rulesets_java_basic.xml_CollapsibleIfStatements
+            //#Info: basic_CollapsibleIfStatements
 			if (y) {
 				// do stuff
 			}

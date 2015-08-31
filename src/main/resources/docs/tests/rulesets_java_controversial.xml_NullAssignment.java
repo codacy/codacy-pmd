@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_controversial.xml_NullAssignment
+//#Patterns: controversial_NullAssignment
 
 public class Foo {
     
@@ -7,7 +7,7 @@ public class Foo {
 
         x = new Object();
 
-        //#Warn: rulesets_java_controversial.xml_NullAssignment
+        //#Warn: controversial_NullAssignment
         x = null;
     }
 }

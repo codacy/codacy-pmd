@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_braces.xml_IfStmtsMustUseBraces
+//#Patterns: braces_IfStmtsMustUseBraces
 public class Foo {
 
     public void bar() {
 
-        //#Info: rulesets_java_braces.xml_IfStmtsMustUseBraces
+        //#Info: braces_IfStmtsMustUseBraces
         if (foo)	// not recommended
             x++;
 

@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_UseLocaleWithCaseConversions
+//#Patterns: design_UseLocaleWithCaseConversions
 
 
 public class Foo {
@@ -7,7 +7,7 @@ public class Foo {
 
         x = "List";
 
-    	//#Warn: rulesets_java_design.xml_UseLocaleWithCaseConversions
+    	//#Warn: design_UseLocaleWithCaseConversions
 		 boolean result = x.toLowerCase().equals("list");
 	 
 		 // GOOD

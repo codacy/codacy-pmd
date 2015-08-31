@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_logging-jakarta-commons.xml_GuardLogStatement
+//#Patterns: logging-jakarta-commons_GuardLogStatement
 public class Foo {
 
     Logger log = Logger.getLogger(Foo.class.getName());
@@ -10,7 +10,7 @@ public class Foo {
             log.debug("log something" + " and " + "concat strings");
         }
 
-        //#Warn: rulesets_java_logging-jakarta-commons.xml_GuardLogStatement
+        //#Warn: logging-jakarta-commons_GuardLogStatement
         log.debug("log something" + " and " + "concat strings");
 
     }

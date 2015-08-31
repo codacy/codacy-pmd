@@ -1,10 +1,10 @@
-//#Patterns: rulesets_java_basic.xml_UnconditionalIfStatement
+//#Patterns: basic_UnconditionalIfStatement
 
 
   
 public class Foo {
 	public void close() {
-		//#Warn: rulesets_java_basic.xml_UnconditionalIfStatement
+		//#Warn: basic_UnconditionalIfStatement
 		if (true) {		// fixed conditional, not recommended
 			// ...
 		}

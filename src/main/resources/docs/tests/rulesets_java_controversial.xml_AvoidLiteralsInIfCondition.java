@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_controversial.xml_AvoidLiteralsInIfCondition
+//#Patterns: controversial_AvoidLiteralsInIfCondition
 
 public class Foo {
     private static final int MAX_NUMBER = 10;
@@ -6,7 +6,7 @@ public class Foo {
     public void bar() {
         int x = 0;
 
-        //#Info: rulesets_java_controversial.xml_AvoidLiteralsInIfCondition
+        //#Info: controversial_AvoidLiteralsInIfCondition
         if (x > 10) {  }
 
         if (x > MAX_NUMBER) {  } //preferred approach

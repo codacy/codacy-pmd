@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_basic.xml_AvoidUsingHardCodedIP
+//#Patterns: basic_AvoidUsingHardCodedIP
 public class Foo {
 
-//#Info: rulesets_java_basic.xml_AvoidUsingHardCodedIP
+//#Info: basic_AvoidUsingHardCodedIP
 	private String ip = "127.0.0.1"; // not recommended }
 
 

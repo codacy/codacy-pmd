@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_EmptyMethodInAbstractClassShouldBeAbstract
+//#Patterns: design_EmptyMethodInAbstractClassShouldBeAbstract
 
 public abstract class ShouldBeAbstract {
     
@@ -9,7 +9,7 @@ public abstract class ShouldBeAbstract {
         return null;
     }
 
-//#Info: rulesets_java_design.xml_EmptyMethodInAbstractClassShouldBeAbstract
+//#Info: design_EmptyMethodInAbstractClassShouldBeAbstract
     public void couldBeAbstract() {
     }
 }

@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_design.xml_AvoidConstantsInterface
+//#Patterns: design_AvoidConstantsInterface
 
-//#Info: rulesets_java_design.xml_AvoidConstantsInterface
+//#Info: design_AvoidConstantsInterface
 public interface ConstantsInterface {
    public static final int CONSTANT1=0;
    public static final String CONSTANT2="1";

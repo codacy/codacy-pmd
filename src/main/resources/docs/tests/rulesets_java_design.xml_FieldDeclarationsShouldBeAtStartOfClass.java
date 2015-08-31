@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_FieldDeclarationsShouldBeAtStartOfClass
+//#Patterns: design_FieldDeclarationsShouldBeAtStartOfClass
 
 public class HelloWorldBean {
 
@@ -10,7 +10,7 @@ public class HelloWorldBean {
   }
 
   // Field declared after methods / inner classes - avoid this
-//#Info: rulesets_java_design.xml_FieldDeclarationsShouldBeAtStartOfClass
+//#Info: design_FieldDeclarationsShouldBeAtStartOfClass
   private String _fieldInWrongLocation;
 }
 

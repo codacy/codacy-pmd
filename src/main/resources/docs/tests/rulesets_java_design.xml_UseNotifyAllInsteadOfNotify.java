@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_design.xml_UseNotifyAllInsteadOfNotify
+//#Patterns: design_UseNotifyAllInsteadOfNotify
 public class Foo {
  void bar() {
-//#Err: rulesets_java_design.xml_UseNotifyAllInsteadOfNotify
+//#Err: design_UseNotifyAllInsteadOfNotify
     x.notify();
     // If many threads are monitoring x, only one (and you won't know which) will be notified.
     // use instead:

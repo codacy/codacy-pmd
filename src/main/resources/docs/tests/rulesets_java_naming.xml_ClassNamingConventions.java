@@ -1,11 +1,11 @@
-//#Patterns: rulesets_java_naming.xml_ClassNamingConventions
+//#Patterns: naming_ClassNamingConventions
 
 public class Foo {
 
     public void bar() {
     }
 }
-//#Info: rulesets_java_naming.xml_ClassNamingConventions
+//#Info: naming_ClassNamingConventions
 public class car {
 
     public void bar2() {

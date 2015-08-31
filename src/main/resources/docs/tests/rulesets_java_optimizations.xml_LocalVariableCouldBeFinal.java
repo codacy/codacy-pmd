@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_optimizations.xml_LocalVariableCouldBeFinal
+//#Patterns: optimizations_LocalVariableCouldBeFinal
 
 public class Bar {
     public void foo() {
-        //#Err: rulesets_java_optimizations.xml_LocalVariableCouldBeFinal
+        //#Err: optimizations_LocalVariableCouldBeFinal
         String txtA = "a";
         
         final String txtB = "b"; 

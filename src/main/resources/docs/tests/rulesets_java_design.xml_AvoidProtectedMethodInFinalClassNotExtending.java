@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_AvoidProtectedMethodInFinalClassNotExtending
+//#Patterns: design_AvoidProtectedMethodInFinalClassNotExtending
 public final class Foo {
 
 	int barx() {
@@ -8,7 +8,7 @@ public final class Foo {
  	private int bar() {
 
     }
-    //#Info: rulesets_java_design.xml_AvoidProtectedMethodInFinalClassNotExtending
+    //#Info: design_AvoidProtectedMethodInFinalClassNotExtending
   	protected int baz() {
 
     }

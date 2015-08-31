@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_controversial.xml_AvoidPrefixingMethodParameters
+//#Patterns: controversial_AvoidPrefixingMethodParameters
 
 public class Foo {
     
-    //#Info: rulesets_java_controversial.xml_AvoidPrefixingMethodParameters
+    //#Info: controversial_AvoidPrefixingMethodParameters
     public void notSoGoodCode(int inLeftOperand) {
         outRightOperand = 1;
     }

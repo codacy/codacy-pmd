@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_unnecessary.xml_UnnecessaryFinalModifier
+//#Patterns: unnecessary_UnnecessaryFinalModifier
 
 public final class Foo {
-    //#Warn: rulesets_java_unnecessary.xml_UnnecessaryFinalModifier
+    //#Warn: unnecessary_UnnecessaryFinalModifier
     public final void bar() {
 
     }

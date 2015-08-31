@@ -2,7 +2,7 @@
   "name":"pmdJava",
   "patterns":[
     {
-      "patternId":"rulesets_java_unusedcode.xml_UnusedPrivateField",
+      "patternId":"unusedcode_UnusedPrivateField",
       "level":"Warning",
       "category":"UnusedCode",
       "parameters":[
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_unusedcode.xml_UnusedLocalVariable",
+      "patternId":"unusedcode_UnusedLocalVariable",
       "level":"Warning",
       "category":"UnusedCode",
       "parameters":[
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_unusedcode.xml_UnusedPrivateMethod",
+      "patternId":"unusedcode_UnusedPrivateMethod",
       "level":"Warning",
       "category":"UnusedCode",
       "parameters":[
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_unusedcode.xml_UnusedFormalParameter",
+      "patternId":"unusedcode_UnusedFormalParameter",
       "level":"Warning",
       "category":"UnusedCode",
       "parameters":[
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_unusedcode.xml_UnusedModifier",
+      "patternId":"unusedcode_UnusedModifier",
       "level":"Warning",
       "category":"UnusedCode",
       "parameters":[
@@ -81,17 +81,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_JumbledIncrementer",
+      "patternId":"basic_JumbledIncrementer",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_basic.xml_ForLoopShouldBeWhileLoop",
+      "patternId":"basic_ForLoopShouldBeWhileLoop",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_basic.xml_OverrideBothEqualsAndHashcode",
+      "patternId":"basic_OverrideBothEqualsAndHashcode",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_DoubleCheckedLocking",
+      "patternId":"basic_DoubleCheckedLocking",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -121,17 +121,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_ReturnFromFinallyBlock",
+      "patternId":"basic_ReturnFromFinallyBlock",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_basic.xml_AvoidDecimalLiteralsInBigDecimalConstructor",
+      "patternId":"basic_AvoidDecimalLiteralsInBigDecimalConstructor",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_basic.xml_BrokenNullCheck",
+      "patternId":"basic_BrokenNullCheck",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -146,7 +146,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_AvoidUsingOctalValues",
+      "patternId":"basic_AvoidUsingOctalValues",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -165,7 +165,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_CheckResultSet",
+      "patternId":"basic_CheckResultSet",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -180,7 +180,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_AvoidMultipleUnaryOperators",
+      "patternId":"basic_AvoidMultipleUnaryOperators",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -195,7 +195,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_CheckSkipResult",
+      "patternId":"basic_CheckSkipResult",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -210,7 +210,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_AvoidBranchingStatementAsLastInLoop",
+      "patternId":"basic_AvoidBranchingStatementAsLastInLoop",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -237,42 +237,42 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_DontCallThreadRun",
+      "patternId":"basic_DontCallThreadRun",
       "level":"Warning",
       "category":"Performance"
     },
     {
-      "patternId":"rulesets_java_basic.xml_DontUseFloatTypeForLoopIndices",
+      "patternId":"basic_DontUseFloatTypeForLoopIndices",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_braces.xml_IfStmtsMustUseBraces",
+      "patternId":"braces_IfStmtsMustUseBraces",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_braces.xml_WhileLoopsMustUseBraces",
+      "patternId":"braces_WhileLoopsMustUseBraces",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_braces.xml_IfElseStmtsMustUseBraces",
+      "patternId":"braces_IfElseStmtsMustUseBraces",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_braces.xml_ForLoopsMustUseBraces",
+      "patternId":"braces_ForLoopsMustUseBraces",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_naming.xml_ShortVariable",
+      "patternId":"naming_ShortVariable",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_naming.xml_LongVariable",
+      "patternId":"naming_LongVariable",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -283,12 +283,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_ShortMethodName",
+      "patternId":"naming_ShortMethodName",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_naming.xml_MethodNamingConventions",
+      "patternId":"naming_MethodNamingConventions",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -303,7 +303,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_ClassNamingConventions",
+      "patternId":"naming_ClassNamingConventions",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -318,12 +318,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_AbstractNaming",
+      "patternId":"naming_AbstractNaming",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_naming.xml_AvoidDollarSigns",
+      "patternId":"naming_AvoidDollarSigns",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -338,7 +338,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_MethodWithSameNameAsEnclosingClass",
+      "patternId":"naming_MethodWithSameNameAsEnclosingClass",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -353,7 +353,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_SuspiciousHashcodeMethodName",
+      "patternId":"naming_SuspiciousHashcodeMethodName",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -368,17 +368,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_SuspiciousConstantFieldName",
+      "patternId":"naming_SuspiciousConstantFieldName",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_naming.xml_SuspiciousEqualsMethodName",
+      "patternId":"naming_SuspiciousEqualsMethodName",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_naming.xml_AvoidFieldNameMatchingTypeName",
+      "patternId":"naming_AvoidFieldNameMatchingTypeName",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -393,7 +393,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_AvoidFieldNameMatchingMethodName",
+      "patternId":"naming_AvoidFieldNameMatchingMethodName",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -408,22 +408,22 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_NoPackage",
+      "patternId":"naming_NoPackage",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_naming.xml_PackageCase",
+      "patternId":"naming_PackageCase",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_naming.xml_MisleadingVariableName",
+      "patternId":"naming_MisleadingVariableName",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_naming.xml_BooleanGetMethodName",
+      "patternId":"naming_BooleanGetMethodName",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -434,7 +434,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_ShortClassName",
+      "patternId":"naming_ShortClassName",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -445,12 +445,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_naming.xml_GenericsNaming",
+      "patternId":"naming_GenericsNaming",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_LocalVariableCouldBeFinal",
+      "patternId":"optimizations_LocalVariableCouldBeFinal",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -465,7 +465,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_MethodArgumentCouldBeFinal",
+      "patternId":"optimizations_MethodArgumentCouldBeFinal",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -480,7 +480,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_AvoidInstantiatingObjectsInLoops",
+      "patternId":"optimizations_AvoidInstantiatingObjectsInLoops",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -495,7 +495,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_sunsecure.xml_MethodReturnsInternalArray",
+      "patternId":"sunsecure_MethodReturnsInternalArray",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -510,7 +510,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_sunsecure.xml_ArrayIsStoredDirectly",
+      "patternId":"sunsecure_ArrayIsStoredDirectly",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -525,7 +525,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_coupling.xml_ExcessiveImports",
+      "patternId":"coupling_ExcessiveImports",
       "level":"Warning",
       "category":"Compatibility",
       "parameters":[
@@ -544,7 +544,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_coupling.xml_LooseCoupling",
+      "patternId":"coupling_LooseCoupling",
       "level":"Warning",
       "category":"Compatibility",
       "parameters":[
@@ -559,7 +559,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_coupling.xml_LawOfDemeter",
+      "patternId":"coupling_LawOfDemeter",
       "level":"Warning",
       "category":"Compatibility",
       "parameters":[
@@ -574,17 +574,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_UseArrayListInsteadOfVector",
+      "patternId":"optimizations_UseArrayListInsteadOfVector",
       "level":"Warning",
       "category":"Performance"
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_SimplifyStartsWith",
+      "patternId":"optimizations_SimplifyStartsWith",
       "level":"Warning",
       "category":"Performance"
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_UseStringBufferForStringAppends",
+      "patternId":"optimizations_UseStringBufferForStringAppends",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -599,17 +599,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_UseArraysAsList",
+      "patternId":"optimizations_UseArraysAsList",
       "level":"Warning",
       "category":"Performance"
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_AvoidArrayLoops",
+      "patternId":"optimizations_AvoidArrayLoops",
       "level":"Warning",
       "category":"Performance"
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_UnnecessaryWrapperObjectCreation",
+      "patternId":"optimizations_UnnecessaryWrapperObjectCreation",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -624,12 +624,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_AddEmptyString",
+      "patternId":"optimizations_AddEmptyString",
       "level":"Warning",
       "category":"Performance"
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_RedundantFieldInitializer",
+      "patternId":"optimizations_RedundantFieldInitializer",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -644,7 +644,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_optimizations.xml_PrematureDeclaration",
+      "patternId":"optimizations_PrematureDeclaration",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -659,12 +659,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_controversial.xml_UnnecessaryConstructor",
+      "patternId":"controversial_UnnecessaryConstructor",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_NullAssignment",
+      "patternId":"controversial_NullAssignment",
       "level":"Warning",
       "category":"UnusedCode",
       "parameters":[
@@ -679,7 +679,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_controversial.xml_OnlyOneReturn",
+      "patternId":"controversial_OnlyOneReturn",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -694,7 +694,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_controversial.xml_AssignmentInOperand",
+      "patternId":"controversial_AssignmentInOperand",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -725,12 +725,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_controversial.xml_AtLeastOneConstructor",
+      "patternId":"controversial_AtLeastOneConstructor",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_DontImportSun",
+      "patternId":"controversial_DontImportSun",
       "level":"Warning",
       "category":"Compatibility",
       "parameters":[
@@ -745,7 +745,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_UseUtilityClass",
+      "patternId":"design_UseUtilityClass",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -760,7 +760,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_SimplifyBooleanReturns",
+      "patternId":"design_SimplifyBooleanReturns",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -775,17 +775,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_SimplifyBooleanExpressions",
+      "patternId":"design_SimplifyBooleanExpressions",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_SwitchStmtsShouldHaveDefault",
+      "patternId":"design_SwitchStmtsShouldHaveDefault",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_AvoidDeeplyNestedIfStmts",
+      "patternId":"design_AvoidDeeplyNestedIfStmts",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -804,7 +804,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_AvoidReassigningParameters",
+      "patternId":"design_AvoidReassigningParameters",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -819,7 +819,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_ConstructorCallsOverridableMethod",
+      "patternId":"design_ConstructorCallsOverridableMethod",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -834,7 +834,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_controversial.xml_SuspiciousOctalEscape",
+      "patternId":"controversial_SuspiciousOctalEscape",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -849,17 +849,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_controversial.xml_CallSuperInConstructor",
+      "patternId":"controversial_CallSuperInConstructor",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_FinalFieldCouldBeStatic",
+      "patternId":"design_FinalFieldCouldBeStatic",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_CloseResource",
+      "patternId":"design_CloseResource",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -874,37 +874,37 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_NonStaticInitializer",
+      "patternId":"design_NonStaticInitializer",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_DefaultLabelNotLastInSwitchStmt",
+      "patternId":"design_DefaultLabelNotLastInSwitchStmt",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_NonCaseLabelInSwitchStatement",
+      "patternId":"design_NonCaseLabelInSwitchStatement",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_OptimizableToArrayCall",
+      "patternId":"design_OptimizableToArrayCall",
       "level":"Warning",
       "category":"Performance"
     },
     {
-      "patternId":"rulesets_java_design.xml_BadComparison",
+      "patternId":"design_BadComparison",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_EqualsNull",
+      "patternId":"design_EqualsNull",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_ConfusingTernary",
+      "patternId":"design_ConfusingTernary",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -923,12 +923,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_InstantiationToGetClass",
+      "patternId":"design_InstantiationToGetClass",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_IdempotentOperations",
+      "patternId":"design_IdempotentOperations",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -943,12 +943,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_SimpleDateFormatNeedsLocale",
+      "patternId":"design_SimpleDateFormatNeedsLocale",
       "level":"Warning",
       "category":"Compatibility"
     },
     {
-      "patternId":"rulesets_java_design.xml_ImmutableField",
+      "patternId":"design_ImmutableField",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -963,22 +963,22 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_UseLocaleWithCaseConversions",
+      "patternId":"design_UseLocaleWithCaseConversions",
       "level":"Warning",
       "category":"Compatibility"
     },
     {
-      "patternId":"rulesets_java_design.xml_AvoidProtectedFieldInFinalClass",
+      "patternId":"design_AvoidProtectedFieldInFinalClass",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_UnnecessaryParentheses",
+      "patternId":"controversial_UnnecessaryParentheses",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_DataflowAnomalyAnalysis",
+      "patternId":"controversial_DataflowAnomalyAnalysis",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1001,27 +1001,27 @@
       ]
     },
     {
-      "patternId":"rulesets_java_controversial.xml_AvoidFinalLocalVariable",
+      "patternId":"controversial_AvoidFinalLocalVariable",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_AvoidUsingShortType",
+      "patternId":"controversial_AvoidUsingShortType",
       "level":"Warning",
       "category":"Performance"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_AvoidUsingVolatile",
+      "patternId":"controversial_AvoidUsingVolatile",
       "level":"Warning",
       "category":"Compatibility"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_DoNotCallGarbageCollectionExplicitly",
+      "patternId":"controversial_DoNotCallGarbageCollectionExplicitly",
       "level":"Warning",
       "category":"Performance"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_OneDeclarationPerLine",
+      "patternId":"controversial_OneDeclarationPerLine",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1032,12 +1032,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_controversial.xml_AvoidPrefixingMethodParameters",
+      "patternId":"controversial_AvoidPrefixingMethodParameters",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_AvoidLiteralsInIfCondition",
+      "patternId":"controversial_AvoidLiteralsInIfCondition",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1052,27 +1052,27 @@
       ]
     },
     {
-      "patternId":"rulesets_java_controversial.xml_UseObjectForClearerAPI",
+      "patternId":"controversial_UseObjectForClearerAPI",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_DefaultPackage",
+      "patternId":"controversial_DefaultPackage",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_AvoidUsingNativeCode",
+      "patternId":"controversial_AvoidUsingNativeCode",
       "level":"Warning",
       "category":"Compatibility"
     },
     {
-      "patternId":"rulesets_java_controversial.xml_AvoidAccessibilityAlteration",
+      "patternId":"controversial_AvoidAccessibilityAlteration",
       "level":"Error",
       "category":"Security"
     },
     {
-      "patternId":"rulesets_java_typeresolution.xml_CloneMethodMustImplementCloneable",
+      "patternId":"typeresolution_CloneMethodMustImplementCloneable",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -1087,7 +1087,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptyCatchBlock",
+      "patternId":"empty_EmptyCatchBlock",
       "level":"Warning",
       "category":"UnusedCode",
       "parameters":[
@@ -1098,17 +1098,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptyIfStmt",
+      "patternId":"empty_EmptyIfStmt",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptyWhileStmt",
+      "patternId":"empty_EmptyWhileStmt",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_design.xml_AssignmentToNonFinalStatic",
+      "patternId":"design_AssignmentToNonFinalStatic",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -1123,42 +1123,42 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_MissingStaticMethodInNonInstantiatableClass",
+      "patternId":"design_MissingStaticMethodInNonInstantiatableClass",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_design.xml_AvoidSynchronizedAtMethodLevel",
+      "patternId":"design_AvoidSynchronizedAtMethodLevel",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_MissingBreakInSwitch",
+      "patternId":"design_MissingBreakInSwitch",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_UseNotifyAllInsteadOfNotify",
+      "patternId":"design_UseNotifyAllInsteadOfNotify",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_AvoidInstanceofChecksInCatchClause",
+      "patternId":"design_AvoidInstanceofChecksInCatchClause",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_AbstractClassWithoutAbstractMethod",
+      "patternId":"design_AbstractClassWithoutAbstractMethod",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_SimplifyConditional",
+      "patternId":"design_SimplifyConditional",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_design.xml_CompareObjectsWithEquals",
+      "patternId":"design_CompareObjectsWithEquals",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -1173,12 +1173,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_PositionLiteralsFirstInComparisons",
+      "patternId":"design_PositionLiteralsFirstInComparisons",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_NonThreadSafeSingleton",
+      "patternId":"design_NonThreadSafeSingleton",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -1201,12 +1201,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_UncommentedEmptyMethodBody",
+      "patternId":"design_UncommentedEmptyMethodBody",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_UncommentedEmptyConstructor",
+      "patternId":"design_UncommentedEmptyConstructor",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1217,12 +1217,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_AvoidConstantsInterface",
+      "patternId":"design_AvoidConstantsInterface",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_UnsynchronizedStaticDateFormatter",
+      "patternId":"design_UnsynchronizedStaticDateFormatter",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -1237,7 +1237,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_PreserveStackTrace",
+      "patternId":"design_PreserveStackTrace",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1252,7 +1252,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_UseCollectionIsEmpty",
+      "patternId":"design_UseCollectionIsEmpty",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1267,17 +1267,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_ClassWithOnlyPrivateConstructorsShouldBeFinal",
+      "patternId":"design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_EmptyMethodInAbstractClassShouldBeAbstract",
+      "patternId":"design_EmptyMethodInAbstractClassShouldBeAbstract",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_SingularField",
+      "patternId":"design_SingularField",
       "level":"Warning",
       "category":"UnusedCode",
       "parameters":[
@@ -1300,17 +1300,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_ReturnEmptyArrayRatherThanNull",
+      "patternId":"design_ReturnEmptyArrayRatherThanNull",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_AbstractClassWithoutAnyMethod",
+      "patternId":"design_AbstractClassWithoutAnyMethod",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_TooFewBranchesForASwitchStatement",
+      "patternId":"design_TooFewBranchesForASwitchStatement",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1321,17 +1321,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_LogicInversion",
+      "patternId":"design_LogicInversion",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_design.xml_UseVarargs",
+      "patternId":"design_UseVarargs",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_design.xml_FieldDeclarationsShouldBeAtStartOfClass",
+      "patternId":"design_FieldDeclarationsShouldBeAtStartOfClass",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1354,52 +1354,52 @@
       ]
     },
     {
-      "patternId":"rulesets_java_design.xml_AvoidProtectedMethodInFinalClassNotExtending",
+      "patternId":"design_AvoidProtectedMethodInFinalClassNotExtending",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptyTryBlock",
+      "patternId":"empty_EmptyTryBlock",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptyFinallyBlock",
+      "patternId":"empty_EmptyFinallyBlock",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptySwitchStatements",
+      "patternId":"empty_EmptySwitchStatements",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptySynchronizedBlock",
+      "patternId":"empty_EmptySynchronizedBlock",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptyStatementNotInLoop",
+      "patternId":"empty_EmptyStatementNotInLoop",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptyInitializer",
+      "patternId":"empty_EmptyInitializer",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptyStatementBlock",
+      "patternId":"empty_EmptyStatementBlock",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_empty.xml_EmptyStaticInitializer",
+      "patternId":"empty_EmptyStaticInitializer",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_unnecessary.xml_UnnecessaryConversionTemporary",
+      "patternId":"unnecessary_UnnecessaryConversionTemporary",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -1414,7 +1414,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_unnecessary.xml_UnnecessaryReturn",
+      "patternId":"unnecessary_UnnecessaryReturn",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1429,12 +1429,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_unnecessary.xml_UnnecessaryFinalModifier",
+      "patternId":"unnecessary_UnnecessaryFinalModifier",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_unnecessary.xml_UselessOverridingMethod",
+      "patternId":"unnecessary_UselessOverridingMethod",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -1453,7 +1453,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_unnecessary.xml_UselessOperationOnImmutable",
+      "patternId":"unnecessary_UselessOperationOnImmutable",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -1468,52 +1468,52 @@
       ]
     },
     {
-      "patternId":"rulesets_java_unnecessary.xml_UnusedNullCheckInEquals",
+      "patternId":"unnecessary_UnusedNullCheckInEquals",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_unnecessary.xml_UselessParentheses",
+      "patternId":"unnecessary_UselessParentheses",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_clone.xml_ProperCloneImplementation",
+      "patternId":"clone_ProperCloneImplementation",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_clone.xml_CloneThrowsCloneNotSupportedException",
+      "patternId":"clone_CloneThrowsCloneNotSupportedException",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_finalizers.xml_EmptyFinalizer",
+      "patternId":"finalizers_EmptyFinalizer",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_finalizers.xml_FinalizeOnlyCallsSuperFinalize",
+      "patternId":"finalizers_FinalizeOnlyCallsSuperFinalize",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_finalizers.xml_FinalizeOverloaded",
+      "patternId":"finalizers_FinalizeOverloaded",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_finalizers.xml_FinalizeDoesNotCallSuperFinalize",
+      "patternId":"finalizers_FinalizeDoesNotCallSuperFinalize",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_finalizers.xml_FinalizeShouldBeProtected",
+      "patternId":"finalizers_FinalizeShouldBeProtected",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_finalizers.xml_AvoidCallingFinalize",
+      "patternId":"finalizers_AvoidCallingFinalize",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -1528,7 +1528,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_NPathComplexity",
+      "patternId":"codesize_NPathComplexity",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1547,7 +1547,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_ExcessiveMethodLength",
+      "patternId":"codesize_ExcessiveMethodLength",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1566,7 +1566,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_ExcessiveParameterList",
+      "patternId":"codesize_ExcessiveParameterList",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1585,7 +1585,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_ExcessiveClassLength",
+      "patternId":"codesize_ExcessiveClassLength",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1604,7 +1604,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_CyclomaticComplexity",
+      "patternId":"codesize_CyclomaticComplexity",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -1631,7 +1631,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_ExcessivePublicCount",
+      "patternId":"codesize_ExcessivePublicCount",
       "level":"Error",
       "category":"ErrorProne",
       "parameters":[
@@ -1650,7 +1650,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_TooManyFields",
+      "patternId":"codesize_TooManyFields",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1669,7 +1669,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_NcssMethodCount",
+      "patternId":"codesize_NcssMethodCount",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1688,7 +1688,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_NcssTypeCount",
+      "patternId":"codesize_NcssTypeCount",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1707,7 +1707,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_NcssConstructorCount",
+      "patternId":"codesize_NcssConstructorCount",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1726,7 +1726,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_codesize.xml_TooManyMethods",
+      "patternId":"codesize_TooManyMethods",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1745,12 +1745,12 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_UnconditionalIfStatement",
+      "patternId":"basic_UnconditionalIfStatement",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_basic.xml_BooleanInstantiation",
+      "patternId":"basic_BooleanInstantiation",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -1765,27 +1765,27 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_CollapsibleIfStatements",
+      "patternId":"basic_CollapsibleIfStatements",
       "level":"Info",
       "category":"CodeStyle"
     },
     {
-      "patternId":"rulesets_java_basic.xml_ClassCastExceptionWithToArray",
+      "patternId":"basic_ClassCastExceptionWithToArray",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_basic.xml_MisplacedNullCheck",
+      "patternId":"basic_MisplacedNullCheck",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_basic.xml_AvoidThreadGroup",
+      "patternId":"basic_AvoidThreadGroup",
       "level":"Error",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_basic.xml_BigIntegerInstantiation",
+      "patternId":"basic_BigIntegerInstantiation",
       "level":"Warning",
       "category":"Performance",
       "parameters":[
@@ -1800,7 +1800,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_AvoidUsingHardCodedIP",
+      "patternId":"basic_AvoidUsingHardCodedIP",
       "level":"Info",
       "category":"CodeStyle",
       "parameters":[
@@ -1815,27 +1815,27 @@
       ]
     },
     {
-      "patternId":"rulesets_java_basic.xml_ExtendsObject",
+      "patternId":"basic_ExtendsObject",
       "level":"Warning",
       "category":"UnusedCode"
     },
     {
-      "patternId":"rulesets_java_android.xml_CallSuperFirst",
+      "patternId":"android_CallSuperFirst",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_android.xml_CallSuperLast",
+      "patternId":"android_CallSuperLast",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_android.xml_DoNotHardCodeSDCard",
+      "patternId":"android_DoNotHardCodeSDCard",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_imports.xml_DontImportJavaLang",
+      "patternId":"imports_DontImportJavaLang",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -1850,7 +1850,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_imports.xml_UnusedImports",
+      "patternId":"imports_UnusedImports",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -1865,7 +1865,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_imports.xml_ImportFromSamePackage",
+      "patternId":"imports_ImportFromSamePackage",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -1880,7 +1880,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_imports.xml_TooManyStaticImports",
+      "patternId":"imports_TooManyStaticImports",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -1895,7 +1895,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_imports.xml_UnnecessaryFullyQualifiedName",
+      "patternId":"imports_UnnecessaryFullyQualifiedName",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -1910,67 +1910,67 @@
       ]
     },
     {
-      "patternId":"rulesets_java_j2ee.xml_UseProperClassLoader",
+      "patternId":"j2ee_UseProperClassLoader",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_j2ee.xml_MDBAndSessionBeanNamingConvention",
+      "patternId":"j2ee_MDBAndSessionBeanNamingConvention",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_j2ee.xml_RemoteSessionInterfaceNamingConvention",
+      "patternId":"j2ee_RemoteSessionInterfaceNamingConvention",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_j2ee.xml_LocalInterfaceSessionNamingConvention",
+      "patternId":"j2ee_LocalInterfaceSessionNamingConvention",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_j2ee.xml_LocalHomeNamingConvention",
+      "patternId":"j2ee_LocalHomeNamingConvention",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_j2ee.xml_RemoteInterfaceNamingConvention",
+      "patternId":"j2ee_RemoteInterfaceNamingConvention",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_j2ee.xml_DoNotCallSystemExit",
+      "patternId":"j2ee_DoNotCallSystemExit",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_j2ee.xml_StaticEJBFieldShouldBeFinal",
+      "patternId":"j2ee_StaticEJBFieldShouldBeFinal",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_j2ee.xml_DoNotUseThreads",
+      "patternId":"j2ee_DoNotUseThreads",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_javabeans.xml_MissingSerialVersionUID",
+      "patternId":"javabeans_MissingSerialVersionUID",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_junit.xml_JUnitStaticSuite",
+      "patternId":"junit_JUnitStaticSuite",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_junit.xml_JUnitSpelling",
+      "patternId":"junit_JUnitSpelling",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_junit.xml_JUnitAssertionsShouldIncludeMessage",
+      "patternId":"junit_JUnitAssertionsShouldIncludeMessage",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -1985,7 +1985,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_junit.xml_JUnitTestsShouldIncludeAssert",
+      "patternId":"junit_JUnitTestsShouldIncludeAssert",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2000,32 +2000,32 @@
       ]
     },
     {
-      "patternId":"rulesets_java_junit.xml_UnnecessaryBooleanAssertion",
+      "patternId":"junit_UnnecessaryBooleanAssertion",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_junit.xml_UseAssertEqualsInsteadOfAssertTrue",
+      "patternId":"junit_UseAssertEqualsInsteadOfAssertTrue",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_junit.xml_UseAssertSameInsteadOfAssertTrue",
+      "patternId":"junit_UseAssertSameInsteadOfAssertTrue",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_junit.xml_UseAssertNullInsteadOfAssertTrue",
+      "patternId":"junit_UseAssertNullInsteadOfAssertTrue",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_junit.xml_SimplifyBooleanAssertion",
+      "patternId":"junit_SimplifyBooleanAssertion",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_junit.xml_JUnitTestContainsTooManyAsserts",
+      "patternId":"junit_JUnitTestContainsTooManyAsserts",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2040,17 +2040,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_junit.xml_UseAssertTrueInsteadOfAssertEquals",
+      "patternId":"junit_UseAssertTrueInsteadOfAssertEquals",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_logging-jakarta-commons.xml_UseCorrectExceptionLogging",
+      "patternId":"logging-jakarta-commons_UseCorrectExceptionLogging",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_logging-jakarta-commons.xml_ProperLogger",
+      "patternId":"logging-jakarta-commons_ProperLogger",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2065,7 +2065,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_logging-jakarta-commons.xml_GuardDebugLogging",
+      "patternId":"logging-jakarta-commons_GuardDebugLogging",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2080,7 +2080,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_logging-jakarta-commons.xml_GuardLogStatement",
+      "patternId":"logging-jakarta-commons_GuardLogStatement",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2095,7 +2095,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_logging-java.xml_MoreThanOneLogger",
+      "patternId":"logging-java_MoreThanOneLogger",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2110,22 +2110,22 @@
       ]
     },
     {
-      "patternId":"rulesets_java_logging-java.xml_LoggerIsNotStaticFinal",
+      "patternId":"logging-java_LoggerIsNotStaticFinal",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_logging-java.xml_SystemPrintln",
+      "patternId":"logging-java_SystemPrintln",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_logging-java.xml_AvoidPrintStackTrace",
+      "patternId":"logging-java_AvoidPrintStackTrace",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_logging-java.xml_GuardLogStatementJavaUtil",
+      "patternId":"logging-java_GuardLogStatementJavaUtil",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2140,62 +2140,62 @@
       ]
     },
     {
-      "patternId":"rulesets_java_migrating.xml_ReplaceVectorWithList",
+      "patternId":"migrating_ReplaceVectorWithList",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_ReplaceHashtableWithMap",
+      "patternId":"migrating_ReplaceHashtableWithMap",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_ReplaceEnumerationWithIterator",
+      "patternId":"migrating_ReplaceEnumerationWithIterator",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_IntegerInstantiation",
+      "patternId":"migrating_IntegerInstantiation",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_ByteInstantiation",
+      "patternId":"migrating_ByteInstantiation",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_ShortInstantiation",
+      "patternId":"migrating_ShortInstantiation",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_LongInstantiation",
+      "patternId":"migrating_LongInstantiation",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_JUnit4TestShouldUseBeforeAnnotation",
+      "patternId":"migrating_JUnit4TestShouldUseBeforeAnnotation",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_JUnit4TestShouldUseAfterAnnotation",
+      "patternId":"migrating_JUnit4TestShouldUseAfterAnnotation",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_JUnit4TestShouldUseTestAnnotation",
+      "patternId":"migrating_JUnit4TestShouldUseTestAnnotation",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_JUnit4SuitesShouldUseSuiteAnnotation",
+      "patternId":"migrating_JUnit4SuitesShouldUseSuiteAnnotation",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_migrating.xml_JUnitUseExpected",
+      "patternId":"migrating_JUnitUseExpected",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2210,7 +2210,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_AvoidCatchingThrowable",
+      "patternId":"strictexception_AvoidCatchingThrowable",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2225,7 +2225,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_SignatureDeclareThrowsException",
+      "patternId":"strictexception_SignatureDeclareThrowsException",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2240,7 +2240,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_ExceptionAsFlowControl",
+      "patternId":"strictexception_ExceptionAsFlowControl",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2255,52 +2255,52 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_AvoidCatchingNPE",
+      "patternId":"strictexception_AvoidCatchingNPE",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_AvoidThrowingRawExceptionTypes",
+      "patternId":"strictexception_AvoidThrowingRawExceptionTypes",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_AvoidThrowingNullPointerException",
+      "patternId":"strictexception_AvoidThrowingNullPointerException",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_AvoidRethrowingException",
+      "patternId":"strictexception_AvoidRethrowingException",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_DoNotExtendJavaLangError",
+      "patternId":"strictexception_DoNotExtendJavaLangError",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_DoNotThrowExceptionInFinally",
+      "patternId":"strictexception_DoNotThrowExceptionInFinally",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_AvoidThrowingNewInstanceOfSameException",
+      "patternId":"strictexception_AvoidThrowingNewInstanceOfSameException",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_AvoidCatchingGenericException",
+      "patternId":"strictexception_AvoidCatchingGenericException",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strictexception.xml_AvoidLosingExceptionInformation",
+      "patternId":"strictexception_AvoidLosingExceptionInformation",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strings.xml_AvoidDuplicateLiterals",
+      "patternId":"strings_AvoidDuplicateLiterals",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2315,7 +2315,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_StringInstantiation",
+      "patternId":"strings_StringInstantiation",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2330,7 +2330,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_StringToString",
+      "patternId":"strings_StringToString",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2345,7 +2345,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_InefficientStringBuffering",
+      "patternId":"strings_InefficientStringBuffering",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2360,7 +2360,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_UnnecessaryCaseChange",
+      "patternId":"strings_UnnecessaryCaseChange",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2375,7 +2375,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_UseStringBufferLength",
+      "patternId":"strings_UseStringBufferLength",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2390,7 +2390,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_AppendCharacterWithChar",
+      "patternId":"strings_AppendCharacterWithChar",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2405,7 +2405,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_ConsecutiveAppendsShouldReuse",
+      "patternId":"strings_ConsecutiveAppendsShouldReuse",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2420,7 +2420,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_ConsecutiveLiteralAppends",
+      "patternId":"strings_ConsecutiveLiteralAppends",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2435,7 +2435,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_UseIndexOfChar",
+      "patternId":"strings_UseIndexOfChar",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2450,7 +2450,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_InefficientEmptyStringCheck",
+      "patternId":"strings_InefficientEmptyStringCheck",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2465,7 +2465,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_InsufficientStringBufferDeclaration",
+      "patternId":"strings_InsufficientStringBufferDeclaration",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2480,7 +2480,7 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_UselessStringValueOf",
+      "patternId":"strings_UselessStringValueOf",
       "level":"Warning",
       "category":"ErrorProne",
       "parameters":[
@@ -2495,17 +2495,17 @@
       ]
     },
     {
-      "patternId":"rulesets_java_strings.xml_StringBufferInstantiationWithChar",
+      "patternId":"strings_StringBufferInstantiationWithChar",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strings.xml_UseEqualsToCompareStrings",
+      "patternId":"strings_UseEqualsToCompareStrings",
       "level":"Warning",
       "category":"ErrorProne"
     },
     {
-      "patternId":"rulesets_java_strings.xml_AvoidStringBufferField",
+      "patternId":"strings_AvoidStringBufferField",
       "level":"Warning",
       "category":"ErrorProne"
     }

@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_controversial.xml_AvoidAccessibilityAlteration
+//#Patterns: controversial_AvoidAccessibilityAlteration
 
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
@@ -9,26 +9,26 @@ public class Violation {
 
             // Possible call to forbidden getDeclaredConstructors
             Class[] arrayOfClass = new Class[1];
-            //#Err: rulesets_java_controversial.xml_AvoidAccessibilityAlteration
+            //#Err: controversial_AvoidAccessibilityAlteration
             this.getClass().getDeclaredConstructors();
-            //#Err: rulesets_java_controversial.xml_AvoidAccessibilityAlteration
+            //#Err: controversial_AvoidAccessibilityAlteration
             this.getClass().getDeclaredConstructor(arrayOfClass);
             Class clazz = this.getClass();
-            //#Err: rulesets_java_controversial.xml_AvoidAccessibilityAlteration
+            //#Err: controversial_AvoidAccessibilityAlteration
             clazz.getDeclaredConstructor(arrayOfClass);
-            //#Err: rulesets_java_controversial.xml_AvoidAccessibilityAlteration
+            //#Err: controversial_AvoidAccessibilityAlteration
             clazz.getDeclaredConstructors();
 
-            //#Err: rulesets_java_controversial.xml_AvoidAccessibilityAlteration
+            //#Err: controversial_AvoidAccessibilityAlteration
             clazz.getMethod("", arrayOfClass).setAccessible(false);
-            //#Err: rulesets_java_controversial.xml_AvoidAccessibilityAlteration
+            //#Err: controversial_AvoidAccessibilityAlteration
             AccessibleObject.setAccessible(null, false);
             Method.setAccessible(null, false);
             Method[] methodsArray = clazz.getMethods();
             int nbMethod;
 
             for ( nbMethod = 0; nbMethod < methodsArray.length; nbMethod++  ) {
-                //#Err: rulesets_java_controversial.xml_AvoidAccessibilityAlteration
+                //#Err: controversial_AvoidAccessibilityAlteration
                 methodsArray[nbMethod].setAccessible(false);
             }
             

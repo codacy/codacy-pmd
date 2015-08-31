@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_design.xml_UseUtilityClass
+//#Patterns: design_UseUtilityClass
 
-//#Info: rulesets_java_design.xml_UseUtilityClass
+//#Info: design_UseUtilityClass
 public class MaybeAUtility {
   public static void foo() {}
   public static void bar() {}

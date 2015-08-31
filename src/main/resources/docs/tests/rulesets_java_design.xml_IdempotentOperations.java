@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_design.xml_IdempotentOperations
+//#Patterns: design_IdempotentOperations
       
 public class Foo {
  public void bar() {
   int x = 2;
-  //#Info: rulesets_java_design.xml_IdempotentOperations
+  //#Info: design_IdempotentOperations
   x = x;
  }
 }

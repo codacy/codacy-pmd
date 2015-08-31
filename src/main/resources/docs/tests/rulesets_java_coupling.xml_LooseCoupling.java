@@ -1,11 +1,11 @@
-//#Patterns: rulesets_java_coupling.xml_LooseCoupling
+//#Patterns: coupling_LooseCoupling
 public class Foo {
 
 
-	//#Warn: rulesets_java_coupling.xml_LooseCoupling
+	//#Warn: coupling_LooseCoupling
 	private ArrayList list = new ArrayList();
 
-    //#Warn: rulesets_java_coupling.xml_LooseCoupling
+    //#Warn: coupling_LooseCoupling
 	public HashSet getFoo() {
 
         return new HashSet();

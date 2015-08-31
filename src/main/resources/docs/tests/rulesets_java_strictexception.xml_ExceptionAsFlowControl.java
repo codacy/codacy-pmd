@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_strictexception.xml_ExceptionAsFlowControl
+//#Patterns: strictexception_ExceptionAsFlowControl
 
 public class Foo {
 
@@ -9,7 +9,7 @@ public class Foo {
                 throw new WrapperException(e);
                  // this is essentially a GOTO to the WrapperException catch block
                  }
-            //#Warn: rulesets_java_strictexception.xml_ExceptionAsFlowControl
+            //#Warn: strictexception_ExceptionAsFlowControl
         } catch (WrapperException e) {
         // do some more stuff
         }

@@ -50,10 +50,10 @@ object PmdJava extends Tool {
     }
   }
 
-  //"Java Logging" -> "logging-java" -> rulesets_java_logging-java.xml_GuardLogStatementJavaUtil
+  //"Java Logging" -> "logging-java" -> logging-java_GuardLogStatementJavaUtil
   private[this] def patternIdByRuleNameAndRuleSet(ruleName: String, ruleSet: String)(implicit spec: Spec): Option[PatternId] = {
     RuleSets.byRuleSetName(ruleSet).flatMap { ruleSet =>
-      val patternId = PatternId(s"rulesets_java_$ruleSet.xml_$ruleName")
+      val patternId = PatternId(s"${ruleSet}_$ruleName")
       spec.patterns.collectFirst { case patternDef if patternDef.patternId == patternId => patternDef.patternId }
     }
   }
@@ -125,7 +125,10 @@ object PmdJava extends Tool {
     ))
   }
 
-  private[this] def patternNameById(patternId: PatternId): String = patternId.value.replace('_', '/')
+  private[this] def patternNameById(patternId: PatternId): String = patternId.value.split("_") match {
+    case Array(patternCategory, patternName) => s"""rulesets/java/$patternCategory.xml/$patternName"""
+    case _ => ""
+  }
 
   private[this] def generateRule(patternDef: PatternDef): Elem = {
     val xmlProperties = patternDef.parameters.map(_.map(generateParameter)).getOrElse(Set.empty)

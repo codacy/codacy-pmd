@@ -1,10 +1,10 @@
-//#Patterns: rulesets_java_controversial.xml_AvoidFinalLocalVariable
+//#Patterns: controversial_AvoidFinalLocalVariable
 
 public class Foo {
 
     public void bar() {
         
-        //#Err: rulesets_java_controversial.xml_AvoidFinalLocalVariable
+        //#Err: controversial_AvoidFinalLocalVariable
         final String simple;
         String hello;
     }

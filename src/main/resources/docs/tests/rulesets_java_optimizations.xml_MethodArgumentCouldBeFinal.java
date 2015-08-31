@@ -1,7 +1,7 @@
-//#Patterns:  rulesets_java_optimizations.xml_MethodArgumentCouldBeFinal
+//#Patterns:  optimizations_MethodArgumentCouldBeFinal
 public class Foo {
 
-    //#Err: rulesets_java_optimizations.xml_MethodArgumentCouldBeFinal
+    //#Err: optimizations_MethodArgumentCouldBeFinal
     public void bar(int i) {
         //do something here
     }

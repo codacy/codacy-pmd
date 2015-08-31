@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_empty.xml_EmptyInitializer
+//#Patterns: empty_EmptyInitializer
 
 public class Foo {
-        //#Warn: rulesets_java_empty.xml_EmptyInitializer
+        //#Warn: empty_EmptyInitializer
         static {}
 
-        //#Warn: rulesets_java_empty.xml_EmptyInitializer
+        //#Warn: empty_EmptyInitializer
         {}
 }

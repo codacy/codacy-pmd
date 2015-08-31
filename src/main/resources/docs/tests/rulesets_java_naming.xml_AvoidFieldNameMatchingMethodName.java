@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_naming.xml_AvoidFieldNameMatchingMethodName
+//#Patterns: naming_AvoidFieldNameMatchingMethodName
 public class Foo {
-	//#Info: rulesets_java_naming.xml_AvoidFieldNameMatchingMethodName
+	//#Info: naming_AvoidFieldNameMatchingMethodName
 	Object bar;
     public void bar() {
 	}

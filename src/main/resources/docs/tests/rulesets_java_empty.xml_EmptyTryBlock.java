@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_empty.xml_EmptyTryBlock
+//#Patterns: empty_EmptyTryBlock
 
 public class Foo {
     public void bar() {
-        //#Warn: rulesets_java_empty.xml_EmptyTryBlock
+        //#Warn: empty_EmptyTryBlock
         try {  } catch(Exception e) {
             e.printStackTrace();
         }

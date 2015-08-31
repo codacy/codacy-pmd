@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_migrating.xml_JUnit4TestShouldUseBeforeAnnotation
+//#Patterns: migrating_JUnit4TestShouldUseBeforeAnnotation
 public class MyTest {
-//#Warn: rulesets_java_migrating.xml_JUnit4TestShouldUseBeforeAnnotation
+//#Warn: migrating_JUnit4TestShouldUseBeforeAnnotation
     public void setUp() {
         bad();
     }

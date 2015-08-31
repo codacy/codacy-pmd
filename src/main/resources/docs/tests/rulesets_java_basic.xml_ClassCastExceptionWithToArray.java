@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_basic.xml_ClassCastExceptionWithToArray
+//#Patterns: basic_ClassCastExceptionWithToArray
 public class Foo {
     public void bar() {
 
@@ -7,7 +7,7 @@ public class Foo {
 		c.add(obj);
 
 		    
-		//#Err: rulesets_java_basic.xml_ClassCastExceptionWithToArray
+		//#Err: basic_ClassCastExceptionWithToArray
 		Integer[] a = (Integer [])c.toArray();
 
 		   // this is fine and will not trigger the rule

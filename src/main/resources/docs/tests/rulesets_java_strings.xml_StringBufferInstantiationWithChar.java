@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_strings.xml_StringBufferInstantiationWithChar
+//#Patterns: strings_StringBufferInstantiationWithChar
 public class Foo {
     public void bar() {
-        //#Warn: rulesets_java_strings.xml_StringBufferInstantiationWithChar
+        //#Warn: strings_StringBufferInstantiationWithChar
         StringBuffer output = new StringBuffer('a');
     }
 }

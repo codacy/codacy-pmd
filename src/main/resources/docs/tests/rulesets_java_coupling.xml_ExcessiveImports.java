@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_coupling.xml_ExcessiveImports: { "minimum": "3"}
+//#Patterns: coupling_ExcessiveImports: { "minimum": "3"}
 
-//#Warn: rulesets_java_coupling.xml_ExcessiveImports
+//#Warn: coupling_ExcessiveImports
 import blah.blah.Baz1;
 import blah.blah.Bzz2;
 import blah.blah.Baa3;

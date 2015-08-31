@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_logging-java.xml_MoreThanOneLogger
+//#Patterns: logging-java_MoreThanOneLogger
 
-//#Warn: rulesets_java_logging-java.xml_MoreThanOneLogger
+//#Warn: logging-java_MoreThanOneLogger
 public class Foo {
     Logger log = Logger.getLogger(Foo.class.getName());
     // It is very rare to see two loggers on a class, normally

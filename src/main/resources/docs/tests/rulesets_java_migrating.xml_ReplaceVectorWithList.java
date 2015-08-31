@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_migrating.xml_ReplaceVectorWithList
+//#Patterns: migrating_ReplaceVectorWithList
 
 public class Foo {
     void bar() {
-        //#Warn: rulesets_java_migrating.xml_ReplaceVectorWithList
+        //#Warn: migrating_ReplaceVectorWithList
         Vector v = new Vector();
     }
 }

@@ -1,5 +1,5 @@
-//#Patterns: rulesets_java_design.xml_ClassWithOnlyPrivateConstructorsShouldBeFinal
-//#Info: rulesets_java_design.xml_ClassWithOnlyPrivateConstructorsShouldBeFinal
+//#Patterns: design_ClassWithOnlyPrivateConstructorsShouldBeFinal
+//#Info: design_ClassWithOnlyPrivateConstructorsShouldBeFinal
 public class Foo {
     private Foo() {
     }

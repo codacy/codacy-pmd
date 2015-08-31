@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_codesize.xml_ExcessivePublicCount : { "minimum": "5" }
+//#Patterns: codesize_ExcessivePublicCount : { "minimum": "5" }
 
-//#Err: rulesets_java_codesize.xml_ExcessivePublicCount
+//#Err: codesize_ExcessivePublicCount
 public class Foo {
     public String value;
     public Bar something;

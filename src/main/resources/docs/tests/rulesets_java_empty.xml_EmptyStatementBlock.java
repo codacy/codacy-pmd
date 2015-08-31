@@ -1,10 +1,10 @@
-//#Patterns: rulesets_java_empty.xml_EmptyStatementBlock
+//#Patterns: empty_EmptyStatementBlock
 
 public class Foo {
     private int _bar;
 
     public void lorem(int var) {
-        //#Warn: rulesets_java_empty.xml_EmptyStatementBlock
+        //#Warn: empty_EmptyStatementBlock
         {}
 
         {_bar = var;} //this is okay

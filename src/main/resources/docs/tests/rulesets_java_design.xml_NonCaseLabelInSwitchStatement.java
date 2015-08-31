@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_NonCaseLabelInSwitchStatement
+//#Patterns: design_NonCaseLabelInSwitchStatement
 
 public class Foo {
   void bar(int a) {
@@ -6,7 +6,7 @@ public class Foo {
      case 1:
        // do something
        break;
-       //#Err: rulesets_java_design.xml_NonCaseLabelInSwitchStatement
+       //#Err: design_NonCaseLabelInSwitchStatement
      mylabel: // this is legal, but confusing!
        break;
      default:

@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_controversial.xml_UseObjectForClearerAPI
+//#Patterns: controversial_UseObjectForClearerAPI
 
 public class MyClass {
-    //#Info: rulesets_java_controversial.xml_UseObjectForClearerAPI
+    //#Info: controversial_UseObjectForClearerAPI
     public void connect(String username,
         String pssd,
         String databaseName,

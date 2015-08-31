@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_naming.xml_MethodNamingConventions
+//#Patterns: naming_MethodNamingConventions
 public class Foo {
-    //#Info: rulesets_java_naming.xml_MethodNamingConventions
+    //#Info: naming_MethodNamingConventions
     public void Bar() {
     }
     public void boo() {

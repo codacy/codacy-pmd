@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_imports.xml_UnusedImports
+//#Patterns: imports_UnusedImports
 
 // this is bad
-//#Warn: rulesets_java_imports.xml_UnusedImports
+//#Warn: imports_UnusedImports
 import java.io.File;
 public class Foo {}

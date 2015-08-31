@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_codesize.xml_TooManyFields
+//#Patterns: codesize_TooManyFields
 
-//#Info: rulesets_java_codesize.xml_TooManyFields
+//#Info: codesize_TooManyFields
 public class Foo {
     int birthYear;
     int birthMonth;

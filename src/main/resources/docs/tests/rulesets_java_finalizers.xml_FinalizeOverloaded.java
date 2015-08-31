@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_finalizers.xml_FinalizeOverloaded
+//#Patterns: finalizers_FinalizeOverloaded
 
 public class Foo {
-    //#Err: rulesets_java_finalizers.xml_FinalizeOverloaded
+    //#Err: finalizers_FinalizeOverloaded
     protected void finalize(int a) {  }
 
     protected void finalize() {  }

@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_basic.xml_AvoidBranchingStatementAsLastInLoop
+//#Patterns: basic_AvoidBranchingStatementAsLastInLoop
 public class Foo {
 
     public void bar() {
@@ -8,7 +8,7 @@ public class Foo {
             if (i * i <= 25) {
                 continue;
             }
-            //#Err: rulesets_java_basic.xml_AvoidBranchingStatementAsLastInLoop
+            //#Err: basic_AvoidBranchingStatementAsLastInLoop
             break;
         }
 

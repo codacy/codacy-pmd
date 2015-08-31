@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_unnecessary.xml_UnnecessaryReturn
+//#Patterns: unnecessary_UnnecessaryReturn
 
 public class Foo {
     public void bar() {
-        //#Info: rulesets_java_unnecessary.xml_UnnecessaryReturn
+        //#Info: unnecessary_UnnecessaryReturn
         return;
     }
 }

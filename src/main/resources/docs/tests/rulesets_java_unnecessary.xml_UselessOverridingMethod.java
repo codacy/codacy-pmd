@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_unnecessary.xml_UselessOverridingMethod
+//#Patterns: unnecessary_UselessOverridingMethod
 
 public class Foo {
     
-    //#Warn: rulesets_java_unnecessary.xml_UselessOverridingMethod
+    //#Warn: unnecessary_UselessOverridingMethod
     public String foo() {
         return super.foo();
     }

@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_sunsecure.xml_ArrayIsStoredDirectly
+//#Patterns: sunsecure_ArrayIsStoredDirectly
     public class Foo {
         private String [] x;
 
-        //#Err: rulesets_java_sunsecure.xml_ArrayIsStoredDirectly
+        //#Err: sunsecure_ArrayIsStoredDirectly
         public void foo (String [] param) { //wrong
 
             this.x = param;

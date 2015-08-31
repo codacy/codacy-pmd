@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_migrating.xml_LongInstantiation
+//#Patterns: migrating_LongInstantiation
 public class Foo {
-    //#Warn: rulesets_java_migrating.xml_LongInstantiation
+    //#Warn: migrating_LongInstantiation
     private Long i = new Long(0);
     // change to Long i = Long.valueOf(0);
 

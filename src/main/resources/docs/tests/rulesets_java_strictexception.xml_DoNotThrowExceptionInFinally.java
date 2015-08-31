@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_strictexception.xml_DoNotThrowExceptionInFinally
+//#Patterns: strictexception_DoNotThrowExceptionInFinally
 
 public class Foo {
     public void bar() {
@@ -6,7 +6,7 @@ public class Foo {
 
         } catch( Exception e) {
             // Handling the issue
-        //#Warn: rulesets_java_strictexception.xml_DoNotThrowExceptionInFinally
+        //#Warn: strictexception_DoNotThrowExceptionInFinally
         } finally {
             // is this really a good idea ?
             throw new Exception();

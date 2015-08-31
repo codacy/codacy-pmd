@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_empty.xml_EmptyStaticInitializer 
+//#Patterns: empty_EmptyStaticInitializer
 
 public class Foo {
-    //#Warn: rulesets_java_empty.xml_EmptyStaticInitializer
+    //#Warn: empty_EmptyStaticInitializer
     static {
     }
 }

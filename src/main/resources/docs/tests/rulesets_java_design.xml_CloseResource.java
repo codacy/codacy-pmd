@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_design.xml_CloseResource
+//#Patterns: design_CloseResource
 
 public class Bar {
     public void foo() {
-        //#Err: rulesets_java_design.xml_CloseResource
+        //#Err: design_CloseResource
         Connection c = pool.getConnection();
         try {
             // do stuff

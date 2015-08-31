@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_basic.xml_ReturnFromFinallyBlock
+//#Patterns: basic_ReturnFromFinallyBlock
 
 public class Bar {
     public String foo() {
@@ -7,7 +7,7 @@ public class Bar {
         } catch (Exception e) {
             throw e;
         } finally {
-            //#Err: rulesets_java_basic.xml_ReturnFromFinallyBlock
+            //#Err: basic_ReturnFromFinallyBlock
             return "A. O. K."; // return not recommended here
         }
     }

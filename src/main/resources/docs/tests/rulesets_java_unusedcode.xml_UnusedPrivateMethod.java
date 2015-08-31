@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_unusedcode.xml_UnusedPrivateMethod
+//#Patterns: unusedcode_UnusedPrivateMethod
 
 public class Something {
-    //#Warn: rulesets_java_unusedcode.xml_UnusedPrivateMethod
+    //#Warn: unusedcode_UnusedPrivateMethod
     private void foo() {
         System.out.print("This private method is NOT called!");
     } // unused

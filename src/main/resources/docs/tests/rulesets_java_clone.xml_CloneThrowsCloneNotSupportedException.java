@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_clone.xml_CloneThrowsCloneNotSupportedException
+//#Patterns: clone_CloneThrowsCloneNotSupportedException
 
 public class Foo implements Cloneable {
 
-    //#Err: rulesets_java_clone.xml_CloneThrowsCloneNotSupportedException
+    //#Err: clone_CloneThrowsCloneNotSupportedException
     public Object clone() {
         Foo clone = (Foo)super.clone();
         return clone;

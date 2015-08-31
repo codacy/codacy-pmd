@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_strictexception.xml_AvoidThrowingNullPointerException
+//#Patterns: strictexception_AvoidThrowingNullPointerException
 
 public class Foo {
-    //#Warn: rulesets_java_strictexception.xml_AvoidThrowingNullPointerException
+    //#Warn: strictexception_AvoidThrowingNullPointerException
     void bar() { throw new NullPointerException(); }
 }
 

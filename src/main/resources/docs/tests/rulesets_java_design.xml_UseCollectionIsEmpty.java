@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_UseCollectionIsEmpty
+//#Patterns: design_UseCollectionIsEmpty
 
 public class Foo {
 	void good() {
@@ -10,7 +10,7 @@ public class Foo {
 
 	void bad() {
 		List foo = getList();
-//#Info: rulesets_java_design.xml_UseCollectionIsEmpty
+//#Info: design_UseCollectionIsEmpty
 		if (foo.size() == 0) {
 				// blah
 		}

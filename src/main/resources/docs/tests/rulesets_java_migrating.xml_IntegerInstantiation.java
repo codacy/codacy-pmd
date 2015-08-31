@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_migrating.xml_IntegerInstantiation
+//#Patterns: migrating_IntegerInstantiation
 public class Foo {
     public void bar() {
-        //#Warn: rulesets_java_migrating.xml_IntegerInstantiation
+        //#Warn: migrating_IntegerInstantiation
         new Integer("a");
     }
 }

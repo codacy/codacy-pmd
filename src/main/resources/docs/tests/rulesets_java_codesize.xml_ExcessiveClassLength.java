@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_codesize.xml_ExcessiveClassLength
+//#Patterns: codesize_ExcessiveClassLength
 
-//#Info: rulesets_java_codesize.xml_ExcessiveClassLength
+//#Info: codesize_ExcessiveClassLength
 public class Foo {
     
     public void bar() {

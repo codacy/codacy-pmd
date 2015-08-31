@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_controversial.xml_AtLeastOneConstructor
+//#Patterns: controversial_AtLeastOneConstructor
 
-//#Info: rulesets_java_controversial.xml_AtLeastOneConstructor
+//#Info: controversial_AtLeastOneConstructor
 public class Foo {
 
 }

@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_PreserveStackTrace
+//#Patterns: design_PreserveStackTrace
 
 public class Foo {
     void good() {
@@ -17,7 +17,7 @@ public class Foo {
         try{
             Integer.parseInt("a");
         } catch (Exception e) {
-			//#Info: rulesets_java_design.xml_PreserveStackTrace
+			//#Info: design_PreserveStackTrace
             throw new Exception(e.getMessage());
         }
     }

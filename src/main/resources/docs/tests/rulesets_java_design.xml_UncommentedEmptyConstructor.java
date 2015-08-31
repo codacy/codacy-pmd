@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_design.xml_UncommentedEmptyConstructor
+//#Patterns: design_UncommentedEmptyConstructor
 public class Foo {
 
 	public Foo() {
@@ -8,7 +8,7 @@ public class Foo {
 
 public class Bar {
 
-	//#Info: rulesets_java_design.xml_UncommentedEmptyConstructor
+	//#Info: design_UncommentedEmptyConstructor
 	public Bar() {
 	}
 }

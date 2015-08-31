@@ -1,5 +1,5 @@
-//#Patterns: rulesets_java_imports.xml_DontImportJavaLang
-//#Warn: rulesets_java_imports.xml_DontImportJavaLang
+//#Patterns: imports_DontImportJavaLang
+//#Warn: imports_DontImportJavaLang
 import java.lang.String;	// this is unnecessary
 
 public class Foo {}

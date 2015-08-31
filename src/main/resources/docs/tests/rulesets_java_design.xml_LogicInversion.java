@@ -1,13 +1,13 @@
-//#Patterns: rulesets_java_design.xml_LogicInversion
+//#Patterns: design_LogicInversion
 public class Foo {
 
 public boolean bar(int a, int b) {
 
-//#Err: rulesets_java_design.xml_LogicInversion
+//#Err: design_LogicInversion
 	if (!(a == b)) // use !=
          return false;
 
-//#Err: rulesets_java_design.xml_LogicInversion
+//#Err: design_LogicInversion
 	if (!(a < b)) // use >=
          return false;
 

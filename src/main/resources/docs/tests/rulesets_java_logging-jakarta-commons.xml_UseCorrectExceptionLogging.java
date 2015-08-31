@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_logging-jakarta-commons.xml_UseCorrectExceptionLogging
+//#Patterns: logging-jakarta-commons_UseCorrectExceptionLogging
 
 public class Main {
     private static final Log _LOG = LogFactory.getLog( Main.class );
@@ -7,7 +7,7 @@ public class Main {
         try {
 
         } catch( Exception e ) {
-            //#Warn: rulesets_java_logging-jakarta-commons.xml_UseCorrectExceptionLogging
+            //#Warn: logging-jakarta-commons_UseCorrectExceptionLogging
             _LOG.error( e ); //Wrong!
 
         } catch( OtherException oe ) {

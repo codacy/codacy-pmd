@@ -1,10 +1,10 @@
-//#Patterns: rulesets_java_migrating.xml_ByteInstantiation
+//#Patterns: migrating_ByteInstantiation
 
 public class Foo {
 
     public void bar() {
 
-            //#Warn: rulesets_java_migrating.xml_ByteInstantiation
+            //#Warn: migrating_ByteInstantiation
 			new Byte("a");
     }
 

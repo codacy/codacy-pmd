@@ -1,5 +1,5 @@
-//#Patterns: rulesets_java_naming.xml_NoPackage
-//#Info: rulesets_java_naming.xml_NoPackage
+//#Patterns: naming_NoPackage
+//#Info: naming_NoPackage
 public class Foo {
 
 }

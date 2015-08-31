@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_unusedcode.xml_UnusedPrivateField
+//#Patterns: unusedcode_UnusedPrivateField
 
 public class UnusedPrivateField {
-    //#Warn: rulesets_java_unusedcode.xml_UnusedPrivateField
+    //#Warn: unusedcode_UnusedPrivateField
     private int bla;
 
     private static int foo = 1;

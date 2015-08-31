@@ -1,11 +1,11 @@
-//#Patterns: rulesets_java_basic.xml_CheckSkipResult
+//#Patterns: basic_CheckSkipResult
 public class Foo {
 
     private java.io.FileInputStream _s;
 
     public void skip(int n) throws IOException {
         _s = new FileInputStream("file");
-        //#Err: rulesets_java_basic.xml_CheckSkipResult
+        //#Err: basic_CheckSkipResult
         _s.skip(n); // You are not sure that exactly n bytes are skipped
     }
 

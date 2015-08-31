@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_design.xml_UseVarargs
+//#Patterns: design_UseVarargs
 public class Foo {
-	//#Info: rulesets_java_design.xml_UseVarargs
+	//#Info: design_UseVarargs
    void fooo(String s, Object[] args) {
       // Do something here...
    }

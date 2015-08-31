@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_migrating.xml_JUnit4SuitesShouldUseSuiteAnnotation
+//#Patterns: migrating_JUnit4SuitesShouldUseSuiteAnnotation
 public class BadExample extends TestCase{
-//#Warn: rulesets_java_migrating.xml_JUnit4SuitesShouldUseSuiteAnnotation
+//#Warn: migrating_JUnit4SuitesShouldUseSuiteAnnotation
     public static Test suite(){
         return new Suite();
     }

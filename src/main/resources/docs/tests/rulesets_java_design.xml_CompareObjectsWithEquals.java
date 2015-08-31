@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_design.xml_CompareObjectsWithEquals
+//#Patterns: design_CompareObjectsWithEquals
 public class Foo {
 
     boolean soStuff(String a, String b) {
-        //#Err: rulesets_java_design.xml_CompareObjectsWithEquals
+        //#Err: design_CompareObjectsWithEquals
         return a == b;
     }
 }

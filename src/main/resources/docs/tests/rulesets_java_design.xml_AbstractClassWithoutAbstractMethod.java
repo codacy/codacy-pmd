@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_design.xml_AbstractClassWithoutAbstractMethod
+//#Patterns: design_AbstractClassWithoutAbstractMethod
 
-//#Info: rulesets_java_design.xml_AbstractClassWithoutAbstractMethod
+//#Info: design_AbstractClassWithoutAbstractMethod
 public abstract class Foo {
     int method1() {
         int i = 0;

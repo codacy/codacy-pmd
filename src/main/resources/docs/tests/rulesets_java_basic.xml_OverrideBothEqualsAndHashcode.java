@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_basic.xml_OverrideBothEqualsAndHashcode
+//#Patterns: basic_OverrideBothEqualsAndHashcode
 
 public class Bar {		// poor, missing a hashcode() method
 
-    //#Err: rulesets_java_basic.xml_OverrideBothEqualsAndHashcode
+    //#Err: basic_OverrideBothEqualsAndHashcode
     public boolean equals(Object o) {
         // do some comparison
     }
@@ -10,7 +10,7 @@ public class Bar {		// poor, missing a hashcode() method
 
 public class Baz {		// poor, missing an equals() method
 
-    //#Err: rulesets_java_basic.xml_OverrideBothEqualsAndHashcode
+    //#Err: basic_OverrideBothEqualsAndHashcode
     public int hashCode() {
         // return some hash value
     }

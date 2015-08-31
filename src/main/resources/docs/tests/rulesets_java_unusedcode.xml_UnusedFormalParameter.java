@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_unusedcode.xml_UnusedFormalParameter
+//#Patterns: unusedcode_UnusedFormalParameter
 public class Foo {
 
-    //#Warn: rulesets_java_unusedcode.xml_UnusedFormalParameter
+    //#Warn: unusedcode_UnusedFormalParameter
     private void bar(String howdy) {
         // howdy is not used
     }

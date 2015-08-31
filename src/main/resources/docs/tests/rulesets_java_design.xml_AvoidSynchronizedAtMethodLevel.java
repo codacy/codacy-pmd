@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_design.xml_AvoidSynchronizedAtMethodLevel
+//#Patterns: design_AvoidSynchronizedAtMethodLevel
 
 
 public class Foo {
   // Try to avoid this:
-	//#Err: rulesets_java_design.xml_AvoidSynchronizedAtMethodLevel
+	//#Err: design_AvoidSynchronizedAtMethodLevel
   synchronized void foo() {
   }
   // Prefer this:
@@ -13,7 +13,7 @@ public class Foo {
   }
 
   // Try to avoid this for static methods:
-  //#Err: rulesets_java_design.xml_AvoidSynchronizedAtMethodLevel
+  //#Err: design_AvoidSynchronizedAtMethodLevel
   static synchronized void fooStatic() {
   }
   

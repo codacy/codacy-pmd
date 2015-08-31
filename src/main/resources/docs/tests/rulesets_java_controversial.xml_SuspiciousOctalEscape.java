@@ -1,9 +1,9 @@
-//#Patterns: rulesets_java_controversial.xml_SuspiciousOctalEscape
+//#Patterns: controversial_SuspiciousOctalEscape
 
 public class Foo {
 
     public void bar() {
-        //#Err: rulesets_java_controversial.xml_SuspiciousOctalEscape
+        //#Err: controversial_SuspiciousOctalEscape
         System.out.println("suspicious: \128");
     }
 

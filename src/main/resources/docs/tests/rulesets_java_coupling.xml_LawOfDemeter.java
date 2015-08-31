@@ -1,4 +1,4 @@
-//#Patterns: rulesets_java_coupling.xml_LawOfDemeter
+//#Patterns: coupling_LawOfDemeter
 public class Foo {
     /**
      * This example will result in two violations.
@@ -10,11 +10,11 @@ public class Foo {
         // this method call is a violation, as we are using c, which we got from B.
         // We should ask b directly instead, e.g. "b.doItOnC();"
         
-        //#Warn: rulesets_java_coupling.xml_LawOfDemeter
+        //#Warn: coupling_LawOfDemeter
         c.doIt();
         
         // this is also a violation, just expressed differently as a method chain without temporary variables.
-        //#Warn: rulesets_java_coupling.xml_LawOfDemeter
+        //#Warn: coupling_LawOfDemeter
         b.getC().doIt();
         
         // a constructor call, not a method call.

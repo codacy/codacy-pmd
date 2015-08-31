@@ -1,8 +1,8 @@
-//#Patterns: rulesets_java_strictexception.xml_AvoidThrowingRawExceptionTypes
+//#Patterns: strictexception_AvoidThrowingRawExceptionTypes
 
 public class Foo {
     public void bar() throws Exception {
-        //#Warn: rulesets_java_strictexception.xml_AvoidThrowingRawExceptionTypes
+        //#Warn: strictexception_AvoidThrowingRawExceptionTypes
         throw new Exception();
     }
 }

@@ -1,6 +1,6 @@
-//#Patterns: rulesets_java_codesize.xml_TooManyMethods
+//#Patterns: codesize_TooManyMethods
 
-//#Info: rulesets_java_codesize.xml_TooManyMethods
+//#Info: codesize_TooManyMethods
 public class Foo {
     public void bar1() {  }
     public void bar2() {  }

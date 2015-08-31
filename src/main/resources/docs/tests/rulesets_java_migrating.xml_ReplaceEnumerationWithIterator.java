@@ -1,5 +1,5 @@
-//#Patterns: rulesets_java_migrating.xml_ReplaceEnumerationWithIterator
-//#Warn: rulesets_java_migrating.xml_ReplaceEnumerationWithIterator
+//#Patterns: migrating_ReplaceEnumerationWithIterator
+//#Warn: migrating_ReplaceEnumerationWithIterator
 public class Foo implements Enumeration {
     private int x = 42;
 

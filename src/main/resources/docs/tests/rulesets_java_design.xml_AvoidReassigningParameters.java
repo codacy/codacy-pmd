@@ -1,7 +1,7 @@
-//#Patterns: rulesets_java_design.xml_AvoidReassigningParameters
+//#Patterns: design_AvoidReassigningParameters
 
 public class Foo {
-//#Err: rulesets_java_design.xml_AvoidReassigningParameters
+//#Err: design_AvoidReassigningParameters
   private void foo(String bar) {
     bar = "something else";
   }

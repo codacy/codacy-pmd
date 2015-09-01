@@ -8,11 +8,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -23,11 +23,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -38,11 +38,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -53,11 +53,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"checkAll",
@@ -72,11 +72,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -97,11 +97,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -112,11 +112,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -137,11 +137,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -152,11 +152,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"strict",
@@ -171,11 +171,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -186,11 +186,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -201,11 +201,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -216,11 +216,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"checkReturnLoopTypes",
@@ -294,11 +294,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -309,11 +309,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -329,11 +329,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -344,11 +344,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -359,11 +359,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -384,11 +384,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -399,11 +399,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -456,11 +456,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -471,11 +471,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -486,11 +486,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -501,11 +501,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -516,11 +516,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -531,11 +531,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"minimum",
@@ -550,11 +550,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -565,11 +565,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -590,11 +590,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -615,11 +615,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -635,11 +635,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -650,11 +650,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -670,11 +670,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -685,11 +685,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -700,11 +700,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"allowIncrementDecrement",
@@ -736,11 +736,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -751,11 +751,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -766,11 +766,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -791,11 +791,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"problemDepth",
@@ -810,11 +810,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -825,11 +825,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -840,11 +840,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -865,11 +865,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -910,11 +910,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"ignoreElseIf",
@@ -934,11 +934,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -954,11 +954,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -984,11 +984,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"maxViolations",
@@ -1078,11 +1078,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1114,11 +1114,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1164,11 +1164,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1184,11 +1184,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"checkNonStaticFields",
@@ -1228,11 +1228,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1243,11 +1243,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1258,11 +1258,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1283,11 +1283,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"disallowNotAssignment",
@@ -1337,11 +1337,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"ignoreAnonymousClassDeclarations",
@@ -1405,11 +1405,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1420,11 +1420,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1440,11 +1440,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"ignoreAnnotations",
@@ -1459,11 +1459,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1519,11 +1519,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1534,11 +1534,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"minimum",
@@ -1553,11 +1553,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"minimum",
@@ -1572,11 +1572,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"minimum",
@@ -1591,11 +1591,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"minimum",
@@ -1610,11 +1610,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"showMethodsComplexity",
@@ -1637,11 +1637,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"minimum",
@@ -1656,11 +1656,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"maxfields",
@@ -1675,11 +1675,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"minimum",
@@ -1694,11 +1694,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"minimum",
@@ -1713,11 +1713,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"minimum",
@@ -1732,11 +1732,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         },
         {
           "name":"maxmethods",
@@ -1756,11 +1756,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1791,11 +1791,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1806,11 +1806,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1841,11 +1841,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1856,11 +1856,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1871,11 +1871,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1886,11 +1886,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1901,11 +1901,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1976,11 +1976,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -1991,11 +1991,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2031,11 +2031,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2056,11 +2056,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2071,11 +2071,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2086,11 +2086,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2101,11 +2101,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2131,11 +2131,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2201,11 +2201,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2216,11 +2216,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2231,11 +2231,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2246,11 +2246,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2306,11 +2306,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2321,11 +2321,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2336,11 +2336,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2351,11 +2351,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2366,11 +2366,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2381,11 +2381,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2396,11 +2396,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2411,11 +2411,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2426,11 +2426,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2441,11 +2441,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2456,11 +2456,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2471,11 +2471,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },
@@ -2486,11 +2486,11 @@
       "parameters":[
         {
           "name":"violationSuppressRegex",
-          "default":null
+          "default":""
         },
         {
           "name":"violationSuppressXPath",
-          "default":null
+          "default":""
         }
       ]
     },

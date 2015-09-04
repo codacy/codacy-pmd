@@ -1620,12 +1620,6 @@
     "timeToFix":5
   },
   {
-    "patternId":"clone_CloneMethodMustImplementCloneable",
-    "title":"Enforces the class to implement Cloneable interface when using clone()",
-    "description":"The method clone() should only be implemented if the class implements the Cloneable interface with the exception of a final method that only throws CloneNotSupportedException.",
-    "timeToFix":5
-  },
-  {
     "patternId":"finalizers_EmptyFinalizer",
     "title":"Prohibits the implementation of an empty Finalizer",
     "description":"Empty finalize methods serve no purpose and should be removed.",
@@ -2749,6 +2743,12 @@
     "patternId":"strings_AvoidStringBufferField",
     "title":"StringBuffers/StringBuilders can grow considerably, and so may become a source of memory leaks",
     "description":"StringBuffers/StringBuilders can grow considerably, and so may become a source of memory leaks if held within objects with long lifetimes.",
+    "timeToFix":5
+  },
+  {
+    "patternId":"typeresolution_CloneMethodMustImplementCloneable",
+    "title":"Enforces the class to implement Cloneable interface when using clone()",
+    "description":"The method clone() should only be implemented if the class implements the Cloneable interface with the exception of a final method that only throws CloneNotSupportedException.",
     "timeToFix":5
   }
 ]

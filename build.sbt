@@ -1,6 +1,4 @@
-import com.typesafe.sbt.packager.docker._
-
-resolvers += "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/"
+import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
 
 name := """codacy-engine-pmdjava"""
 
@@ -10,16 +8,16 @@ val languageVersion = "2.11.7"
 
 scalaVersion := languageVersion
 
+resolvers ++= Seq(
+  "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/",
+  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
+)
+
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.3.8" withSources(),
   "org.scala-lang.modules" %% "scala-xml" % "1.0.4" withSources(),
-  "com.codacy" %% "codacy-engine-scala-seed" % "1.1.0"
-
+  "com.codacy" %% "codacy-engine-scala-seed" % "1.4.0"
 )
-
-//lazy val root = project.in(file(".")).dependsOn(codacyEngine)
-
-//lazy val codacyEngine = uri("ssh://git@github.com/codacy/codacy-engine-scala-seed.git")
 
 enablePlugins(JavaAppPackaging)
 
@@ -45,7 +43,12 @@ mappings in Universal <++= (resourceDirectory in Compile) map { (resourceDir: Fi
   } yield path -> path.toString.replaceFirst(src.toString, dest)
 }
 
-daemonUser in Docker := "docker"
+val dockerUser = "docker"
+val dockerGroup = "docker"
+
+daemonUser in Docker := dockerUser
+
+daemonGroup in Docker := dockerGroup
 
 dockerBaseImage := "frolvlad/alpine-oraclejdk8"
 
@@ -55,7 +58,8 @@ dockerCommands := dockerCommands.value.flatMap {
   )
   case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
     Cmd("RUN", "mv /opt/docker/docs /docs"),
-    Cmd("RUN", "adduser -u 2004 -D docker")
+    Cmd("RUN", "adduser -u 2004 -D docker"),
+    ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
   )
   case other => List(other)
 }

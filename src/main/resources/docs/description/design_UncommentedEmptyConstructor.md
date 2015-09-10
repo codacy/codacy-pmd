@@ -3,19 +3,21 @@ It gives the reader a better understanding of the meaning of that empty construc
 
 Ex:
 
-    public class Bar {
+```
+public class Bar {
 
-        //Is this intentional? Why is this empty?
-        public Bar() {
-        }
-    }
+  //Is this intentional? Why is this empty?
+  public Bar() {
+  }
+}
 
-    public class Foo {
+public class Foo {
 
-        //This is a better approach
-        public Foo() {
-            // This constructor is intentionally empty. (or some motive) Nothing special is needed here.
-        }
-    }
+  //This is a better approach
+  public Foo() {
+    // This constructor is intentionally empty. (or some motive) Nothing special is needed here.
+  }
+}
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#UncommentedEmptyConstructor)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#UncommentedEmptyConstructor)

@@ -3,11 +3,13 @@ If the code formatting or indentation is lost then it becomes difficult to separ
 
 Ex:
 
-    while (true)	// not recommended
-        x++;
+```
+while (true)	// not recommended
+  x++;
 
-    while (true) {	// preferred approach
-        x++;
-    }
+while (true) {	// preferred approach
+  x++;
+}
+```
 
 [Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/braces.html#WhileLoopsMustUseBraces)

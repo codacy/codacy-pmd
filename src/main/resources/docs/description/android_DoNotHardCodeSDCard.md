@@ -1,8 +1,9 @@
-Use Environment.getExternalStorageDirectory() instead of “/sdcard”
+Use `Environment.getExternalStorageDirectory()` instead of `/sdcard`
 
 Ex:
 
-   
+
+```
 public class MyActivity extends Activity {
 	protected void foo() {
 		String storageLocation = "/sdcard/mypackage";	// hard-coded, poor approach
@@ -10,6 +11,6 @@ public class MyActivity extends Activity {
 		storageLocation = Environment.getExternalStorageDirectory() + "/mypackage"; // preferred approach
 	}
 }
+```
 
-
-[SOURCE](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/android.html#DoNotHardCodeSDCard)
+[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/android.html#DoNotHardCodeSDCard)

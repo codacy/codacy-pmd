@@ -1,8 +1,9 @@
-The skip() method may skip a smaller number of bytes than requested.
+The `skip()` method may skip a smaller number of bytes than requested.
 Check the returned value to find out if it was the case or not.
 
 Ex:
 
+```
     public class Foo {
 
        private FileInputStream _s = new FileInputStream("file");
@@ -20,5 +21,6 @@ Ex:
           }
        }
     }
+```
 
 [Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#CheckSkipResult)

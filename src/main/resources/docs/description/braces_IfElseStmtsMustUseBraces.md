@@ -3,19 +3,20 @@ If the code formatting or indentation is lost then it becomes difficult to separ
 
 Ex:
 
-       // this is OK
-    if (foo) {
-           x = x+1;
-    }
-    else {
-           x = x-1;
-    }
+```
+// this is OK
+if (foo) {
+  x = x+1;
+}
+else {
+  x = x-1;
+}
 
-
-       // but this is not
-    if (foo)
-           x = x+1;
-       else
-           x = x-1;
+// but this is not
+if (foo)
+  x = x+1;
+else
+  x = x-1;
+```
 
 [Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/braces.html#IfElseStmtsMustUseBraces)

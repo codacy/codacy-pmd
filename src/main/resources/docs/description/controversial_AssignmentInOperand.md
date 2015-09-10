@@ -4,11 +4,13 @@ The compilers are the experts on optimizations and little tricks, produce the co
 
 Ex:
 
-    public void bar() {
-        int x = 2;
-        if ((x = getX()) == 3) {
-          System.out.println("3!");
-        }
-    }
+```
+public void bar() {
+  int x = 2;
+  if ((x = getX()) == 3) {
+    System.out.println("3!");
+  }
+}
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#AssignmentInOperand)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#AssignmentInOperand)

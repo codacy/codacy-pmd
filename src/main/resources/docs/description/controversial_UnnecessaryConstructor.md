@@ -2,8 +2,10 @@ This rule detects when a constructor is not necessary; i.e., when there is only 
 
 Ex:
 
-  	public class Foo { 
-  		public Foo() { } 
-  	}
+```
+public class Foo {
+  public Foo() { }
+}
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#UnnecessaryConstructor)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#UnnecessaryConstructor)

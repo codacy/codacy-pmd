@@ -2,15 +2,17 @@ Java allows the use of several variables declaration of the same type on one lin
 
 Ex:
 
-	// separate declarations
-  	String name; 
-  	String lastname; 
-  	
-  	// combined declaration, a violation
-  	String name, lastname;  
-  	
-  	// combined declaration on multiple lines, no violation.
-  	String name, 
-  			 lastname;
+```
+// separate declarations
+String name;
+String lastname;
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OneDeclarationPerLine)
+// combined declaration, a violation
+String name, lastname;  
+
+// combined declaration on multiple lines, no violation.
+String name,
+lastname;
+```
+
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OneDeclarationPerLine)

@@ -2,6 +2,7 @@ Avoid jumbled loop incrementers - its usually a mistake, and is confusing even i
 
 Ex:
 
+```
     public class JumbledIncrementerRule1 {
         public void foo() {
             for (int i = 0; i < 10; i++) {			// only references 'i'
@@ -11,5 +12,6 @@ Ex:
             }
         }
     }
+```
 
  [Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#JumbledIncrementer)

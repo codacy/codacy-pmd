@@ -3,25 +3,27 @@ Block-level synchronization helps to ensure that only the code that needs synchr
 
 Ex:
 
-    public class Foo {
-      // Try to avoid this:
-      synchronized void foo() {
-      }
-      // Prefer this:
-      void bar() {
-        synchronized(this) {
-        }
-      }
-
-      // Try to avoid this for static methods:
-      static synchronized void fooStatic() {
-      }
-
-      // Prefer this:
-      static void barStatic() {
-        synchronized(Foo.class) {
-        }
-      }
+```
+public class Foo {
+  // Try to avoid this:
+  synchronized void foo() {
+  }
+  // Prefer this:
+  void bar() {
+    synchronized(this) {
     }
+  }
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#AvoidSynchronizedAtMethodLevel)
+  // Try to avoid this for static methods:
+  static synchronized void fooStatic() {
+  }
+
+  // Prefer this:
+  static void barStatic() {
+    synchronized(Foo.class) {
+    }
+  }
+}
+```
+
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#AvoidSynchronizedAtMethodLevel)

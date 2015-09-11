@@ -2,23 +2,25 @@ Java will initialize fields with known default values so any explicit initializa
 
 Ex:
 
-	public class Foo { 
-		// examples of redundant initializers 
-		boolean b = false;
-		byte by = 0; 
-		short s = 0; 
-		char c = 0; 
-		int i = 0; 
-		long l = 0;
-		
-		// all possible float literals 
-		float f = .0f;  
-		double d = 0d; 
-		
-		// all possible double literals 
-		Object o = null; 
-		MyClass mca[] = null;  
+```
+public class Foo {
+	// examples of redundant initializers
+	boolean b = false;
+	byte by = 0;
+	short s = 0;
+	char c = 0;
+	int i = 0;
+	long l = 0;
 
-	}
+	// all possible float literals
+	float f = .0f;  
+	double d = 0d;
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#RedundantFieldInitializer)
+	// all possible double literals
+	Object o = null;
+	MyClass mca[] = null;  
+
+}
+```
+
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#RedundantFieldInitializer)

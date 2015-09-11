@@ -1,11 +1,15 @@
-Avoid unused import statements. 
+Avoid unused `import` statements.
 
-This rule will find unused on demand imports, i.e. import com.foo.*.
+This rule will find unused on demand `imports`, i.e. `import com.foo.*`.
 
-##Example
+Ex:
 
-	import java.io.*; // not referenced or required 
+```
+import java.io.*; // not referenced or required
+
+public class Foo {
 	
-	public class Foo {}
+}
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/typeresolution.html#UnusedImports)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/typeresolution.html#UnusedImports)

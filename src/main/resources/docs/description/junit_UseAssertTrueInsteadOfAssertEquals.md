@@ -1,8 +1,8 @@
-When asserting a value is the same as a boolean literal, use assertTrue/assertFalse, instead of assertEquals.
+When asserting a value is the same as a boolean literal, use `assertTrue`/`assertFalse`, instead of `assertEquals`.
 
 Ex:
 
-
+```
 public class MyTestCase extends TestCase {
 	public void testMyCase() {
 		boolean myVar = true;
@@ -14,5 +14,6 @@ public class MyTestCase extends TestCase {
 		assertEquals("myVar is false", false, myVar);
 	}
 }
+```
 
-[SOURCE](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals)
+[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals)

@@ -3,11 +3,14 @@ Memory wise it can be very expensive to do this, so it is considered a good prac
 
 Ex:
 
-		public class Something { 
-			public static void main(String as[]) { 
-				for (int i = 0; i < 10; i++) { 
-					Foo f = new Foo(); // Avoid this whenever you can it's really expensive 				} 
-			}
+```
+public class Something {
+	public static void main(String as[]) {
+		for (int i = 0; i < 10; i++) {
+			Foo f = new Foo(); // Avoid this whenever you can it's really expensive 		
 		}
+	}
+}
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops)

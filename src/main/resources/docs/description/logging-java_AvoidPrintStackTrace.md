@@ -1,7 +1,8 @@
-Avoid printStackTrace(); use a logger call instead.
+Avoid `printStackTrace()`; use a logger call instead.
 
 Ex:
 
+```
 class Foo {
   void bar() {
     try {
@@ -11,5 +12,6 @@ class Foo {
      }
    }
 }
+```
 
-[SOURCE](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/logging-java.html#AvoidPrintStackTrace)
+[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/logging-java.html#AvoidPrintStackTrace)

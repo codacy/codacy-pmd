@@ -5,7 +5,9 @@ Very short names are usually not helpful to the reader.
 
 Ex:
 
-    public class Foo {
-    }
+```
+public class Foo {
+}
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#ShortClassName)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#ShortClassName)

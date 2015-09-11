@@ -3,12 +3,14 @@ Names using only uppercase are considered constants for most programmers, using 
 
 Ex:
 
+```
     public class Foo {
      // this is bad, since someone could accidentally change the value of PI
 	double PI = 3.16;
-     
-    final double PI = 3.16; //this is ok
-      
-    }
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#SuspiciousConstantFieldName)
+    final double PI = 3.16; //this is ok
+
+    }
+```
+
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#SuspiciousConstantFieldName)

@@ -2,11 +2,13 @@ Import statements allow the use of non-fully qualified names. The use of a fully
 
 Ex:
 
+```
 import java.util.List;
 
 public class Foo {
-   private java.util.List list1; // Unnecessary FQN
-   private List list2; // More appropriate given import of 'java.util.List'
+  private java.util.List list1; // Unnecessary Fully Qualified Name
+  private List list2; // More appropriate given import of 'java.util.List'
 }
+```
 
-[SOURCE](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/imports.html#UnnecessaryFullyQualifiedName)
+[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/imports.html#UnnecessaryFullyQualifiedName)

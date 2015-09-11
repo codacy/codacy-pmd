@@ -1060,12 +1060,6 @@
     "timeToFix": 5
   },
   {
-    "patternId": "controversial_UnnecessaryParentheses",
-    "title": "Enforces the correct use of parentheses",
-    "description": "Sometimes expressions are wrapped in unnecessary parentheses, making them look like function calls.",
-    "timeToFix": 5
-  },
-  {
     "patternId": "controversial_DataflowAnomalyAnalysis",
     "title": "Enforces good dataflow",
     "description": "The dataflow analysis tracks local definitions, undefinitions and references to variables on different paths on the data flow.",

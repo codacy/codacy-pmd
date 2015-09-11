@@ -973,11 +973,6 @@
       "category":"ErrorProne"
     },
     {
-      "patternId":"controversial_UnnecessaryParentheses",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
       "patternId":"controversial_DataflowAnomalyAnalysis",
       "level":"Info",
       "category":"CodeStyle",
@@ -1474,7 +1469,7 @@
     },
     {
       "patternId":"unnecessary_UselessParentheses",
-      "level":"Warning",
+      "level":"Info",
       "category":"UnusedCode"
     },
     {

@@ -1,10 +1,16 @@
-A class that has private constructors and does not have any static methods or fields cannot be used.
+A `class` that has `private` constructors and does not have any `static` methods or fields cannot be used.
 
 Ex:
 
-    public class Foo {
-      private Foo() {}
-      void foo() {}
-    }
+```
+public class Foo {
+  private Foo() {
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#MissingStaticMethodInNonInstantiatableClass)
+  }
+  void foo() {
+
+  }
+}
+```
+
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#MissingStaticMethodInNonInstantiatableClass)

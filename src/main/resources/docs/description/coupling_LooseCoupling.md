@@ -5,19 +5,21 @@ Whenever available, referencing objects by their interface types provides much m
 
 Ex:
 
-    // sub-optimal approach
-    private ArrayList list = new ArrayList();
+```
+// sub-optimal approach
+private ArrayList list = new ArrayList();
 
-    public HashSet getFoo() {
-        return new HashSet();
-    }
+public HashSet getFoo() {
+    return new HashSet();
+}
 
-    // preferred approach
-    private List list = new ArrayList();
+// preferred approach
+private List list = new ArrayList();
 
-    public Set getFoo() {
-        return new HashSet();
-    }
+public Set getFoo() {
+    return new HashSet();
+}
+```
 
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/coupling.html#LooseCoupling)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/coupling.html#LooseCoupling)

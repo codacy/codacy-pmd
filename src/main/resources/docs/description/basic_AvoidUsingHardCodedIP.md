@@ -5,9 +5,10 @@ It places the responsibility of setting the value to use in production on the sh
 Externalizing IP addresses is preferable.
 
 Ex:
-
+```
     public class Foo {
         private String ip = "127.0.0.1"; // not recommended
     }
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#AvoidUsingHardCodedIP)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#AvoidUsingHardCodedIP)

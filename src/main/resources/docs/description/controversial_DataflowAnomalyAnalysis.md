@@ -6,11 +6,13 @@ The dataflow analysis tracks local definitions, undefinitions and references to 
 
 Ex:
 
-	public void foo() { 
-		int buz = 5; 
-		buz = 6; // redefinition of buz -> dd-anomaly 
-		foo(buz); 
-		buz = 2; 
-	} // buz is undefined when leaving scope -> du-anomaly
+```
+public void foo() {
+	int buz = 5;
+	buz = 6; // redefinition of buz -> dd-anomaly
+	foo(buz);
+	buz = 2;
+} // buz is undefined when leaving scope -> du-anomaly
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis)

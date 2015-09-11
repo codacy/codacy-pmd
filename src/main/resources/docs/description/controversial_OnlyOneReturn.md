@@ -4,13 +4,15 @@ If you want to add something before the function return (like a print or somethi
 
 Ex:
 
-    public class OneReturnOnly1 {
-      public void foo(int x) {
-        if (x > 0) {
-          return "hey";   // first exit
-        }
-        return "hi";	// second exit
-      }
+```
+public class OneReturnOnly1 {
+  public void foo(int x) {
+    if (x > 0) {
+      return "hey";   // first exit
     }
+    return "hi";	// second exit
+  }
+}
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OnlyOneReturn)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OnlyOneReturn)

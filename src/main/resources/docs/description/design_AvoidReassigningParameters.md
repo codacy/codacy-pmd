@@ -3,10 +3,12 @@ It can be confusing for other people that may want to use the original parameter
 
 Ex:
 
-    public class Foo {
-      private void foo(String bar) {
-        bar = "something else";
-      }
-    }
+```
+public class Foo {
+  private void foo(String bar) {
+    bar = "something else";
+  }
+}
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#AvoidReassigningParameters)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#AvoidReassigningParameters)

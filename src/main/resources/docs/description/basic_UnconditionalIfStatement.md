@@ -3,6 +3,7 @@ An if(true) is like unused code, in the sense that the code block after will alw
 
 Ex:
 
+```
     public class Foo {
         public void close() {
             if (true) {		// fixed conditional, not recommended
@@ -10,5 +11,6 @@ Ex:
             }
         }
     }
+```
 
-[SOURCE](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#UnconditionalIfStatement)
+[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#UnconditionalIfStatement)

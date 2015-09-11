@@ -3,14 +3,14 @@ An operation on an Immutable object (`String`, `BigDecimal` or `BigInteger`) won
 Ex:
 
 ```
-	import java.math.*;
+import java.math.*;
 
-	class Test {
-		void method1() {
-			BigDecimal bd=new BigDecimal(10);
-			bd.add(new BigDecimal(5)); // this will trigger the rule
-		}  
-	}
+class Test {
+	void method1() {
+		BigDecimal bd=new BigDecimal(10);
+		bd.add(new BigDecimal(5)); // this will trigger the rule
+	}  
+}
 ```
 
 [Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unnecessary.html#UselessOperationOnImmutable)

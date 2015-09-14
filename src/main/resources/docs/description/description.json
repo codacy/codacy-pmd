@@ -69,7 +69,7 @@
   },
   {
     "patternId": "unusedcode_UnusedModifier",
-    "title": "Prohibits modifiers on interfaces' fields",
+    "title": "Prohibits modifiers on interfaces fields",
     "description": "Prohibits the use of modifiers on the fields of an interface",
     "timeToFix": 5,
     "parameters": [
@@ -555,8 +555,8 @@
   },
   {
     "patternId": "sunsecure_ArrayIsStoredDirectly",
-    "title": "Ṕrohibits storing received arrays",
-    "description": "Ṕrohibits storing arrays received by constructors or methods.",
+    "title": "Prohibits storing received arrays",
+    "description": "Prohibits storing arrays received by constructors or methods.",
     "timeToFix": 10,
     "parameters": [
       {
@@ -636,7 +636,7 @@
   {
     "patternId": "optimizations_UseStringBufferForStringAppends",
     "title": "Enforces StringBuilder over '+=' operator",
-    "description": "The use of the ‘+=’ operator for appending strings causes the JVM to create and use an internal StringBuffer.",
+    "description": "The use of the '+=' operator for appending strings causes the JVM to create and use an internal StringBuffer.",
     "timeToFix": 5,
     "parameters": [
       {
@@ -652,7 +652,7 @@
   {
     "patternId": "optimizations_UseArraysAsList",
     "title": "Enforce use of java.util.Arrays asList method instead of loop copy",
-    "description": "The java.util.Arrays class has a “asList” method that should be used when you want to create a new List from an array of objects.",
+    "description": "The java.util.Arrays class has a 'asList' method that should be used when you want to create a new List from an array of objects.",
     "timeToFix": 5
   },
   {
@@ -724,7 +724,7 @@
   {
     "patternId": "controversial_NullAssignment",
     "title": "Prohibits assigning 'null' to a variable outside of its declaration",
-    "description": "Assigning a “null” to a variable (outside of its declaration) is usually bad form.",
+    "description": "Assigning a 'null' to a variable (outside of its declaration) is usually bad form.",
     "timeToFix": 5,
     "parameters": [
       {
@@ -788,13 +788,13 @@
   {
     "patternId": "controversial_AtLeastOneConstructor",
     "title": "Each class should declare at least one constructor.",
-    "description": "Each class should declare at least one constructor.",
+    "description": "Each class should declare at least one constructor for clarity.",
     "timeToFix": 5
   },
   {
     "patternId": "controversial_DontImportSun",
     "title": "Prohibits the use of sun.* packages.",
-    "description": "Avoid importing anything from the ‘sun.*’ packages. These packages are not portable and are likely to change.",
+    "description": "Avoid importing anything from the 'sun.*' packages. These packages are not portable and are likely to change.",
     "timeToFix": 5,
     "parameters": [
       {
@@ -968,13 +968,13 @@
   {
     "patternId": "design_OptimizableToArrayCall",
     "title": "Enforces good usage of toArray()",
-    "description": "Calls to a collection’s toArray() method must specify target arrays sized to match the size of the collection.",
+    "description": "Calls to a collection's toArray() method must specify target arrays sized to match the size of the collection.",
     "timeToFix": 15
   },
   {
     "patternId": "design_BadComparison",
-    "title": "Prohibits comparisons with Double.NaN",
-    "description": "Prohibits equality comparisons with Double.NaN.",
+    "title": "Avoid comparisons with Double.NaN",
+    "description": "Prohibits equality comparisons with Double.NaN due to the lack of representation precision.",
     "timeToFix": 15
   },
   {
@@ -1098,13 +1098,13 @@
   {
     "patternId": "controversial_AvoidUsingShortType",
     "title": "Prohibits the usage of the 'short' type",
-    "description": "Java uses the ‘short’ type to reduce memory usage, not to optimize calculation.",
+    "description": "Java uses the 'short' type to reduce memory usage, not to optimize calculation.",
     "timeToFix": 5
   },
   {
     "patternId": "controversial_AvoidUsingVolatile",
     "title": "Prohibits the use of Volatile keyword",
-    "description": "Use of the keyword ‘volatile’ is generally used to fine tune a Java application, and therefore, requires a good expertise of the Java Memory Model. Moreover, its range of action is somewhat misknown.",
+    "description": "Use of the keyword 'volatile' is generally used to fine tune a Java application, and therefore, requires a good expertise of the Java Memory Model. Moreover, its range of action is somewhat misknown.",
     "timeToFix": 5
   },
   {
@@ -1128,7 +1128,7 @@
   {
     "patternId": "controversial_AvoidPrefixingMethodParameters",
     "title": "Enforces good naming of variables",
-    "description": "Prefixing parameters by ‘in’ or ‘out’ pollutes the name of the parameters and reduces code readability. To indicate whether or not a parameter will be modify in a method, its better to document method behavior with Javadoc.",
+    "description": "Prefixing parameters by 'in' or 'out' pollutes the name of the parameters and reduces code readability. To indicate whether or not a parameter will be modify in a method, its better to document method behavior with Javadoc.",
     "timeToFix": 5
   },
   {
@@ -1249,7 +1249,7 @@
   },
   {
     "patternId": "design_SimplifyConditional",
-    "title": "Prohibits check for null before instanceof",
+    "title": "Avoid check for null before instanceof",
     "description": "Prohibits check for null before an instanceof",
     "timeToFix": 10
   },
@@ -1476,7 +1476,7 @@
   {
     "patternId": "empty_EmptyTryBlock",
     "title": "Prohibits empty try blocks",
-    "description": "Avoid empty try blocks - what’s the point?",
+    "description": "Avoid empty try blocks - what's the point?",
     "timeToFix": 5
   },
   {
@@ -1500,7 +1500,7 @@
   {
     "patternId": "empty_EmptyStatementNotInLoop",
     "title": "Prohibits empty statements that are not inside a loop",
-    "description": "An empty statement (or a semicolon by itself) that is not used as the sole body of a ‘for’ or ‘while’ loop is probably a bug. It could also be a double semicolon, which has no purpose and should be removed.",
+    "description": "An empty statement (or a semicolon by itself) that is not used as the sole body of a 'for' or 'while' loop is probably a bug. It could also be a double semicolon, which has no purpose and should be removed.",
     "timeToFix": 5
   },
   {
@@ -1598,7 +1598,7 @@
   {
     "patternId": "unnecessary_UnusedNullCheckInEquals",
     "title": "Enforces the correct usage of null checking in object references",
-    "description": "After checking an object reference for null, you should invoke equals() on that object rather than passing it to another object’s equals() method.",
+    "description": "After checking an object reference for null, you should invoke equals() on that object rather than passing it to another object's equals() method.",
     "timeToFix": 5
   },
   {
@@ -1991,14 +1991,14 @@
   },
   {
     "patternId": "android_DoNotHardCodeSDCard",
-    "title": "Use Environment.getExternalStorageDirectory() instead of “/sdcard”",
-    "description": "Use Environment.getExternalStorageDirectory() instead of “/sdcard”",
+    "title": "Use Environment.getExternalStorageDirectory() instead of '/sdcard'",
+    "description": "Use Environment.getExternalStorageDirectory() instead of '/sdcard'",
     "timeToFix": 5
   },
   {
     "patternId": "imports_DontImportJavaLang",
-    "title": "Avoid importing anything from the package ‘java.lang’. These classes are automatically imported (JLS 7.5.3).",
-    "description": "Avoid importing anything from the package ‘java.lang’. These classes are automatically imported (JLS 7.5.3).",
+    "title": "Avoid importing anything from the package 'java.lang'.",
+    "description": "Avoid importing anything from the package 'java.lang'. These classes are automatically imported (JLS 7.5.3).",
     "timeToFix": 5,
     "parameters": [
       {
@@ -2013,7 +2013,7 @@
   },
   {
     "patternId": "imports_UnusedImports",
-    "title": "Avoid the use of unused import statements to prevent unwanted dependencies.",
+    "title": "Avoid unused import statements.",
     "description": "Avoid the use of unused import statements to prevent unwanted dependencies.",
     "timeToFix": 5,
     "parameters": [
@@ -2077,32 +2077,32 @@
   },
   {
     "patternId": "j2ee_UseProperClassLoader",
-    "title": "In J2EE, the getClassLoader() method might not work as expected. Use Thread.currentThread().getContextClassLoader() instead.",
+    "title": "Avoid the getClassLoader() method in J2EE.",
     "description": "In J2EE, the getClassLoader() method might not work as expected. Use Thread.currentThread().getContextClassLoader() instead.",
     "timeToFix": 5
   },
   {
     "patternId": "j2ee_MDBAndSessionBeanNamingConvention",
-    "title": "The EJB Specification states that any MessageDrivenBean or SessionBean should be suffixed by ‘Bean’.",
+    "title": "MessageDrivenBean or SessionBean should be suffixed by 'Bean'.",
     "description": "The EJB Specification states that any MessageDrivenBean or SessionBean should be suffixed by ‘Bean’.",
     "timeToFix": 5
   },
   {
     "patternId": "j2ee_RemoteSessionInterfaceNamingConvention",
-    "title": "A Remote Home interface type of a Session EJB should be suffixed by ‘Home’.",
-    "description": "A Remote Home interface type of a Session EJB should be suffixed by ‘Home’.",
+    "title": "Remote Home interface should be suffixed by 'Home'.",
+    "description": "A Remote Home interface type of a Session EJB should be suffixed by 'Home'.",
     "timeToFix": 5
   },
   {
     "patternId": "j2ee_LocalInterfaceSessionNamingConvention",
-    "title": "The Local Interface of a Session EJB should be suffixed by ‘Local’.",
-    "description": "The Local Interface of a Session EJB should be suffixed by ‘Local’.",
+    "title": "The Local Interface of a Session EJB should be be proper suffixed.",
+    "description": "The Local Interface of a Session EJB should be suffixed by 'Local'.",
     "timeToFix": 5
   },
   {
     "patternId": "j2ee_LocalHomeNamingConvention",
-    "title": "The Local Home interface of a Session EJB should be suffixed by ‘LocalHome’.",
-    "description": "The Local Home interface of a Session EJB should be suffixed by ‘LocalHome’.",
+    "title": "The Local Home interface should be proper suffixed.",
+    "description": "The Local Home interface of a Session EJB should be suffixed by 'LocalHome'.",
     "timeToFix": 5
   },
   {
@@ -2113,13 +2113,13 @@
   },
   {
     "patternId": "j2ee_DoNotCallSystemExit",
-    "title": "Web applications should not call System.exit(), since only the web container or the application server should stop the JVM.",
+    "title": "Web applications should not call System.exit().",
     "description": "Web applications should not call System.exit(), since only the web container or the application server should stop the JVM.",
     "timeToFix": 5
   },
   {
     "patternId": "j2ee_StaticEJBFieldShouldBeFinal",
-    "title": "According to the J2EE specification, an EJB should not have any static fields with write access. However, static read-only fields are allowed.",
+    "title": "An EJB should not have any static fields with write access.",
     "description": "According to the J2EE specification, an EJB should not have any static fields with write access. However, static read-only fields are allowed.",
     "timeToFix": 5
   },
@@ -2149,7 +2149,7 @@
   },
   {
     "patternId": "junit_JUnitAssertionsShouldIncludeMessage",
-    "title": "JUnit assertions should include an informative message - i.e., use the three-argument version of assertEquals(), not the two-argument version.",
+    "title": "JUnit assertions should use the three-argument version of assertEquals().",
     "description": "JUnit assertions should include an informative message - i.e., use the three-argument version of assertEquals(), not the two-argument version.",
     "timeToFix": 5,
     "parameters": [
@@ -2165,7 +2165,7 @@
   },
   {
     "patternId": "junit_JUnitTestsShouldIncludeAssert",
-    "title": "JUnit tests should include at least one assertion. This makes the tests more robust, and using assert with messages provide the developer a clearer idea of what the test does.",
+    "title": "JUnit tests should include at least one assertion.",
     "description": "JUnit tests should include at least one assertion. This makes the tests more robust, and using assert with messages provide the developer a clearer idea of what the test does.",
     "timeToFix": 5,
     "parameters": [
@@ -2181,19 +2181,19 @@
   },
   {
     "patternId": "junit_UnnecessaryBooleanAssertion",
-    "title": "A JUnit test assertion with a boolean literal is unnecessary since it always will evaluate to the same thing.",
+    "title": "Unnecessary JUnit test assertion with a boolean literal.",
     "description": "A JUnit test assertion with a boolean literal is unnecessary since it always will evaluate to the same thing.",
     "timeToFix": 5
   },
   {
     "patternId": "junit_UseAssertEqualsInsteadOfAssertTrue",
-    "title": "This rule detects JUnit assertions in object equality. These assertions should be made by more specific methods, like assertEquals.",
+    "title": "Use assertEquals in assertions when testing object equality.",
     "description": "This rule detects JUnit assertions in object equality. These assertions should be made by more specific methods, like assertEquals.",
     "timeToFix": 5
   },
   {
     "patternId": "junit_UseAssertSameInsteadOfAssertTrue",
-    "title": "This rule detects JUnit assertions in object references equality. These assertions should be made by more specific methods, like assertSame, assertNotSame.",
+    "title": "Use assertSame/assertNotSame in assertions when testing object references equality.",
     "description": "This rule detects JUnit assertions in object references equality. These assertions should be made by more specific methods, like assertSame, assertNotSame.",
     "timeToFix": 5
   },
@@ -2206,12 +2206,12 @@
   {
     "patternId": "junit_SimplifyBooleanAssertion",
     "title": "Avoid negation in an assertTrue or assertFalse test.",
-    "description": "Avoid negation in an assertTrue or assertFalse test.",
+    "description": "Avoid negation in an assertTrue or assertFalse test. If you are using a negations consider to use the opposite method (assertTrue instead of assertFalse, or assertFalse instead of assertTrue)",
     "timeToFix": 5
   },
   {
     "patternId": "junit_JUnitTestContainsTooManyAsserts",
-    "title": "JUnit tests should not contain too many asserts. Many asserts are indicative of a complex test, for which it is harder to verify correctness.",
+    "title": "JUnit tests should not contain too many asserts.",
     "description": "JUnit tests should not contain too many asserts. Many asserts are indicative of a complex test, for which it is harder to verify correctness.",
     "timeToFix": 5,
     "parameters": [
@@ -2227,19 +2227,19 @@
   },
   {
     "patternId": "junit_UseAssertTrueInsteadOfAssertEquals",
-    "title": "When asserting a value is the same as a boolean literal, use assertTrue/assertFalse, instead of assertEquals.",
+    "title": "Use assertTrue/assertFalse to assert boolean values.",
     "description": "When asserting a value is the same as a boolean literal, use assertTrue/assertFalse, instead of assertEquals.",
     "timeToFix": 5
   },
   {
     "patternId": "logging-jakarta-commons_UseCorrectExceptionLogging",
-    "title": "To make sure the full stacktrace is printed out, use the logging statement with two arguments: a String and a Throwable.",
+    "title": "Use the logging statement with a String and a Throwable.",
     "description": "To make sure the full stacktrace is printed out, use the logging statement with two arguments: a String and a Throwable.",
     "timeToFix": 5
   },
   {
     "patternId": "logging-jakarta-commons_ProperLogger",
-    "title": "A logger should normally be defined private static final and be associated with the correct class.",
+    "title": "A logger should be private static final.",
     "description": "A logger should normally be defined private static final and be associated with the correct class.",
     "timeToFix": 5,
     "parameters": [
@@ -2255,8 +2255,8 @@
   },
   {
     "patternId": "logging-jakarta-commons_GuardDebugLogging",
-    "title": "This rule is defined by the following Java class: net.sourceforge.pmd.lang.java.rule.logging.GuardDebugLoggingRule",
-    "description": "This rule is defined by the following Java class: net.sourceforge.pmd.lang.java.rule.logging.GuardDebugLoggingRule",
+    "title": "Guard with a isDebugEnabled() concatenated log messages",
+    "description": "When log messages are composed by concatenating strings, the whole section should be guarded by a isDebugEnabled() check to avoid performance and memory issues.",
     "timeToFix": 5,
     "parameters": [
       {
@@ -2271,7 +2271,7 @@
   },
   {
     "patternId": "logging-jakarta-commons_GuardLogStatement",
-    "title": "Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
+    "title": "Check if the log level is actually enabled.",
     "description": "Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
     "timeToFix": 5,
     "parameters": [
@@ -2287,7 +2287,7 @@
   },
   {
     "patternId": "logging-java_MoreThanOneLogger",
-    "title": "Normally only one logger is used in each class.",
+    "title": "Use only one logger in each class.",
     "description": "Normally only one logger is used in each class.",
     "timeToFix": 5,
     "parameters": [
@@ -2303,25 +2303,25 @@
   },
   {
     "patternId": "logging-java_LoggerIsNotStaticFinal",
-    "title": "In most cases, the Logger reference can be declared as static and final.",
+    "title": "The Logger reference should be declared as static and final.",
     "description": "In most cases, the Logger reference can be declared as static and final.",
     "timeToFix": 5
   },
   {
     "patternId": "logging-java_SystemPrintln",
-    "title": "References to System.(out|err).print are usually intended for debugging purposes and can remain in the codebase even in production code.",
+    "title": "Avoid using System.(out|err).print.",
     "description": "References to System.(out|err).print are usually intended for debugging purposes and can remain in the codebase even in production code.",
     "timeToFix": 5
   },
   {
     "patternId": "logging-java_AvoidPrintStackTrace",
-    "title": "Avoid printStackTrace(); use a logger call instead.",
+    "title": "Avoid printStackTrace().",
     "description": "Avoid printStackTrace(); use a logger call instead.",
     "timeToFix": 5
   },
   {
     "patternId": "logging-java_GuardLogStatementJavaUtil",
-    "title": "Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
+    "title": "Check if the log level is actually enabled.",
     "description": "Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
     "timeToFix": 5,
     "parameters": [
@@ -2337,73 +2337,73 @@
   },
   {
     "patternId": "migrating_ReplaceVectorWithList",
-    "title": "Consider replacing Vector usages with the newer java.util.ArrayList if expensive thread-safe operations are not required.",
+    "title": "Avoid using Vector.",
     "description": "Consider replacing Vector usages with the newer java.util.ArrayList if expensive thread-safe operations are not required.",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_ReplaceHashtableWithMap",
-    "title": "Consider replacing Hashtable usage with the newer java.util.Map if thread safety is not required.",
+    "title": "Avoid using Hashtable.",
     "description": "Consider replacing Hashtable usage with the newer java.util.Map if thread safety is not required.",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_ReplaceEnumerationWithIterator",
-    "title": "Consider replacing Enumeration usages with the newer java.util.Iterator",
+    "title": "Avoid using Enumeration.",
     "description": "Consider replacing Enumeration usages with the newer java.util.Iterator",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_IntegerInstantiation",
-    "title": "Calling new Integer() causes memory allocation that can be avoided by the static Integer.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
+    "title": "Enforce Integer.valueOf() instead of new Integer().",
     "description": "Calling new Integer() causes memory allocation that can be avoided by the static Integer.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_ByteInstantiation",
-    "title": "Calling new Byte() causes memory allocation that can be avoided by the static Byte.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
+    "title": "Enforce Byte.valueOf() instead of new Byte().",
     "description": "Calling new Byte() causes memory allocation that can be avoided by the static Byte.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_ShortInstantiation",
-    "title": "Calling new Short() causes memory allocation that can be avoided by the static Short.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
+    "title": "Enforce Short.valueOf() instead of new Short().",
     "description": "Calling new Short() causes memory allocation that can be avoided by the static Short.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_LongInstantiation",
-    "title": "Calling new Long() causes memory allocation that can be avoided by the static Long.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
+    "title": "Enforce Long.valueOf() instead of new Long().",
     "description": "Calling new Long() causes memory allocation that can be avoided by the static Long.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_JUnit4TestShouldUseBeforeAnnotation",
-    "title": "In JUnit 3, the setUp method was used to set up all data entities required in running tests. JUnit 4 skips the setUp method and executes all methods annotated with @Before before all tests",
+    "title": "Use proper setUp declaration in JUnit 3 and JUnit 4 In JUnit 3.",
     "description": "In JUnit 3, the setUp method was used to set up all data entities required in running tests. JUnit 4 skips the setUp method and executes all methods annotated with @Before before all tests",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_JUnit4TestShouldUseAfterAnnotation",
-    "title": "In JUnit 3, the tearDown method was used to clean up all data entities required in running tests. JUnit 4 skips the tearDown method and executes all methods annotated with @After after running each test",
+    "title": "Use proper tear down declaration in JUnit 3 and JUnit 4 In JUnit 3.",
     "description": "In JUnit 3, the tearDown method was used to clean up all data entities required in running tests. JUnit 4 skips the tearDown method and executes all methods annotated with @After after running each test",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_JUnit4TestShouldUseTestAnnotation",
-    "title": "In JUnit 3, the framework executed all methods which started with the word test as a unit test. In JUnit 4, only methods annotated with the @Test annotation are executed.",
+    "title": "Use proper test declaration in JUnit 3 and JUnit 4 In JUnit 3.",
     "description": "In JUnit 3, the framework executed all methods which started with the word test as a unit test. In JUnit 4, only methods annotated with the @Test annotation are executed.",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_JUnit4SuitesShouldUseSuiteAnnotation",
-    "title": "In JUnit 3, test suites are indicated by the suite() method. In JUnit 4, suites are indicated through the @RunWith(Suite.class) annotation.",
+    "title": "Use proper test suite declaration in JUnit 3 and JUnit 4 In JUnit 3.",
     "description": "In JUnit 3, test suites are indicated by the suite() method. In JUnit 4, suites are indicated through the @RunWith(Suite.class) annotation.",
     "timeToFix": 5
   },
   {
     "patternId": "migrating_JUnitUseExpected",
-    "title": "In JUnit4, use the @Test(expected) annotation to denote tests that should throw exceptions.",
+    "title": "Use proper throwing exceptions tests declaration in JUnit 3 and JUnit 4 In JUnit 3.",
     "description": "In JUnit4, use the @Test(expected) annotation to denote tests that should throw exceptions.",
     "timeToFix": 5,
     "parameters": [
@@ -2419,7 +2419,7 @@
   },
   {
     "patternId": "strictexception_AvoidCatchingThrowable",
-    "title": "Catching Throwable errors is not recommended since its scope is very broad. It includes runtime issues such as OutOfMemoryError that should be exposed and managed separately.",
+    "title": "Avoid catching Throwable errors.",
     "description": "Catching Throwable errors is not recommended since its scope is very broad. It includes runtime issues such as OutOfMemoryError that should be exposed and managed separately.",
     "timeToFix": 5,
     "parameters": [
@@ -2435,7 +2435,7 @@
   },
   {
     "patternId": "strictexception_SignatureDeclareThrowsException",
-    "title": "Methods that declare the generic Exception as a possible throwable are not very helpful since their failure modes are unclear.",
+    "title": "Avoid methods declaring to throw the generic Exception.",
     "description": "Methods that declare the generic Exception as a possible throwable are not very helpful since their failure modes are unclear.",
     "timeToFix": 5,
     "parameters": [
@@ -2451,7 +2451,7 @@
   },
   {
     "patternId": "strictexception_ExceptionAsFlowControl",
-    "title": "Using Exceptions as form of flow control is not recommended as they obscure true exceptions when debugging. Either add the necessary validation or use an alternate control structure.",
+    "title": "Avoid using Exceptions as form of flow control.",
     "description": "Using Exceptions as form of flow control is not recommended as they obscure true exceptions when debugging. Either add the necessary validation or use an alternate control structure.",
     "timeToFix": 5,
     "parameters": [
@@ -2467,25 +2467,25 @@
   },
   {
     "patternId": "strictexception_AvoidCatchingNPE",
-    "title": "Code should never throw NullPointerExceptions under normal circumstances. A catch block may hide the original error, causing other, more subtle problems later on.",
+    "title": "Prohibit throw NullPointerExceptions.",
     "description": "Code should never throw NullPointerExceptions under normal circumstances. A catch block may hide the original error, causing other, more subtle problems later on.",
     "timeToFix": 5
   },
   {
     "patternId": "strictexception_AvoidThrowingRawExceptionTypes",
-    "title": "Avoid throwing certain exception types. Rather than throw a raw RuntimeException, Throwable, Exception, or Error, use a subclassed exception or error instead.",
+    "title": "Avoid throwing general exception types.",
     "description": "Avoid throwing certain exception types. Rather than throw a raw RuntimeException, Throwable, Exception, or Error, use a subclassed exception or error instead.",
     "timeToFix": 5
   },
   {
     "patternId": "strictexception_AvoidThrowingNullPointerException",
-    "title": "Avoid throwing NullPointerExceptions. These are confusing because most people will assume that the virtual machine threw it.",
+    "title": "Avoid throwing NullPointerExceptions.",
     "description": "Avoid throwing NullPointerExceptions. These are confusing because most people will assume that the virtual machine threw it.",
     "timeToFix": 5
   },
   {
     "patternId": "strictexception_AvoidRethrowingException",
-    "title": "Catch blocks that merely rethrow a caught exception only add to code size and runtime complexity.",
+    "title": "Avoid catch blocks that merely rethrow a caught exception.",
     "description": "Catch blocks that merely rethrow a caught exception only add to code size and runtime complexity.",
     "timeToFix": 5
   },
@@ -2497,31 +2497,31 @@
   },
   {
     "patternId": "strictexception_DoNotThrowExceptionInFinally",
-    "title": "Throwing exceptions within a ‘finally’ block is confusing since they may mask other exceptions or code defects.",
-    "description": "Throwing exceptions within a ‘finally’ block is confusing since they may mask other exceptions or code defects.",
+    "title": "Throwing exceptions within a 'finally' block is confusing since they may mask other exceptions or code defects.",
+    "description": "Throwing exceptions within a 'finally' block is confusing since they may mask other exceptions or code defects.",
     "timeToFix": 5
   },
   {
     "patternId": "strictexception_AvoidThrowingNewInstanceOfSameException",
-    "title": "Catch blocks that merely rethrow a caught exception wrapped inside a new instance of the same type only add to code size and runtime complexity.",
+    "title": "Avoid catch blocks that merely rethrow a caught exception wrapped.",
     "description": "Catch blocks that merely rethrow a caught exception wrapped inside a new instance of the same type only add to code size and runtime complexity.",
     "timeToFix": 5
   },
   {
     "patternId": "strictexception_AvoidCatchingGenericException",
-    "title": "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block",
+    "title": "Avoid catching generic exceptions",
     "description": "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block",
     "timeToFix": 5
   },
   {
     "patternId": "strictexception_AvoidLosingExceptionInformation",
-    "title": "Statements in a catch block that invoke accessors on the exception without using the information only add to code size. Either remove the invocation, or use the return result.",
+    "title": "Avoid invoke accessors on the exception without using the information in a catch block.",
     "description": "Statements in a catch block that invoke accessors on the exception without using the information only add to code size. Either remove the invocation, or use the return result.",
     "timeToFix": 5
   },
   {
     "patternId": "strings_AvoidDuplicateLiterals",
-    "title": "Code containing duplicate String literals can usually be improved by declaring the String as a constant field.",
+    "title": "Avoid code containing duplicate String literals.",
     "description": "Code containing duplicate String literals can usually be improved by declaring the String as a constant field.",
     "timeToFix": 5,
     "parameters": [
@@ -2537,7 +2537,7 @@
   },
   {
     "patternId": "strings_StringInstantiation",
-    "title": "Avoid instantiating String objects; this is usually unnecessary since they are immutable and can be safely shared.",
+    "title": "Avoid instantiating String objects.",
     "description": "Avoid instantiating String objects; this is usually unnecessary since they are immutable and can be safely shared.",
     "timeToFix": 5,
     "parameters": [
@@ -2553,7 +2553,7 @@
   },
   {
     "patternId": "strings_StringToString",
-    "title": "Avoid calling toString() on objects already known to be string instances; this is unnecessary.",
+    "title": "Don't call toString() on string instances.",
     "description": "Avoid calling toString() on objects already known to be string instances; this is unnecessary.",
     "timeToFix": 5,
     "parameters": [
@@ -2569,7 +2569,7 @@
   },
   {
     "patternId": "strings_InefficientStringBuffering",
-    "title": "Avoid concatenating non-literals in a StringBuffer constructor or append() since intermediate buffers will need to be be created and destroyed by the JVM.",
+    "title": "Avoid concatenating non-literals in a StringBuffer constructor or append.",
     "description": "Avoid concatenating non-literals in a StringBuffer constructor or append() since intermediate buffers will need to be be created and destroyed by the JVM.",
     "timeToFix": 5,
     "parameters": [
@@ -2585,7 +2585,7 @@
   },
   {
     "patternId": "strings_UnnecessaryCaseChange",
-    "title": "Using equalsIgnoreCase() is faster than using toUpperCase/toLowerCase().equals()",
+    "title": "Using equalsIgnoreCase() instead of toUpperCase/toLowerCase().equals()",
     "description": "Using equalsIgnoreCase() is faster than using toUpperCase/toLowerCase().equals()",
     "timeToFix": 5,
     "parameters": [
@@ -2601,7 +2601,7 @@
   },
   {
     "patternId": "strings_UseStringBufferLength",
-    "title": "Use StringBuffer.length() to determine StringBuffer length rather than using StringBuffer.toString().equals(\"\") or StringBuffer.toString().length() == …",
+    "title": "Use StringBuffer.length() to determine StringBuffer length",
     "description": "Use StringBuffer.length() to determine StringBuffer length rather than using StringBuffer.toString().equals(\"\") or StringBuffer.toString().length() == …",
     "timeToFix": 5,
     "parameters": [
@@ -2617,7 +2617,7 @@
   },
   {
     "patternId": "strings_AppendCharacterWithChar",
-    "title": "Avoid concatenating characters as strings in StringBuffer/StringBuilder.append methods.",
+    "title": "Avoid concatenating characters as strings in append methods.",
     "description": "Avoid concatenating characters as strings in StringBuffer/StringBuilder.append methods.",
     "timeToFix": 5,
     "parameters": [
@@ -2633,7 +2633,7 @@
   },
   {
     "patternId": "strings_ConsecutiveAppendsShouldReuse",
-    "title": "Consecutively calls to StringBuffer/StringBuilder .append should reuse the target object. This can improve the performance.",
+    "title": "Enforce reuse the target object in consecutive calls to StringBuffer/StringBuilder append.",
     "description": "Consecutively calls to StringBuffer/StringBuilder .append should reuse the target object. This can improve the performance.",
     "timeToFix": 5,
     "parameters": [
@@ -2649,8 +2649,8 @@
   },
   {
     "patternId": "strings_ConsecutiveLiteralAppends",
-    "title": "Consecutively calling StringBuffer/StringBuilder.append with String literals",
-    "description": "Consecutively calling StringBuffer/StringBuilder.append with String literals",
+    "title": "Avoid consecutive calls to StringBuffer/StringBuilder.append with String literals",
+    "description": "Consecutively calling StringBuffer/StringBuilder.append with String literals is not a good pattern. Instead, concatenate the string literals in a single one",
     "timeToFix": 5,
     "parameters": [
       {
@@ -2665,7 +2665,7 @@
   },
   {
     "patternId": "strings_UseIndexOfChar",
-    "title": "Use String.indexOf(char) when checking for the index of a single character; it executes faster.",
+    "title": "Use String.indexOf(char) when checking for the index of a single character.",
     "description": "Use String.indexOf(char) when checking for the index of a single character; it executes faster.",
     "timeToFix": 5,
     "parameters": [
@@ -2713,7 +2713,7 @@
   },
   {
     "patternId": "strings_UselessStringValueOf",
-    "title": "No need to call String.valueOf to append to a string; just use the valueOf() argument directly.",
+    "title": "Avoid to call String.valueOf to append to a string.",
     "description": "No need to call String.valueOf to append to a string; just use the valueOf() argument directly.",
     "timeToFix": 5,
     "parameters": [
@@ -2735,8 +2735,8 @@
   },
   {
     "patternId": "strings_UseEqualsToCompareStrings",
-    "title": "Using ‘==’ or ‘!=’ to compare strings only works if intern version is used on both sides. Use the equals() method instead.",
-    "description": "Using ‘==’ or ‘!=’ to compare strings only works if intern version is used on both sides. Use the equals() method instead.",
+    "title": "Avoid using '==' or '!=' to compare strings.",
+    "description": "Using  '==' or '!=' to compare strings only works if intern version is used on both sides. Use the equals() method instead.",
     "timeToFix": 5
   },
   {

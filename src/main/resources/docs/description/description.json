@@ -1576,7 +1576,7 @@
   {
     "patternId": "unnecessary_UselessOperationOnImmutable",
     "title": "Prohibits an operation on an Immutable object that tries to change the object itself",
-    "description": "An operation on an Immutable object (String, BigDecimal or BigInteger) won’t change the object itself since the result of the operation is a new object. Therefore, ignoring the operation result is an error.",
+    "description": "An operation on an Immutable object (String, BigDecimal or BigInteger) won't change the object itself since the result of the operation is a new object. Therefore, ignoring the operation result is an error.",
     "timeToFix": 5,
     "parameters": [
       {
@@ -2039,7 +2039,7 @@
   },
   {
     "patternId": "imports_TooManyStaticImports",
-    "title": "If you overuse the static import feature, it can make your program unreadable and unmaintainable, polluting its namespace with all the static members you import.",
+    "title": "Avoid many static imports.",
     "description": "If you overuse the static import feature, it can make your program unreadable and unmaintainable, polluting its namespace with all the static members you import.",
     "timeToFix": 5,
     "parameters": [
@@ -2078,7 +2078,7 @@
   {
     "patternId": "j2ee_MDBAndSessionBeanNamingConvention",
     "title": "MessageDrivenBean or SessionBean should be suffixed by 'Bean'.",
-    "description": "The EJB Specification states that any MessageDrivenBean or SessionBean should be suffixed by ‘Bean’.",
+    "description": "The EJB Specification states that any MessageDrivenBean or SessionBean should be suffixed by 'Bean'.",
     "timeToFix": 5
   },
   {
@@ -2596,7 +2596,7 @@
   {
     "patternId": "strings_UseStringBufferLength",
     "title": "Use StringBuffer.length() to determine StringBuffer length",
-    "description": "Use StringBuffer.length() to determine StringBuffer length rather than using StringBuffer.toString().equals(\"\") or StringBuffer.toString().length() == …",
+    "description": "Use StringBuffer.length() to determine StringBuffer length rather than using StringBuffer.toString().equals(\"\") or StringBuffer.toString().length() == ...",
     "timeToFix": 5,
     "parameters": [
       {
@@ -2691,7 +2691,7 @@
   },
   {
     "patternId": "strings_InsufficientStringBufferDeclaration",
-    "title": "Failing to pre-size a StringBuffer or StringBuilder properly could cause it to re-size many times during runtime.",
+    "title": "Enforce pre-size a StringBuffer or StringBuilder properly.",
     "description": "Failing to pre-size a StringBuffer or StringBuilder properly could cause it to re-size many times during runtime.",
     "timeToFix": 5,
     "parameters": [

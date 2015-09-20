@@ -2078,7 +2078,7 @@
   {
     "patternId": "j2ee_MDBAndSessionBeanNamingConvention",
     "title": "MessageDrivenBean or SessionBean should be suffixed by 'Bean'",
-    "description": "The EJB Specification states that any MessageDrivenBean or SessionBean should be suffixed by ‘Bean’.",
+    "description": "The EJB Specification states that any MessageDrivenBean or SessionBean should be suffixed by 'Bean'.",
     "timeToFix": 5
   },
   {
@@ -2691,7 +2691,7 @@
   },
   {
     "patternId": "strings_InsufficientStringBufferDeclaration",
-    "title": "Failing to pre-size a StringBuffer or StringBuilder properly could cause it to re-size many times during runtime",
+    "title": "Enforce pre-size a StringBuffer or StringBuilder properly",
     "description": "Failing to pre-size a StringBuffer or StringBuilder properly could cause it to re-size many times during runtime.",
     "timeToFix": 5,
     "parameters": [

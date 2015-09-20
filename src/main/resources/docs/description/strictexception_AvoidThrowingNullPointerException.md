@@ -3,10 +3,9 @@ Avoid throwing `NullPointerExceptions`. These are confusing because most people 
 Ex:
 
 ```
-public class Foo {
-  void bar() {
-    throw new NullPointerException();
-  }
+void foo(String s) {
+  if (s == null)
+    throw new IllegalArgumentException("s cannot be null");
 }
 ```
 

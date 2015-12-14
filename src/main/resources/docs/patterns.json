@@ -1537,7 +1537,7 @@
         },
         {
           "name":"minimum",
-          "default":15.0
+          "default":200.0
         }
       ]
     },

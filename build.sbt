@@ -28,10 +28,11 @@ version in Docker := "1.0"
 val installAll =
   s"""apk update && apk add bash curl &&
      |cd /tmp &&
-     |curl -L -o pmd-bin-5.3.2.zip "http://sourceforge.net/projects/pmd/files/pmd/5.3.2/pmd-bin-5.3.2.zip/download" &&
-     |unzip pmd-bin-5.3.2.zip &&
-     |mv pmd-bin-5.3.2/ /usr/local/ &&
-     |rm /tmp/pmd-bin-5.3.2.zip""".stripMargin.replaceAll(System.lineSeparator(), " ")
+     |export PMD_VERSION=5.3.6 &&
+     |curl -L -o pmd-bin-$$PMD_VERSION.zip "http://sourceforge.net/projects/pmd/files/pmd/$$PMD_VERSION/pmd-bin-$$PMD_VERSION.zip/download" &&
+     |unzip pmd-bin-$$PMD_VERSION.zip &&
+     |mv pmd-bin-$$PMD_VERSION/ /usr/local/pmd-bin &&
+     |rm /tmp/pmd-bin-$$PMD_VERSION.zip""".stripMargin.replaceAll(System.lineSeparator(), " ")
 
 mappings in Universal <++= (resourceDirectory in Compile) map { (resourceDir: File) =>
   val src = resourceDir / "docs"

@@ -44,7 +44,7 @@ object PmdJava extends Tool {
       val filesCmd = files.map(_.mkString(",")).getOrElse(path.toAbsolutePath.toString)
       //maybe someone want's to create a symlink for this in build.sbt
       Seq(
-        "/usr/local/pmd-bin-5.3.2/bin/run.sh", "pmd",
+        "/usr/local/pmd-bin/bin/run.sh", "pmd",
         "-d", filesCmd, "-f", "xml",
         "-r", outputFilePath.toAbsolutePath.toString) ++ configurationCmd
     }

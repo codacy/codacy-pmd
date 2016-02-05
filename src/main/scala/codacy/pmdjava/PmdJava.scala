@@ -3,27 +3,29 @@ package codacy.pmdjava
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path, Paths, StandardOpenOption}
 
+import akka.actor.Status.Failure
 import codacy.dockerApi._
+import codacy.dockerApi.utils.CommandRunner
 import play.api.libs.json.{JsString, Json}
 
 import scala.sys.process._
 import scala.util.{Properties, Success, Try}
-import scala.xml.{Elem, XML}
+import scala.xml.{XML, Elem}
 
 object PmdJava extends Tool {
 
-  override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
+  override def apply(path: Path, conf: Option[List[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[List[Result]] = {
     commandFor(path, conf, files, spec, resultFilePath).flatMap { cmd =>
-      cmd.!(discardingLogger)
-      Try(XML.loadFile(resultFilePath.toFile)).map { res =>
-        outputParsed(res)
+      Try {
+        CommandRunner.exec(cmd)
+        outputParsed(XML.loadFile(resultFilePath.toFile))
       }
     }
   }
 
   private[this] lazy val ruleSetsDefault = {
     import RuleSets._
-    Seq(
+    List(
       android, basic, braces, clone_, codesize, comments, controversial,
       coupling, design, empty, finalizers, imports, junit, migrating,
       naming, optimizations, sunsecure, strictexception, strings,
@@ -35,15 +37,15 @@ object PmdJava extends Tool {
 
   private[this] lazy val resultFilePath = Paths.get(Properties.tmpDir, "pmd-result.xml")
 
-  private[this] def commandFor(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[Seq[String]] = {
+  private[this] def commandFor(path: Path, conf: Option[List[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[List[String]] = {
     val configPath = conf.map(configFile(_).map(_.toAbsolutePath.toString)).getOrElse(Success(ruleSetsDefault))
 
     configPath.map { case configuration =>
-      val configurationCmd = Seq("-rulesets", configuration)
+      val configurationCmd = List("-rulesets", configuration)
 
       val filesCmd = files.map(_.mkString(",")).getOrElse(path.toAbsolutePath.toString)
       //maybe someone want's to create a symlink for this in build.sbt
-      Seq(
+      List(
         "/usr/local/pmd-bin/bin/run.sh", "pmd",
         "-d", filesCmd, "-f", "xml",
         "-r", outputFilePath.toAbsolutePath.toString) ++ configurationCmd
@@ -62,7 +64,7 @@ object PmdJava extends Tool {
     SourcePath(DockerEnvironment.sourcePath.relativize(Paths.get(path)).toString)
   }
 
-  private[this] def outputParsed(outputXml: Elem)(implicit spec: Spec): Iterable[Result] = {
+  private[this] def outputParsed(outputXml: Elem)(implicit spec: Spec): List[Result] = {
     val issues = (outputXml \ "file").flatMap { case file =>
       lazy val fileName = {
         val path = Paths.get(file \@ "name")
@@ -92,10 +94,10 @@ object PmdJava extends Tool {
       val message = Option(error \@ "msg").collect { case msg if msg.nonEmpty => ErrorMessage(msg) }
       FileError(path, message)
     }
-    issues.toSet ++ errors
+    (issues.toSet ++ errors).toList
   }
 
-  private[this] def configFile(conf: Seq[PatternDef]): Try[Path] = {
+  private[this] def configFile(conf: List[PatternDef]): Try[Path] = {
     val rules = conf.map(generateRule)
 
     val xmlConfiguration =

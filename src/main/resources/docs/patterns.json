@@ -1524,8 +1524,8 @@
     },
     {
       "patternId":"codesize_NPathComplexity",
-      "level":"Info",
-      "category":"CodeStyle",
+      "level":"Warning",
+      "category":"ErrorProne",
       "parameters":[
         {
           "name":"violationSuppressRegex",

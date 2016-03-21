@@ -115,11 +115,6 @@ object PmdJava extends Tool {
   private[this] def fileForConfig(config: Elem) = tmpfile(config.toString())
 
   private[this] def tmpfile(content: String, prefix: String = "ruleset", suffix: String = ".xml"): Try[Path] = {
-    println(
-      s"""config:
-         |$content
-       """.stripMargin)
-
     Try(Files.write(
       Files.createTempFile(prefix, suffix),
       content.getBytes(StandardCharsets.UTF_8),

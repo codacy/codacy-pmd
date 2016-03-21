@@ -2515,17 +2515,13 @@
   },
   {
     "patternId": "strings_AvoidDuplicateLiterals",
-    "title": "Avoid code containing duplicate String literals.",
+    "title": "Avoid code containing duplicate String literals",
     "description": "Code containing duplicate String literals can usually be improved by declaring the String as a constant field.",
     "timeToFix": 5,
     "parameters": [
       {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
+        "name": "skipAnnotations",
+        "description": "Skip literals within Annotations [true, false]"
       }
     ]
   },

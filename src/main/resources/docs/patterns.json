@@ -2300,12 +2300,8 @@
       "category":"ErrorProne",
       "parameters":[
         {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
+          "name": "skipAnnotations",
+          "default": false
         }
       ]
     },

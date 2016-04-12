@@ -591,7 +591,7 @@
   },
   {
     "patternId": "coupling_LooseCoupling",
-    "title": "Enforces referecens to be interfaces when possible",
+    "title": "Enforces references to be interfaces when possible",
     "description": "Enforces whenever available, referencing objects by their interface types.",
     "timeToFix": 30,
     "parameters": [

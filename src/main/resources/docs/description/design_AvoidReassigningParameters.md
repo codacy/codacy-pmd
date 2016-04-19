@@ -1,5 +1,5 @@
 Reassigning values to incoming parameters is not recommended. Use temporary local variables instead.
-It can be confusing for other people that may want to use the original parameter value later in that code, and may not notice that it has already been change.
+It can be confusing for other people that may want to use the original parameter value later in that code, and may not notice that it has already been changed.
 
 Ex:
 

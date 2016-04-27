@@ -28,7 +28,7 @@ version in Docker := "1.0"
 val installAll =
   s"""apk update && apk add bash curl &&
      |cd /tmp &&
-     |export PMD_VERSION=5.3.6 &&
+     |export PMD_VERSION=5.4.1 &&
      |curl -L -o pmd-bin-$$PMD_VERSION.zip "http://sourceforge.net/projects/pmd/files/pmd/$$PMD_VERSION/pmd-bin-$$PMD_VERSION.zip/download" &&
      |unzip pmd-bin-$$PMD_VERSION.zip &&
      |mv pmd-bin-$$PMD_VERSION/ /usr/local/pmd-bin &&

@@ -2210,12 +2210,8 @@
     "timeToFix": 5,
     "parameters": [
       {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
+        "name": "maximumAsserts",
+        "description": "Maximum number of Asserts in a test method"
       }
     ]
   },

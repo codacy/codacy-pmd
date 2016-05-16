@@ -2025,12 +2025,8 @@
       "category":"ErrorProne",
       "parameters":[
         {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
+          "name": "maximumAsserts",
+          "default": 1
         }
       ]
     },

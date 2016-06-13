@@ -1,4 +1,4 @@
-If a local variable is assigned only once it can be declares as `final`.
+If a local variable is assigned only once it can be declared as `final`.
 
 Making a variable `final` specifies the *intent* of the programmer at the time of writing. This is very important as it might  give subsequent programmers who edit the code pause for thought before they start changing how that variable is used.
 

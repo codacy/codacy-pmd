@@ -491,7 +491,7 @@
   },
   {
     "patternId": "optimizations_LocalVariableCouldBeFinal",
-    "title": "Enforces variables assigned only once to not be declared final.",
+    "title": "Enforces variables assigned only once to be declared final.",
     "description": "A local variable assigned only once can be declared final.",
     "timeToFix": 5,
     "parameters": [

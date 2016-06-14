@@ -491,7 +491,7 @@
   },
   {
     "patternId": "optimizations_LocalVariableCouldBeFinal",
-    "title": "Enforces variables assigned only once to not be declared final.",
+    "title": "Enforces variables assigned only once to be declared final.",
     "description": "A local variable assigned only once can be declared final.",
     "timeToFix": 5,
     "parameters": [
@@ -2261,7 +2261,7 @@
   },
   {
     "patternId": "logging-jakarta-commons_GuardLogStatement",
-    "title": "Check if the log level is actually enabled.",
+    "title": "Check if the log level is actually enabled (Jakarta).",
     "description": "Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
     "timeToFix": 5,
     "parameters": [
@@ -2311,7 +2311,7 @@
   },
   {
     "patternId": "logging-java_GuardLogStatementJavaUtil",
-    "title": "Check if the log level is actually enabled.",
+    "title": "Check if the log level is actually enabled (Java).",
     "description": "Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
     "timeToFix": 5,
     "parameters": [

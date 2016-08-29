@@ -26,13 +26,14 @@ enablePlugins(DockerPlugin)
 version in Docker := "1.0"
 
 val installAll =
-  s"""apk update && apk add bash curl &&
+  s"""apk --no-cache add bash curl &&
      |cd /tmp &&
      |export PMD_VERSION=5.4.1 &&
      |curl -L -o pmd-bin-$$PMD_VERSION.zip "http://sourceforge.net/projects/pmd/files/pmd/$$PMD_VERSION/pmd-bin-$$PMD_VERSION.zip/download" &&
      |unzip pmd-bin-$$PMD_VERSION.zip &&
      |mv pmd-bin-$$PMD_VERSION/ /usr/local/pmd-bin &&
-     |rm /tmp/pmd-bin-$$PMD_VERSION.zip""".stripMargin.replaceAll(System.lineSeparator(), " ")
+     |rm /tmp/pmd-bin-$$PMD_VERSION.zip &&
+     |rm -rf /var/cache/apk/*""".stripMargin.replaceAll(System.lineSeparator(), " ")
 
 mappings in Universal <++= (resourceDirectory in Compile) map { (resourceDir: File) =>
   val src = resourceDir / "docs"
@@ -51,7 +52,7 @@ daemonUser in Docker := dockerUser
 
 daemonGroup in Docker := dockerGroup
 
-dockerBaseImage := "frolvlad/alpine-oraclejdk8"
+dockerBaseImage := "develar/java"
 
 dockerCommands := dockerCommands.value.flatMap {
   case cmd@Cmd("WORKDIR", _) => List(cmd,
@@ -59,7 +60,7 @@ dockerCommands := dockerCommands.value.flatMap {
   )
   case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
     Cmd("RUN", "mv /opt/docker/docs /docs"),
-    Cmd("RUN", "adduser -u 2004 -D docker"),
+    Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
     ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
   )
   case other => List(other)

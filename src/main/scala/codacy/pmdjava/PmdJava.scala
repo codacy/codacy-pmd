@@ -3,14 +3,14 @@ package codacy.pmdjava
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path, Paths, StandardOpenOption}
 
-import akka.actor.Status.Failure
+import better.files.File
 import codacy.dockerApi._
 import codacy.dockerApi.utils.CommandRunner
 import play.api.libs.json.{JsString, Json}
 
 import scala.sys.process._
 import scala.util.{Properties, Success, Try}
-import scala.xml.{XML, Elem}
+import scala.xml.{Elem, XML}
 
 object PmdJava extends Tool {
 
@@ -18,7 +18,7 @@ object PmdJava extends Tool {
     commandFor(path, conf, files, spec, resultFilePath).flatMap { cmd =>
       Try {
         CommandRunner.exec(cmd)
-        outputParsed(XML.loadFile(resultFilePath.toFile))
+        outputParsed(XML.loadFile(resultFilePath.toFile),path)
       }
     }
   }
@@ -37,8 +37,15 @@ object PmdJava extends Tool {
 
   private[this] lazy val resultFilePath = Paths.get(Properties.tmpDir, "pmd-result.xml")
 
+  private[this] lazy val configFileNames = Set("ruleset.xml")
+
   private[this] def commandFor(path: Path, conf: Option[List[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[List[String]] = {
-    val configPath = conf.map(configFile(_).map(_.toAbsolutePath.toString)).getOrElse(Success(ruleSetsDefault))
+    lazy val nativeConfigFile = configFileNames.map( name => Try(new better.files.File(path) / name))
+      .collectFirst{ case s@Success(file) if file.isRegularFile => s.map(_.toJava.getAbsolutePath) }
+
+    val configPath = conf.map(configFile(_).map(_.toAbsolutePath.toString))
+      .orElse( nativeConfigFile )
+      .getOrElse(Success(ruleSetsDefault))
 
     configPath.map { case configuration =>
       val configurationCmd = List("-rulesets", configuration)
@@ -60,15 +67,15 @@ object PmdJava extends Tool {
     }
   }
 
-  private[this] def relativizeToolOutputPath(path: String): SourcePath = {
-    SourcePath(DockerEnvironment.sourcePath.relativize(Paths.get(path)).toString)
+  private[this] def relativizeToolOutputPath(path: String, rootPath:Path): SourcePath = {
+    SourcePath(rootPath.relativize(Paths.get(path)).toString)
   }
 
-  private[this] def outputParsed(outputXml: Elem)(implicit spec: Spec): List[Result] = {
+  private[this] def outputParsed(outputXml: Elem, rootPath:Path)(implicit spec: Spec): List[Result] = {
     val issues = (outputXml \ "file").flatMap { case file =>
       lazy val fileName = {
         val path = Paths.get(file \@ "name")
-        val relativePath = DockerEnvironment.sourcePath.relativize(path)
+        val relativePath = rootPath.relativize(path)
         SourcePath(relativePath.toString)
       }
 
@@ -90,7 +97,7 @@ object PmdJava extends Tool {
     }
 
     val errors = (outputXml \ "error").map { case error =>
-      val path = relativizeToolOutputPath(error \@ "filename")
+      val path = relativizeToolOutputPath(error \@ "filename", rootPath)
       val message = Option(error \@ "msg").collect { case msg if msg.nonEmpty => ErrorMessage(msg) }
       FileError(path, message)
     }

@@ -1,2750 +1,2012 @@
-[
-  {
-    "patternId": "unusedcode_UnusedPrivateField",
-    "title": "Prohibits unused private fields",
-    "description": "Prohibits writing private fields that are not used",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "unusedcode_UnusedLocalVariable",
-    "title": "Prohibits unused local variables",
-    "description": "Prohibits writing local variables that are not used",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "unusedcode_UnusedPrivateMethod",
-    "title": "Prohibits unused private methods",
-    "description": "Prohibits writing private methods that are not used",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "unusedcode_UnusedFormalParameter",
-    "title": "Prohibits unused parameters",
-    "description": "Prohibits passing parameters to methods or constructors without actually referencing them in the method body",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "checkAll",
-        "description": "Check all methods, including non-private ones"
-      }
-    ]
-  },
-  {
-    "patternId": "unusedcode_UnusedModifier",
-    "title": "Prohibits modifiers on interfaces fields",
-    "description": "Prohibits the use of modifiers on the fields of an interface",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_JumbledIncrementer",
-    "title": "Prohibits jumbled loop incrementers",
-    "description": "Prohibits a loop condition to test one variable and increment a different one",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "basic_ForLoopShouldBeWhileLoop",
-    "title": "Prohibits for loops when while is enough",
-    "description": "Prohibits a for loop with just a condition, a while is enough",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "basic_OverrideBothEqualsAndHashcode",
-    "title": "Overriding HashCode and Equals or neither",
-    "description": "When overriding HashCode or Equals, is necessary to override the other one",
-    "timeToFix": 60,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_DoubleCheckedLocking",
-    "title": "Prohibits Double Checked Locking",
-    "description": "Prohibits the creation of objects using Double Checked Locking pattern",
-    "timeToFix": 30,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_ReturnFromFinallyBlock",
-    "title": "Prohibits returning from a finally block",
-    "description": "Prohibits returning from a finally block",
-    "timeToFix": 30
-  },
-  {
-    "patternId": "basic_AvoidDecimalLiteralsInBigDecimalConstructor",
-    "title": "Prohibits loss of precision using BigDecimal",
-    "description": "Prohibits the use of decimals in the constructor of BigDecimal",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "basic_BrokenNullCheck",
-    "title": "Prohibits the use of a broken null check",
-    "description": "Prohibits a null checks, when its check throws a NullPointerException itself",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_AvoidUsingOctalValues",
-    "title": "Prohibits the use of octal literals",
-    "description": "Prohibits the use of literals starting with 0",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "strict",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_CheckResultSet",
-    "title": "Checks for navigation methods of a ResultSet",
-    "description": "Checks the return values of navigation methods(next, previous..) of a ResultSet",
-    "timeToFix": 20,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_AvoidMultipleUnaryOperators",
-    "title": "Prohibits the use of multiple unary operators",
-    "description": "Prohibits the use of multiple unary operators together in the same expression",
-    "timeToFix": 30,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_CheckSkipResult",
-    "title": "Prohibits the use of skip without checking return",
-    "description": "Prohibits the usage of InputStream.skip(long n) without checking the return value",
-    "timeToFix": 15,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_AvoidBranchingStatementAsLastInLoop",
-    "title": "Prohibits branch statement at last part of loop",
-    "description": "Prohibits the usage of a branch statement (like break) at last part of a loop",
-    "timeToFix": 50,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "checkReturnLoopTypes",
-        "description": "Check for return statements in loop types"
-      },
-      {
-        "name": "checkContinueLoopTypes",
-        "description": "Check for continue statements in loop types"
-      },
-      {
-        "name": "checkBreakLoopTypes",
-        "description": "Check for break statements in loop types"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_DontCallThreadRun",
-    "title": "Prohibits the usage of Thread.run()",
-    "description": "Prohibits the usage of Thread.run()",
-    "timeToFix": 20
-  },
-  {
-    "patternId": "basic_DontUseFloatTypeForLoopIndices",
-    "title": "Prohibits the use of Floats for loops",
-    "description": "Prohibits the use of floating point for loop indices",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "braces_IfStmtsMustUseBraces",
-    "title": "Prohibits if statements without braces",
-    "description": "Prohibits the usage of if statements without using braces to surround the code block",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "braces_WhileLoopsMustUseBraces",
-    "title": "Prohibits while loops without braces",
-    "description": "Prohibits the usage of while loops without using braces to surround the code block",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "braces_IfElseStmtsMustUseBraces",
-    "title": "Prohibits if..else statements without braces",
-    "description": "Prohibits the usage of if..else statements without using braces to surround the code block",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "braces_ForLoopsMustUseBraces",
-    "title": "Prohibits for loops without braces",
-    "description": "Prohibits the usage of for loops without using braces to surround the code block",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "naming_ShortVariable",
-    "title": "Prohibits short variable names",
-    "description": "Prohibits fields, local variables, or parameter names that are very short",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "naming_LongVariable",
-    "title": "Prohibits long variable names",
-    "description": "Prohibits fields, local variables, or parameter names that are very long",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "minimum",
-        "description": " The variable length reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "naming_ShortMethodName",
-    "title": "Prohibits short method names",
-    "description": "Prohibits the usage of method names that are very short",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "naming_MethodNamingConventions",
-    "title": "Enforce method naming convention",
-    "description": "Method names must be in camelCase, and should not contain underscores.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "naming_ClassNamingConventions",
-    "title": "Enforce class naming convention",
-    "description": "Class names must be in CamelCase, and must start with an upper case character",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "naming_AbstractNaming",
-    "title": "Enforce abstract class naming convention",
-    "description": "Abstract classes must be named AbstractXXX",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "naming_AvoidDollarSigns",
-    "title": "Prohibits dollar signs in names",
-    "description": "Prohibits the usage of dollar signs in variable/method/class/interface names.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "naming_MethodWithSameNameAsEnclosingClass",
-    "title": "Prohibits methods with the same name as the class",
-    "description": "Prohibits non-constructor methods should with the same name as the enclosing class.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "naming_SuspiciousHashcodeMethodName",
-    "title": "Prohibits method name close to hashCode()",
-    "description": "Prohibits method names and return type when are suspiciously close to hashCode().",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "naming_SuspiciousConstantFieldName",
-    "title": "Enforces constant field names conventions",
-    "description": "Prohibits constant field names using all uppercase characters.",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "naming_SuspiciousEqualsMethodName",
-    "title": "Prohibits method signatures similar to equals(Object)",
-    "description": "Prohibits method name and parameteres suspiciously close to equals(Object)",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "naming_AvoidFieldNameMatchingTypeName",
-    "title": "Prohibits field name matching class name",
-    "description": "Prohibits the use of a field name matching the declaring class name.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "naming_AvoidFieldNameMatchingMethodName",
-    "title": "Prohibits field name matching a method name",
-    "description": "Prohibits the use of a field name matching a method name.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "naming_NoPackage",
-    "title": "Enforces package definition",
-    "description": "Enforces package definition class or interface does not have a package definition.",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "naming_PackageCase",
-    "title": "Prohibits uppercase characters in package definition",
-    "description": "Prohibits uppercase characters in package definition.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "naming_MisleadingVariableName",
-    "title": "Prohibits non-field names starting with m_",
-    "description": "Prohibits non-field names starting with m_ .",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "naming_BooleanGetMethodName",
-    "title": "Enforces boolean result methods name conventions",
-    "description": "Enforces boolean result methods to be named as predicate statements.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "checkParameterizedMethods",
-        "description": "Check parameterized methods "
-      }
-    ]
-  },
-  {
-    "patternId": "naming_ShortClassName",
-    "title": "Prohibits short class names",
-    "description": "Prohibits class names shorter than five characters (can be parameterized).",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "minimum",
-        "description": "Suppress violations with messages matching a regular expression"
-      }
-    ]
-  },
-  {
-    "patternId": "naming_GenericsNaming",
-    "title": "Enforces generic names to a single letter",
-    "description": "Names for references to generic values must be limited to a single uppercase letter",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "optimizations_LocalVariableCouldBeFinal",
-    "title": "Enforces variables assigned only once to be declared final.",
-    "description": "A local variable assigned only once can be declared final.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "optimizations_MethodArgumentCouldBeFinal",
-    "title": "Enforces a method to be declared final when never re-assigned.",
-    "description": "A method argument that is never re-assigned within the method can be declared final.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "optimizations_AvoidInstantiatingObjectsInLoops",
-    "title": "Enforces Object creation outside loops.",
-    "description": "New objects created within loops should be checked to see if they can created outside them and reused.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "sunsecure_MethodReturnsInternalArray",
-    "title": "Prohibits the return of internal arrays",
-    "description": "Prohibits the return of internal arrays to the caller.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "sunsecure_ArrayIsStoredDirectly",
-    "title": "Prohibits storing received arrays",
-    "description": "Prohibits storing arrays received by constructors or methods.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "coupling_ExcessiveImports",
-    "title": "Prohibits a high number of imports",
-    "description": "Prohibits a high number of imports in the same file",
-    "timeToFix": 180,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "minimum",
-        "description": "Minimum reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "coupling_LooseCoupling",
-    "title": "Enforces references to be interfaces when possible",
-    "description": "Enforces whenever available, referencing objects by their interface types.",
-    "timeToFix": 30,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "coupling_LawOfDemeter",
-    "title": "Enforces the The Law of Demeter",
-    "description": "Enforces The Law of Demeter, only talk to friends.",
-    "timeToFix": 80,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "optimizations_UseArrayListInsteadOfVector",
-    "title": "Enforces ArrayList instead of Vector for performance",
-    "description": "ArrayList is a much better Collection implementation than Vector if thread-safe operation is not required.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "optimizations_SimplifyStartsWith",
-    "title": "Enforces charAt(0) over startsWith",
-    "description": "(string).startsWith although it adds some sintactic sugar to our code, performance wise (string).charAt(0) is a better approach",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "optimizations_UseStringBufferForStringAppends",
-    "title": "Enforces StringBuilder over '+=' operator",
-    "description": "The use of the '+=' operator for appending strings causes the JVM to create and use an internal StringBuffer.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "optimizations_UseArraysAsList",
-    "title": "Enforce use of java.util.Arrays asList method instead of loop copy",
-    "description": "The java.util.Arrays class has a 'asList' method that should be used when you want to create a new List from an array of objects.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "optimizations_AvoidArrayLoops",
-    "title": "Enforce user of System.arraycopy instead of manual copy",
-    "description": "Instead of manually copying data between two arrays, use the efficient System.arraycopy method instead.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "optimizations_UnnecessaryWrapperObjectCreation",
-    "title": "Enforces the use of static conversion instead of intermediate objects to convert ",
-    "description": "Most wrapper classes provide static conversion methods that avoid the need to create intermediate objects just to create the primitive forms.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "optimizations_AddEmptyString",
-    "title": "Enforces the use of toString() instead of concatenating literals using empty strings",
-    "description": "The conversion of literals to strings by concatenating them with empty strings is inefficient.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "optimizations_RedundantFieldInitializer",
-    "title": "Prohibits the initialization of default values",
-    "description": "Java will initialize fields with known default values so any explicit initialization of those same defaults is redundant.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "optimizations_PrematureDeclaration",
-    "title": "Prohibits the declaration of variables before they might be used",
-    "description": "Checks for variables that are defined before they might be used.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "controversial_UnnecessaryConstructor",
-    "title": "Prohibits public empty constructors",
-    "description": "This rule detects when a constructor is not necessary; i.e., when there is only one constructor, its public, has an empty body, and takes no arguments.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_NullAssignment",
-    "title": "Prohibits assigning 'null' to a variable outside of its declaration",
-    "description": "Assigning a 'null' to a variable (outside of its declaration) is usually bad form.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "controversial_OnlyOneReturn",
-    "title": "Enforces the use of only one return point",
-    "description": "A method should have only one exit point, and that should be the last statement in the method.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "controversial_AssignmentInOperand",
-    "title": "Prohibits the use of assignments in operands",
-    "description": "Avoid assignments in operands; this can make code more complicated and harder to read.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "allowIncrementDecrement",
-        "description": "Allow increment or decrement operators within the conditional expression of an if, for, or while statement"
-      },
-      {
-        "name": "allowWhile",
-        "description": "Allow assignment within the conditional expression of a while statement"
-      },
-      {
-        "name": "allowFor",
-        "description": "Allow assignment within the conditional expression of a for statement"
-      },
-      {
-        "name": "allowIf",
-        "description": "Allow assignment within the conditional expression of an if statement"
-      }
-    ]
-  },
-  {
-    "patternId": "controversial_AtLeastOneConstructor",
-    "title": "Each class should declare at least one constructor.",
-    "description": "Each class should declare at least one constructor for clarity.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_DontImportSun",
-    "title": "Prohibits the use of sun.* packages.",
-    "description": "Avoid importing anything from the 'sun.*' packages. These packages are not portable and are likely to change.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_UseUtilityClass",
-    "title": "Enforces the use of utility classes",
-    "description": "For classes that only have static methods, make them utility classes.",
-    "timeToFix": 60,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_SimplifyBooleanReturns",
-    "title": "Prohibits if-else when returning boolean",
-    "description": "Prohibits unnecessary if-then-else statements when returning a boolean.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_SimplifyBooleanExpressions",
-    "title": "Prohibits unnecessary comparisons in boolean expressions",
-    "description": "Prohibits unnecessary comparisons in boolean expressions",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "design_SwitchStmtsShouldHaveDefault",
-    "title": "Prohibits switch statements with no default",
-    "description": "Prohibits the usage of switch statements without a default option to catch any unspecified values.",
-    "timeToFix": 20
-  },
-  {
-    "patternId": "design_AvoidDeeplyNestedIfStmts",
-    "title": "Prohibits deeply nested if-then statements",
-    "description": "Prohibits the usage of deeply nested if-then statements.",
-    "timeToFix": 80,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "problemDepth",
-        "description": "The if statement depth reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "design_AvoidReassigningParameters",
-    "title": "Prohibits reassigning values to parameters",
-    "description": " Prohibits reassigning values to incoming parameters.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_ConstructorCallsOverridableMethod",
-    "title": "Prohibits calling overridable methods during construction",
-    "description": "Prohibits the call of overridable methods during construction of an object.",
-    "timeToFix": 60,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "controversial_SuspiciousOctalEscape",
-    "title": "Prohibits the use of octal escape sequence inside a String literal",
-    "description": "A suspicious octal escape sequence was found inside a String literal. An octal escape sequence inside a literal String shall consist of a backslash followed by OctalDigit | OctalDigit OctalDigit | ZeroToThree OctalDigit OctalDigit",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "controversial_CallSuperInConstructor",
-    "title": "Enforces calling super inside a constructor",
-    "description": "It is a good practice to call super() in a constructor. If super() is not called but another constructor (such as an overloaded constructor) is called, this rule will not report it.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "design_FinalFieldCouldBeStatic",
-    "title": "Enforces constants as static final",
-    "description": "If a final field is assigned to a compile-time constant, enforces it to be static",
-    "timeToFix": 15
-  },
-  {
-    "patternId": "design_CloseResource",
-    "title": "Enforces that resources are closed",
-    "description": "Enforces that resources (like Connection, Statement, and ResultSet objects) are always closed after use.",
-    "timeToFix": 20,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_NonStaticInitializer",
-    "title": "Prohibits non-static initializer block",
-    "description": "Prohibits the usage of a non-static initializer block.",
-    "timeToFix": 30
-  },
-  {
-    "patternId": "design_DefaultLabelNotLastInSwitchStmt",
-    "title": "Enforces default label to be last on switch",
-    "description": "Enforces the default label to be the last label in a switch statement.",
-    "timeToFix": 40
-  },
-  {
-    "patternId": "design_NonCaseLabelInSwitchStatement",
-    "title": "Prohibits non-case label in a switch",
-    "description": "Prohibits a non-case label (e.g. a named break/continue label) within a switch statement.",
-    "timeToFix": 40
-  },
-  {
-    "patternId": "design_OptimizableToArrayCall",
-    "title": "Enforces good usage of toArray()",
-    "description": "Calls to a collection's toArray() method must specify target arrays sized to match the size of the collection.",
-    "timeToFix": 15
-  },
-  {
-    "patternId": "design_BadComparison",
-    "title": "Avoid comparisons with Double.NaN",
-    "description": "Prohibits equality comparisons with Double.NaN due to the lack of representation precision.",
-    "timeToFix": 15
-  },
-  {
-    "patternId": "design_EqualsNull",
-    "title": "Prohibits testing for null with equals",
-    "description": "Prohibits testing for null ussing the equals() method.",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "design_ConfusingTernary",
-    "title": "Prohibits negation within an if-else",
-    "description": "Prohibits negation within an 'if' expression with an 'else' clause.",
-    "timeToFix": 15,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "ignoreElseIf",
-        "description": "Ignore conditions with an else-if case"
-      }
-    ]
-  },
-  {
-    "patternId": "design_InstantiationToGetClass",
-    "title": "Prohibits instantiating object to call getClass",
-    "description": "Prohibits instantiating an object just to call getClass() on it",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "design_IdempotentOperations",
-    "title": "Prohibits idempotent operations",
-    "description": "Prohibits operations which have no effects",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_SimpleDateFormatNeedsLocale",
-    "title": "Prohibits SimpleDateFormat without Locale",
-    "description": "Prohibits creating a SimpleDateFormat instances without specifying the Locale",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "design_ImmutableField",
-    "title": "Enforces never changed fields to be final",
-    "description": "Enforces private fields whose values never change to be final.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_UseLocaleWithCaseConversions",
-    "title": "Prohibits toLower/UpperCase without Locale",
-    "description": "Prohibits String.toLowerCase()/toUpperCase() conversions without Locale.",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "design_AvoidProtectedFieldInFinalClass",
-    "title": "Prohibits protected fields in final class",
-    "description": "Prohibits the usage of protected fields in final classes",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_DataflowAnomalyAnalysis",
-    "title": "Enforces good dataflow",
-    "description": "The dataflow analysis tracks local definitions, undefinitions and references to variables on different paths on the data flow.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "maxViolations",
-        "description": "Maximum number of anomalies per class"
-      },
-      {
-        "name": "maxPaths",
-        "description": "maximum number of checked paths per method. A lower value will increase the performance of the rule but may decrease anomalies found"
-      }
-    ]
-  },
-  {
-    "patternId": "controversial_AvoidFinalLocalVariable",
-    "title": "Prohibits the use of final local variables",
-    "description": "Avoid using final local variables, turn them into fields.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_AvoidUsingShortType",
-    "title": "Prohibits the usage of the 'short' type",
-    "description": "Java uses the 'short' type to reduce memory usage, not to optimize calculation.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_AvoidUsingVolatile",
-    "title": "Prohibits the use of Volatile keyword",
-    "description": "Use of the keyword 'volatile' is generally used to fine tune a Java application, and therefore, requires a good expertise of the Java Memory Model. Moreover, its range of action is somewhat misknown.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_DoNotCallGarbageCollectionExplicitly",
-    "title": "Prohibits the use of Calling GarbageCollector within the code",
-    "description": "Calls to System.gc(), Runtime.getRuntime().gc(), and System.runFinalization() are not advised.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_OneDeclarationPerLine",
-    "title": "Enforces the declaration of one variable per line",
-    "description": "Java allows the use of several variables declaration of the same type on one line. However, it can lead to quite messy code. This rule looks for several declarations on the same line.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "strictMode",
-        "description": "If true, mark combined declaration even if the declarations are on seperate lines."
-      }
-    ]
-  },
-  {
-    "patternId": "controversial_AvoidPrefixingMethodParameters",
-    "title": "Enforces good naming of variables",
-    "description": "Prefixing parameters by 'in' or 'out' pollutes the name of the parameters and reduces code readability. To indicate whether or not a parameter will be modify in a method, its better to document method behavior with Javadoc.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_AvoidLiteralsInIfCondition",
-    "title": "Prohibits the use of literals in If Else statements",
-    "description": "Avoid using hard-coded literals in conditional statements. By declaring them as static variables or private members with descriptive names maintainability is enhanced.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "ignoreMagicNumbers",
-        "description": "Comma-Separated list of magic numbers, that should be ignored"
-      },
-      {
-        "name": "version",
-        "description": ""
-      }
-    ]
-  },
-  {
-    "patternId": "controversial_UseObjectForClearerAPI",
-    "title": "Enforces the declaration of Objects for cleaner API",
-    "description": "When you write a public method, you should be thinking in terms of an API. If your method is public, it means other class will use it, therefore, you want (or need) to offer a comprehensive and evolutive API.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_DefaultPackage",
-    "title": "Enforces the use of explicit scoping",
-    "description": "Use explicit scoping instead of the default package private level.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_AvoidUsingNativeCode",
-    "title": "Prohibits the use of JNI(Java Native Interface)",
-    "description": "Unnecessary reliance on Java Native Interface (JNI) calls directly reduces application portability and increases the maintenance burden.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "controversial_AvoidAccessibilityAlteration",
-    "title": "Prohibits the alteration of a variable accessibility",
-    "description": "Methods such as getDeclaredConstructors(), getDeclaredConstructor(Class[]) and setAccessible(), as the interface PrivilegedAction, allows for the runtime alteration of variable, class, or method visibility, even if they are private.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "empty_EmptyCatchBlock",
-    "title": "Prohibits Empty Catch Blocks",
-    "description": "Empty Catch Block finds instances where an exception is caught, but nothing is done. In most circumstances, this swallows an exception which should either be acted on or reported.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "allowCommentedBlocks",
-        "description": "Empty blocks containing comments will be skipped"
-      }
-    ]
-  },
-  {
-    "patternId": "empty_EmptyIfStmt",
-    "title": "Prohibits empty If Statements",
-    "description": "Empty If Statement finds instances where a condition is checked but nothing is done about it.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "empty_EmptyWhileStmt",
-    "title": "Prohibits the use of an empty While statement",
-    "description": "Empty While Statement finds all instances where a while statement does nothing. If it is a timing loop, then you should use Thread.sleep() for it; if it is a while loop that does a lot in the exit expression, rewrite it to make it clearer.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "design_AssignmentToNonFinalStatic",
-    "title": "Prohibits unsafe static field",
-    "description": "Prohibits the usage of a possible unsafe static field.",
-    "timeToFix": 50,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_MissingStaticMethodInNonInstantiatableClass",
-    "title": "Prohibits useless class",
-    "description": "Prohibits a class that has private constructors and does not have any static methods or fields.",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "design_AvoidSynchronizedAtMethodLevel",
-    "title": "Prohibits method-level synchronization",
-    "description": "Prohibits the usage of method-level synchronized modifier.",
-    "timeToFix": 40
-  },
-  {
-    "patternId": "design_MissingBreakInSwitch",
-    "title": "Prohibits switch statements without break",
-    "description": "Prohibits switch statements without break or return statements for each case option.",
-    "timeToFix": 40
-  },
-  {
-    "patternId": "design_UseNotifyAllInsteadOfNotify",
-    "title": "Prohibits thread.notify()",
-    "description": "Prohibits the usage of Thread.notify(), use Thread.notifyAll() instead.",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "design_AvoidInstanceofChecksInCatchClause",
-    "title": "Prohibits instanceof in catch block",
-    "description": "Prohibits the usage of instanceof in a catch block.",
-    "timeToFix": 30
-  },
-  {
-    "patternId": "design_AbstractClassWithoutAbstractMethod",
-    "title": "Prohibits abstract class without abstract methods",
-    "description": "Prohibits abstract classes that does not contain any abstract methods.",
-    "timeToFix": 120
-  },
-  {
-    "patternId": "design_SimplifyConditional",
-    "title": "Avoid check for null before instanceof",
-    "description": "Prohibits check for null before an instanceof",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "design_CompareObjectsWithEquals",
-    "title": "Enforce equals() to compare objects",
-    "description": "Enforce the usage of equals() to compare objects instead of ==",
-    "timeToFix": 20,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_PositionLiteralsFirstInComparisons",
-    "title": "Enforces literals first in comparisons",
-    "description": "Enforces literals to be positioned first in comparisons",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "design_NonThreadSafeSingleton",
-    "title": "Prohibits non-thread safe singletons",
-    "description": "Prohibits usage of non-thread safe singletons. It can result in bad state changes.",
-    "timeToFix": 20,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "checkNonStaticFields",
-        "description": "Check for non-static fields. Do not set this to true and checkNonStaticMethods to false"
-      },
-      {
-        "name": "checkNonStaticMethods",
-        "description": "Check for non-static methods. Do not set this to false and checkNonStaticFields to true."
-      }
-    ]
-  },
-  {
-    "patternId": "design_UncommentedEmptyMethodBody",
-    "title": "Prohibits uncommented empty methods",
-    "description": "Prohibits the declaration of uncommented empty method body.",
-    "timeToFix": 20
-  },
-  {
-    "patternId": "design_UncommentedEmptyConstructor",
-    "title": "Prohibits uncommented empty constructors",
-    "description": "Prohibits the declaration of uncommented empty constructor body.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "ignoreExplicitConstructorInvocation",
-        "description": "Ignore explicit constructor invocation when deciding whether constructor is empty or not"
-      }
-    ]
-  },
-  {
-    "patternId": "design_AvoidConstantsInterface",
-    "title": "Prohibits interface as constants container",
-    "description": "Prohibits the declaration of an interface as a container of constants",
-    "timeToFix": 30
-  },
-  {
-    "patternId": "design_UnsynchronizedStaticDateFormatter",
-    "title": "Enforces SimpleDateFormat to be synchronized",
-    "description": "Enforces SimpleDateFormat instances to be synchronized",
-    "timeToFix": 30,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_PreserveStackTrace",
-    "title": "Enforces statckTrace preservation",
-    "description": "Enfroces stackTrace preservation when throwing exceptions on catch blocks.",
-    "timeToFix": 30,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_UseCollectionIsEmpty",
-    "title": "Enforces isEmpty() to determine if collection has elements.",
-    "description": "Enforces isEmpty() method to determine if a collection has any elements.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
-    "title": "Enforces final on class with only private constructors",
-    "description": "Enforces a class with only private constructors to be final, unless the private constructor is invoked by a inner class.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "design_EmptyMethodInAbstractClassShouldBeAbstract",
-    "title": "Prohibits empty non-abstract methods in abstract class",
-    "description": "Prohibits the definition of empty non-abstract methods in an abstract class.",
-    "timeToFix": 180
-  },
-  {
-    "patternId": "design_SingularField",
-    "title": "Prohibits fields when local variable is enough",
-    "description": "Prohibits the use of fields whose scopes are limited to just single methods, declare them as local variables instead.",
-    "timeToFix": 30,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "disallowNotAssignment",
-        "description": "Disallow violations where the first usage is not an assignment"
-      },
-      {
-        "name": "checkInnerClasses",
-        "description": "Check inner classes"
-      }
-    ]
-  },
-  {
-    "patternId": "design_ReturnEmptyArrayRatherThanNull",
-    "title": "Prohibits returning null array",
-    "description": "Prohibits returning null for any method that returns an array.",
-    "timeToFix": 50
-  },
-  {
-    "patternId": "design_AbstractClassWithoutAnyMethod",
-    "title": "Prohibits abstract class without methods",
-    "description": "Prohibits an abstract class which does not provides any methods.",
-    "timeToFix": 60
-  },
-  {
-    "patternId": "design_TooFewBranchesForASwitchStatement",
-    "title": "Prohibits small switch statements",
-    "description": "Prohibits switch statements for only a few cases. Use if-then instead.",
-    "timeToFix": 30,
-    "parameters": [
-      {
-        "name": "minimumNumberCaseForASwitch",
-        "description": "Minimum number of branches for a switch"
-      }
-    ]
-  },
-  {
-    "patternId": "design_LogicInversion",
-    "title": "Enforces opposite operator instead of negating",
-    "description": "Enforces the usage of the opposite operator instead of negating the whole expression with a logic complement operator.",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "design_UseVarargs",
-    "title": "Enforces varargs for arbitrary number of parameters",
-    "description": "Enforces the use of varargs instead of arrays when declaring a method with arbitrary number os parameters.",
-    "timeToFix": 40
-  },
-  {
-    "patternId": "design_FieldDeclarationsShouldBeAtStartOfClass",
-    "title": "Enforces field declarations at top of the class",
-    "description": "Enforces field declarations at the top of the class, before any method declarations, constructors, initializers or inner classes.",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "ignoreAnonymousClassDeclarations",
-        "description": "Ignore Field Declarations, that are initialized with anonymous class declarations"
-      },
-      {
-        "name": "ignoreEnumDeclarations",
-        "description": "Ignore Enum Declarations that precede fields."
-      }
-    ]
-  },
-  {
-    "patternId": "design_AvoidProtectedMethodInFinalClassNotExtending",
-    "title": "Prohibits protected methods in final classes",
-    "description": "Prohibits the definition of protected methods in final classes.",
-    "timeToFix": 40
-  },
-  {
-    "patternId": "empty_EmptyTryBlock",
-    "title": "Prohibits empty try blocks",
-    "description": "Avoid empty try blocks - what's the point?",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "empty_EmptyFinallyBlock",
-    "title": "Prohibits empty finally blocks",
-    "description": "Empty finally blocks serve no purpose and should be removed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "empty_EmptySwitchStatements",
-    "title": "Prohibits the use of empty switch statements",
-    "description": "Empty switch statements serve no purpose and should be removed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "empty_EmptySynchronizedBlock",
-    "title": "Prohibits the use of empty synchronized blocks",
-    "description": "Empty synchronized blocks serve no purpose and should be removed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "empty_EmptyStatementNotInLoop",
-    "title": "Prohibits empty statements that are not inside a loop",
-    "description": "An empty statement (or a semicolon by itself) that is not used as the sole body of a 'for' or 'while' loop is probably a bug. It could also be a double semicolon, which has no purpose and should be removed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "empty_EmptyInitializer",
-    "title": "Prohibits the use of empty initializers",
-    "description": "Empty initializers serve no purpose and should be removed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "empty_EmptyStatementBlock",
-    "title": "Prohibits the implementation of empty block statements",
-    "description": "Empty block statements serve no purpose and should be removed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "empty_EmptyStaticInitializer",
-    "title": "Prohibits the use of an empty static initializer",
-    "description": "An empty static initializer serve no purpose and should be removed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "unnecessary_UnnecessaryConversionTemporary",
-    "title": "Prohibits the use of temporary objects for conversions to String",
-    "description": "Avoid the use temporary objects when converting primitives to Strings. Use the static conversion methods on the wrapper classes instead.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "unnecessary_UnnecessaryReturn",
-    "title": "Prohibits the use of unnecessary return statements",
-    "description": "Avoid the use of unnecessary return statements.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "unnecessary_UnnecessaryFinalModifier",
-    "title": "Prohibits the use of final tag when class has the final modifier",
-    "description": "When a class has the final modifier, all the methods are automatically final and do not need to be tagged as such.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "unnecessary_UselessOverridingMethod",
-    "title": "Prohibits the use of the overriding method",
-    "description": "The overriding method merely calls the same method defined in a superclass.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "ignoreAnnotations",
-        "description": "Ignore annotations"
-      }
-    ]
-  },
-  {
-    "patternId": "unnecessary_UselessOperationOnImmutable",
-    "title": "Prohibits an operation on an Immutable object that tries to change the object itself",
-    "description": "An operation on an Immutable object (String, BigDecimal or BigInteger) won’t change the object itself since the result of the operation is a new object. Therefore, ignoring the operation result is an error.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "unnecessary_UnusedNullCheckInEquals",
-    "title": "Enforces the correct usage of null checking in object references",
-    "description": "After checking an object reference for null, you should invoke equals() on that object rather than passing it to another object's equals() method.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "unnecessary_UselessParentheses",
-    "title": "Prohibits the use of useless parentheses",
-    "description": "Useless parentheses should be removed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "clone_ProperCloneImplementation",
-    "title": "Enforces the call to super when implementing clone()",
-    "description": "Object clone() should be implemented with super.clone().",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "clone_CloneThrowsCloneNotSupportedException",
-    "title": "Enforces throwing a CloneNotSupportedException when using clone()",
-    "description": "The method clone() should throw a CloneNotSupportedException.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "finalizers_EmptyFinalizer",
-    "title": "Prohibits the implementation of an empty Finalizer",
-    "description": "Empty finalize methods serve no purpose and should be removed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "finalizers_FinalizeOnlyCallsSuperFinalize",
-    "title": "Prohibits only calling super.finalize() inside finalize()",
-    "description": "If the finalize() is implemented, it should do something besides just calling super.finalize().",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "finalizers_FinalizeOverloaded",
-    "title": "Enforces finalize to not have any parameters",
-    "description": "Methods named finalize() should not have parameters. It is confusing and most likely an attempt to overload Object.finalize(). It will not be called by the VM.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "finalizers_FinalizeDoesNotCallSuperFinalize",
-    "title": "Enforces the call of super.finalize as the last action in finalize",
-    "description": "If the finalize() is implemented, its last action should be to call super.finalize.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "finalizers_FinalizeShouldBeProtected",
-    "title": "Enforces the finalize method to be protected",
-    "description": "When overriding the finalize(), the new method should be set as protected. If made public, other classes may invoke it at inappropriate times.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "finalizers_AvoidCallingFinalize",
-    "title": "Prohibits the calling of Object.finalize() method",
-    "description": "The method Object.finalize() is called by the garbage collector on an object when garbage collection determines that there are no more references to the object. It should not be invoked by application logic.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_NPathComplexity",
-    "title": "Prohibits high NPathComplexity",
-    "description": "The NPath complexity of a method is the number of acyclic execution paths through that method.",
-    "timeToFix": 30,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "minimum",
-        "description": "Minimum reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_ExcessiveMethodLength",
-    "title": "Enforces small and clear methods",
-    "description": "When methods are excessively long this usually indicates that the method is doing more than its name/signature might suggest.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "minimum",
-        "description": "Minimum reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_ExcessiveParameterList",
-    "title": "Enforces the moderate usage of parameters in methods",
-    "description": "Methods with numerous parameters are a challenge to maintain, especially if most of them share the same datatype.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "minimum",
-        "description": "Minimum reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_ExcessiveClassLength",
-    "title": "Enforces the care you should take when looking at class file lengths",
-    "description": "Excessive class file lengths are usually indications that the class may be burdened with excessive responsibilities that could be provided by external classes or functions.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "minimum",
-        "description": "Minimum reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_CyclomaticComplexity",
-    "title": "Enforces the moderate use of if's, while's, for's and case labels",
-    "description": "Complexity directly affects maintenance costs is determined by the number of decision points in a method plus one for the method entry.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "showMethodsComplexity",
-        "description": "Add method average violations to the report"
-      },
-      {
-        "name": "showClassesComplexity",
-        "description": "Add class average violations to the report"
-      },
-      {
-        "name": "reportLevel",
-        "description": "Cyclomatic Complexity reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_ExcessivePublicCount",
-    "title": "Enforces the division of a many public methods class into seperate ones",
-    "description": "Classes with large numbers of public methods and attributes require disproportionate testing efforts since combinational side effects grow rapidly and increase risk.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "minimum",
-        "description": "Minimum reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_TooManyFields",
-    "title": "Enforces better code refactoring when there are too many fields",
-    "description": "Classes that have too many fields can become unwieldy and could be redesigned to have fewer fields, possibly through grouping related fields in new objects.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "maxfields",
-        "description": "Max allowable fields"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_NcssMethodCount",
-    "title": "Enforces each method to not have too many lines of code",
-    "description": "This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given method.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "minimum",
-        "description": "Minimum reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_NcssTypeCount",
-    "title": "Enforces each type to not have many lines of code ",
-    "description": "This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given type.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "minimum",
-        "description": "Minimum reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_NcssConstructorCount",
-    "title": "Enforces the usage of less code inside a constructor",
-    "description": "This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given constructor.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "minimum",
-        "description": "Minimum reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "codesize_TooManyMethods",
-    "title": "Enforces refactoring of Class if there are too many methods",
-    "description": "A class with too many methods is probably a good suspect for refactoring, in order to reduce its complexity and find a way to have more fine grained objects.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      },
-      {
-        "name": "maxmethods",
-        "description": "The method reporting threshold"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_UnconditionalIfStatement",
-    "title": "Prohibits useless if statements",
-    "description": "Prohibits the usage of if statements whose conditionals are always true or always false.",
-    "timeToFix": 20
-  },
-  {
-    "patternId": "basic_BooleanInstantiation",
-    "title": "Prohibits instantiation of Boolean",
-    "description": "Prohibits instantiation of Boolean objects, you can reference Boolean.TRUE, Boolean.FALSE",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_CollapsibleIfStatements",
-    "title": "Prohibits multiple if statements that can combine",
-    "description": "Prohibits the usage of two consecutive if statements that can be consolidated by separating their conditions with a boolean short-circuit operator.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "basic_ClassCastExceptionWithToArray",
-    "title": "Prohibits cast to Array without parameter",
-    "description": "Prohibits casting an array without providing an array of the same class as the parameter of the toArray() method.",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "basic_MisplacedNullCheck",
-    "title": "Prohibits misplaced null check",
-    "description": "Prohibits a null check that is done only after the usage of the reference",
-    "timeToFix": 10
-  },
-  {
-    "patternId": "basic_AvoidThreadGroup",
-    "title": "Prohibits the usage of ThreadGroup",
-    "description": "Prohibits the usage of java.lang.ThreadGroup.",
-    "timeToFix": 40
-  },
-  {
-    "patternId": "basic_BigIntegerInstantiation",
-    "title": "Prohibits creation of already existing BigInteger",
-    "description": "Prohibits the creation of already existing BigInteger (BigInteger.ZERO, BigInteger.ONE ..)",
-    "timeToFix": 10,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_AvoidUsingHardCodedIP",
-    "title": "Prohibits hard-coded IP",
-    "description": "Prohibits the usage ofhard-coded IP addresses",
-    "timeToFix": 60,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "basic_ExtendsObject",
-    "title": "Prohibits explicitly extending Object",
-    "description": "Prohibits the explicit extends of Object.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "android_CallSuperFirst",
-    "title": "Super should be called at the start of the method",
-    "description": "Super should be called at the start of the method",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "android_CallSuperLast",
-    "title": "Super should be called at the end of the method",
-    "description": "Super should be called at the end of the method",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "android_DoNotHardCodeSDCard",
-    "title": "Use Environment.getExternalStorageDirectory() instead of '/sdcard'",
-    "description": "Use Environment.getExternalStorageDirectory() instead of '/sdcard'",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "imports_DontImportJavaLang",
-    "title": "Avoid importing anything from the package 'java.lang'.",
-    "description": "Avoid importing anything from the package 'java.lang'. These classes are automatically imported (JLS 7.5.3).",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "imports_UnusedImports",
-    "title": "Avoid unused import statements.",
-    "description": "Avoid the use of unused import statements to prevent unwanted dependencies.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "imports_ImportFromSamePackage",
-    "title": "There is no need to import a type that lives in the same package.",
-    "description": "There is no need to import a type that lives in the same package.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "imports_TooManyStaticImports",
-    "title": "If you overuse the static import feature, it can make your program unreadable and unmaintainable, polluting its namespace with all the static members you import.",
-    "description": "If you overuse the static import feature, it can make your program unreadable and unmaintainable, polluting its namespace with all the static members you import.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "imports_UnnecessaryFullyQualifiedName",
-    "title": "Import statements allow the use of non-fully qualified names.",
-    "description": "Import statements allow the use of non-fully qualified names.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "j2ee_UseProperClassLoader",
-    "title": "Avoid the getClassLoader() method in J2EE.",
-    "description": "In J2EE, the getClassLoader() method might not work as expected. Use Thread.currentThread().getContextClassLoader() instead.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "j2ee_MDBAndSessionBeanNamingConvention",
-    "title": "MessageDrivenBean or SessionBean should be suffixed by 'Bean'.",
-    "description": "The EJB Specification states that any MessageDrivenBean or SessionBean should be suffixed by ‘Bean’.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "j2ee_RemoteSessionInterfaceNamingConvention",
-    "title": "Remote Home interface should be suffixed by 'Home'.",
-    "description": "A Remote Home interface type of a Session EJB should be suffixed by 'Home'.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "j2ee_LocalInterfaceSessionNamingConvention",
-    "title": "The Local Interface of a Session EJB should be be proper suffixed.",
-    "description": "The Local Interface of a Session EJB should be suffixed by 'Local'.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "j2ee_LocalHomeNamingConvention",
-    "title": "The Local Home interface should be proper suffixed.",
-    "description": "The Local Home interface of a Session EJB should be suffixed by 'LocalHome'.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "j2ee_RemoteInterfaceNamingConvention",
-    "title": "Remote Interface of a Session EJB should not have a suffix.",
-    "description": "Remote Interface of a Session EJB should not have a suffix.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "j2ee_DoNotCallSystemExit",
-    "title": "Web applications should not call System.exit().",
-    "description": "Web applications should not call System.exit(), since only the web container or the application server should stop the JVM.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "j2ee_StaticEJBFieldShouldBeFinal",
-    "title": "An EJB should not have any static fields with write access.",
-    "description": "According to the J2EE specification, an EJB should not have any static fields with write access. However, static read-only fields are allowed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "j2ee_DoNotUseThreads",
-    "title": "The J2EE specification explicitly forbids the use of threads.",
-    "description": "The J2EE specification explicitly forbids the use of threads.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "javabeans_MissingSerialVersionUID",
-    "title": "Serializable classes should provide a serialVersionUID field.",
-    "description": "Serializable classes should provide a serialVersionUID field.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "junit_JUnitStaticSuite",
-    "title": "The suite() method in a JUnit test needs to be both public and static.",
-    "description": "The suite() method in a JUnit test needs to be both public and static.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "junit_JUnitSpelling",
-    "title": "Some JUnit framework methods are easy to misspell.",
-    "description": "Some JUnit framework methods are easy to misspell.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "junit_JUnitAssertionsShouldIncludeMessage",
-    "title": "JUnit assertions should use the three-argument version of assertEquals().",
-    "description": "JUnit assertions should include an informative message - i.e., use the three-argument version of assertEquals(), not the two-argument version.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "junit_JUnitTestsShouldIncludeAssert",
-    "title": "JUnit tests should include at least one assertion.",
-    "description": "JUnit tests should include at least one assertion. This makes the tests more robust, and using assert with messages provide the developer a clearer idea of what the test does.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "junit_UnnecessaryBooleanAssertion",
-    "title": "Unnecessary JUnit test assertion with a boolean literal.",
-    "description": "A JUnit test assertion with a boolean literal is unnecessary since it always will evaluate to the same thing.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "junit_UseAssertEqualsInsteadOfAssertTrue",
-    "title": "Use assertEquals in assertions when testing object equality.",
-    "description": "This rule detects JUnit assertions in object equality. These assertions should be made by more specific methods, like assertEquals.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "junit_UseAssertSameInsteadOfAssertTrue",
-    "title": "Use assertSame/assertNotSame in assertions when testing object references equality.",
-    "description": "This rule detects JUnit assertions in object references equality. These assertions should be made by more specific methods, like assertSame, assertNotSame.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "junit_UseAssertNullInsteadOfAssertTrue",
-    "title": "This rule detects JUnit assertions in object references equality. These assertions should be made by more specific methods, like assertNull, assertNotNull.",
-    "description": "This rule detects JUnit assertions in object references equality. These assertions should be made by more specific methods, like assertNull, assertNotNull.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "junit_SimplifyBooleanAssertion",
-    "title": "Avoid negation in an assertTrue or assertFalse test.",
-    "description": "Avoid negation in an assertTrue or assertFalse test. If you are using a negations consider to use the opposite method (assertTrue instead of assertFalse, or assertFalse instead of assertTrue)",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "junit_JUnitTestContainsTooManyAsserts",
-    "title": "JUnit tests should not contain too many asserts.",
-    "description": "JUnit tests should not contain too many asserts. Many asserts are indicative of a complex test, for which it is harder to verify correctness.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "maximumAsserts",
-        "description": "Maximum number of Asserts in a test method"
-      }
-    ]
-  },
-  {
-    "patternId": "junit_UseAssertTrueInsteadOfAssertEquals",
-    "title": "Use assertTrue/assertFalse to assert boolean values.",
-    "description": "When asserting a value is the same as a boolean literal, use assertTrue/assertFalse, instead of assertEquals.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "logging-jakarta-commons_UseCorrectExceptionLogging",
-    "title": "Use the logging statement with a String and a Throwable.",
-    "description": "To make sure the full stacktrace is printed out, use the logging statement with two arguments: a String and a Throwable.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "logging-jakarta-commons_ProperLogger",
-    "title": "A logger should be private static final.",
-    "description": "A logger should normally be defined private static final and be associated with the correct class.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "logging-jakarta-commons_GuardDebugLogging",
-    "title": "Guard with a isDebugEnabled() concatenated log messages",
-    "description": "When log messages are composed by concatenating strings, the whole section should be guarded by a isDebugEnabled() check to avoid performance and memory issues.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "logging-jakarta-commons_GuardLogStatement",
-    "title": "Check if the log level is actually enabled (Jakarta).",
-    "description": "Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "logging-java_MoreThanOneLogger",
-    "title": "Use only one logger in each class.",
-    "description": "Normally only one logger is used in each class.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "logging-java_LoggerIsNotStaticFinal",
-    "title": "The Logger reference should be declared as static and final.",
-    "description": "In most cases, the Logger reference can be declared as static and final.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "logging-java_SystemPrintln",
-    "title": "Avoid using System.(out|err).print.",
-    "description": "References to System.(out|err).print are usually intended for debugging purposes and can remain in the codebase even in production code.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "logging-java_AvoidPrintStackTrace",
-    "title": "Avoid printStackTrace().",
-    "description": "Avoid printStackTrace(); use a logger call instead.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "logging-java_GuardLogStatementJavaUtil",
-    "title": "Check if the log level is actually enabled (Java).",
-    "description": "Whenever using a log level, one should check if the loglevel is actually enabled, or otherwise skip the associate String creation and manipulation.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "migrating_ReplaceVectorWithList",
-    "title": "Avoid using Vector.",
-    "description": "Consider replacing Vector usages with the newer java.util.ArrayList if expensive thread-safe operations are not required.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_ReplaceHashtableWithMap",
-    "title": "Avoid using Hashtable.",
-    "description": "Consider replacing Hashtable usage with the newer java.util.Map if thread safety is not required.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_ReplaceEnumerationWithIterator",
-    "title": "Avoid using Enumeration.",
-    "description": "Consider replacing Enumeration usages with the newer java.util.Iterator",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_IntegerInstantiation",
-    "title": "Enforce Integer.valueOf() instead of new Integer().",
-    "description": "Calling new Integer() causes memory allocation that can be avoided by the static Integer.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_ByteInstantiation",
-    "title": "Enforce Byte.valueOf() instead of new Byte().",
-    "description": "Calling new Byte() causes memory allocation that can be avoided by the static Byte.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_ShortInstantiation",
-    "title": "Enforce Short.valueOf() instead of new Short().",
-    "description": "Calling new Short() causes memory allocation that can be avoided by the static Short.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_LongInstantiation",
-    "title": "Enforce Long.valueOf() instead of new Long().",
-    "description": "Calling new Long() causes memory allocation that can be avoided by the static Long.valueOf(). It makes use of an internal cache that recycles earlier instances making it more memory efficient.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_JUnit4TestShouldUseBeforeAnnotation",
-    "title": "Use proper setUp declaration in JUnit 3 and JUnit 4 In JUnit 3.",
-    "description": "In JUnit 3, the setUp method was used to set up all data entities required in running tests. JUnit 4 skips the setUp method and executes all methods annotated with @Before before all tests",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_JUnit4TestShouldUseAfterAnnotation",
-    "title": "Use proper tear down declaration in JUnit 3 and JUnit 4 In JUnit 3.",
-    "description": "In JUnit 3, the tearDown method was used to clean up all data entities required in running tests. JUnit 4 skips the tearDown method and executes all methods annotated with @After after running each test",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_JUnit4TestShouldUseTestAnnotation",
-    "title": "Use proper test declaration in JUnit 3 and JUnit 4 In JUnit 3.",
-    "description": "In JUnit 3, the framework executed all methods which started with the word test as a unit test. In JUnit 4, only methods annotated with the @Test annotation are executed.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_JUnit4SuitesShouldUseSuiteAnnotation",
-    "title": "Use proper test suite declaration in JUnit 3 and JUnit 4 In JUnit 3.",
-    "description": "In JUnit 3, test suites are indicated by the suite() method. In JUnit 4, suites are indicated through the @RunWith(Suite.class) annotation.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "migrating_JUnitUseExpected",
-    "title": "Use proper throwing exceptions tests declaration in JUnit 3 and JUnit 4 In JUnit 3.",
-    "description": "In JUnit4, use the @Test(expected) annotation to denote tests that should throw exceptions.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strictexception_AvoidCatchingThrowable",
-    "title": "Avoid catching Throwable errors.",
-    "description": "Catching Throwable errors is not recommended since its scope is very broad. It includes runtime issues such as OutOfMemoryError that should be exposed and managed separately.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strictexception_SignatureDeclareThrowsException",
-    "title": "Avoid methods declaring to throw the generic Exception.",
-    "description": "Methods that declare the generic Exception as a possible throwable are not very helpful since their failure modes are unclear.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strictexception_ExceptionAsFlowControl",
-    "title": "Avoid using Exceptions as form of flow control.",
-    "description": "Using Exceptions as form of flow control is not recommended as they obscure true exceptions when debugging. Either add the necessary validation or use an alternate control structure.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strictexception_AvoidCatchingNPE",
-    "title": "Prohibit throw NullPointerExceptions.",
-    "description": "Code should never throw NullPointerExceptions under normal circumstances. A catch block may hide the original error, causing other, more subtle problems later on.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strictexception_AvoidThrowingRawExceptionTypes",
-    "title": "Avoid throwing general exception types.",
-    "description": "Avoid throwing certain exception types. Rather than throw a raw RuntimeException, Throwable, Exception, or Error, use a subclassed exception or error instead.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strictexception_AvoidThrowingNullPointerException",
-    "title": "Avoid throwing NullPointerExceptions.",
-    "description": "Avoid throwing NullPointerExceptions. These are confusing because most people will assume that the virtual machine threw it.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strictexception_AvoidRethrowingException",
-    "title": "Avoid catch blocks that merely rethrow a caught exception.",
-    "description": "Catch blocks that merely rethrow a caught exception only add to code size and runtime complexity.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strictexception_DoNotExtendJavaLangError",
-    "title": "Errors are system exceptions. Do not extend them.",
-    "description": "Errors are system exceptions. Do not extend them.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strictexception_DoNotThrowExceptionInFinally",
-    "title": "Throwing exceptions within a 'finally' block is confusing since they may mask other exceptions or code defects.",
-    "description": "Throwing exceptions within a 'finally' block is confusing since they may mask other exceptions or code defects.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strictexception_AvoidThrowingNewInstanceOfSameException",
-    "title": "Avoid catch blocks that merely rethrow a caught exception wrapped.",
-    "description": "Catch blocks that merely rethrow a caught exception wrapped inside a new instance of the same type only add to code size and runtime complexity.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strictexception_AvoidCatchingGenericException",
-    "title": "Avoid catching generic exceptions",
-    "description": "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strictexception_AvoidLosingExceptionInformation",
-    "title": "Avoid invoke accessors on the exception without using the information in a catch block.",
-    "description": "Statements in a catch block that invoke accessors on the exception without using the information only add to code size. Either remove the invocation, or use the return result.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strings_AvoidDuplicateLiterals",
-    "title": "Avoid code containing duplicate String literals",
-    "description": "Code containing duplicate String literals can usually be improved by declaring the String as a constant field.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "skipAnnotations",
-        "description": "Skip literals within Annotations [true, false]"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_StringInstantiation",
-    "title": "Avoid instantiating String objects.",
-    "description": "Avoid instantiating String objects; this is usually unnecessary since they are immutable and can be safely shared.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_StringToString",
-    "title": "Don't call toString() on string instances.",
-    "description": "Avoid calling toString() on objects already known to be string instances; this is unnecessary.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_InefficientStringBuffering",
-    "title": "Avoid concatenating non-literals in a StringBuffer constructor or append.",
-    "description": "Avoid concatenating non-literals in a StringBuffer constructor or append() since intermediate buffers will need to be be created and destroyed by the JVM.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_UnnecessaryCaseChange",
-    "title": "Using equalsIgnoreCase() instead of toUpperCase/toLowerCase().equals()",
-    "description": "Using equalsIgnoreCase() is faster than using toUpperCase/toLowerCase().equals()",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_UseStringBufferLength",
-    "title": "Use StringBuffer.length() to determine StringBuffer length",
-    "description": "Use StringBuffer.length() to determine StringBuffer length rather than using StringBuffer.toString().equals(\"\") or StringBuffer.toString().length() == …",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_AppendCharacterWithChar",
-    "title": "Avoid concatenating characters as strings in append methods.",
-    "description": "Avoid concatenating characters as strings in StringBuffer/StringBuilder.append methods.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_ConsecutiveAppendsShouldReuse",
-    "title": "Enforce reuse the target object in consecutive calls to StringBuffer/StringBuilder append.",
-    "description": "Consecutively calls to StringBuffer/StringBuilder .append should reuse the target object. This can improve the performance.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_ConsecutiveLiteralAppends",
-    "title": "Avoid consecutive calls to StringBuffer/StringBuilder.append with String literals",
-    "description": "Consecutively calling StringBuffer/StringBuilder.append with String literals is not a good pattern. Instead, concatenate the string literals in a single one",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_UseIndexOfChar",
-    "title": "Use String.indexOf(char) when checking for the index of a single character.",
-    "description": "Use String.indexOf(char) when checking for the index of a single character; it executes faster.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_InefficientEmptyStringCheck",
-    "title": "String.trim().length() is an inefficient way to check if a String is empty.",
-    "description": "String.trim().length() is an inefficient way to check if a String is really empty, as it creates a new String object just to check its size.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_InsufficientStringBufferDeclaration",
-    "title": "Failing to pre-size a StringBuffer or StringBuilder properly could cause it to re-size many times during runtime.",
-    "description": "Failing to pre-size a StringBuffer or StringBuilder properly could cause it to re-size many times during runtime.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_UselessStringValueOf",
-    "title": "Avoid to call String.valueOf to append to a string.",
-    "description": "No need to call String.valueOf to append to a string; just use the valueOf() argument directly.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  },
-  {
-    "patternId": "strings_StringBufferInstantiationWithChar",
-    "title": "Individual character values provided as initialization arguments will be converted into integers.",
-    "description": "Individual character values provided as initialization arguments will be converted into integers. This can lead to internal buffer sizes that are larger than expected. Some examples:",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strings_UseEqualsToCompareStrings",
-    "title": "Avoid using '==' or '!=' to compare strings.",
-    "description": "Using  '==' or '!=' to compare strings only works if intern version is used on both sides. Use the equals() method instead.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "strings_AvoidStringBufferField",
-    "title": "StringBuffers/StringBuilders can grow considerably, and so may become a source of memory leaks",
-    "description": "StringBuffers/StringBuilders can grow considerably, and so may become a source of memory leaks if held within objects with long lifetimes.",
-    "timeToFix": 5
-  },
-  {
-    "patternId": "typeresolution_CloneMethodMustImplementCloneable",
-    "title": "Enforces the class to implement Cloneable interface when using clone()",
-    "description": "The method clone() should only be implemented if the class implements the Cloneable interface with the exception of a final method that only throws CloneNotSupportedException.",
-    "timeToFix": 5,
-    "parameters": [
-      {
-        "name": "violationSuppressRegex",
-        "description": "Suppress violations with messages matching a regular expression"
-      },
-      {
-        "name": "violationSuppressXPath",
-        "description": "Suppress violations on nodes which match a given relative XPath expression"
-      }
-    ]
-  }
-]
+[ {
+  "patternId" : "java_design_UseUtilityClass",
+  "title" : "All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning."
+}, {
+  "patternId" : "java_strings_StringToString",
+  "title" : "Avoid calling toString() on String objects; this is unnecessary."
+}, {
+  "patternId" : "java_design_UseVarargs",
+  "title" : "Consider using varargs for methods or constructors which take an array the last parameter.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_basic_GlobalVariable",
+  "title" : "Avoid using global variables",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_imports_DuplicateImports",
+  "title" : "Avoid duplicate imports such as ''{0}''"
+}, {
+  "patternId" : "java_basic_ClassCastExceptionWithToArray",
+  "title" : "This usage of the Collection.toArray() method will throw a ClassCastException.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_codesize_CyclomaticComplexity",
+  "title" : "The {0} ''{1}'' has a Cyclomatic Complexity of {2}."
+}, {
+  "patternId" : "java_controversial_SuspiciousOctalEscape",
+  "title" : "Suspicious decimal characters following octal escape in string literal"
+}, {
+  "patternId" : "java_unusedcode_UnusedPrivateMethod",
+  "title" : "Avoid unused private methods such as ''{0}''."
+}, {
+  "patternId" : "java_basic_ReturnFromFinallyBlock",
+  "title" : "Avoid returning from a finally block",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_AvoidAccessibilityAlteration",
+  "title" : "You should modify visibility of class or methods using getDeclaredConstructors(), getDeclaredConstructor(Class[]), setAccessible() or PrivilegedAction.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_codesize_NcssMethodCount",
+  "title" : "The method {0}() has an NCSS line count of {1}"
+}, {
+  "patternId" : "java_optimizations_UseArrayListInsteadOfVector",
+  "title" : "Use ArrayList instead of Vector",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strictexception_AvoidThrowingNullPointerException",
+  "title" : "Avoid throwing null pointer exceptions.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "vm_basic_AvoidDeeplyNestedIfStmts",
+  "title" : "Deeply nested if..then statements are hard to read"
+}, {
+  "patternId" : "java_strings_UseEqualsToCompareStrings",
+  "title" : "Use equals() to compare strings instead of ''=='' or ''!=''",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_logging-java_InvalidSlf4jMessageFormat",
+  "title" : "Invalid message format"
+}, {
+  "patternId" : "java_finalizers_AvoidCallingFinalize",
+  "title" : "Avoid calling finalize() explicitly"
+}, {
+  "patternId" : "vm_basic_CollapsibleIfStatements",
+  "title" : "These nested if statements could be combined"
+}, {
+  "patternId" : "java_design_AbstractClassWithoutAnyMethod",
+  "title" : "No abstract method which means that the keyword is most likely used to prevent instantiation. Use a private or protected constructor instead.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_complexity_NcssConstructorCount",
+  "title" : "The constructor has an NCSS line count of {0}"
+}, {
+  "patternId" : "java_strings_AvoidDuplicateLiterals",
+  "title" : "The String literal {0} appears {1} times in this file; the first occurrence is on line {2}"
+}, {
+  "patternId" : "java_design_AvoidProtectedFieldInFinalClass",
+  "title" : "Avoid protected fields in a final class.  Change to private or package access.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strictexception_AvoidRethrowingException",
+  "title" : "A catch statement that catches an exception only to rethrow it should be avoided.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_codesize_ExcessiveTypeLength",
+  "title" : "Avoid really long Object Type specifications ({0} lines found)."
+}, {
+  "patternId" : "java_junit_UseAssertTrueInsteadOfAssertEquals",
+  "title" : "Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strings_ConsecutiveAppendsShouldReuse",
+  "title" : "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable."
+}, {
+  "patternId" : "java_codesize_ModifiedCyclomaticComplexity",
+  "title" : "The {0} ''{1}'' has a Modified Cyclomatic Complexity of {2}."
+}, {
+  "patternId" : "plsql_TomKytesDespair_TomKytesDespair",
+  "title" : "WHEN OTHERS THEN NULL - when you do this, Tom Kyte cries",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strings_AppendCharacterWithChar",
+  "title" : "Avoid appending characters as strings in StringBuffer.append."
+}, {
+  "patternId" : "java_strings_UseIndexOfChar",
+  "title" : "String.indexOf(char) is faster than String.indexOf(String)."
+}, {
+  "patternId" : "vm_basic_EmptyIfStmt",
+  "title" : "Avoid empty if statements"
+}, {
+  "patternId" : "apex_complexity_ExcessiveClassLength",
+  "title" : "Avoid really long classes."
+}, {
+  "patternId" : "jsp_basic_NoClassAttribute",
+  "title" : "Do not use an attribute called 'class'.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_ReturnEmptyArrayRatherThanNull",
+  "title" : "Return an empty array rather than 'null'.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_codesize_ExcessivePackageBodyLength",
+  "title" : "Avoid really long Object Type and Package bodies ({0} lines found)."
+}, {
+  "patternId" : "apex_complexity_NcssMethodCount",
+  "title" : "The method ''{0}()'' has an NCSS line count of {1}"
+}, {
+  "patternId" : "java_finalizers_FinalizeOnlyCallsSuperFinalize",
+  "title" : "Finalize should do something besides just calling super.finalize()",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_AvoidLiteralsInIfCondition",
+  "title" : "Avoid using Literals in Conditional Statements",
+  "parameters" : [ {
+    "name" : "ignoreMagicNumbers",
+    "description" : "ignoreMagicNumbers"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "version",
+    "description" : "version"
+  } ]
+}, {
+  "patternId" : "java_design_NonThreadSafeSingleton",
+  "title" : "Singleton is not thread safe"
+}, {
+  "patternId" : "java_design_AvoidInstanceofChecksInCatchClause",
+  "title" : "An instanceof check is being performed on the caught exception.  Create a separate catch clause for this exception type.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_codesize_CyclomaticComplexity",
+  "title" : "The {0} ''{1}'' has a Cyclomatic Complexity of {2}."
+}, {
+  "patternId" : "vm_basic_ExcessiveTemplateLength",
+  "title" : "Template is too long",
+  "parameters" : [ {
+    "name" : "minimum",
+    "description" : "minimum"
+  } ]
+}, {
+  "patternId" : "java_controversial_OnlyOneReturn",
+  "title" : "A method should have only one exit point, and that should be the last statement in the method"
+}, {
+  "patternId" : "java_naming_MethodWithSameNameAsEnclosingClass",
+  "title" : "Classes should not have non-constructor methods with the same name as the class"
+}, {
+  "patternId" : "java_design_UseCollectionIsEmpty",
+  "title" : "Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()"
+}, {
+  "patternId" : "apex_security_ApexBadCrypto",
+  "title" : "Apex classes should use random IV/key"
+}, {
+  "patternId" : "java_migrating_JUnit4TestShouldUseTestAnnotation",
+  "title" : "JUnit 4 tests that execute tests should use the @Test annotation",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "jsp_basic_NoUnsanitizedJSPExpression",
+  "title" : "Using unsanitized JSP expression can lead to Cross Site Scripting (XSS) attacks"
+}, {
+  "patternId" : "ecmascript_basic_InnaccurateNumericLiteral",
+  "title" : "The numeric literal ''{0}'' will have at different value at runtime.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_junit_JUnitTestsShouldIncludeAssert",
+  "title" : "JUnit tests should include assert() or fail()"
+}, {
+  "patternId" : "apex_security_ApexOpenRedirect",
+  "title" : "Apex classes should safely redirect to a known location"
+}, {
+  "patternId" : "java_codesize_NPathComplexity",
+  "title" : "The method {0}() has an NPath complexity of {1}"
+}, {
+  "patternId" : "java_design_ImmutableField",
+  "title" : "Private field ''{0}'' could be made final; it is only initialized in the declaration or constructor."
+}, {
+  "patternId" : "java_empty_EmptyCatchBlock",
+  "title" : "Avoid empty catch blocks",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "allowCommentedBlocks",
+    "description" : "allowCommentedBlocks"
+  } ]
+}, {
+  "patternId" : "java_android_DoNotHardCodeSDCard",
+  "title" : "Do not hardcode /sdcard.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_AssignmentToNonFinalStatic",
+  "title" : "Possible unsafe assignment to a non-final static field in a constructor."
+}, {
+  "patternId" : "java_basic_AvoidBranchingStatementAsLastInLoop",
+  "title" : "Avoid using a branching statement as the last in a loop."
+}, {
+  "patternId" : "java_optimizations_LocalVariableCouldBeFinal",
+  "title" : "Local variable ''{0}'' could be declared final"
+}, {
+  "patternId" : "java_strings_InsufficientStringBufferDeclaration",
+  "title" : "StringBuffer constructor is initialized with size {0}, but has at least {1} characters appended."
+}, {
+  "patternId" : "java_imports_UnnecessaryFullyQualifiedName",
+  "title" : "Unnecessary use of fully qualified name ''{0}'' due to existing {2}import ''{1}''"
+}, {
+  "patternId" : "java_controversial_UnnecessaryParentheses",
+  "title" : "This statement may have some unnecessary parentheses",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_junit_TestClassWithoutTestCases",
+  "title" : "This class name ends with 'Test' but contains no test cases"
+}, {
+  "patternId" : "java_logging-java_MoreThanOneLogger",
+  "title" : "Class contains more than one logger."
+}, {
+  "patternId" : "java_empty_EmptyFinallyBlock",
+  "title" : "Avoid empty finally blocks",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "pom_basic_InvalidDependencyTypes",
+  "title" : "By default, Maven only recognized the following types: $validTypes.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_unnecessary_UselessQualifiedThis",
+  "title" : "Useless qualified this usage in the same class.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_AvoidDollarSigns",
+  "title" : "Avoid using dollar signs in variable/method/class/interface names"
+}, {
+  "patternId" : "java_strings_UnnecessaryCaseChange",
+  "title" : "Using equalsIgnoreCase() is cleaner than using toUpperCase/toLowerCase().equals()."
+}, {
+  "patternId" : "java_unnecessary_UnusedNullCheckInEquals",
+  "title" : "Invoke equals() on the object you''ve already ensured is not null",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_javabeans_MissingSerialVersionUID",
+  "title" : "Classes implementing Serializable should set a serialVersionUID",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_SuspiciousHashcodeMethodName",
+  "title" : "The method name and return type are suspiciously close to hashCode()"
+}, {
+  "patternId" : "java_strings_ConsecutiveLiteralAppends",
+  "title" : "StringBuffer (or StringBuilder).append is called {0} consecutive times with literal Strings. Use a single append with a single combined String."
+}, {
+  "patternId" : "apex_security_ApexSuggestUsingNamedCred",
+  "title" : "Suggest named credentials for authentication"
+}, {
+  "patternId" : "ecmascript_unnecessary_UnnecessaryParentheses",
+  "title" : "Unnecessary parentheses.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_DoNotCallGarbageCollectionExplicitly",
+  "title" : "Do not explicitly trigger a garbage collection.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_security_ApexDangerousMethods",
+  "title" : "Calling potentially dangerous method"
+}, {
+  "patternId" : "java_codesize_TooManyFields",
+  "title" : "Too many fields"
+}, {
+  "patternId" : "java_design_UncommentedEmptyConstructor",
+  "title" : "Document empty constructor",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "ignoreExplicitConstructorInvocation",
+    "description" : "ignoreExplicitConstructorInvocation"
+  } ]
+}, {
+  "patternId" : "java_controversial_AvoidUsingShortType",
+  "title" : "Do not use the short type",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_DontImportSun",
+  "title" : "Avoid importing anything from the 'sun.*' packages"
+}, {
+  "patternId" : "java_unnecessary_UnnecessaryReturn",
+  "title" : "Avoid unnecessary return statements"
+}, {
+  "patternId" : "java_codesize_NcssTypeCount",
+  "title" : "The type has an NCSS line count of {0}"
+}, {
+  "patternId" : "java_javabeans_BeanMembersShouldSerialize",
+  "title" : "Found non-transient, non-static member. Please mark as transient or provide accessors."
+}, {
+  "patternId" : "java_naming_AvoidFieldNameMatchingTypeName",
+  "title" : "It is somewhat confusing to have a field name matching the declaring class name"
+}, {
+  "patternId" : "java_design_UseNotifyAllInsteadOfNotify",
+  "title" : "Call Thread.notifyAll() rather than Thread.notify()",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_apexunit_ApexUnitTestShouldNotUseSeeAllDataTrue",
+  "title" : "Apex unit tests should not use @isTest(seeAllData = true)"
+}, {
+  "patternId" : "java_design_UnsynchronizedStaticDateFormatter",
+  "title" : "Static DateFormatter objects should be accessed in a synchronized manner"
+}, {
+  "patternId" : "java_strictexception_DoNotExtendJavaLangError",
+  "title" : "Exceptions should not extend java.lang.Error",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_UnconditionalIfStatement",
+  "title" : "Do not use 'if' statements that are always true or always false",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_SuspiciousEqualsMethodName",
+  "title" : "The method name and parameter number are suspiciously close to equals(Object)",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_optimizations_AddEmptyString",
+  "title" : "Do not add empty strings",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_empty_EmptySwitchStatements",
+  "title" : "Avoid empty switch statements",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_SwitchDensity",
+  "title" : "A high ratio of statements to labels in a switch statement.  Consider refactoring."
+}, {
+  "patternId" : "java_j2ee_RemoteInterfaceNamingConvention",
+  "title" : "Remote Interface of a Session EJB should NOT be suffixed",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_optimizations_AvoidInstantiatingObjectsInLoops",
+  "title" : "Avoid instantiating new objects inside loops"
+}, {
+  "patternId" : "java_basic_CheckSkipResult",
+  "title" : "Check the value returned by the skip() method of an InputStream to see if the requested number of bytes has been skipped."
+}, {
+  "patternId" : "java_migrating_LongInstantiation",
+  "title" : "Avoid instantiating Long objects.Call Long.valueOf() instead",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "jsp_basic-jsf_DontNestJsfInJstlIteration",
+  "title" : "Do not nest JSF component custom actions inside a custom action that iterates over its body.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_LogicInversion",
+  "title" : "Use opposite operator instead of the logic complement operator.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_MissingBreakInSwitch",
+  "title" : "A switch statement does not contain a break",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_codesize_NPathComplexity",
+  "title" : "The method {0}() has an NPath complexity of {1}"
+}, {
+  "patternId" : "java_design_CloseResource",
+  "title" : "Ensure that resources like this {0} object are closed after use"
+}, {
+  "patternId" : "java_basic_DontUseFloatTypeForLoopIndices",
+  "title" : "Don't use floating point for loop indices. If you must use floating point, use double.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_migrating_IntegerInstantiation",
+  "title" : "Avoid instantiating Integer objects. Call Integer.valueOf() instead.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_unnecessary_UnnecessaryFinalModifier",
+  "title" : "Unnecessary final modifier in final class",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_strictsyntax_MisplacedPragma",
+  "title" : "Pragma should be used only inside the declaration block before 'BEGIN'.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_empty_EmptyTryBlock",
+  "title" : "Avoid empty try blocks",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_codesize_ExcessiveMethodLength",
+  "title" : "Avoid really long methods."
+}, {
+  "patternId" : "java_design_UnnecessaryLocalBeforeReturn",
+  "title" : "Consider simply returning the value vs storing it in local variable ''{0}''"
+}, {
+  "patternId" : "java_junit_SimplifyBooleanAssertion",
+  "title" : "assertTrue(!expr) can be replaced by assertFalse(expr)",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_LongVariable",
+  "title" : "Avoid excessively long variable names like {0}",
+  "parameters" : [ {
+    "name" : "minimum",
+    "description" : "minimum"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_AvoidFieldNameMatchingMethodName",
+  "title" : "Field {0} has the same name as a method"
+}, {
+  "patternId" : "java_strictexception_AvoidThrowingRawExceptionTypes",
+  "title" : "Avoid throwing raw exception types.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "jsp_basic_NoJspForward",
+  "title" : "Do not do a forward from within a JSP file.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_AvoidConstantsInterface",
+  "title" : "An Interface should be used only to model a behaviour; consider converting this to a class.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_AvoidProtectedMethodInFinalClassNotExtending",
+  "title" : "Avoid protected methods in a final class that doesn't extend anything other than Object.  Change to private or package access.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_ShortVariable",
+  "title" : "Avoid variables with short names like {0}",
+  "parameters" : [ {
+    "name" : "minimum",
+    "description" : "minimum"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strictexception_ExceptionAsFlowControl",
+  "title" : "Avoid using exceptions as flow control."
+}, {
+  "patternId" : "java_migrating_ByteInstantiation",
+  "title" : "Avoid instantiating Byte objects. Call Byte.valueOf() instead",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_style_AvoidGlobalModifier",
+  "title" : "Avoid using global modifier"
+}, {
+  "patternId" : "java_codesize_StdCyclomaticComplexity",
+  "title" : "The {0} ''{1}'' has a Standard Cyclomatic Complexity of {2}."
+}, {
+  "patternId" : "java_controversial_DefaultPackage",
+  "title" : "Use explicit scoping instead of the default package private level",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_codesize_NcssMethodCount",
+  "title" : "The method {0}() has an NCSS line count of {1}"
+}, {
+  "patternId" : "java_design_MissingStaticMethodInNonInstantiatableClass",
+  "title" : "Class cannot be instantiated and does not provide any static methods or fields",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_junit_JUnitStaticSuite",
+  "title" : "You have a suite() method that is not both public and static, so JUnit won't call it to get your TestSuite.  Is that what you wanted to do?",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_clone_CloneMethodMustImplementCloneable",
+  "title" : "clone() method should be implemented only if implementing Cloneable interface",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_security_ApexCSRF",
+  "title" : "Avoid making DML operations in Apex class constructor/init method"
+}, {
+  "patternId" : "apex_complexity_ExcessiveParameterList",
+  "title" : "Avoid long parameter lists."
+}, {
+  "patternId" : "apex_complexity_StdCyclomaticComplexity",
+  "title" : "The {0} ''{1}'' has a Standard Cyclomatic Complexity of {2}."
+}, {
+  "patternId" : "java_design_FieldDeclarationsShouldBeAtStartOfClass",
+  "title" : "Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes."
+}, {
+  "patternId" : "jsp_basic_NoInlineStyleInformation",
+  "title" : "Avoid having style information in JSP files."
+}, {
+  "patternId" : "java_basic_AvoidThreadGroup",
+  "title" : "Avoid using java.lang.ThreadGroup; it is not thread safe",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_AvoidReassigningParameters",
+  "title" : "Avoid reassigning parameters such as ''{0}''"
+}, {
+  "patternId" : "ecmascript_basic_UnreachableCode",
+  "title" : "A ''return'', ''break'', ''continue'', or ''throw'' statement should be the last in a block.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_coupling_LooseCoupling",
+  "title" : "Avoid using implementation types like ''{0}''; use the interface instead"
+}, {
+  "patternId" : "java_design_SwitchStmtsShouldHaveDefault",
+  "title" : "Switch statements should have a default label",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_unnecessary_UselessOperationOnImmutable",
+  "title" : "An operation on an Immutable object (String, BigDecimal or BigInteger) won't change the object itself"
+}, {
+  "patternId" : "java_migrating_JUnit4TestShouldUseAfterAnnotation",
+  "title" : "JUnit 4 tests that clean up tests should use the @After annotation",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_basic_AssignmentInOperand",
+  "title" : "Avoid assignments in operands",
+  "parameters" : [ {
+    "name" : "allowWhile",
+    "description" : "allowWhile"
+  }, {
+    "name" : "allowTernary",
+    "description" : "allowTernary"
+  }, {
+    "name" : "allowTernaryResults",
+    "description" : "allowTernaryResults"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "allowIf",
+    "description" : "allowIf"
+  }, {
+    "name" : "allowFor",
+    "description" : "allowFor"
+  }, {
+    "name" : "allowIncrementDecrement",
+    "description" : "allowIncrementDecrement"
+  } ]
+}, {
+  "patternId" : "plsql_dates_TO_DATEWithoutDateFormat",
+  "title" : "TO_DATE without date format",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_EmptyMethodInAbstractClassShouldBeAbstract",
+  "title" : "An empty method in an abstract class should be abstract instead",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_sunsecure_MethodReturnsInternalArray",
+  "title" : "Returning ''{0}'' may expose an internal array."
+}, {
+  "patternId" : "java_design_IdempotentOperations",
+  "title" : "Avoid idempotent operations (like assigning a variable to itself)."
+}, {
+  "patternId" : "java_codesize_TooManyMethods",
+  "title" : "This class has too many methods, consider refactoring it.",
+  "parameters" : [ {
+    "name" : "maxmethods",
+    "description" : "maxmethods"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_j2ee_UseProperClassLoader",
+  "title" : "In J2EE, getClassLoader() might not work as expected.  Use Thread.currentThread().getContextClassLoader() instead.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_migrating_JUnitUseExpected",
+  "title" : "In JUnit4, use the @Test(expected) annotation to denote tests that should throw exceptions"
+}, {
+  "patternId" : "apex_security_ApexSOQLInjection",
+  "title" : "Avoid untrusted/unescaped variables in DML query"
+}, {
+  "patternId" : "java_basic_AvoidUsingHardCodedIP",
+  "title" : "Do not hard code the IP address ${variableName}",
+  "parameters" : [ {
+    "name" : "pattern",
+    "description" : "pattern"
+  } ]
+}, {
+  "patternId" : "apex_security_ApexSharingViolations",
+  "title" : "Apex classes should declare a sharing model if DML or SOQL/SOSL is used"
+}, {
+  "patternId" : "java_design_CompareObjectsWithEquals",
+  "title" : "Use equals() to compare object references."
+}, {
+  "patternId" : "java_empty_EmptyWhileStmt",
+  "title" : "Avoid empty 'while' statements",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_AvoidUsingOctalValues",
+  "title" : "Do not start a literal by 0 unless it's an octal value"
+}, {
+  "patternId" : "java_migrating_ReplaceHashtableWithMap",
+  "title" : "Consider replacing this Hashtable with the newer java.util.Map",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "vm_basic_AvoidReassigningParameters",
+  "title" : "Avoid reassigning macro parameters such as ''{0}''"
+}, {
+  "patternId" : "java_optimizations_UseArraysAsList",
+  "title" : "Use asList instead of tight loops",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_unnecessary_UnnecessaryConversionTemporary",
+  "title" : "Avoid unnecessary temporaries when converting primitives to Strings"
+}, {
+  "patternId" : "plsql_codesize_ExcessiveMethodLength",
+  "title" : "Avoid really long methods ({0} lines found)."
+}, {
+  "patternId" : "apex_style_ClassNamingConventions",
+  "title" : "Class names should begin with an uppercase character"
+}, {
+  "patternId" : "java_unnecessary_UselessParentheses",
+  "title" : "Useless parentheses.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_comments_CommentContent",
+  "title" : "Invalid words or phrases found"
+}, {
+  "patternId" : "java_controversial_NullAssignment",
+  "title" : "Assigning an Object to null is a code smell.  Consider refactoring."
+}, {
+  "patternId" : "java_strings_AvoidStringBufferField",
+  "title" : "StringBuffers can grow quite a lot, and so may become a source of memory leak (if the owning class has a long life time).",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strings_StringInstantiation",
+  "title" : "Avoid instantiating String objects; this is usually unnecessary."
+}, {
+  "patternId" : "ecmascript_braces_IfStmtsMustUseBraces",
+  "title" : "Avoid using if statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_coupling_CouplingBetweenObjects",
+  "title" : "High amount of different objects as members denotes a high coupling"
+}, {
+  "patternId" : "java_unusedcode_UnusedFormalParameter",
+  "title" : "Avoid unused {0} parameters such as ''{1}''."
+}, {
+  "patternId" : "plsql_codesize_NcssObjectCount",
+  "title" : "The Oracle object has an NCSS line count of {0}"
+}, {
+  "patternId" : "java_strictexception_AvoidThrowingNewInstanceOfSameException",
+  "title" : "A catch statement that catches an exception only to wrap it in a new instance of the same type of exception and throw it should be avoided",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_logging-jakarta-commons_GuardDebugLogging",
+  "title" : "debug logging that involves string concatenation should be guarded with isDebugEnabled() checks"
+}, {
+  "patternId" : "java_basic_AvoidMultipleUnaryOperators",
+  "title" : "Using multiple unary operators may be a bug, and/or is confusing."
+}, {
+  "patternId" : "java_naming_ShortMethodName",
+  "title" : "Avoid using short method names",
+  "parameters" : [ {
+    "name" : "minimum",
+    "description" : "minimum"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_SimplifiedTernary",
+  "title" : "Ternary operators that can be simplified with || or &&",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_ConstantsInInterface",
+  "title" : "Avoid constants in interfaces. Interfaces define types, constants are implementation details better placed in classes or enums. See Effective Java, item 19.",
+  "parameters" : [ {
+    "name" : "ignoreIfHasMethods",
+    "description" : "ignoreIfHasMethods"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_logging-jakarta-commons_UseCorrectExceptionLogging",
+  "title" : "Use the correct logging statement for logging exceptions",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_dates_TO_TIMESTAMPWithoutDateFormat",
+  "title" : "TO_TIMESTAMP without date format",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_MisplacedNullCheck",
+  "title" : "The null check here is misplaced; if the variable is null there will be a NullPointerException",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_SingularField",
+  "title" : "Perhaps ''{0}'' could be replaced by a local variable."
+}, {
+  "patternId" : "java_controversial_AvoidUsingNativeCode",
+  "title" : "The use of native code is not recommended.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_migrating_ShortInstantiation",
+  "title" : "Avoid instantiating Short objects. Call Short.valueOf() instead",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strictexception_DoNotThrowExceptionInFinally",
+  "title" : "A throw statement in a finally block makes the control flow hard to understand.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_junit_JUnitAssertionsShouldIncludeMessage",
+  "title" : "JUnit assertions should include a message"
+}, {
+  "patternId" : "java_design_SimplifyBooleanReturns",
+  "title" : "Avoid unnecessary if..then..else statements when returning booleans"
+}, {
+  "patternId" : "plsql_codesize_ExcessiveObjectLength",
+  "title" : "Avoid really long Oracle object specifications and bodies ({0} lines found)."
+}, {
+  "patternId" : "java_design_TooFewBranchesForASwitchStatement",
+  "title" : "A switch with less than three branches is inefficient, use a 'if statement' instead.",
+  "parameters" : [ {
+    "name" : "minimumNumberCaseForASwitch",
+    "description" : "minimumNumberCaseForASwitch"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_empty_EmptyStatementBlock",
+  "title" : "Avoid empty block statements.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_SingletonClassReturningNewInstance",
+  "title" : "getInstance method always creates a new object and hence does not comply to Singleton Design Pattern behaviour. Please review"
+}, {
+  "patternId" : "java_imports_UnusedImports",
+  "title" : "Avoid unused imports such as ''{0}''"
+}, {
+  "patternId" : "jsp_basic_JspEncoding",
+  "title" : "JSP file should use UTF-8 encoding",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strictexception_SignatureDeclareThrowsException",
+  "title" : "A method/constructor shouldn't explicitly throw java.lang.Exception"
+}, {
+  "patternId" : "java_strictexception_AvoidCatchingNPE",
+  "title" : "Avoid catching NullPointerException; consider removing the cause of the NPE.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strings_InefficientStringBuffering",
+  "title" : "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append()."
+}, {
+  "patternId" : "java_optimizations_PrematureDeclaration",
+  "title" : "Avoid declaring a variable if it is unreferenced before a possible exit point."
+}, {
+  "patternId" : "jsp_basic_IframeMissingSrcAttribute",
+  "title" : "IFrames must have a src attribute.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_apexunit_ApexUnitTestClassShouldHaveAsserts",
+  "title" : "Apex unit tests should System.assert() or assertEquals() or assertNotEquals()"
+}, {
+  "patternId" : "java_logging-java_SystemPrintln",
+  "title" : "{0} is used",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_OverrideBothEqualsAndHashcode",
+  "title" : "Ensure you override both equals() and hashCode()"
+}, {
+  "patternId" : "java_junit_UnnecessaryBooleanAssertion",
+  "title" : "assertTrue(true) or similar statements are unnecessary",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_j2ee_MDBAndSessionBeanNamingConvention",
+  "title" : "SessionBean or MessageBean should be suffixed by Bean",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_ClassNamingConventions",
+  "title" : "Class names should begin with an uppercase character"
+}, {
+  "patternId" : "java_basic_JumbledIncrementer",
+  "title" : "Avoid modifying an outer loop incrementer in an inner loop for update expression",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_logging-java_GuardLogStatementJavaUtil",
+  "title" : "There is log block not surrounded by if"
+}, {
+  "patternId" : "java_design_AvoidSynchronizedAtMethodLevel",
+  "title" : "Use block level rather than method level synchronization",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_j2ee_LocalHomeNamingConvention",
+  "title" : "The Local Home interface of a Session EJB should be suffixed by 'LocalHome'",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_AccessorMethodGeneration",
+  "title" : "Avoid autogenerated methods to access private fields and methods of inner / outer classes"
+}, {
+  "patternId" : "java_strictexception_AvoidCatchingThrowable",
+  "title" : "A catch statement should never catch throwable since it includes errors."
+}, {
+  "patternId" : "java_empty_EmptyStatementNotInLoop",
+  "title" : "An empty statement (semicolon) not part of a loop",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_style_MethodWithSameNameAsEnclosingClass",
+  "title" : "Classes should not have non-constructor methods with the same name as the class"
+}, {
+  "patternId" : "java_codesize_ExcessivePublicCount",
+  "title" : "This class has a bunch of public methods and attributes"
+}, {
+  "patternId" : "java_logging-jakarta-commons_ProperLogger",
+  "title" : "Logger should be defined private static final and have the correct class",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "staticLoggerName",
+    "description" : "staticLoggerName"
+  } ]
+}, {
+  "patternId" : "java_design_ConfusingTernary",
+  "title" : "Avoid if (x != y) ..; else ..;"
+}, {
+  "patternId" : "java_clone_CloneMethodReturnTypeMustMatchClassName",
+  "title" : "The return type of the clone() method must be the class name when implements Cloneable",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_logging-jakarta-commons_GuardLogStatement",
+  "title" : "There is log block not surrounded by if"
+}, {
+  "patternId" : "java_basic_BrokenNullCheck",
+  "title" : "Method call on object which may be null"
+}, {
+  "patternId" : "java_controversial_UseObjectForClearerAPI",
+  "title" : "Rather than using a lot of String arguments, consider using a container object for those values.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_UseSingleton",
+  "title" : ""
+}, {
+  "patternId" : "java_codesize_ExcessiveParameterList",
+  "title" : "Avoid long parameter lists."
+}, {
+  "patternId" : "apex_performance_AvoidSoqlInLoops",
+  "title" : "Avoid Soql queries inside loops"
+}, {
+  "patternId" : "java_strictexception_AvoidLosingExceptionInformation",
+  "title" : "Avoid statements in a catch block that invoke accessors on the exception without using the information",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_migrating_JUnit4TestShouldUseBeforeAnnotation",
+  "title" : "JUnit 4 tests that set up tests should use the @Before annotation",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_performance_AvoidDmlStatementsInLoops",
+  "title" : "Avoid DML statements inside loops"
+}, {
+  "patternId" : "java_j2ee_StaticEJBFieldShouldBeFinal",
+  "title" : "EJB's shouldn't have non-final static fields",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strings_UseStringBufferLength",
+  "title" : "This is an inefficient use of StringBuffer.toString; call StringBuffer.length instead."
+}, {
+  "patternId" : "java_unusedcode_UnusedModifier",
+  "title" : "Avoid modifiers which are implied by the context"
+}, {
+  "patternId" : "apex_complexity_TooManyFields",
+  "title" : "Too many fields"
+}, {
+  "patternId" : "ecmascript_braces_WhileLoopsMustUseBraces",
+  "title" : "Avoid using 'while' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_MethodNamingConventions",
+  "title" : "Method name does not begin with a lower case character."
+}, {
+  "patternId" : "java_braces_ForLoopsMustUseBraces",
+  "title" : "Avoid using 'for' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_basic_EqualComparison",
+  "title" : "Use '==='/'!==' to compare with true/false or Numbers",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_EqualsNull",
+  "title" : "Avoid using equals() to compare against null",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_AvoidFinalLocalVariable",
+  "title" : "Avoid using final local variables, turn them into fields",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_FinalFieldCouldBeStatic",
+  "title" : "This final field could be made static",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_migrating_AvoidAssertAsIdentifier",
+  "title" : "Avoid using assert as an identifier; it became a reserved word in JDK 1.4",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_j2ee_DoNotCallSystemExit",
+  "title" : "System.exit() should not be used in J2EE/JEE apps",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_PackageCase",
+  "title" : "Package name contains upper case characters",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_finalizers_FinalizeOverloaded",
+  "title" : "Finalize methods should not be overloaded",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_AvoidUsingVolatile",
+  "title" : "Use of modifier volatile is not recommended.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_SingleMethodSingleton",
+  "title" : "Class contains multiple getInstance methods. Please review."
+}, {
+  "patternId" : "java_empty_EmptyIfStmt",
+  "title" : "Avoid empty 'if' statements",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_complexity_ExcessivePublicCount",
+  "title" : "This class has a bunch of public methods and attributes"
+}, {
+  "patternId" : "jsp_basic_NoLongScripts",
+  "title" : "Avoid having long scripts (e.g. Javascript) inside a JSP file.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_optimizations_AvoidArrayLoops",
+  "title" : "System.arraycopy is more efficient",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_basic_UseBaseWithParseInt",
+  "title" : "Always provide a base when using parseInt() functions",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_UseLocaleWithCaseConversions",
+  "title" : "When doing a String.toLowerCase()/toUpperCase() call, use a Locale",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "jsp_basic_NoScriptlets",
+  "title" : "Avoid having scriptlets inside a JSP file.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_j2ee_RemoteSessionInterfaceNamingConvention",
+  "title" : "Remote Home interface of a Session EJB should be suffixed by 'Home'",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_migrating_JUnit4SuitesShouldUseSuiteAnnotation",
+  "title" : "JUnit 4 indicates test suites via annotations, not the suite method.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_SuspiciousConstantFieldName",
+  "title" : "The field name indicates a constant but its modifiers do not",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_MisleadingVariableName",
+  "title" : "Avoid naming non-fields with the prefix 'm_'",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_CallSuperInConstructor",
+  "title" : "It is a good practice to call super() in a constructor",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_sunsecure_ArrayIsStoredDirectly",
+  "title" : "The user-supplied array ''{0}'' is stored directly."
+}, {
+  "patternId" : "java_naming_BooleanGetMethodName",
+  "title" : "A 'getX()' method which returns a boolean should be named 'isX()'",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "checkParameterizedMethods",
+    "description" : "checkParameterizedMethods"
+  } ]
+}, {
+  "patternId" : "java_basic_BigIntegerInstantiation",
+  "title" : "Don't create instances of already existing BigInteger and BigDecimal (ZERO, ONE, TEN)"
+}, {
+  "patternId" : "java_braces_WhileLoopsMustUseBraces",
+  "title" : "Avoid using 'while' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_logging-java_AvoidPrintStackTrace",
+  "title" : "Avoid printStackTrace(); use a logger call instead.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_AtLeastOneConstructor",
+  "title" : "Each class should declare at least one constructor",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_android_CallSuperLast",
+  "title" : "super should be called at the end of the method",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "vm_basic_EmptyForeachStmt",
+  "title" : "Avoid empty foreach loops"
+}, {
+  "patternId" : "java_comments_CommentDefaultAccessModifier",
+  "title" : "Missing commented default access modifier",
+  "parameters" : [ {
+    "name" : "regex",
+    "description" : "regex"
+  } ]
+}, {
+  "patternId" : "java_finalizers_EmptyFinalizer",
+  "title" : "Avoid empty finalize methods",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_AvoidDeeplyNestedIfStmts",
+  "title" : "Deeply nested if..then statements are hard to read"
+}, {
+  "patternId" : "java_design_PreserveStackTrace",
+  "title" : "New exception is thrown in catch block, original stack trace may be lost"
+}, {
+  "patternId" : "java_imports_ImportFromSamePackage",
+  "title" : "No need to import a type that lives in the same package"
+}, {
+  "patternId" : "apex_style_VariableNamingConventions",
+  "title" : "{0} variable {1} should begin with {2}"
+}, {
+  "patternId" : "java_design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
+  "title" : "A class which only has private constructors should be final",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_empty_EmptyStaticInitializer",
+  "title" : "Empty static initializer was found",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_unusedcode_UnusedPrivateField",
+  "title" : "Avoid unused private fields such as ''{0}''."
+}, {
+  "patternId" : "java_naming_VariableNamingConventions",
+  "title" : "{0} variable {1} should begin with {2}"
+}, {
+  "patternId" : "java_design_PositionLiteralsFirstInCaseInsensitiveComparisons",
+  "title" : "Position literals first in String comparisons for EqualsIgnoreCase",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_codesize_NcssConstructorCount",
+  "title" : "The constructor with {0} parameters has an NCSS line count of {1}"
+}, {
+  "patternId" : "apex_style_AvoidLogicInTrigger",
+  "title" : "Avoid logic in triggers"
+}, {
+  "patternId" : "plsql_codesize_ExcessiveParameterList",
+  "title" : "Avoid long parameter lists."
+}, {
+  "patternId" : "java_finalizers_FinalizeShouldBeProtected",
+  "title" : "If you override finalize(), make it protected",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_ConstructorCallsOverridableMethod",
+  "title" : "Overridable {0} called during object construction"
+}, {
+  "patternId" : "java_design_OptimizableToArrayCall",
+  "title" : "This call to Collection.toArray() may be optimizable",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_migrating_ReplaceVectorWithList",
+  "title" : "Consider replacing this Vector with the newer java.util.List",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_CheckResultSet",
+  "title" : "Always check the return of one of the navigation method (next,previous,first,last) of a ResultSet."
+}, {
+  "patternId" : "java_controversial_DataflowAnomalyAnalysis",
+  "title" : "Found ''{0}''-anomaly for variable ''{1}'' (lines ''{2}''-''{3}'')."
+}, {
+  "patternId" : "apex_security_ApexXSSFromEscapeFalse",
+  "title" : "Apex classes should escape Strings in error messages"
+}, {
+  "patternId" : "java_j2ee_LocalInterfaceSessionNamingConvention",
+  "title" : "The Local Interface of a Session EJB should be suffixed by 'Local'",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_SimplifyBooleanExpressions",
+  "title" : "Avoid unnecessary comparisons in boolean expressions",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_clone_CloneThrowsCloneNotSupportedException",
+  "title" : "clone() method should throw CloneNotSupportedException",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_style_MethodNamingConventions",
+  "title" : "Method name does not begin with a lower case character."
+}, {
+  "patternId" : "java_junit_UseAssertEqualsInsteadOfAssertTrue",
+  "title" : "Use assertEquals(x, y) instead of assertTrue(x.equals(y))",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_NonCaseLabelInSwitchStatement",
+  "title" : "A non-case label was present in a switch statement",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_SimpleDateFormatNeedsLocale",
+  "title" : "When instantiating a SimpleDateFormat object, specify a Locale",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_BadComparison",
+  "title" : "Avoid equality comparisons with Double.NaN",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_codesize_TooManyMethods",
+  "title" : "This object has too many methods, consider refactoring it.",
+  "parameters" : [ {
+    "name" : "maxmethods",
+    "description" : "maxmethods"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_clone_ProperCloneImplementation",
+  "title" : "Object clone() should be implemented with super.clone()",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strings_StringBufferInstantiationWithChar",
+  "title" : "Do not instantiate a StringBuffer or StringBuilder with a char",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_strictexception_AvoidCatchingGenericException",
+  "title" : "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_unusedcode_UnusedLocalVariable",
+  "title" : "Avoid unused local variables such as ''{0}''."
+}, {
+  "patternId" : "java_basic_ExtendsObject",
+  "title" : "No need to explicitly extend Object.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_android_CallSuperFirst",
+  "title" : "super should be called at the start of the method",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_UseConcurrentHashMap",
+  "title" : "If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_NonStaticInitializer",
+  "title" : "Non-static initializers are confusing",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_ShortClassName",
+  "title" : "Avoid short class names like {0}",
+  "parameters" : [ {
+    "name" : "minimum",
+    "description" : "minimum"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_security_ApexInsecureEndpoint",
+  "title" : "Apex callouts should use encrypted communication channels"
+}, {
+  "patternId" : "java_comments_CommentSize",
+  "title" : "Comment is too large"
+}, {
+  "patternId" : "ecmascript_basic_AvoidTrailingComma",
+  "title" : "Avoid trailing commas in object or array literals",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "allowObjectLiteral",
+    "description" : "allowObjectLiteral"
+  }, {
+    "name" : "allowArrayLiteral",
+    "description" : "allowArrayLiteral"
+  } ]
+}, {
+  "patternId" : "plsql_codesize_TooManyFields",
+  "title" : "Too many fields"
+}, {
+  "patternId" : "java_controversial_AssignmentInOperand",
+  "title" : "Avoid assignments in operands"
+}, {
+  "patternId" : "apex_security_ApexXSSFromURLParam",
+  "title" : "Apex classes should escape/sanitize Strings obtained from URL parameters"
+}, {
+  "patternId" : "java_strings_InefficientEmptyStringCheck",
+  "title" : "String.trim().length()==0 is an inefficient way to validate an empty String."
+}, {
+  "patternId" : "java_strings_UselessStringValueOf",
+  "title" : "No need to call String.valueOf to append to a string."
+}, {
+  "patternId" : "pom_basic_ProjectVersionAsDependencyVersion",
+  "title" : "Do not use project's version to express a dependency's version.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_junit_JUnitSpelling",
+  "title" : "You may have misspelled a JUnit framework method (setUp or tearDown)",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_braces_ForLoopsMustUseBraces",
+  "title" : "Avoid using 'for' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_CollapsibleIfStatements",
+  "title" : "These nested if statements could be combined",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_complexity_AvoidDeeplyNestedIfStmts",
+  "title" : "Deeply nested if..then statements are hard to read"
+}, {
+  "patternId" : "java_design_GodClass",
+  "title" : "Possible God class"
+}, {
+  "patternId" : "ecmascript_braces_IfElseStmtsMustUseBraces",
+  "title" : "Avoid using 'if...else' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_DoubleCheckedLocking",
+  "title" : "Double checked locking is not thread safe in Java."
+}, {
+  "patternId" : "java_optimizations_MethodArgumentCouldBeFinal",
+  "title" : "Parameter ''{0}'' is not assigned and could be declared final"
+}, {
+  "patternId" : "ecmascript_basic_ConsistentReturn",
+  "title" : "A function should not mix 'return' statements with and without a result."
+}, {
+  "patternId" : "java_optimizations_UseStringBufferForStringAppends",
+  "title" : "Prefer StringBuffer over += for concatenating strings"
+}, {
+  "patternId" : "java_empty_EmptyInitializer",
+  "title" : "Empty initializer was found",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "jsp_basic_NoInlineScript",
+  "title" : "Avoiding inlining HTML script content",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_unnecessary_UselessOverridingMethod",
+  "title" : "Overriding method merely calls super"
+}, {
+  "patternId" : "ecmascript_basic_ScopeForInVariable",
+  "title" : "The for-in loop variable ''{0}'' should be explicitly scoped with 'var' to avoid pollution.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "xml_basic_MistypedCDATASection",
+  "title" : "Potentialy mistyped CDATA section with extra [ at beginning or ] at the end.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "apex_complexity_NcssTypeCount",
+  "title" : "The type has an NCSS line count of {0}"
+}, {
+  "patternId" : "java_design_DefaultLabelNotLastInSwitchStmt",
+  "title" : "The default label should be the last label in a switch statement",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_logging-java_LoggerIsNotStaticFinal",
+  "title" : "The Logger variable declaration does not contain the static and final modifiers",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_naming_GenericsNaming",
+  "title" : "Generics names should be a one letter long and upper case.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_optimizations_UnnecessaryWrapperObjectCreation",
+  "title" : "Unnecessary wrapper object creation"
+}, {
+  "patternId" : "java_basic_ForLoopShouldBeWhileLoop",
+  "title" : "This for loop could be simplified to a while loop",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_UncommentedEmptyMethodBody",
+  "title" : "Document empty method body",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_junit_JUnitTestContainsTooManyAsserts",
+  "title" : "JUnit tests should not contain more than ${maximumAsserts} assert(s).",
+  "parameters" : [ {
+    "name" : "maximumAsserts",
+    "description" : "maximumAsserts"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_AbstractClassWithoutAbstractMethod",
+  "title" : "This abstract class does not have any abstract methods",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_codesize_ExcessivePackageSpecificationLength",
+  "title" : "Avoid really long Package Specifications ({0} lines found)."
+}, {
+  "patternId" : "java_finalizers_FinalizeDoesNotCallSuperFinalize",
+  "title" : "Last statement in finalize method should be a call to super.finalize()",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_braces_IfStmtsMustUseBraces",
+  "title" : "Avoid using if statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_UnnecessaryConstructor",
+  "title" : "Avoid unnecessary constructors - the compiler will generate these for you",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "plsql_dates_TO_DATE_TO_CHAR",
+  "title" : "TO_DATE(TO_CHAR(variable)) instead of TRUNC(variable)",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_optimizations_RedundantFieldInitializer",
+  "title" : "Avoid using redundant field initializer for ''${variableName}''"
+}, {
+  "patternId" : "java_braces_IfElseStmtsMustUseBraces",
+  "title" : "Avoid using 'if...else' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "vm_basic_NoInlineStyles",
+  "title" : "Avoid inline styles",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_migrating_ReplaceEnumerationWithIterator",
+  "title" : "Consider replacing this Enumeration with the newer java.util.Iterator",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_clone_CloneMethodMustBePublic",
+  "title" : "clone() method must be public if the class implements Cloneable",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_empty_EmptySynchronizedBlock",
+  "title" : "Avoid empty synchronized blocks",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_unnecessary_NoElseReturn",
+  "title" : "The else block is unnecessary",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_migrating_AvoidEnumAsIdentifier",
+  "title" : "Avoid using enum as an identifier; it's a reserved word in JDK 1.5",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_coupling_ExcessiveImports",
+  "title" : "A high number of imports can indicate a high degree of coupling within an object."
+}, {
+  "patternId" : "xsl_xpath_AvoidAxisNavigation",
+  "title" : "Axis navigation has the largest impact when writing an XPath query.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "checkSelfDescendantAbreviation",
+    "description" : "checkSelfDescendantAbreviation"
+  } ]
+}, {
+  "patternId" : "java_junit_UseAssertSameInsteadOfAssertTrue",
+  "title" : "Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_design_SimplifyConditional",
+  "title" : "No need to check for null before an instanceof",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "vm_basic_NoInlineJavaScript",
+  "title" : "Avoid inline JavaScript"
+}, {
+  "patternId" : "java_coupling_LoosePackageCoupling",
+  "title" : "Use of ''{0}'' outside of package hierarchy ''{1}'' is not recommended; use recommended classes instead"
+}, {
+  "patternId" : "apex_security_ApexCRUDViolation",
+  "title" : "Validate CRUD permission before SOQL/DML operation"
+}, {
+  "patternId" : "vm_basic_UnusedMacroParameter",
+  "title" : "Avoid unused macro parameters such as ''{0}''"
+}, {
+  "patternId" : "java_controversial_AvoidPrefixingMethodParameters",
+  "title" : "Avoid prefixing parameters by in, out or inOut. Uses Javadoc to document this behavior.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_codesize_ExcessiveClassLength",
+  "title" : "Avoid really long classes."
+}, {
+  "patternId" : "java_design_PositionLiteralsFirstInComparisons",
+  "title" : "Position literals first in String comparisons",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_junit_UseAssertNullInsteadOfAssertTrue",
+  "title" : "Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_comments_CommentRequired",
+  "title" : "Comment is required"
+}, {
+  "patternId" : "java_design_AccessorClassGeneration",
+  "title" : "Avoid instantiation through private constructors from outside of the constructor's class."
+}, {
+  "patternId" : "xsl_xpath_UseConcatOnce",
+  "title" : "The xpath concat() function accepts as many arguments as required, you may be able to factorize this expression",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_AvoidDecimalLiteralsInBigDecimalConstructor",
+  "title" : "Avoid creating BigDecimal with a decimal (float/double) literal. Use a String literal",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "jsp_basic_DuplicateJspImports",
+  "title" : "Avoid duplicate imports such as ''{0}''"
+}, {
+  "patternId" : "java_basic_DontCallThreadRun",
+  "title" : "Don't call Thread.run() explicitly, use Thread.start()",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_controversial_OneDeclarationPerLine",
+  "title" : "Use one line for each declaration, it enhances code readability.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "version",
+    "description" : "version"
+  }, {
+    "name" : "strictMode",
+    "description" : "strictMode"
+  } ]
+}, {
+  "patternId" : "java_naming_AbstractNaming",
+  "title" : "Abstract classes should be named 'AbstractXXX'",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "strict",
+    "description" : "strict"
+  } ]
+}, {
+  "patternId" : "java_design_InstantiationToGetClass",
+  "title" : "Avoid instantiating an object just to call getClass() on it; use the .class public member instead",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_coupling_LawOfDemeter",
+  "title" : "Potential violation of Law of Demeter"
+}, {
+  "patternId" : "jsp_basic_NoHtmlComments",
+  "title" : "Use JSP comments instead of HTML comments",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_imports_DontImportJavaLang",
+  "title" : "Avoid importing anything from the package 'java.lang'"
+}, {
+  "patternId" : "java_imports_TooManyStaticImports",
+  "title" : "Too many static imports may lead to messy code",
+  "parameters" : [ {
+    "name" : "maximumStaticImports",
+    "description" : "maximumStaticImports"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_unnecessary_UnnecessaryBlock",
+  "title" : "Unnecessary block.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_j2ee_DoNotUseThreads",
+  "title" : "To be compliant to J2EE, a webapp should not use any thread.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_optimizations_SimplifyStartsWith",
+  "title" : "This call to String.startsWith can be rewritten using String.charAt(0)",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "java_basic_BooleanInstantiation",
+  "title" : "Avoid instantiating Boolean objects; reference Boolean.TRUE or Boolean.FALSE or call Boolean.valueOf() instead."
+}, {
+  "patternId" : "java_naming_NoPackage",
+  "title" : "All classes and interfaces must belong to a named package",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+} ]

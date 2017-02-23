@@ -1,2500 +1,2117 @@
 {
-  "name":"pmdJava",
-  "patterns":[
-    {
-      "patternId":"unusedcode_UnusedPrivateField",
-      "level":"Warning",
-      "category":"UnusedCode",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"unusedcode_UnusedLocalVariable",
-      "level":"Warning",
-      "category":"UnusedCode",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"unusedcode_UnusedPrivateMethod",
-      "level":"Warning",
-      "category":"UnusedCode",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"unusedcode_UnusedFormalParameter",
-      "level":"Warning",
-      "category":"UnusedCode",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"checkAll",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"unusedcode_UnusedModifier",
-      "level":"Warning",
-      "category":"UnusedCode",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_JumbledIncrementer",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"basic_ForLoopShouldBeWhileLoop",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"basic_OverrideBothEqualsAndHashcode",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_DoubleCheckedLocking",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_ReturnFromFinallyBlock",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"basic_AvoidDecimalLiteralsInBigDecimalConstructor",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"basic_BrokenNullCheck",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_AvoidUsingOctalValues",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"strict",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"basic_CheckResultSet",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_AvoidMultipleUnaryOperators",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_CheckSkipResult",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_AvoidBranchingStatementAsLastInLoop",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"checkReturnLoopTypes",
-          "default":"for"
-        },
-        {
-          "name":"checkContinueLoopTypes",
-          "default":"for"
-        },
-        {
-          "name":"checkBreakLoopTypes",
-          "default":"for"
-        }
-      ]
-    },
-    {
-      "patternId":"basic_DontCallThreadRun",
-      "level":"Warning",
-      "category":"Performance"
-    },
-    {
-      "patternId":"basic_DontUseFloatTypeForLoopIndices",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"braces_IfStmtsMustUseBraces",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"braces_WhileLoopsMustUseBraces",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"braces_IfElseStmtsMustUseBraces",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"braces_ForLoopsMustUseBraces",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"naming_ShortVariable",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"naming_LongVariable",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"minimum",
-          "default":17
-        }
-      ]
-    },
-    {
-      "patternId":"naming_ShortMethodName",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"naming_MethodNamingConventions",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"naming_ClassNamingConventions",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"naming_AbstractNaming",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"naming_AvoidDollarSigns",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"naming_MethodWithSameNameAsEnclosingClass",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"naming_SuspiciousHashcodeMethodName",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"naming_SuspiciousConstantFieldName",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"naming_SuspiciousEqualsMethodName",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"naming_AvoidFieldNameMatchingTypeName",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"naming_AvoidFieldNameMatchingMethodName",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"naming_NoPackage",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"naming_PackageCase",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"naming_MisleadingVariableName",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"naming_BooleanGetMethodName",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"checkParameterizedMethods",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"naming_ShortClassName",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"minimum",
-          "default":5
-        }
-      ]
-    },
-    {
-      "patternId":"naming_GenericsNaming",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"optimizations_LocalVariableCouldBeFinal",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"optimizations_MethodArgumentCouldBeFinal",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"optimizations_AvoidInstantiatingObjectsInLoops",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"sunsecure_MethodReturnsInternalArray",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"sunsecure_ArrayIsStoredDirectly",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"coupling_ExcessiveImports",
-      "level":"Warning",
-      "category":"Compatibility",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"minimum",
-          "default":30
-        }
-      ]
-    },
-    {
-      "patternId":"coupling_LooseCoupling",
-      "level":"Warning",
-      "category":"Compatibility",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"coupling_LawOfDemeter",
-      "level":"Warning",
-      "category":"Compatibility",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"optimizations_UseArrayListInsteadOfVector",
-      "level":"Warning",
-      "category":"Performance"
-    },
-    {
-      "patternId":"optimizations_SimplifyStartsWith",
-      "level":"Warning",
-      "category":"Performance"
-    },
-    {
-      "patternId":"optimizations_UseStringBufferForStringAppends",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"optimizations_UseArraysAsList",
-      "level":"Warning",
-      "category":"Performance"
-    },
-    {
-      "patternId":"optimizations_AvoidArrayLoops",
-      "level":"Warning",
-      "category":"Performance"
-    },
-    {
-      "patternId":"optimizations_UnnecessaryWrapperObjectCreation",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"optimizations_AddEmptyString",
-      "level":"Warning",
-      "category":"Performance"
-    },
-    {
-      "patternId":"optimizations_RedundantFieldInitializer",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"optimizations_PrematureDeclaration",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"controversial_UnnecessaryConstructor",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"controversial_NullAssignment",
-      "level":"Warning",
-      "category":"UnusedCode",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"controversial_OnlyOneReturn",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"controversial_AssignmentInOperand",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"allowIncrementDecrement",
-          "default":false
-        },
-        {
-          "name":"allowWhile",
-          "default":false
-        },
-        {
-          "name":"allowFor",
-          "default":false
-        },
-        {
-          "name":"allowIf",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"controversial_AtLeastOneConstructor",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"controversial_DontImportSun",
-      "level":"Warning",
-      "category":"Compatibility",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_UseUtilityClass",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_SimplifyBooleanReturns",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_SimplifyBooleanExpressions",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_SwitchStmtsShouldHaveDefault",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_AvoidDeeplyNestedIfStmts",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"problemDepth",
-          "default":3
-        }
-      ]
-    },
-    {
-      "patternId":"design_AvoidReassigningParameters",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_ConstructorCallsOverridableMethod",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"controversial_SuspiciousOctalEscape",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"controversial_CallSuperInConstructor",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_FinalFieldCouldBeStatic",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_CloseResource",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_NonStaticInitializer",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_DefaultLabelNotLastInSwitchStmt",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_NonCaseLabelInSwitchStatement",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_OptimizableToArrayCall",
-      "level":"Warning",
-      "category":"Performance"
-    },
-    {
-      "patternId":"design_BadComparison",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_EqualsNull",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_ConfusingTernary",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"ignoreElseIf",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"design_InstantiationToGetClass",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_IdempotentOperations",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_SimpleDateFormatNeedsLocale",
-      "level":"Warning",
-      "category":"Compatibility"
-    },
-    {
-      "patternId":"design_ImmutableField",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_UseLocaleWithCaseConversions",
-      "level":"Warning",
-      "category":"Compatibility"
-    },
-    {
-      "patternId":"design_AvoidProtectedFieldInFinalClass",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"controversial_DataflowAnomalyAnalysis",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"maxViolations",
-          "default":100
-        },
-        {
-          "name":"maxPaths",
-          "default":1000
-        }
-      ]
-    },
-    {
-      "patternId":"controversial_AvoidFinalLocalVariable",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"controversial_AvoidUsingShortType",
-      "level":"Warning",
-      "category":"Performance"
-    },
-    {
-      "patternId":"controversial_AvoidUsingVolatile",
-      "level":"Warning",
-      "category":"Compatibility"
-    },
-    {
-      "patternId":"controversial_DoNotCallGarbageCollectionExplicitly",
-      "level":"Warning",
-      "category":"Performance"
-    },
-    {
-      "patternId":"controversial_OneDeclarationPerLine",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"strictMode",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"controversial_AvoidPrefixingMethodParameters",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"controversial_AvoidLiteralsInIfCondition",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"ignoreMagicNumbers",
-          "default":"-1,0"
-        },
-        {
-          "name":"version",
-          "default":"2.0"
-        }
-      ]
-    },
-    {
-      "patternId":"controversial_UseObjectForClearerAPI",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"controversial_DefaultPackage",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"controversial_AvoidUsingNativeCode",
-      "level":"Warning",
-      "category":"Compatibility"
-    },
-    {
-      "patternId":"controversial_AvoidAccessibilityAlteration",
-      "level":"Error",
-      "category":"Security"
-    },
-    {
-      "patternId":"typeresolution_CloneMethodMustImplementCloneable",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"empty_EmptyCatchBlock",
-      "level":"Warning",
-      "category":"UnusedCode",
-      "parameters":[
-        {
-          "name":"allowCommentedBlocks",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"empty_EmptyIfStmt",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"empty_EmptyWhileStmt",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"design_AssignmentToNonFinalStatic",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_MissingStaticMethodInNonInstantiatableClass",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"design_AvoidSynchronizedAtMethodLevel",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_MissingBreakInSwitch",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_UseNotifyAllInsteadOfNotify",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_AvoidInstanceofChecksInCatchClause",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_AbstractClassWithoutAbstractMethod",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_SimplifyConditional",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"design_CompareObjectsWithEquals",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_PositionLiteralsFirstInComparisons",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_NonThreadSafeSingleton",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"checkNonStaticFields",
-          "default":false
-        },
-        {
-          "name":"checkNonStaticMethods",
-          "default":true
-        }
-      ]
-    },
-    {
-      "patternId":"design_UncommentedEmptyMethodBody",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_UncommentedEmptyConstructor",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"ignoreExplicitConstructorInvocation",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"design_AvoidConstantsInterface",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_UnsynchronizedStaticDateFormatter",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_PreserveStackTrace",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_UseCollectionIsEmpty",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_EmptyMethodInAbstractClassShouldBeAbstract",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_SingularField",
-      "level":"Warning",
-      "category":"UnusedCode",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"disallowNotAssignment",
-          "default":false
-        },
-        {
-          "name":"checkInnerClasses",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"design_ReturnEmptyArrayRatherThanNull",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_AbstractClassWithoutAnyMethod",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_TooFewBranchesForASwitchStatement",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"minimumNumberCaseForASwitch",
-          "default":3
-        }
-      ]
-    },
-    {
-      "patternId":"design_LogicInversion",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"design_UseVarargs",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"design_FieldDeclarationsShouldBeAtStartOfClass",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"ignoreAnonymousClassDeclarations",
-          "default":true
-        },
-        {
-          "name":"ignoreEnumDeclarations",
-          "default":true
-        }
-      ]
-    },
-    {
-      "patternId":"design_AvoidProtectedMethodInFinalClassNotExtending",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"empty_EmptyTryBlock",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"empty_EmptyFinallyBlock",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"empty_EmptySwitchStatements",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"empty_EmptySynchronizedBlock",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"empty_EmptyStatementNotInLoop",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"empty_EmptyInitializer",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"empty_EmptyStatementBlock",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"empty_EmptyStaticInitializer",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"unnecessary_UnnecessaryConversionTemporary",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"unnecessary_UnnecessaryReturn",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"unnecessary_UnnecessaryFinalModifier",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"unnecessary_UselessOverridingMethod",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"ignoreAnnotations",
-          "default":false
-        }
-      ]
-    },
-    {
-      "patternId":"unnecessary_UselessOperationOnImmutable",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"unnecessary_UnusedNullCheckInEquals",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"unnecessary_UselessParentheses",
-      "level":"Info",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"clone_ProperCloneImplementation",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"clone_CloneThrowsCloneNotSupportedException",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"finalizers_EmptyFinalizer",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"finalizers_FinalizeOnlyCallsSuperFinalize",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"finalizers_FinalizeOverloaded",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"finalizers_FinalizeDoesNotCallSuperFinalize",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"finalizers_FinalizeShouldBeProtected",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"finalizers_AvoidCallingFinalize",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_NPathComplexity",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"minimum",
-          "default":200.0
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_ExcessiveMethodLength",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"minimum",
-          "default":75
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_ExcessiveParameterList",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"minimum",
-          "default":5.0
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_ExcessiveClassLength",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"minimum",
-          "default":1500.0
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_CyclomaticComplexity",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"showMethodsComplexity",
-          "default":true
-        },
-        {
-          "name":"showClassesComplexity",
-          "default":true
-        },
-        {
-          "name":"reportLevel",
-          "default":8
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_ExcessivePublicCount",
-      "level":"Error",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"minimum",
-          "default":5.0
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_TooManyFields",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"maxfields",
-          "default":15
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_NcssMethodCount",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"minimum",
-          "default":100.0
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_NcssTypeCount",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"minimum",
-          "default":50.0
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_NcssConstructorCount",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"minimum",
-          "default":100.0
-        }
-      ]
-    },
-    {
-      "patternId":"codesize_TooManyMethods",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        },
-        {
-          "name":"maxmethods",
-          "default":15
-        }
-      ]
-    },
-    {
-      "patternId":"basic_UnconditionalIfStatement",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"basic_BooleanInstantiation",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_CollapsibleIfStatements",
-      "level":"Info",
-      "category":"CodeStyle"
-    },
-    {
-      "patternId":"basic_ClassCastExceptionWithToArray",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"basic_MisplacedNullCheck",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"basic_AvoidThreadGroup",
-      "level":"Error",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"basic_BigIntegerInstantiation",
-      "level":"Warning",
-      "category":"Performance",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_AvoidUsingHardCodedIP",
-      "level":"Info",
-      "category":"CodeStyle",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"basic_ExtendsObject",
-      "level":"Warning",
-      "category":"UnusedCode"
-    },
-    {
-      "patternId":"android_CallSuperFirst",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"android_CallSuperLast",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"android_DoNotHardCodeSDCard",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"imports_DontImportJavaLang",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"imports_UnusedImports",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"imports_ImportFromSamePackage",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"imports_TooManyStaticImports",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"imports_UnnecessaryFullyQualifiedName",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"j2ee_UseProperClassLoader",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"j2ee_MDBAndSessionBeanNamingConvention",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"j2ee_RemoteSessionInterfaceNamingConvention",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"j2ee_LocalInterfaceSessionNamingConvention",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"j2ee_LocalHomeNamingConvention",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"j2ee_RemoteInterfaceNamingConvention",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"j2ee_DoNotCallSystemExit",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"j2ee_StaticEJBFieldShouldBeFinal",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"j2ee_DoNotUseThreads",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"javabeans_MissingSerialVersionUID",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"junit_JUnitStaticSuite",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"junit_JUnitSpelling",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"junit_JUnitAssertionsShouldIncludeMessage",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"junit_JUnitTestsShouldIncludeAssert",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"junit_UnnecessaryBooleanAssertion",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"junit_UseAssertEqualsInsteadOfAssertTrue",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"junit_UseAssertSameInsteadOfAssertTrue",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"junit_UseAssertNullInsteadOfAssertTrue",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"junit_SimplifyBooleanAssertion",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"junit_JUnitTestContainsTooManyAsserts",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name": "maximumAsserts",
-          "default": 1
-        }
-      ]
-    },
-    {
-      "patternId":"junit_UseAssertTrueInsteadOfAssertEquals",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"logging-jakarta-commons_UseCorrectExceptionLogging",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"logging-jakarta-commons_ProperLogger",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"logging-jakarta-commons_GuardDebugLogging",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"logging-jakarta-commons_GuardLogStatement",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"logging-java_MoreThanOneLogger",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"logging-java_LoggerIsNotStaticFinal",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"logging-java_SystemPrintln",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"logging-java_AvoidPrintStackTrace",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"logging-java_GuardLogStatementJavaUtil",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"migrating_ReplaceVectorWithList",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_ReplaceHashtableWithMap",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_ReplaceEnumerationWithIterator",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_IntegerInstantiation",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_ByteInstantiation",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_ShortInstantiation",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_LongInstantiation",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_JUnit4TestShouldUseBeforeAnnotation",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_JUnit4TestShouldUseAfterAnnotation",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_JUnit4TestShouldUseTestAnnotation",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_JUnit4SuitesShouldUseSuiteAnnotation",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"migrating_JUnitUseExpected",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strictexception_AvoidCatchingThrowable",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strictexception_SignatureDeclareThrowsException",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strictexception_ExceptionAsFlowControl",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strictexception_AvoidCatchingNPE",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strictexception_AvoidThrowingRawExceptionTypes",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strictexception_AvoidThrowingNullPointerException",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strictexception_AvoidRethrowingException",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strictexception_DoNotExtendJavaLangError",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strictexception_DoNotThrowExceptionInFinally",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strictexception_AvoidThrowingNewInstanceOfSameException",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strictexception_AvoidCatchingGenericException",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strictexception_AvoidLosingExceptionInformation",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strings_AvoidDuplicateLiterals",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name": "skipAnnotations",
-          "default": false
-        }
-      ]
-    },
-    {
-      "patternId":"strings_StringInstantiation",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_StringToString",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_InefficientStringBuffering",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_UnnecessaryCaseChange",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_UseStringBufferLength",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_AppendCharacterWithChar",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_ConsecutiveAppendsShouldReuse",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_ConsecutiveLiteralAppends",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_UseIndexOfChar",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_InefficientEmptyStringCheck",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_InsufficientStringBufferDeclaration",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_UselessStringValueOf",
-      "level":"Warning",
-      "category":"ErrorProne",
-      "parameters":[
-        {
-          "name":"violationSuppressRegex",
-          "default":""
-        },
-        {
-          "name":"violationSuppressXPath",
-          "default":""
-        }
-      ]
-    },
-    {
-      "patternId":"strings_StringBufferInstantiationWithChar",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strings_UseEqualsToCompareStrings",
-      "level":"Warning",
-      "category":"ErrorProne"
-    },
-    {
-      "patternId":"strings_AvoidStringBufferField",
-      "level":"Warning",
-      "category":"ErrorProne"
-    }
-  ]
+  "name" : "pmd",
+  "patterns" : [ {
+    "patternId" : "java_naming_ShortClassName",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "minimum",
+      "default" : 5
+    }, {
+      "name" : "xpath",
+      "default" : "\n                      \n//ClassOrInterfaceDeclaration[string-length(@Image) < $minimum]\n                      \n                  "
+    } ]
+  }, {
+    "patternId" : "java_basic_JumbledIncrementer",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n \n//ForStatement\n [\n  ForUpdate/StatementExpressionList/StatementExpression/PostfixExpression/PrimaryExpression/PrimaryPrefix/Name/@Image\n  =\n  ancestor::ForStatement/ForInit//VariableDeclaratorId/@Image\n ]\n \n             "
+    } ]
+  }, {
+    "patternId" : "java_clone_CloneMethodReturnTypeMustMatchClassName",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//MethodDeclaration\n[\nMethodDeclarator/@Image = 'clone'\nand MethodDeclarator/FormalParameters/@ParameterCount = 0\nand not (ResultType//ClassOrInterfaceType/@Image = ancestor::ClassOrInterfaceDeclaration[1]/@Image)\n]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_controversial_AssignmentInOperand",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strictexception_AvoidThrowingRawExceptionTypes",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n            \n//ThrowStatement//AllocationExpression\n /ClassOrInterfaceType[\n (@Image='Throwable' and count(//ImportDeclaration/Name[ends-with(@Image,'Throwable')]) = 0)\nor\n (@Image='Exception' and count(//ImportDeclaration/Name[ends-with(@Image,'Exception')]) = 0)\nor\n (@Image='Error'  and count(//ImportDeclaration/Name[ends-with(@Image,'Error')]) = 0)\nor\n( @Image='RuntimeException'  and count(//ImportDeclaration/Name[ends-with(@Image,'RuntimeException')]) = 0)\n]\n \n        "
+    } ]
+  }, {
+    "patternId" : "java_design_UseVarargs",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//FormalParameters/FormalParameter\n    [position()=last()]\n    [@Array='true']\n    [@Varargs='false']\n    [not (./Type/ReferenceType[@Array='true'][PrimitiveType[@Image='byte']])]\n    [not (./Type/ReferenceType[ClassOrInterfaceType[@Image='Byte']])]\n    [not (./Type/PrimitiveType[@Image='byte'])]\n    [not (ancestor::MethodDeclaration/preceding-sibling::Annotation/*/Name[@Image='Override'])]\n    [not(\n        ancestor::MethodDeclaration\n            [@Public='true' and @Static='true']\n            [child::ResultType[@Void='true']] and\n        ancestor::MethodDeclarator[@Image='main'] and\n        ..[@ParameterCount='1'] and\n        ./Type/ReferenceType[ClassOrInterfaceType[@Image='String']]\n    )]\n            "
+    } ]
+  }, {
+    "patternId" : "java_design_AvoidProtectedMethodInFinalClassNotExtending",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Final='true' and not(ExtendsList)]\n/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n/MethodDeclaration[@Protected='true'][MethodDeclarator/@Image != 'finalize']\n \n                 "
+    } ]
+  }, {
+    "patternId" : "java_design_FinalFieldCouldBeStatic",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//FieldDeclaration\n [@Final='true' and @Static='false']\n [not (../../../../ClassOrInterfaceDeclaration[@Interface='true'])]\n   /VariableDeclarator/VariableInitializer/Expression\n    /PrimaryExpression[not(PrimarySuffix)]/PrimaryPrefix/Literal\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_comments_CommentRequired",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_clone_ProperCloneImplementation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                 \n//MethodDeclarator\n[@Image = 'clone']\n[count(FormalParameters/*) = 0]\n[count(../Block//*[\n    (self::AllocationExpression) and\n    (./ClassOrInterfaceType/@Image = ancestor::\nClassOrInterfaceDeclaration[1]/@Image)\n  ])> 0\n]\n                \n             "
+    } ]
+  }, {
+    "patternId" : "java_naming_AbstractNaming",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//ClassOrInterfaceDeclaration\n [@Abstract='true' and @Interface='false']\n [not (starts-with(@Image,'Abstract'))]\n|\n//ClassOrInterfaceDeclaration\n [@Abstract='false']\n [$strict='true']\n [starts-with(@Image, 'Abstract')]\n                    \n                "
+    }, {
+      "name" : "strict",
+      "default" : true
+    } ]
+  }, {
+    "patternId" : "java_migrating_ShortInstantiation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryPrefix\n/AllocationExpression\n[not (ArrayDimsAndInits)\nand (ClassOrInterfaceType/@Image='Short'\nor ClassOrInterfaceType/@Image='java.lang.Short')]\n\n          "
+    } ]
+  }, {
+    "patternId" : "java_strings_UseEqualsToCompareStrings",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//EqualityExpression/PrimaryExpression\n[(PrimaryPrefix/Literal\n   [starts-with(@Image, '\"')]\n   [ends-with(@Image, '\"')]\nand count(PrimarySuffix) = 0)]\n\n            "
+    } ]
+  }, {
+    "patternId" : "java_strictexception_AvoidCatchingThrowable",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_UseLocaleWithCaseConversions",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                \n//PrimaryExpression\n[\nPrimaryPrefix\n[Name[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@ArgumentCount=0]]\n\nor\n\nPrimarySuffix\n[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@ArgumentCount=0]]\n]\n[not(PrimaryPrefix/Name[ends-with(@Image, 'toHexString')])]\n\n            "
+    } ]
+  }, {
+    "patternId" : "java_javabeans_MissingSerialVersionUID",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//ClassOrInterfaceDeclaration\n [\n  count(ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n   /FieldDeclaration/VariableDeclarator/VariableDeclaratorId[@Image='serialVersionUID']) = 0\nand\n  count(ImplementsList\n   [ClassOrInterfaceType/@Image='Serializable'\n   or ClassOrInterfaceType/@Image='java.io.Serializable']) =1\nand\n   @Abstract = 'false'\n]\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_basic_MisplacedNullCheck",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//Expression\n    /*[self::ConditionalOrExpression or self::ConditionalAndExpression]\n    /descendant::PrimaryExpression/PrimaryPrefix\n    /Name[starts-with(@Image,\n        concat(ancestor::PrimaryExpression/following-sibling::EqualityExpression\n            [./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n            /PrimaryExpression/PrimaryPrefix\n            /Name[count(../../PrimarySuffix)=0]/@Image,\".\")\n        )\n     ]\n     [count(ancestor::ConditionalAndExpression/EqualityExpression\n            [@Image='!=']\n            [./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n            [starts-with(following-sibling::*/PrimaryExpression/PrimaryPrefix/Name/@Image,\n                concat(./PrimaryExpression/PrimaryPrefix/Name/@Image, '.'))]\n      ) = 0\n     ]\n    \n        "
+    } ]
+  }, {
+    "patternId" : "java_design_ConstructorCallsOverridableMethod",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_braces_IfElseStmtsMustUseBraces",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Statement\n [parent::IfStatement[@Else='true']]\n [not(child::Block)]\n [not(child::IfStatement)]\n \n                 "
+    } ]
+  }, {
+    "patternId" : "java_logging-jakarta-commons_GuardDebugLogging",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_SuspiciousConstantFieldName",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Interface='false']\n /ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration\n  [@Final='false']\n  [VariableDeclarator/VariableDeclaratorId[upper-case(@Image)=@Image]]\n \n                "
+    } ]
+  }, {
+    "patternId" : "java_typeresolution_LooseCoupling",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_UncommentedEmptyConstructor",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//ConstructorDeclaration[@Private='false'][count(BlockStatement) = 0 and ($ignoreExplicitConstructorInvocation = 'true' or not(ExplicitConstructorInvocation)) and @containsComment = 'false']\n \n             "
+    }, {
+      "name" : "ignoreExplicitConstructorInvocation",
+      "default" : false
+    } ]
+  }, {
+    "patternId" : "java_design_SimpleDateFormatNeedsLocale",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//AllocationExpression\n [ClassOrInterfaceType[@Image='SimpleDateFormat']]\n [Arguments[@ArgumentCount=1]]\n\n                    "
+    } ]
+  }, {
+    "patternId" : "java_typeresolution_CloneMethodMustImplementCloneable",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_UseSingleton",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_unusedcode_UnusedModifier",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_optimizations_UseArrayListInsteadOfVector",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CompilationUnit[count(ImportDeclaration) = 0 or count(ImportDeclaration/Name[@Image='java.util.Vector']) > 0]\n  //AllocationExpression/ClassOrInterfaceType\n    [@Image='Vector' or @Image='java.util.Vector']\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_design_SimplifyBooleanReturns",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_braces_ForLoopsMustUseBraces",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n \n//ForStatement[not(Statement/Block)]\n \n                 "
+    } ]
+  }, {
+    "patternId" : "java_empty_EmptyStatementBlock",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n          \n//BlockStatement/Statement/Block[count(*) = 0]\n          \n          "
+    } ]
+  }, {
+    "patternId" : "java_basic_AvoidBranchingStatementAsLastInLoop",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_logging-jakarta-commons_UseCorrectExceptionLogging",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//CatchStatement/Block/BlockStatement/Statement/StatementExpression\n/PrimaryExpression[PrimaryPrefix/Name[starts-with(@Image,\nconcat(ancestor::ClassOrInterfaceDeclaration/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration\n[Type//ClassOrInterfaceType[@Image='Log']]\n/VariableDeclarator/VariableDeclaratorId/@Image, '.'))]]\n[PrimarySuffix/Arguments[@ArgumentCount='1']]\n[PrimarySuffix/Arguments//Name/@Image = ancestor::CatchStatement/FormalParameter/VariableDeclaratorId/@Image]\n         "
+    } ]
+  }, {
+    "patternId" : "java_optimizations_UnnecessaryWrapperObjectCreation",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_j2ee_UseProperClassLoader",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimarySuffix[@Image='getClassLoader']\n \n              "
+    } ]
+  }, {
+    "patternId" : "plsql_codesize_TooManyFields",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_AvoidPrefixingMethodParameters",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//MethodDeclaration/MethodDeclarator/FormalParameters/FormalParameter/VariableDeclaratorId[\n        pmd:matches(@Image,'^in[A-Z].*','^out[A-Z].*','^in$','^out$')\n]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_migrating_JUnit4TestShouldUseAfterAnnotation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CompilationUnit[not(ImportDeclaration/Name[starts-with(@Image, \"org.testng\")])]\n//ClassOrInterfaceBodyDeclaration[MethodDeclaration/MethodDeclarator[@Image='tearDown']]\n[count(Annotation//Name[@Image='After'])=0]\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_empty_EmptySwitchStatements",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//SwitchStatement[count(*) = 1]\n \n              "
+    } ]
+  }, {
+    "patternId" : "java_unnecessary_UselessOperationOnImmutable",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "plsql_TomKytesDespair_TomKytesDespair",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ExceptionHandler[QualifiedName/@Image='OTHERS' and upper-case(Statement/UnlabelledStatement/Expression/@Image)='NULL']\n\n\n    "
+    } ]
+  }, {
+    "patternId" : "java_design_SimplifyConditional",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                      \n//Expression\n [ConditionalOrExpression\n [EqualityExpression[@Image='==']\n  //NullLiteral\n  and\n  UnaryExpressionNotPlusMinus\n   [@Image='!']//InstanceOfExpression[PrimaryExpression\n     //Name/@Image = ancestor::ConditionalOrExpression/EqualityExpression\n      /PrimaryExpression/PrimaryPrefix/Name/@Image]\n  and\n  (count(UnaryExpressionNotPlusMinus) + 1 = count(*))\n ]\nor\nConditionalAndExpression\n [EqualityExpression[@Image='!=']//NullLiteral\n and\nInstanceOfExpression\n [PrimaryExpression[count(PrimarySuffix[@ArrayDereference='true'])=0]\n  //Name[not(contains(@Image,'.'))]/@Image = ancestor::ConditionalAndExpression\n   /EqualityExpression/PrimaryExpression/PrimaryPrefix/Name/@Image]\n and\n(count(InstanceOfExpression) + 1 = count(*))\n ]\n]\n \n                  "
+    } ]
+  }, {
+    "patternId" : "java_logging-java_AvoidPrintStackTrace",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryExpression\n [PrimaryPrefix/Name[contains(@Image,'printStackTrace')]]\n [PrimarySuffix[not(boolean(Arguments/ArgumentList/Expression))]]\n\n             "
+    } ]
+  }, {
+    "patternId" : "java_optimizations_AddEmptyString",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                     \n//AdditiveExpression/PrimaryExpression/PrimaryPrefix/Literal[@Image='\"\"']\n                \n                "
+    } ]
+  }, {
+    "patternId" : "java_junit_JUnitStaticSuite",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                \n//MethodDeclaration[not(@Static='true') or not(@Public='true')]\n[MethodDeclarator/@Image='suite']\n[MethodDeclarator/FormalParameters/@ParameterCount=0]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n                \n            "
+    } ]
+  }, {
+    "patternId" : "java_braces_WhileLoopsMustUseBraces",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//WhileStatement[not(Statement/Block)]\n\n                "
+    } ]
+  }, {
+    "patternId" : "plsql_codesize_NPathComplexity",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_junit_UseAssertTrueInsteadOfAssertEquals",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryExpression[PrimaryPrefix/Name[@Image = 'assertEquals']]\n[\n  PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Literal/BooleanLiteral\n  or\n  PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix\n  /Name[(@Image = 'Boolean.TRUE' or @Image = 'Boolean.FALSE')]\n]\n\n\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_strictexception_AvoidLosingExceptionInformation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CatchStatement/Block/BlockStatement/Statement/StatementExpression/PrimaryExpression/PrimaryPrefix/Name\n[\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getMessage')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getLocalizedMessage')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getCause')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getStackTrace')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.toString')\n]\n\n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_codesize_TooManyMethods",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "maxmethods",
+      "default" : 10
+    }, {
+      "name" : "xpath",
+      "default" : "\n                    \n                    \n //ClassOrInterfaceDeclaration/ClassOrInterfaceBody\n     [\n      count(./ClassOrInterfaceBodyDeclaration/MethodDeclaration/MethodDeclarator[\n         not (\n                starts-with(@Image,'get')\n                or\n                starts-with(@Image,'set')\n                or\n                starts-with(@Image,'is')\n            )\n      ]) > $maxmethods\n   ]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_design_OptimizableToArrayCall",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                  \n//PrimaryExpression\n[PrimaryPrefix/Name[ends-with(@Image, 'toArray')]]\n[\nPrimarySuffix/Arguments/ArgumentList/Expression\n /PrimaryExpression/PrimaryPrefix/AllocationExpression\n /ArrayDimsAndInits/Expression/PrimaryExpression/PrimaryPrefix/Literal[@Image='0']\n]\n\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "java_junit_JUnitAssertionsShouldIncludeMessage",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_optimizations_RedundantFieldInitializer",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_BadComparison",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                  \n//EqualityExpression[@Image='==']\n /PrimaryExpression/PrimaryPrefix\n /Name[@Image='Double.NaN' or @Image='Float.NaN']\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "java_logging-java_MoreThanOneLogger",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strictexception_AvoidCatchingGenericException",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n      \n        //CatchStatement/FormalParameter/Type/ReferenceType/ClassOrInterfaceType[\n          @Image='NullPointerException' or\n          @Image='Exception' or\n          @Image='RuntimeException']\n      \n      "
+    } ]
+  }, {
+    "patternId" : "jsp_basic-jsf_DontNestJsfInJstlIteration",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                   \n//Element[ @Name=\"c:forEach\" ] // Element[ @NamespacePrefix=\"h\" or @NamespacePrefix=\"f\" ]\n                   \n               "
+    } ]
+  }, {
+    "patternId" : "plsql_codesize_ExcessivePackageBodyLength",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_j2ee_MDBAndSessionBeanNamingConvention",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//TypeDeclaration/ClassOrInterfaceDeclaration\n[\n    (\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'SessionBean')])\n        or\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'MessageDrivenBean')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Bean')\n    )\n]\n             "
+    } ]
+  }, {
+    "patternId" : "java_design_SwitchStmtsShouldHaveDefault",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                  \n//SwitchStatement[not(SwitchLabel[@Default='true'])]\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "vm_basic_AvoidReassigningParameters",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "vm_basic_NoInlineStyles",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t\t\t \n\t//Text[matches(@literal, \"<[^>]+\\s[sS][tT][yY][lL][eE]\\s*=\")]\n\t\t\t\t\t \n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_logging-jakarta-commons_ProperLogger",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n     \n//ClassOrInterfaceBodyDeclaration[FieldDeclaration//ClassOrInterfaceType[@Image='Log']\n and\n not(FieldDeclaration[@Final='true'][@Static='true'][@Private='true'][.//VariableDeclaratorId[@Image=$staticLoggerName]]\n //ArgumentList//ClassOrInterfaceType/@Image = ancestor::ClassOrInterfaceDeclaration/@Image)\n and\n not(FieldDeclaration[@Final='true'][@Private='true'][.//VariableDeclaratorId[@Image='log']]\n [count(.//VariableInitializer)=0]\n [ancestor::ClassOrInterfaceBody//StatementExpression[.//PrimaryExpression/descendant::*[@Image='log']][count(.//AllocationExpression)=0]]\n )]\n     \n                     "
+    }, {
+      "name" : "staticLoggerName",
+      "default" : "LOG"
+    } ]
+  }, {
+    "patternId" : "java_optimizations_UseStringBufferForStringAppends",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\nTypeDeclaration[count(../TypeDeclaration) = 1]/ClassOrInterfaceDeclaration\n[@Final = 'false']\n[count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Private = 'true']) >= 1 ]\n[count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[(@Public = 'true') or (@Protected = 'true') or (@PackagePrivate = 'true')]) = 0 ]\n[not(.//ClassOrInterfaceDeclaration)]\n             "
+    } ]
+  }, {
+    "patternId" : "java_unusedcode_UnusedPrivateField",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_BooleanGetMethodName",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//MethodDeclaration[\nMethodDeclarator[count(FormalParameters/FormalParameter) = 0 or $checkParameterizedMethods = 'true']\n                [starts-with(@Image, 'get')]\nand\nResultType/Type/PrimitiveType[@Image = 'boolean']\nand not(../Annotation//Name[@Image = 'Override'])\n]\n\n                "
+    }, {
+      "name" : "checkParameterizedMethods",
+      "default" : false
+    } ]
+  }, {
+    "patternId" : "java_unnecessary_UnnecessaryFinalModifier",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//ClassOrInterfaceDeclaration[@Final='true' and @Interface='false']\n    /ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n        [count(./Annotation/MarkerAnnotation/Name[@Image='SafeVarargs' or @Image='java.lang.SafeVarargs']) = 0]\n    /MethodDeclaration[@Final='true']\n    \n              "
+    } ]
+  }, {
+    "patternId" : "java_empty_EmptyWhileStmt",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//WhileStatement/Statement[./Block[count(*) = 0]  or ./EmptyStatement]\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_controversial_AvoidAccessibilityAlteration",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                   \n                        //PrimaryExpression[\n                        (\n                        (PrimarySuffix[\n                                ends-with(@Image,'getDeclaredConstructors')\n                                        or\n                                ends-with(@Image,'getDeclaredConstructor')\n                                        or\n                                ends-with(@Image,'setAccessible')\n                                ])\n                        or\n                        (PrimaryPrefix/Name[\n                                ends-with(@Image,'getDeclaredConstructor')\n                                or\n                                ends-with(@Image,'getDeclaredConstructors')\n                                or\n                                starts-with(@Image,'AccessibleObject.setAccessible')\n                                ])\n                        )\n                        and\n                        (//ImportDeclaration/Name[\n                                contains(@Image,'java.security.PrivilegedAction')])\n                ]\n                \n                "
+    } ]
+  }, {
+    "patternId" : "java_finalizers_FinalizeOnlyCallsSuperFinalize",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[MethodDeclarator[@Image=\"finalize\"][not(FormalParameters/*)]]\n   /Block[count(BlockStatement)=1]\n     /BlockStatement[\n       Statement/StatementExpression/PrimaryExpression\n       [./PrimaryPrefix[@SuperModifier='true']]\n       [./PrimarySuffix[@Image='finalize']]\n     ]\n\n                "
+    } ]
+  }, {
+    "patternId" : "java_logging-jakarta-commons_GuardLogStatement",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_CloseResource",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_basic_AvoidThreadGroup",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//AllocationExpression/ClassOrInterfaceType[pmd-java:typeof(@Image, 'java.lang.ThreadGroup')]|\n//PrimarySuffix[contains(@Image, 'getThreadGroup')]\n\n        "
+    } ]
+  }, {
+    "patternId" : "java_design_AvoidSynchronizedAtMethodLevel",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//MethodDeclaration[@Synchronized='true']\n    \n              "
+    } ]
+  }, {
+    "patternId" : "java_basic_AvoidUsingHardCodedIP",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "pattern",
+      "default" : "^\"[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\"$"
+    } ]
+  }, {
+    "patternId" : "java_strings_UnnecessaryCaseChange",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_empty_EmptyIfStmt",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//IfStatement/Statement\n [EmptyStatement or Block[count(*) = 0]]\n \n              "
+    } ]
+  }, {
+    "patternId" : "java_migrating_JUnitUseExpected",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_AssignmentToNonFinalStatic",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_imports_DontImportJavaLang",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_PreserveStackTrace",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "jsp_basic_IframeMissingSrcAttribute",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t\t\t \n\t//Element[upper-case(@Name)=\"IFRAME\"][count(Attribute[upper-case(@Name)=\"SRC\" ]) = 0]\n\t\t\t\t\t \n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_j2ee_StaticEJBFieldShouldBeFinal",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//ClassOrInterfaceDeclaration[\n    (\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'SessionBean')])\n    or\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'EJBHome')])\n    or\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalObject')])\n    or\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalHome')])\n    or\n    (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBObject')])\n    )\n    and\n    (./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration[\n         (./FieldDeclaration[@Static = 'true'])\n         and\n         (./FieldDeclaration[@Final = 'false'])\n    ])\n]\n    \t\t "
+    } ]
+  }, {
+    "patternId" : "java_logging-java_GuardLogStatementJavaUtil",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_imports_DuplicateImports",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "plsql_codesize_ExcessiveMethodLength",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_UnsynchronizedStaticDateFormatter",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_ShortVariable",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "minimum",
+      "default" : 3
+    }, {
+      "name" : "xpath",
+      "default" : "\n                  \n//VariableDeclaratorId[string-length(@Image) < $minimum]\n [not(ancestor::ForInit)]\n [not(../../VariableDeclarator and ../../../LocalVariableDeclaration and ../../../../ForStatement)]\n [not((ancestor::FormalParameter) and (ancestor::TryStatement))]\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "jsp_basic_NoUnsanitizedJSPExpression",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_empty_EmptyStatementNotInLoop",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//EmptyStatement\n [not(\n       ../../../ForStatement\n       or ../../../WhileStatement\n       or ../../../BlockStatement/ClassOrInterfaceDeclaration\n       or ../../../../../../ForStatement/Statement[1]\n        /Block[1]/BlockStatement[1]/Statement/EmptyStatement\n       or ../../../../../../WhileStatement/Statement[1]\n        /Block[1]/BlockStatement[1]/Statement/EmptyStatement)\n ]\n\n                "
+    } ]
+  }, {
+    "patternId" : "java_basic_BigIntegerInstantiation",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_LongVariable",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "minimum",
+      "default" : 17
+    }, {
+      "name" : "xpath",
+      "default" : "\n                  \n//VariableDeclaratorId[string-length(@Image) > $minimum]\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "java_basic_DontUseFloatTypeForLoopIndices",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ForStatement/ForInit/LocalVariableDeclaration\n/Type/PrimitiveType[@Image=\"float\"]\n\n       "
+    } ]
+  }, {
+    "patternId" : "java_basic_CollapsibleIfStatements",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                \n//IfStatement[@Else='false']/Statement\n /IfStatement[@Else='false']\n |\n//IfStatement[@Else='false']/Statement\n /Block[count(BlockStatement)=1]/BlockStatement\n  /Statement/IfStatement[@Else='false']\n            "
+    } ]
+  }, {
+    "patternId" : "java_controversial_UseConcurrentHashMap",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Type[../VariableDeclarator/VariableInitializer//AllocationExpression/ClassOrInterfaceType[@Image != 'ConcurrentHashMap']]\n/ReferenceType/ClassOrInterfaceType[@Image = 'Map']\n\n        "
+    } ]
+  }, {
+    "patternId" : "java_codesize_ExcessiveClassLength",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_coupling_ExcessiveImports",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "vm_basic_CollapsibleIfStatements",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_junit_JUnitTestsShouldIncludeAssert",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "jsp_basic_JspEncoding",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t\t\t\n//Content[\nnot(Element[@Name=\"meta\"][\n   Attribute[@Name=\"content\"]/AttributeValue[contains(lower-case(@Image),\"charset=utf-8\")]\n]) \nand \n    not(JspDirective[@Name='page']/JspDirectiveAttribute[@Name='contentType'][contains(lower-case(@Value),\"charset=utf-8\")])\n]\n                    \n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_codesize_TooManyFields",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_junit_UseAssertSameInsteadOfAssertTrue",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                \n//PrimaryExpression[\n    PrimaryPrefix/Name\n     [@Image = 'assertTrue' or @Image = 'assertFalse']\n]\n[PrimarySuffix/Arguments\n /ArgumentList/Expression\n /EqualityExpression[count(.//NullLiteral) = 0]]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n \n            "
+    } ]
+  }, {
+    "patternId" : "java_junit_JUnitSpelling",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n              \n//MethodDeclarator[(not(@Image = 'setUp')\n and translate(@Image, 'SETuP', 'setUp') = 'setUp')\n or (not(@Image = 'tearDown')\n and translate(@Image, 'TEARdOWN', 'tearDown') = 'tearDown')]\n [FormalParameters[count(*) = 0]]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n              \n          "
+    } ]
+  }, {
+    "patternId" : "java_j2ee_RemoteInterfaceNamingConvention",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBObject')])\n    )\n    and\n    (\n        ends-with(@Image,'Session')\n        or\n        ends-with(@Image,'EJB')\n        or\n        ends-with(@Image,'Bean')\n    )\n]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_migrating_JUnit4TestShouldUseTestAnnotation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceBodyDeclaration[MethodDeclaration[@Public='true']/MethodDeclarator[starts-with(@Image,'test')]]\n[count(Annotation//Name[@Image='Test'])=0]\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_strictexception_AvoidRethrowingException",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                \n//CatchStatement[FormalParameter\n /VariableDeclaratorId/@Image = Block/BlockStatement/Statement\n /ThrowStatement/Expression/PrimaryExpression[count(PrimarySuffix)=0]/PrimaryPrefix/Name/@Image\n and count(Block/BlockStatement/Statement) =1]\n \n            "
+    } ]
+  }, {
+    "patternId" : "java_design_SwitchDensity",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_codesize_ExcessiveParameterList",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_AvoidFinalLocalVariable",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//LocalVariableDeclaration[\n  @Final = 'true'\n  and not(../../ForStatement)\n  and\n  (\n    (count(VariableDeclarator/VariableInitializer) = 0)\n    or\n    (VariableDeclarator/VariableInitializer/Expression/PrimaryExpression/PrimaryPrefix/Literal)\n  )\n]\n      "
+    } ]
+  }, {
+    "patternId" : "java_design_AccessorClassGeneration",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_migrating_ReplaceVectorWithList",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Type/ReferenceType/ClassOrInterfaceType[@Image='Vector']\n \n    "
+    } ]
+  }, {
+    "patternId" : "plsql_codesize_ExcessiveObjectLength",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "plsql_dates_TO_DATEWithoutDateFormat",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryExpression[PrimaryPrefix/Name/@Image='TO_DATE'  and count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1 ] \n\n    "
+    } ]
+  }, {
+    "patternId" : "java_basic_ReturnFromFinallyBlock",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//FinallyStatement//ReturnStatement\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_junit_TestClassWithoutTestCases",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_VariableNamingConventions",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_EqualsNull",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//PrimaryExpression\n  [\n    PrimaryPrefix[Name[ends-with(@Image, 'equals')]]\n      [following-sibling::node()/Arguments/ArgumentList[count(Expression)=1]\n          /Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n\n    or\n\n    PrimarySuffix[ends-with(@Image, 'equals')]\n      [following-sibling::node()/Arguments/ArgumentList[count(Expression)=1]\n          /Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n\n  ]\n    \n                "
+    } ]
+  }, {
+    "patternId" : "java_strings_InefficientEmptyStringCheck",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_migrating_to_15_",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "jsp_basic_NoScriptlets",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t\t\t\n\t\t\t\t\t//JspScriptlet\n\t\t\t\t\t|\n\t\t\t\t\t//Element[ upper-case(@Name)=\"JSP:SCRIPTLET\" ]\n\t\t\t\t\t\n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_design_NonCaseLabelInSwitchStatement",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n \n//SwitchStatement//BlockStatement/Statement/LabeledStatement\n \n                 "
+    } ]
+  }, {
+    "patternId" : "java_basic_ExtendsObject",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n          \n//ExtendsList/ClassOrInterfaceType[@Image='Object' or @Image='java.lang.Object']\n          \n          "
+    } ]
+  }, {
+    "patternId" : "java_j2ee_LocalInterfaceSessionNamingConvention",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalObject')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Local')\n    )\n]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "plsql_codesize_CyclomaticComplexity",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_comments_CommentDefaultAccessModifier",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "regex",
+      "default" : "\n                \n\\/\\*\\s+default\\s+\\*\\/\n                \n            "
+    } ]
+  }, {
+    "patternId" : "java_strings_UseStringBufferLength",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_clone_CloneMethodMustImplementCloneable",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//ClassOrInterfaceDeclaration\n[not(./ExtendsList/ClassOrInterfaceType[@Image='Cloneable'])]\n[not(./ImplementsList/ClassOrInterfaceType[@Image='Cloneable'])]\n/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n[MethodDeclaration\n[MethodDeclarator[@Image\n= 'clone' and count(FormalParameters/*) = 0]]\n[not((../MethodDeclaration[@Final = 'true'] or ancestor::ClassOrInterfaceDeclaration[1][@Final = 'true'])\nand Block[count(BlockStatement)=1]\n/BlockStatement/Statement/ThrowStatement/Expression\n/PrimaryExpression/PrimaryPrefix/AllocationExpression\n/ClassOrInterfaceType[@Image = 'CloneNotSupportedException'])]]\n\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "vm_basic_NoInlineJavaScript",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_AbstractClassWithoutAbstractMethod",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//ClassOrInterfaceDeclaration\n [@Abstract='true'\n  and count( .//MethodDeclaration[@Abstract='true'] )=0 ]\n  [count(ImplementsList)=0]\n  [count(.//ExtendsList)=0]\n              \n              "
+    } ]
+  }, {
+    "patternId" : "java_logging-java_InvalidSlf4jMessageFormat",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_optimizations_AvoidArrayLoops",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//Statement[(ForStatement or WhileStatement) and\ncount(*//AssignmentOperator[@Image = '='])=1\nand\n*/Statement\n[\n./Block/BlockStatement/Statement/StatementExpression/PrimaryExpression\n/PrimaryPrefix/Name/../../PrimarySuffix/Expression\n[(PrimaryExpression or AdditiveExpression) and count\n(.//PrimaryPrefix/Name)=1]//PrimaryPrefix/Name/@Image\nand\n./Block/BlockStatement/Statement/StatementExpression/Expression/PrimaryExpression\n/PrimaryPrefix/Name/../../PrimarySuffix[count\n(..//PrimarySuffix)=1]/Expression[(PrimaryExpression\nor AdditiveExpression) and count(.//PrimaryPrefix/Name)=1]\n//PrimaryPrefix/Name/@Image\n]]\n    \n        "
+    } ]
+  }, {
+    "patternId" : "java_design_UnnecessaryLocalBeforeReturn",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_SingletonClassReturningNewInstance",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_optimizations_MethodArgumentCouldBeFinal",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_android_DoNotHardCodeSDCard",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//Literal[starts-with(@Image,'\"/sdcard')]"
+    } ]
+  }, {
+    "patternId" : "java_coupling_LooseCoupling",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_junit_SimplifyBooleanAssertion",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//StatementExpression\n[\n.//Name[@Image='assertTrue' or  @Image='assertFalse']\nand\nPrimaryExpression/PrimarySuffix/Arguments/ArgumentList\n /Expression/UnaryExpressionNotPlusMinus[@Image='!']\n/PrimaryExpression/PrimaryPrefix\n]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n\n              "
+    } ]
+  }, {
+    "patternId" : "plsql_strictsyntax_MisplacedPragma",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//ProgramUnit/Pragma\n            "
+    } ]
+  }, {
+    "patternId" : "java_design_AvoidConstantsInterface",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//ClassOrInterfaceDeclaration[@Interface=\"true\"]\n    [\n     count(.//MethodDeclaration)=0\n     and\n     count(.//FieldDeclaration)>0\n    ]\n    \n        "
+    } ]
+  }, {
+    "patternId" : "java_controversial_NullAssignment",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_ReturnEmptyArrayRatherThanNull",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n                        //MethodDeclaration\n                        [\n                        (./ResultType/Type[@Array='true'])\n                        and\n                        (./Block/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral)\n                        ]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "jsp_basic_NoClassAttribute",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t\t\t //Attribute[ upper-case(@Name)=\"CLASS\" ]  \n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_codesize_ModifiedCyclomaticComplexity",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_DataflowAnomalyAnalysis",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_AtLeastOneConstructor",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n              \n//ClassOrInterfaceDeclaration[\n  not(ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration)\n  and\n  (@Static = 'false')\n  and\n  (count(./descendant::MethodDeclaration[@Static = 'true']) < 1)\n]\n  [@Interface='false']\n\n          "
+    } ]
+  }, {
+    "patternId" : "java_controversial_SuspiciousOctalEscape",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_clone_CloneMethodMustBePublic",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//MethodDeclaration[@Public='false']\n[\nMethodDeclarator/@Image = 'clone'\nand MethodDeclarator/FormalParameters/@ParameterCount = 0\n]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_design_UseCollectionIsEmpty",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_j2ee_LocalHomeNamingConvention",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalHome')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'LocalHome')\n    )\n]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_controversial_AvoidUsingShortType",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n            //PrimitiveType[@Image = 'short'][name(../..) != 'CastExpression']\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_basic_BrokenNullCheck",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_UnnecessaryParentheses",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                  \n          //Expression\n           /PrimaryExpression\n            /PrimaryPrefix\n             /Expression[count(*)=1]\n              /PrimaryExpression\n              /PrimaryPrefix\n              "
+    } ]
+  }, {
+    "patternId" : "java_junit_JUnitTestContainsTooManyAsserts",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "maximumAsserts",
+      "default" : 1
+    }, {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclarator[(@Image[fn:matches(.,'^test')] or ../../Annotation/MarkerAnnotation/Name[@Image='Test']) and count(..//PrimaryPrefix/Name[@Image[fn:matches(.,'^assert')]]) > $maximumAsserts]\n\n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_basic_CheckResultSet",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_PositionLiteralsFirstInComparisons",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n              \n//PrimaryExpression[\n        PrimaryPrefix[Name\n                [\n\t(ends-with(@Image, '.equals'))\n                ]\n        ]\n        [\n                   (../PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Literal[@StringLiteral='true'])\n\tand\n\t( count(../PrimarySuffix/Arguments/ArgumentList/Expression) = 1 )\n        ]\n]\n[not(ancestor::Expression/ConditionalAndExpression//EqualityExpression[@Image='!=']//NullLiteral)]\n[not(ancestor::Expression/ConditionalOrExpression//EqualityExpression[@Image='==']//NullLiteral)]\n\n          \n          "
+    } ]
+  }, {
+    "patternId" : "java_controversial_AvoidUsingVolatile",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n                        //FieldDeclaration[\n                                contains(@Volatile,'true')\n                        ]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_codesize_ExcessiveMethodLength",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_UseObjectForClearerAPI",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[@Public]/MethodDeclarator/FormalParameters[\n     count(FormalParameter/Type/ReferenceType/ClassOrInterfaceType[@Image = 'String']) > 3\n]\n\n        "
+    } ]
+  }, {
+    "patternId" : "java_android_CallSuperFirst",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//MethodDeclaration[MethodDeclarator[\n  @Image='onCreate' or\n  @Image='onConfigurationChanged' or\n  @Image='onPostCreate' or\n  @Image='onPostResume' or\n  @Image='onRestart' or\n  @Image='onRestoreInstanceState' or\n  @Image='onResume' or\n  @Image='onStart'\n  ]]\n    /Block[not(\n      (BlockStatement[1]/Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/MethodDeclarator/@Image]))]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  typeof(@Image, 'android.app.Activity', 'Activity') or\n  typeof(@Image, 'android.app.Application', 'Application') or\n  typeof(@Image, 'android.app.Service', 'Service')\n]]]\n\n        "
+    } ]
+  }, {
+    "patternId" : "java_coupling_LawOfDemeter",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strings_InsufficientStringBufferDeclaration",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_codesize_StdCyclomaticComplexity",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strings_AppendCharacterWithChar",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_imports_TooManyStaticImports",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "maximumStaticImports",
+      "default" : 4
+    }, {
+      "name" : "xpath",
+      "default" : "\n.[count(ImportDeclaration[@Static = 'true']) > $maximumStaticImports]\n\t             "
+    } ]
+  }, {
+    "patternId" : "java_migrating_ReplaceEnumerationWithIterator",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//ImplementsList/ClassOrInterfaceType[@Image='Enumeration']\n     \n        "
+    } ]
+  }, {
+    "patternId" : "java_logging-java_LoggerIsNotStaticFinal",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                 \n//VariableDeclarator\n [parent::FieldDeclaration]\n [../Type/ReferenceType\n  /ClassOrInterfaceType[@Image='Logger']\n   and\n  (..[@Final='false'] or ..[@Static = 'false'] ) ]\n                \n             "
+    } ]
+  }, {
+    "patternId" : "java_design_NonStaticInitializer",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Initializer[@Static='false']\n\n                 "
+    } ]
+  }, {
+    "patternId" : "java_imports_UnnecessaryFullyQualifiedName",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_finalizers_FinalizeShouldBeProtected",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//MethodDeclaration[@Protected=\"false\"]\n  /MethodDeclarator[@Image=\"finalize\"]\n  [not(FormalParameters/*)]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_migrating_ReplaceHashtableWithMap",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//Type/ReferenceType/ClassOrInterfaceType[@Image='Hashtable']\n     \n        "
+    } ]
+  }, {
+    "patternId" : "plsql_dates_TO_TIMESTAMPWithoutDateFormat",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryExpression[PrimaryPrefix/Name/@Image='TO_TIMESTAMP'  and count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1 ] \n\n    "
+    } ]
+  }, {
+    "patternId" : "java_typeresolution_UnusedImports",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_MissingStaticMethodInNonInstantiatableClass",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//ClassOrInterfaceDeclaration[@Nested='false']\n[\n  (\n    count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration)>0\n    and\n    count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration) = count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Private='true'])\n  )\n  and\n  count(.//MethodDeclaration[@Static='true'])=0\n  and\n  count(.//FieldDeclaration[@Private='false'][@Static='true'])=0\n  and\n  count(.//ClassOrInterfaceDeclaration[@Nested='true']\n           [@Public='true']\n           [@Static='true']\n           [count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Public='true']) > 0]\n           [count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/MethodDeclaration\n                    [@Public='true']\n                    [./ResultType/Type/ReferenceType/ClassOrInterfaceType\n                        [@Image = //ClassOrInterfaceDeclaration[@Nested='false']/@Image]\n                    ]\n            ) > 0]\n        ) = 0\n  and\n  count(//ClassOrInterfaceDeclaration\n            [@Nested='true']\n            [@Static='true']\n            [@Public='true']\n            [.//MethodDeclaration\n              [@Public='true']\n              [.//ReturnStatement//AllocationExpression\n                [ClassOrInterfaceType\n                    [@Image = //ClassOrInterfaceDeclaration/@Image]\n                ]\n                [./Arguments//PrimaryPrefix/@ThisModifier='true']\n              ]\n            ]\n       ) = 0\n]\n    \n              "
+    } ]
+  }, {
+    "patternId" : "java_unusedcode_UnusedPrivateMethod",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_comments_CommentContent",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_PackageCase",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                      \n//PackageDeclaration/Name[lower-case(@Image)!=@Image]\n                      \n                  "
+    } ]
+  }, {
+    "patternId" : "java_migrating_IntegerInstantiation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                  \n//PrimaryPrefix\n /AllocationExpression\n  [not (ArrayDimsAndInits)\n   and (ClassOrInterfaceType/@Image='Integer'\n    or ClassOrInterfaceType/@Image='java.lang.Integer')]\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "java_codesize_NcssConstructorCount",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_GenericsNaming",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//TypeDeclaration/ClassOrInterfaceDeclaration/TypeParameters/TypeParameter[\n  string-length(@Image) > 1 \n  or\n  string:upper-case(@Image) != @Image\n]\n\n                "
+    } ]
+  }, {
+    "patternId" : "java_design_UseNotifyAllInsteadOfNotify",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//StatementExpression/PrimaryExpression\n[PrimarySuffix/Arguments[@ArgumentCount = '0']]\n[\nPrimaryPrefix[./Name[@Image='notify' or ends-with(@Image,'.notify')]\nor ../PrimarySuffix/@Image='notify'\nor (./AllocationExpression and ../PrimarySuffix[@Image='notify'])\n]\n]\n    \n              "
+    } ]
+  }, {
+    "patternId" : "java_design_SimplifyBooleanExpressions",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//EqualityExpression/PrimaryExpression\n /PrimaryPrefix/Literal/BooleanLiteral\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_design_PositionLiteralsFirstInCaseInsensitiveComparisons",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n              \n//PrimaryExpression[\n        PrimaryPrefix[Name\n                [\n    (ends-with(@Image, '.equalsIgnoreCase'))\n                ]\n        ]\n        [\n                   (../PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Literal)\n    and\n    ( count(../PrimarySuffix/Arguments/ArgumentList/Expression) = 1 )\n        ]\n]\n[not(ancestor::Expression/ConditionalAndExpression//EqualityExpression[@Image='!=']//NullLiteral)]\n[not(ancestor::Expression/ConditionalOrExpression//EqualityExpression[@Image='==']//NullLiteral)]\n\n          \n          "
+    } ]
+  }, {
+    "patternId" : "vm_basic_UnusedMacroParameter",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_basic_ClassCastExceptionWithToArray",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CastExpression[Type/ReferenceType/ClassOrInterfaceType[@Image !=\n\"Object\"]]/PrimaryExpression\n[\n PrimaryPrefix/Name[ends-with(@Image, '.toArray')]\n and\n PrimarySuffix/Arguments[count(*) = 0]\nand\ncount(PrimarySuffix) = 1\n]\n\n    "
+    } ]
+  }, {
+    "patternId" : "java_unnecessary_UnnecessaryConversionTemporary",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "plsql_codesize_NcssMethodCount",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_migrating_JUnit4SuitesShouldUseSuiteAnnotation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceBodyDeclaration[MethodDeclaration/MethodDeclarator[@Image='suite']]\n[MethodDeclaration/ResultType/Type/ReferenceType/ClassOrInterfaceType[@Image='Test' or @Image = 'junit.framework.Test']]\n[not(MethodDeclaration/Block//ClassOrInterfaceType[@Image='JUnit4TestAdapter'])]\n\n              "
+    } ]
+  }, {
+    "patternId" : "jsp_basic_NoHtmlComments",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t\t\t \n\t//CommentTag\n\t\t\t\t\t \n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_migrating_to_junit4_",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strictexception_ExceptionAsFlowControl",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "jsp_basic_DuplicateJspImports",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_MisleadingVariableName",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//VariableDeclaratorId\n[starts-with(@Image, 'm_')]\n[not (../../../FieldDeclaration)]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_design_DefaultLabelNotLastInSwitchStmt",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//SwitchStatement\n [not(SwitchLabel[position() = last()][@Default='true'])]\n [SwitchLabel[@Default='true']]\n\n                 "
+    } ]
+  }, {
+    "patternId" : "java_unnecessary_UselessQualifiedThis",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n          \n//PrimaryExpression\n[PrimaryPrefix/Name[@Image]]\n[PrimarySuffix[@Arguments='false']]\n[not(PrimarySuffix/MemberSelector)]\n[ancestor::ClassOrInterfaceBodyDeclaration[1][@AnonymousInnerClass='false']]\n/PrimaryPrefix/Name[@Image = ancestor::ClassOrInterfaceDeclaration[1]/@Image]\n          \n          "
+    } ]
+  }, {
+    "patternId" : "java_design_AvoidInstanceofChecksInCatchClause",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//CatchStatement/FormalParameter\n /following-sibling::Block//InstanceOfExpression/PrimaryExpression/PrimaryPrefix\n  /Name[\n   @Image = ./ancestor::Block/preceding-sibling::FormalParameter\n    /VariableDeclaratorId/@Image\n  ]\n    \n              "
+    } ]
+  }, {
+    "patternId" : "java_codesize_NPathComplexity",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_j2ee_RemoteSessionInterfaceNamingConvention",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBHome')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Home')\n    )\n]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_empty_EmptyTryBlock",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//TryStatement/Block[1][count(*) = 0]\n\n              "
+    } ]
+  }, {
+    "patternId" : "plsql_codesize_ExcessivePackageSpecificationLength",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_basic_AvoidDecimalLiteralsInBigDecimalConstructor",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//AllocationExpression\n[ClassOrInterfaceType[@Image=\"BigDecimal\"]]\n[Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix\n    [\n        Literal[(not(ends-with(@Image,'\"'))) and contains(@Image,\".\")]\n        or\n        Name[ancestor::Block/BlockStatement/LocalVariableDeclaration\n                [Type[PrimitiveType[@Image='double' or @Image='float']\n                      or ReferenceType/ClassOrInterfaceType[@Image='Double' or @Image='Float']]]\n                /VariableDeclarator/VariableDeclaratorId/@Image = @Image\n            ]\n        or\n        Name[ancestor::MethodDeclaration/MethodDeclarator/FormalParameters/FormalParameter\n                [Type[PrimitiveType[@Image='double' or @Image='float']\n                      or ReferenceType/ClassOrInterfaceType[@Image='Double' or @Image='Float']]]\n                /VariableDeclaratorId/@Image = @Image\n            ]\n    ]\n]\n \n    "
+    } ]
+  }, {
+    "patternId" : "java_basic_AvoidMultipleUnaryOperators",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_javabeans_BeanMembersShouldSerialize",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_UncommentedEmptyMethodBody",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//MethodDeclaration/Block[count(BlockStatement) = 0 and @containsComment = 'false']\n \n             "
+    } ]
+  }, {
+    "patternId" : "java_optimizations_AvoidInstantiatingObjectsInLoops",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_unusedcode_UnusedLocalVariable",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_migrating_AvoidEnumAsIdentifier",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                  \n//VariableDeclaratorId[@Image='enum']\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "java_design_IdempotentOperations",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_codesize_ExcessivePublicCount",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_NonThreadSafeSingleton",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_ConstantsInInterface",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "ignoreIfHasMethods",
+      "default" : true
+    }, {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Interface='true'][$ignoreIfHasMethods='false' or not(.//MethodDeclaration)]//FieldDeclaration\n \n                "
+    } ]
+  }, {
+    "patternId" : "java_strictexception_SignatureDeclareThrowsException",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "vm_basic_EmptyForeachStmt",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_AvoidUsingNativeCode",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n                        //Name[starts-with(@Image,'System.loadLibrary')]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_controversial_UnnecessaryConstructor",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//ClassOrInterfaceBody[count(ClassOrInterfaceBodyDeclaration/ConstructorDeclaration)=1]\n/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration\n[@Public='true']\n[not(FormalParameters/*)]\n[not(BlockStatement)]\n[not(NameList)]\n[count(ExplicitConstructorInvocation/Arguments/ArgumentList/Expression)=0]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_naming_ClassNamingConventions",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_unnecessary_UselessOverridingMethod",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strictexception_DoNotExtendJavaLangError",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n          \n//ClassOrInterfaceDeclaration/ExtendsList/ClassOrInterfaceType\n  [@Image=\"Error\" or @Image=\"java.lang.Error\"]\n          \n        "
+    } ]
+  }, {
+    "patternId" : "java_design_TooFewBranchesForASwitchStatement",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "minimumNumberCaseForASwitch",
+      "default" : 3
+    }, {
+      "name" : "xpath",
+      "default" : "\n                    \n//SwitchStatement[\n    (count(.//SwitchLabel) < $minimumNumberCaseForASwitch)\n]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_optimizations_SimplifyStartsWith",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryExpression\n [PrimaryPrefix/Name\n  [ends-with(@Image, '.startsWith')] or PrimarySuffix[@Image='startsWith']]\n [PrimarySuffix/Arguments/ArgumentList\n  /Expression/PrimaryExpression/PrimaryPrefix\n  /Literal\n   [string-length(@Image)=3]\n   [starts-with(@Image, '\"')]\n   [ends-with(@Image, '\"')]\n ]\n \n            "
+    } ]
+  }, {
+    "patternId" : "java_finalizers_AvoidCallingFinalize",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "plsql_codesize_ExcessiveParameterList",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_migrating_to_13_",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strings_ConsecutiveAppendsShouldReuse",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_MissingBreakInSwitch",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//SwitchStatement\n[(count(.//BreakStatement)\n + count(BlockStatement//Statement/ReturnStatement)\n + count(BlockStatement//Statement/ContinueStatement)\n + count(BlockStatement//Statement/ThrowStatement)\n + count(BlockStatement//Statement/IfStatement[@Else='true' and Statement[2][ReturnStatement|ContinueStatement|ThrowStatement]]/Statement[1][ReturnStatement|ContinueStatement|ThrowStatement])\n + count(SwitchLabel[name(following-sibling::node()) = 'SwitchLabel'])\n + count(SwitchLabel[count(following-sibling::node()) = 0])\n  < count (SwitchLabel))]\n    \n              "
+    } ]
+  }, {
+    "patternId" : "java_empty_EmptyStaticInitializer",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Initializer[@Static='true']/Block[count(*)=0]\n\n                 "
+    } ]
+  }, {
+    "patternId" : "java_design_AvoidReassigningParameters",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strictexception_AvoidThrowingNullPointerException",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n              \n//AllocationExpression/ClassOrInterfaceType[@Image='NullPointerException']\n   \n          "
+    } ]
+  }, {
+    "patternId" : "java_naming_SuspiciousHashcodeMethodName",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "jsp_basic_NoLongScripts",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t\t\t \n// HtmlScript [ (@EndLine - @BeginLine > 10) ]\n\t\t\t\t\n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "vm_basic_ExcessiveTemplateLength",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "minimum",
+      "default" : 1000
+    } ]
+  }, {
+    "patternId" : "java_basic_ForLoopShouldBeWhileLoop",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                \n//ForStatement\n [count(*) > 1]\n [not(LocalVariableDeclaration)]\n [not(ForInit)]\n [not(ForUpdate)]\n [not(Type and Expression and Statement)]\n \n            "
+    } ]
+  }, {
+    "patternId" : "java_naming_AvoidFieldNameMatchingTypeName",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "jsp_basic_NoInlineStyleInformation",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_ImmutableField",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_sunsecure_MethodReturnsInternalArray",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_codesize_CyclomaticComplexity",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_junit_UseAssertNullInsteadOfAssertTrue",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                 \n//PrimaryExpression[\n PrimaryPrefix/Name[@Image = 'assertTrue' or @Image = 'assertFalse']\n][\n PrimarySuffix/Arguments/ArgumentList[\n  Expression/EqualityExpression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral\n ]\n]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n  \n             "
+    } ]
+  }, {
+    "patternId" : "java_design_AvoidDeeplyNestedIfStmts",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_OnlyOneReturn",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_basic_DontCallThreadRun",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//StatementExpression/PrimaryExpression\n[\n    PrimaryPrefix\n    [\n        ./Name[ends-with(@Image, '.run') or @Image = 'run']\n        and substring-before(Name/@Image, '.') =//VariableDeclarator/VariableDeclaratorId/@Image\n        [../../../Type/ReferenceType[ClassOrInterfaceType/@Image = 'Thread']]\n        or (\n        ./AllocationExpression/ClassOrInterfaceType[@Image = 'Thread']\n        and ../PrimarySuffix[@Image = 'run'])\n    ]\n]\n\n         "
+    } ]
+  }, {
+    "patternId" : "java_controversial_CallSuperInConstructor",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//ClassOrInterfaceDeclaration[ count (ExtendsList/*) > 0 ]\n/ClassOrInterfaceBody\n /ClassOrInterfaceBodyDeclaration\n /ConstructorDeclaration[ count (.//ExplicitConstructorInvocation)=0 ]\n    \n              "
+    } ]
+  }, {
+    "patternId" : "java_strictexception_DoNotThrowExceptionInFinally",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t    \n//FinallyStatement[descendant::ThrowStatement]\n\t\t\t          \n\t\t\t  "
+    } ]
+  }, {
+    "patternId" : "java_empty_EmptyCatchBlock",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//CatchStatement\n [count(Block/BlockStatement) = 0 and ($allowCommentedBlocks != 'true' or Block/@containsComment = 'false')]\n [FormalParameter/Type/ReferenceType\n   /ClassOrInterfaceType[@Image != 'InterruptedException' and @Image != 'CloneNotSupportedException']\n ]\n \n             "
+    }, {
+      "name" : "allowCommentedBlocks",
+      "default" : false
+    } ]
+  }, {
+    "patternId" : "java_design_SingleMethodSingleton",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_EmptyMethodInAbstractClassShouldBeAbstract",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                \n                    //ClassOrInterfaceDeclaration[@Abstract = 'true']\n                        /ClassOrInterfaceBody\n                        /ClassOrInterfaceBodyDeclaration\n                        /MethodDeclaration[@Abstract = 'false' and @Native = 'false']\n                        [\n                            ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral) = 'true' )\n                            or\n                            ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal[@Image = '0']) = 'true' )\n                            or\n                            ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal[string-length(@Image) = 2]) = 'true' )\n                            or\n                            (./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/EmptyStatement)\n                            or\n                            ( count (./Block/*) = 0 )\n                        ]\n                \n             "
+    } ]
+  }, {
+    "patternId" : "java_basic_OverrideBothEqualsAndHashcode",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strictexception_AvoidCatchingNPE",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n            \n//CatchStatement/FormalParameter/Type\n /ReferenceType/ClassOrInterfaceType[@Image='NullPointerException']\n \n        "
+    } ]
+  }, {
+    "patternId" : "java_design_AvoidProtectedFieldInFinalClass",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Final='true']\n/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n/FieldDeclaration[@Protected='true']\n \n                 "
+    } ]
+  }, {
+    "patternId" : "java_imports_ImportFromSamePackage",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strings_StringInstantiation",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_codesize_NcssTypeCount",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_optimizations_PrematureDeclaration",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_j2ee_DoNotCallSystemExit",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//Name[\n    starts-with(@Image,'System.exit')\n    or\n    (starts-with(@Image,'Runtime.getRuntime') and ../../PrimarySuffix[ends-with(@Image,'exit')])\n]\n    \t\t"
+    } ]
+  }, {
+    "patternId" : "java_design_AbstractClassWithoutAnyMethod",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//ClassOrInterfaceDeclaration[\n\t(@Abstract = 'true')\n\tand\n\t(count(//MethodDeclaration) + count(//ConstructorDeclaration) = 0)\n]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_naming_MethodNamingConventions",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_finalizers_FinalizeDoesNotCallSuperFinalize",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n\n//MethodDeclaration[MethodDeclarator[@Image='finalize'][not(FormalParameters/*)]]\n   /Block\n      /BlockStatement[last()]\n      [not(Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]\n      [not(Statement/TryStatement/FinallyStatement\n       /Block/BlockStatement/Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]\n\n                "
+    } ]
+  }, {
+    "patternId" : "java_migrating_LongInstantiation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryPrefix\n/AllocationExpression\n[not (ArrayDimsAndInits)\nand (ClassOrInterfaceType/@Image='Long'\nor ClassOrInterfaceType/@Image='java.lang.Long')]\n\n    "
+    } ]
+  }, {
+    "patternId" : "java_design_SingularField",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strings_AvoidStringBufferField",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//FieldDeclaration/Type/ReferenceType/ClassOrInterfaceType[@Image = 'StringBuffer' or @Image = 'StringBuilder']\n\n\t\t\t"
+    } ]
+  }, {
+    "patternId" : "java_controversial_DontImportSun",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_basic_UnconditionalIfStatement",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n \n//IfStatement/Expression\n [count(PrimaryExpression)=1]\n /PrimaryExpression/PrimaryPrefix/Literal/BooleanLiteral\n\n                "
+    } ]
+  }, {
+    "patternId" : "plsql_codesize_ExcessiveTypeLength",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_junit_UseAssertEqualsInsteadOfAssertTrue",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                \n//PrimaryExpression[\n    PrimaryPrefix/Name[@Image = 'assertTrue']\n][\n    PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Name\n    [ends-with(@Image, '.equals')]\n]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n \n            "
+    } ]
+  }, {
+    "patternId" : "java_migrating_ByteInstantiation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n          \n//PrimaryPrefix/AllocationExpression\n[not (ArrayDimsAndInits)\nand (ClassOrInterfaceType/@Image='Byte'\nor ClassOrInterfaceType/@Image='java.lang.Byte')]\n          \n          "
+    } ]
+  }, {
+    "patternId" : "java_strings_InefficientStringBuffering",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_android_CallSuperLast",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n          \n//MethodDeclaration[MethodDeclarator[\n  @Image='finish' or\n  @Image='onDestroy' or\n  @Image='onPause' or\n  @Image='onSaveInstanceState' or\n  @Image='onStop' or\n  @Image='onTerminate'\n  ]]\n   /Block/BlockStatement[last()]\n    [not(Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/MethodDeclarator/@Image])]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  typeof(@Image, 'android.app.Activity', 'Activity') or\n  typeof(@Image, 'android.app.Application', 'Application') or\n  typeof(@Image, 'android.app.Service', 'Service')\n]]]\n\n        "
+    } ]
+  }, {
+    "patternId" : "java_design_ConfusingTernary",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_migrating_AvoidAssertAsIdentifier",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                  \n//VariableDeclaratorId[@Image='assert']\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "plsql_dates_TO_DATE_TO_CHAR",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryExpression[PrimaryPrefix/Name/@Image='TO_DATE' \n                             and count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1 \n                                                         and .//PrimaryExpression[PrimaryPrefix/Name/@Image='TO_CHAR'  \n                                                                                  and count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1 \n                                                                                 ] \n                   ] \n\n    "
+    } ]
+  }, {
+    "patternId" : "java_braces_IfStmtsMustUseBraces",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                   \n//IfStatement[count(*) < 3][not(Statement/Block)]\n                   \n               "
+    } ]
+  }, {
+    "patternId" : "java_design_UseUtilityClass",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_finalizers_FinalizeOverloaded",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration\n /MethodDeclarator[@Image='finalize'][FormalParameters[count(*)>0]]\n\n            "
+    } ]
+  }, {
+    "patternId" : "java_basic_BooleanInstantiation",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_DoNotCallGarbageCollectionExplicitly",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//Name[\n(starts-with(@Image, 'System.') and\n(starts-with(@Image, 'System.gc') or\nstarts-with(@Image, 'System.runFinalization'))) or\n(\nstarts-with(@Image,'Runtime.getRuntime') and\n../../PrimarySuffix[ends-with(@Image,'gc')]\n)\n]\n\n                "
+    } ]
+  }, {
+    "patternId" : "plsql_codesize_TooManyMethods",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "maxmethods",
+      "default" : 1
+    }, {
+      "name" : "xpath",
+      "default" : "\n                    \n//node()\n     [ (\n        local-name(.) = 'PackageSpecification'\n        or\n        local-name(.) = 'TypeSpecification'\n       )\n       and \n      (\n      count(/descendant::ProgramUnit[\n                                         not (\n                                                starts-with(@Image,'get')\n                                                or\n                                                starts-with(@Image,'set')\n                                                or\n                                                starts-with(@Image,'is')\n                                            )\n                                       ]\n           )\n      +\n      count(/descendant::TypeMethod[\n                                         not (\n                                                starts-with(@Image,'get')\n                                                or\n                                                starts-with(@Image,'set')\n                                                or\n                                                starts-with(@Image,'is')\n                                            )\n                                       ]\n           )\n      ) > $maxmethods\n     ]\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_empty_EmptyFinallyBlock",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//FinallyStatement[count(Block/BlockStatement) = 0]\n \n              "
+    } ]
+  }, {
+    "patternId" : "java_migrating_JUnit4TestShouldUseBeforeAnnotation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CompilationUnit[not(ImportDeclaration/Name[starts-with(@Image, \"org.testng\")])]\n//ClassOrInterfaceBodyDeclaration[MethodDeclaration/MethodDeclarator[@Image='setUp']]\n[count(Annotation//Name[@Image='Before'])=0]\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_naming_MethodWithSameNameAsEnclosingClass",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_unusedcode_UnusedFormalParameter",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_migrating_to_14_",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_coupling_LoosePackageCoupling",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "xml_basic_MistypedCDATASection",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n \n//cdata-section[starts-with(@Image,'[') or ends-with(@Image,']')]\n\n             "
+    } ]
+  }, {
+    "patternId" : "java_naming_AvoidDollarSigns",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_finalizers_EmptyFinalizer",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[MethodDeclarator[@Image='finalize'][not(FormalParameters/*)]]\n  /Block[count(*)=0]\n\n                "
+    } ]
+  }, {
+    "patternId" : "java_basic_DoubleCheckedLocking",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_coupling_CouplingBetweenObjects",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strings_StringBufferInstantiationWithChar",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//AllocationExpression/ClassOrInterfaceType\n[@Image='StringBuffer' or @Image='StringBuilder']\n/../Arguments/ArgumentList/Expression/PrimaryExpression\n/PrimaryPrefix/\nLiteral\n  [starts-with(@Image, \"'\")]\n  [ends-with(@Image, \"'\")]\n\n            "
+    } ]
+  }, {
+    "patternId" : "plsql_codesize_NcssObjectCount",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_logging-java_SystemPrintln",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                 \n//Name[\n    starts-with(@Image, 'System.out.print')\n    or\n    starts-with(@Image, 'System.err.print')\n    ]\n                \n             "
+    } ]
+  }, {
+    "patternId" : "java_naming_SuspiciousEqualsMethodName",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//MethodDeclarator[@Image = 'equals']\n[   \n    (count(FormalParameters/*) = 1\n    and not (FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object'])\n    or not (../ResultType/Type/PrimitiveType[@Image = 'boolean'])\n    )  or  (\n    count(FormalParameters/*) = 2\n    and ../ResultType/Type/PrimitiveType[@Image = 'boolean']\n    and FormalParameters//ClassOrInterfaceType[@Image = 'Object' or @Image = 'java.lang.Object']\n    and not(../../Annotation/MarkerAnnotation/Name[@Image='Override'])\n    )\n]\n| //MethodDeclarator[@Image = 'equal']\n[\n    count(FormalParameters/*) = 1\n    and FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object']\n]           \n\n                    "
+    } ]
+  }, {
+    "patternId" : "java_basic_SimplifiedTernary",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//ConditionalExpression[@Ternary='true'][not(PrimaryExpression/*/Literal/BooleanLiteral) and (Expression/PrimaryExpression/*/Literal/BooleanLiteral)]\n|\n//ConditionalExpression[@Ternary='true'][not(Expression/PrimaryExpression/*/Literal/BooleanLiteral) and (PrimaryExpression/*/Literal/BooleanLiteral)]\n\n            "
+    } ]
+  }, {
+    "patternId" : "java_controversial_AvoidLiteralsInIfCondition",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "ignoreMagicNumbers",
+      "default" : "-1,0"
+    }, {
+      "name" : "xpath",
+      "default" : "\n\n//IfStatement/Expression/*/PrimaryExpression/PrimaryPrefix/Literal\n[not(NullLiteral)]\n[not(BooleanLiteral)]\n[empty(index-of(tokenize($ignoreMagicNumbers, ','), @Image))]\n\n        "
+    }, {
+      "name" : "version",
+      "default" : 2
+    } ]
+  }, {
+    "patternId" : "vm_basic_AvoidDeeplyNestedIfStmts",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_NoPackage",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                  \n//ClassOrInterfaceDeclaration[count(preceding::PackageDeclaration) = 0]\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "java_design_GodClass",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_OneDeclarationPerLine",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//LocalVariableDeclaration\n   [count(VariableDeclarator) > 1]\n   [$strictMode or count(distinct-values(VariableDeclarator/@BeginLine)) != count(VariableDeclarator)]\n                    \n                "
+    }, {
+      "name" : "version",
+      "default" : 2
+    }, {
+      "name" : "strictMode",
+      "default" : false
+    } ]
+  }, {
+    "patternId" : "java_comments_CommentSize",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_j2ee_DoNotUseThreads",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n                        //ClassOrInterfaceType[@Image = 'Thread' or @Image = 'Runnable']\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_junit_UnnecessaryBooleanAssertion",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//StatementExpression\n[\nPrimaryExpression/PrimaryPrefix/Name[@Image='assertTrue' or  @Image='assertFalse']\nand\nPrimaryExpression/PrimarySuffix/Arguments/ArgumentList/Expression\n[PrimaryExpression/PrimaryPrefix/Literal/BooleanLiteral\nor\nUnaryExpressionNotPlusMinus[@Image='!']\n/PrimaryExpression/PrimaryPrefix[Literal/BooleanLiteral or Name[count(../../*)=1]]]\n]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_design_CompareObjectsWithEquals",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_controversial_DefaultPackage",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//ClassOrInterfaceDeclaration[@Interface='false']\n/ClassOrInterfaceBody\n/ClassOrInterfaceBodyDeclaration\n[not(Annotation//Name[ends-with(@Image, 'VisibleForTesting')])]\n[\nFieldDeclaration[@PackagePrivate='true']\nor MethodDeclaration[@PackagePrivate='true']\n]\n                "
+    } ]
+  }, {
+    "patternId" : "java_typeresolution_SignatureDeclareThrowsException",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "IgnoreJUnitCompletely",
+      "default" : false
+    } ]
+  }, {
+    "patternId" : "java_strings_UseIndexOfChar",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_unnecessary_UnnecessaryReturn",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "vm_basic_EmptyIfStmt",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_design_FieldDeclarationsShouldBeAtStartOfClass",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_naming_ShortMethodName",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "minimum",
+      "default" : 3
+    }, {
+      "name" : "xpath",
+      "default" : "\n                  \n//MethodDeclarator[string-length(@Image) < $minimum]\n                  \n              "
+    } ]
+  }, {
+    "patternId" : "java_strings_StringToString",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_codesize_NcssMethodCount",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_sunsecure_ArrayIsStoredDirectly",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_empty_EmptySynchronizedBlock",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//SynchronizedStatement/Block[1][count(*) = 0]\n\n              "
+    } ]
+  }, {
+    "patternId" : "java_imports_UnusedImports",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_basic_CheckSkipResult",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strings_ConsecutiveLiteralAppends",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_clone_CloneThrowsCloneNotSupportedException",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                     \n//MethodDeclaration\n[\nMethodDeclarator/@Image = 'clone'\nand count(MethodDeclarator/FormalParameters/*) = 0\nand count(NameList/Name[contains\n(@Image,'CloneNotSupportedException')]) = 0\n]\n[\n../../../../ClassOrInterfaceDeclaration[@Final = 'false']\n]\n                     \n                 "
+    } ]
+  }, {
+    "patternId" : "java_strings_UselessStringValueOf",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_unnecessary_UselessParentheses",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n          \n//Expression/PrimaryExpression/PrimaryPrefix/Expression\n[count(*)=1][count(./CastExpression)=0][count(./ConditionalExpression[@Ternary='true'])=0]\n[not(./AdditiveExpression[//Literal[@StringLiteral='true']])]\n|\n//Expression/ConditionalAndExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    count(./CastExpression)=0 and\n    count(./EqualityExpression/MultiplicativeExpression)=0 and\n    count(./ConditionalExpression[@Ternary='true'])=0 and\n    count(./ConditionalOrExpression)=0]\n|\n//Expression/ConditionalOrExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    count(./CastExpression)=0 and\n    count(./ConditionalExpression[@Ternary='true'])=0 and\n    count(./EqualityExpression/MultiplicativeExpression)=0]\n|\n//Expression/ConditionalExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    count(./CastExpression)=0 and\n    count(./EqualityExpression)=0]\n|\n//Expression/AdditiveExpression[not(./PrimaryExpression/PrimaryPrefix/Literal[@StringLiteral='true'])]/PrimaryExpression[1]/PrimaryPrefix/Expression[\n    count(*)=1 and\n    not(./CastExpression) and\n    not(./AdditiveExpression[@Image = '-']) and\n    not(./ShiftExpression) and\n    not(./RelationalExpression) and\n    not(./InstanceOfExpression) and\n    not(./EqualityExpression) and\n    not(./AndExpression) and\n    not(./ExclusiveOrExpression) and\n    not(./InclusiveOrExpression) and\n    not(./ConditionalAndExpression) and\n    not(./ConditionalOrExpression) and\n    not(./ConditionalExpression)]\n|\n//Expression/EqualityExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    count(./CastExpression)=0 and\n    count(./AndExpression)=0 and\n    count(./InclusiveOrExpression)=0 and\n    count(./ExclusiveOrExpression)=0 and\n    count(./ConditionalExpression)=0 and\n    count(./ConditionalAndExpression)=0 and\n    count(./ConditionalOrExpression)=0 and\n    count(./EqualityExpression)=0]\n          \n          "
+    } ]
+  }, {
+    "patternId" : "jsp_basic_NoJspForward",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t\t\t //Element[ @Name=\"jsp:forward\" ]  \n\t\t\t\t"
+    } ]
+  }, {
+    "patternId" : "jsp_basic_NoInlineScript",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                    \n//HtmlScript[@Image != '']\n                    \n                "
+    } ]
+  }, {
+    "patternId" : "java_naming_AvoidFieldNameMatchingMethodName",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_optimizations_LocalVariableCouldBeFinal",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_strings_AvoidDuplicateLiterals",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_basic_AvoidUsingOctalValues",
+    "level" : "Warning",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "java_optimizations_UseArraysAsList",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n   \n//Statement[\n    (ForStatement) and (ForStatement//VariableInitializer//Literal[@IntLiteral='true' and @Image='0']) and (count(.//IfStatement)=0)\n   ]\n   //StatementExpression[\n    PrimaryExpression/PrimaryPrefix/Name[\n     substring-before(@Image,'.add') = ancestor::MethodDeclaration//LocalVariableDeclaration[\n      ./Type//ClassOrInterfaceType[\n       @Image = 'Collection' or \n       @Image = 'List' or @Image='ArrayList'\n      ]\n     ]\n     /VariableDeclarator/VariableDeclaratorId[\n      count(..//AllocationExpression/ClassOrInterfaceType[\n       @Image=\"ArrayList\"\n      ]\n      )=1\n     ]/@Image\n    ]\n   and\n   PrimaryExpression/PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Name\n   [\n     @Image = ancestor::MethodDeclaration//LocalVariableDeclaration[@Array=\"true\"]/VariableDeclarator/VariableDeclaratorId/@Image\n     or\n     @Image = ancestor::MethodDeclaration//FormalParameter/VariableDeclaratorId/@Image\n   ]\n   /../..[count(.//PrimarySuffix)\n   =1]/PrimarySuffix/Expression/PrimaryExpression/PrimaryPrefix\n   /Name\n   ]\n   \n       "
+    } ]
+  }, {
+    "patternId" : "java_design_LogicInversion",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n          \n//UnaryExpressionNotPlusMinus[@Image='!']/PrimaryExpression/PrimaryPrefix/Expression[EqualityExpression or RelationalExpression]\n          \n          "
+    } ]
+  }, {
+    "patternId" : "java_design_InstantiationToGetClass",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n                \n//PrimarySuffix\n [@Image='getClass']\n [parent::PrimaryExpression\n  [PrimaryPrefix/AllocationExpression]\n  [count(PrimarySuffix) = 2]\n ]\n     \n            "
+    } ]
+  }, {
+    "patternId" : "java_strictexception_AvoidThrowingNewInstanceOfSameException",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n        \n//CatchStatement[\n  count(Block/BlockStatement/Statement) = 1\n  and\n  FormalParameter/Type/ReferenceType/ClassOrInterfaceType/@Image = Block/BlockStatement/Statement/ThrowStatement/Expression/PrimaryExpression/PrimaryPrefix/AllocationExpression/ClassOrInterfaceType/@Image\n  and\n  count(Block/BlockStatement/Statement/ThrowStatement/Expression/PrimaryExpression/PrimaryPrefix/AllocationExpression/Arguments/ArgumentList/Expression) = 1\n  and\n  FormalParameter/VariableDeclaratorId = Block/BlockStatement/Statement/ThrowStatement/Expression/PrimaryExpression/PrimaryPrefix/AllocationExpression/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Name\n  ]\n \n      "
+    } ]
+  }, {
+    "patternId" : "java_unnecessary_UnusedNullCheckInEquals",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n        \n(//PrimaryPrefix[ends-with(Name/@Image, '.equals') and Name/@Image != 'Arrays.equals'] | //PrimarySuffix[@Image='equals' and not(../PrimaryPrefix/Literal)])\n /following-sibling::PrimarySuffix/Arguments/ArgumentList/Expression\n /PrimaryExpression[count(PrimarySuffix)=0]/PrimaryPrefix\n /Name[@Image = ./../../../../../../../../../../Expression/ConditionalAndExpression\n /EqualityExpression[@Image=\"!=\" and count(./preceding-sibling::*)=0 and\n ./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n  /PrimaryExpression/PrimaryPrefix/Name/@Image]\n        \n        "
+    } ]
+  }, {
+    "patternId" : "java_empty_EmptyInitializer",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Initializer/Block[count(*)=0]\n\n                 "
+    } ]
+  } ]
 }

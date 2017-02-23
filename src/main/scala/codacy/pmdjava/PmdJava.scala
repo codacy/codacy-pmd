@@ -1,114 +1,147 @@
 package codacy.pmdjava
 
-import java.nio.charset.StandardCharsets
-import java.nio.file.{Files, Path, Paths, StandardOpenOption}
+import java.io.{File, OutputStream, PrintStream}
+import java.nio.file.{Files, Path, Paths}
+import java.util
+import java.util.Collections
 
-import better.files.File
-import codacy.dockerApi._
-import codacy.dockerApi.utils.CommandRunner
-import play.api.libs.json.{JsString, Json}
+import codacy.docker.api._
+import codacy.helpers.ResourceHelper
+import net.sourceforge.pmd.lang.Language
+import net.sourceforge.pmd.renderers.Renderer
+import net.sourceforge.pmd.stat.Metric
+import net.sourceforge.pmd.{PMD, PMDConfiguration, ReportListener, RuleContext, RuleSet, RuleSets, RuleViolation, RulesetsFactoryUtils}
+import play.api.libs.json.{JsString, JsValue, Json}
 
-import scala.sys.process._
-import scala.util.{Properties, Success, Try}
-import scala.xml.{Elem, XML}
+import scala.collection.JavaConversions._
+import scala.util.control.NonFatal
+import scala.util.{Failure, Success, Try}
+import scala.xml.Elem
 
 object PmdJava extends Tool {
 
-  override def apply(path: Path, conf: Option[List[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[List[Result]] = {
-    commandFor(path, conf, files, spec, resultFilePath).flatMap { cmd =>
-      Try {
-        CommandRunner.exec(cmd)
-        outputParsed(XML.loadFile(resultFilePath.toFile),path)
-      }
+  private lazy val configFileNames = Set("ruleset.xml")
+
+  override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], filesOpt: Option[Set[Source.File]])
+                    (implicit specification: Tool.Specification): Try[List[Result]] = {
+    val syncList = Collections.synchronizedList(new util.ArrayList[Result.Issue]())
+
+    swallowStderr()
+
+    val pmdConfig = new PMDConfiguration()
+
+    filesOpt.fold[Unit] {
+      pmdConfig.setInputFilePath(source.path)
+    } { files =>
+      val filesStr = files.map(_.path).mkString(",")
+      pmdConfig.setInputPaths(filesStr)
+    }
+
+    configuration match {
+      case Some(config) =>
+        configFile(config) match {
+          case Success(ruleset) =>
+            pmdConfig.setRuleSets(ruleset.toString)
+
+          case Failure(_) =>
+        }
+
+      case None =>
+        val root = new File(source.path)
+        configFileNames
+          .map(new File(root, _))
+          .collectFirst {
+            case ruleset if ruleset.exists && ruleset.isFile =>
+              pmdConfig.setRuleSets(ruleset.toString)
+          }
+    }
+
+    // Load the RuleSets
+    val ruleSetFactory = RulesetsFactoryUtils.getRulesetFactory(pmdConfig)
+
+    val ruleSets = RulesetsFactoryUtils.getRuleSets(pmdConfig.getRuleSets, ruleSetFactory)
+
+    if (ruleSets == null) {
+      return Failure(new Exception("No rulesets found"))
+    }
+
+    val languages = getApplicableLanguages(pmdConfig, ruleSets)
+
+    val files = PMD.getApplicableFiles(pmdConfig, languages)
+
+    try {
+      val ctx = new RuleContext
+      ctx.getReport.addListener(new ReportListener() {
+        def ruleViolationAdded(violation: RuleViolation) {
+          patternIdByRuleNameAndRuleSet(violation.getRule.getLanguage.getTerseName, violation.getRule.getName,
+            violation.getRule.getRuleSetName).foreach {
+            patternId =>
+              val issue = Result.Issue(relativizeToolOutputPath(source, violation.getFilename),
+                Result.Message(violation.getDescription),
+                patternId,
+                Source.Line(violation.getBeginLine))
+              syncList.add(issue)
+          }
+        }
+
+        def metricAdded(metric: Metric) {}
+      })
+
+      val renderers = new util.ArrayList[Renderer]()
+
+      PMD.processFiles(pmdConfig, ruleSetFactory, files, ctx, renderers)
+
+      Success(syncList.toList)
+    } catch {
+      case NonFatal(e) =>
+        Failure(e)
     }
   }
 
-  private[this] lazy val ruleSetsDefault = {
-    import RuleSets._
-    List(
-      android, basic, braces, clone_, codesize, comments, controversial,
-      coupling, design, empty, finalizers, imports, junit, migrating,
-      naming, optimizations, sunsecure, strictexception, strings,
-      typeresolution, unnecessary, unusedcode).map { group => s"java-$group" }.mkString(",")
-  }
-
-  // we are using an output file we don't care for stdout or err...
-  private[this] lazy val discardingLogger = ProcessLogger((_: String) => ())
-
-  private[this] lazy val resultFilePath = Paths.get(Properties.tmpDir, "pmd-result.xml")
-
-  private[this] lazy val configFileNames = Set("ruleset.xml")
-
-  private[this] def commandFor(path: Path, conf: Option[List[PatternDef]], files: Option[Set[Path]], spec: Spec, outputFilePath: Path): Try[List[String]] = {
-    lazy val nativeConfigFile = configFileNames.map( name => Try(new better.files.File(path) / name))
-      .collectFirst{ case s@Success(file) if file.isRegularFile => s.map(_.toJava.getAbsolutePath) }
-
-    val configPath = conf.map(configFile(_).map(_.toAbsolutePath.toString))
-      .orElse( nativeConfigFile )
-      .getOrElse(Success(ruleSetsDefault))
-
-    configPath.map { case configuration =>
-      val configurationCmd = List("-rulesets", configuration)
-
-      val filesCmd = files.map(_.mkString(",")).getOrElse(path.toAbsolutePath.toString)
-      //maybe someone want's to create a symlink for this in build.sbt
-      List(
-        "/usr/local/pmd-bin/bin/run.sh", "pmd",
-        "-d", filesCmd, "-f", "xml",
-        "-r", outputFilePath.toAbsolutePath.toString) ++ configurationCmd
-    }
-  }
-
-  //"Java Logging" -> "logging-java" -> logging-java_GuardLogStatementJavaUtil
-  private[this] def patternIdByRuleNameAndRuleSet(ruleName: String, ruleSet: String)(implicit spec: Spec): Option[PatternId] = {
-    RuleSets.byRuleSetName(ruleSet).flatMap { ruleSet =>
-      val patternId = PatternId(s"${ruleSet}_$ruleName")
-      spec.patterns.collectFirst { case patternDef if patternDef.patternId == patternId => patternDef.patternId }
-    }
-  }
-
-  private[this] def relativizeToolOutputPath(path: String, rootPath:Path): SourcePath = {
-    SourcePath(rootPath.relativize(Paths.get(path)).toString)
-  }
-
-  private[this] def outputParsed(outputXml: Elem, rootPath:Path)(implicit spec: Spec): List[Result] = {
-    val issues = (outputXml \ "file").flatMap { case file =>
-      lazy val fileName = {
-        val path = Paths.get(file \@ "name")
-        val relativePath = rootPath.relativize(path)
-        SourcePath(relativePath.toString)
-      }
-
-      (file \ "violation").flatMap { case violation =>
-        patternIdByRuleNameAndRuleSet(
-          ruleName = violation \@ "rule",
-          ruleSet = violation \@ "ruleset"
-        ).flatMap { case patternId =>
-          Try(
-            Issue(
-              filename = fileName,
-              message = ResultMessage(violation.text.trim),
-              patternId = patternId,
-              line = ResultLine((violation \@ "beginline").toInt)
-            )
-          ).toOption
+  private def getApplicableLanguages(configuration: PMDConfiguration, ruleSets: RuleSets) = {
+    val languages = new java.util.HashSet[Language]
+    val discoverer = configuration.getLanguageVersionDiscoverer
+    import scala.collection.JavaConversions._
+    for (rule <- ruleSets.getAllRules) {
+      val language = rule.getLanguage
+      if (!languages.contains(language)) {
+        val version = discoverer.getDefaultLanguageVersion(language)
+        if (RuleSet.applies(rule, version)) {
+          languages.add(language)
         }
       }
     }
-
-    val errors = (outputXml \ "error").map { case error =>
-      val path = relativizeToolOutputPath(error \@ "filename", rootPath)
-      val message = Option(error \@ "msg").collect { case msg if msg.nonEmpty => ErrorMessage(msg) }
-      FileError(path, message)
-    }
-    (issues.toSet ++ errors).toList
+    languages
   }
 
-  private[this] def configFile(conf: List[PatternDef]): Try[Path] = {
-    val rules = conf.map(generateRule)
+  private def swallowStderr(): Unit = {
+    // Hide PMD errors from STDERR
+    //    val err = System.err
+    System.setErr(new PrintStream(new OutputStream() {
+      def write(b: Int) {
+      }
+    }))
+    //    System.setOut(err)
+  }
+
+  private def patternIdByRuleNameAndRuleSet(language: String, ruleName: String, ruleSet: String)
+                                           (implicit specification: Tool.Specification): Option[Pattern.Id] = {
+    RuleSets.byRuleSetName(ruleSet).flatMap { ruleSet =>
+      val patternId = Pattern.Id(s"${language}_${ruleSet}_$ruleName")
+      specification.patterns.collectFirst { case patternDef if patternDef.patternId == patternId => patternDef.patternId }
+    }
+  }
+
+  private def relativizeToolOutputPath(root: Source.Directory, file: String): Source.File = {
+    val rootPath = Paths.get(root.path)
+    val filePath = Paths.get(file)
+    Source.File(rootPath.relativize(filePath).toString)
+  }
+
+  private def configFile(conf: List[Pattern.Definition]): Try[Path] = {
+    val rules = conf.flatMap(generateRule)
 
     val xmlConfiguration =
-
       <ruleset name="All Java Rules"
                xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -119,37 +152,38 @@ object PmdJava extends Tool {
     fileForConfig(xmlConfiguration)
   }
 
-  private[this] def fileForConfig(config: Elem) = tmpfile(config.toString())
+  private def fileForConfig(config: Elem) = tmpfile(config.toString)
 
   private[this] def tmpfile(content: String, prefix: String = "ruleset", suffix: String = ".xml"): Try[Path] = {
-    Try(Files.write(
-      Files.createTempFile(prefix, suffix),
-      content.getBytes(StandardCharsets.UTF_8),
-      StandardOpenOption.CREATE
-    ))
+    ResourceHelper.writeFile(Files.createTempFile(prefix, suffix), content)
   }
 
-  private[this] def patternNameById(patternId: PatternId): String = patternId.value.split("_") match {
-    case Array(patternCategory, patternName) => s"""rulesets/java/$patternCategory.xml/$patternName"""
-    case _ => ""
+  private[this] def patternNameById(patternId: Pattern.Id): Option[String] = {
+    patternId.value.split("_") match {
+      case Array(patternCategory, patternName) => Some(s"""rulesets/java/$patternCategory.xml/$patternName""")
+      case Array(language, patternCategory, patternName) => Some(s"""rulesets/$language/$patternCategory.xml/$patternName""")
+      case _ => None
+    }
   }
 
-  private[this] def generateRule(patternDef: PatternDef): Elem = {
+  private[this] def generateRule(patternDef: Pattern.Definition): Option[Elem] = {
     val xmlProperties = patternDef.parameters.map(_.map(generateParameter)).getOrElse(Set.empty)
-
-    <rule ref={patternNameById(patternDef.patternId)}>
-      <properties>
-        {xmlProperties}
-      </properties>
-    </rule>
+    patternNameById(patternDef.patternId).map { ruleId =>
+      <rule ref={ruleId}>
+        <properties>
+          {xmlProperties}
+        </properties>
+      </rule>
+    }
   }
 
-  private[this] def generateParameter(parameter: ParameterDef): Elem = {
-    val parameterValue = parameter.value match {
+  private[this] def generateParameter(parameter: Parameter.Definition): Elem = {
+    val parameterValue: JsValue = parameter.value
+    val paramValue = parameterValue match {
       case JsString(value) => value
       case other => Json.stringify(other)
     }
 
-      <property name={parameter.name} value={parameterValue}/>
+      <property name={parameter.name.value} value={paramValue}/>
   }
 }

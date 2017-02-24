@@ -11,14 +11,17 @@ object RuleSets extends Enumeration {
   val dates = Value("dates")
   val basic = Value("basic")
   val j2ee = Value("j2ee")
+  val performance = Value("performance")
   val unusedcode = Value("unusedcode")
   val comments = Value("comments")
   val TomKytesDespair = Value("TomKytesDespair")
   val naming = Value("naming")
+  val security = Value("security")
   val migrating = Value("migrating")
   val design = Value("design")
   val loggingJava = Value("logging-java")
   val sunsecure = Value("sunsecure")
+  val style = Value("style")
   val strings = Value("strings")
   val basicJsf = Value("basic-jsf")
   val unnecessary = Value("unnecessary")
@@ -29,10 +32,12 @@ object RuleSets extends Enumeration {
   val optimizations = Value("optimizations")
   val coupling = Value("coupling")
   val finalizers = Value("finalizers")
+  val apexunit = Value("apexunit")
   val xpath = Value("xpath")
   val imports = Value("imports")
   val codesize = Value("codesize")
   val loggingJakartaCommons = Value("logging-jakarta-commons")
+  val complexity = Value("complexity")
   val cloneImplementation = Value("clone")
   val android = Value("android")
 
@@ -63,6 +68,8 @@ object RuleSets extends Enumeration {
       "Jakarta Commons Logging" -> loggingJakartaCommons,
       "Migration" -> migrating,
       "Basic JSF" -> basicJsf,
+      "Performance" -> performance,
+      "Complexity" -> complexity,
       "Strict Syntax" -> strictsyntax,
       "Strict Exceptions" -> strictexception,
       "JUnit" -> junit,
@@ -72,18 +79,21 @@ object RuleSets extends Enumeration {
       "Tom Kyte's Despair" -> TomKytesDespair,
       "Clone Implementation" -> cloneImplementation,
       "Finalizer" -> finalizers,
+      "Style" -> style,
       "Basic Velocity" -> basic,
       "Basic" -> basic,
       "XPath in XSL" -> xpath,
       "Empty Code" -> empty,
       "Java Logging" -> loggingJava,
       "Naming" -> naming,
+      "ApexUnit" -> apexunit,
       "Coupling" -> coupling,
       "Unnecessary" -> unnecessary,
       "String and StringBuffer" -> strings,
       "Unused Code" -> unusedcode,
       "Controversial" -> controversial,
-      "J2EE" -> j2ee
+      "J2EE" -> j2ee,
+      "Security" -> security
     )
   }
 
@@ -118,7 +128,11 @@ object RuleSets extends Enumeration {
       dates -> (Result.Level.Warn, Pattern.Category.ErrorProne),
       TomKytesDespair -> (Result.Level.Warn, Pattern.Category.ErrorProne),
       basicJsf -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-      xpath -> (Result.Level.Warn, Pattern.Category.ErrorProne)
+      xpath -> (Result.Level.Warn, Pattern.Category.ErrorProne),
+      performance -> (Result.Level.Warn, Pattern.Category.Performance),
+      security -> (Result.Level.Err, Pattern.Category.Security),
+      apexunit -> (Result.Level.Warn, Pattern.Category.CodeStyle),
+      complexity -> (Result.Level.Warn, Pattern.Category.ErrorProne)
     )
   }
 

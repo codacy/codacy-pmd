@@ -27,6 +27,7 @@ object PMD extends Tool {
                     (implicit specification: Tool.Specification): Try[List[Result]] = {
     val syncList = Collections.synchronizedList(new util.ArrayList[Result.Issue]())
 
+    // TODO: need to find a way to read this errors
     swallowStderr()
 
     val pmdConfig = new PMDConfiguration()

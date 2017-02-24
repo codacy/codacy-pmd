@@ -130,7 +130,11 @@ object DocGenerator {
             |      dates -> (Result.Level.Warn, Pattern.Category.ErrorProne),
             |      TomKytesDespair -> (Result.Level.Warn, Pattern.Category.ErrorProne),
             |      basicJsf -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-            |      xpath -> (Result.Level.Warn, Pattern.Category.ErrorProne)
+            |      xpath -> (Result.Level.Warn, Pattern.Category.ErrorProne),
+            |      performance -> (Result.Level.Warn, Pattern.Category.Performance),
+            |      security -> (Result.Level.Err, Pattern.Category.Security),
+            |      apexunit -> (Result.Level.Warn, Pattern.Category.CodeStyle),
+            |      complexity -> (Result.Level.Warn, Pattern.Category.ErrorProne)
             |    )
             |  }
             |

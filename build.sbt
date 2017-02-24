@@ -31,7 +31,7 @@ libraryDependencies ++= Seq(
   "net.sourceforge.pmd" % "pmd-plsql" % pmdVersion withSources(),
   "net.sourceforge.pmd" % "pmd-vm" % pmdVersion withSources(),
   "net.sourceforge.pmd" % "pmd-xml" % pmdVersion withSources()
-  //  ,"net.sourceforge.pmd" % "pmd-apex" % pmdVersion withSources()
+  //  , "net.sourceforge.pmd" % "pmd-apex" % pmdVersion withSources()
 )
 
 // FIXES: package database contains object and package with same name: DBType

@@ -1,6 +1,6 @@
 package codacy.helpers
 
-import java.io.File
+import java.io.{File, InputStream}
 import java.net.{URL, URLDecoder}
 import java.nio.charset.{CodingErrorAction, StandardCharsets}
 import java.nio.file.{Files, Path, StandardOpenOption}
@@ -16,10 +16,17 @@ object ResourceHelper {
   codec.onMalformedInput(CodingErrorAction.REPLACE)
   codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
 
-
   def getResourceContent(path: String): Try[List[String]] = {
     Option(getClass.getClassLoader.getResource(path)).map { url =>
       getResourceContent(url)
+    }.getOrElse {
+      Failure(new Exception("The path provided was not found"))
+    }
+  }
+
+  def getResourceStream(path: String): Try[InputStream] = {
+    Option(getClass.getClassLoader.getResource(path)).map { url =>
+      getResourceStream(url)
     }.getOrElse {
       Failure(new Exception("The path provided was not found"))
     }
@@ -51,24 +58,23 @@ object ResourceHelper {
   }
 
   private def getResourceContent(url: URL): Try[List[String]] = {
-    Some(url).collect {
-      case file if file.getProtocol == "file" =>
-        readFile(new File(file.toURI))
+    getResourceStream(url).flatMap { stream =>
+      val lines = Try {
+        Source.fromInputStream(stream)
+          .mkString
+          .split(Properties.lineSeparator)
+          .toList
+      }
 
-      case file if file.getProtocol == "jar" =>
-        val streamTry = Try(file.openStream())
-        val lines = streamTry.flatMap { stream =>
-          Try {
-            Source.fromInputStream(stream)
-              .mkString
-              .split(Properties.lineSeparator)
-              .toList
-          }
-        }
+      Try(stream.close())
 
-        streamTry.foreach(_.close())
+      lines
+    }
+  }
 
-        lines
+  private def getResourceStream(url: URL): Try[InputStream] = {
+    Some(url).map { file =>
+      Try(file.openStream())
     }.getOrElse {
       Failure(new Exception("The URL provided is not valid"))
     }
@@ -79,7 +85,7 @@ object ResourceHelper {
 
     val lines = sourceTry.flatMap(source => Try(source.getLines().toList))
 
-    sourceTry.foreach(_.close())
+    Try(sourceTry.foreach(_.close()))
 
     lines
   }

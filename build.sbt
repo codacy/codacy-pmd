@@ -21,7 +21,7 @@ val jacksonVersion = "2.5.4"
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.4.8",
-  "com.codacy" %% "codacy-engine-scala-seed" % "add-descriptions-SNAPSHOT" withSources(),
+  "com.codacy" %% "codacy-engine-scala-seed" % "2.7.3" withSources(),
   "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
   "net.sourceforge.pmd" % "pmd-core" % pmdVersion withSources(),
   "net.sourceforge.pmd" % "pmd-java" % pmdVersion withSources(),

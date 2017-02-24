@@ -12,6 +12,13 @@
     "description" : "xpath"
   } ]
 }, {
+  "patternId" : "ecmascript_basic_GlobalVariable",
+  "title" : "Avoid using global variables",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "java_imports_DuplicateImports",
   "title" : "Avoid duplicate imports such as ''{0}''"
 }, {
@@ -213,6 +220,13 @@
   "patternId" : "jsp_basic_NoUnsanitizedJSPExpression",
   "title" : "Using unsanitized JSP expression can lead to Cross Site Scripting (XSS) attacks"
 }, {
+  "patternId" : "ecmascript_basic_InnaccurateNumericLiteral",
+  "title" : "The numeric literal ''{0}'' will have at different value at runtime.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "java_junit_JUnitTestsShouldIncludeAssert",
   "title" : "JUnit tests should include assert() or fail()"
 }, {
@@ -274,6 +288,13 @@
     "description" : "xpath"
   } ]
 }, {
+  "patternId" : "pom_basic_InvalidDependencyTypes",
+  "title" : "By default, Maven only recognized the following types: $validTypes.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "java_unnecessary_UselessQualifiedThis",
   "title" : "Useless qualified this usage in the same class.",
   "parameters" : [ {
@@ -306,6 +327,13 @@
 }, {
   "patternId" : "java_strings_ConsecutiveLiteralAppends",
   "title" : "StringBuffer (or StringBuilder).append is called {0} consecutive times with literal Strings. Use a single append with a single combined String."
+}, {
+  "patternId" : "ecmascript_unnecessary_UnnecessaryParentheses",
+  "title" : "Unnecessary parentheses.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
 }, {
   "patternId" : "java_controversial_DoNotCallGarbageCollectionExplicitly",
   "title" : "Do not explicitly trigger a garbage collection.",
@@ -424,9 +452,6 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "java_migrating_to_15_",
-  "title" : ""
-}, {
   "patternId" : "java_design_LogicInversion",
   "title" : "Use opposite operator instead of the logic complement operator.",
   "parameters" : [ {
@@ -529,9 +554,6 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "java_typeresolution_UnusedImports",
-  "title" : "Avoid unused imports such as ''{0}''"
-}, {
   "patternId" : "java_design_AvoidProtectedMethodInFinalClassNotExtending",
   "title" : "Avoid protected methods in a final class that doesn't extend anything other than Object.  Change to private or package access.",
   "parameters" : [ {
@@ -609,6 +631,13 @@
   "patternId" : "java_design_AvoidReassigningParameters",
   "title" : "Avoid reassigning parameters such as ''{0}''"
 }, {
+  "patternId" : "ecmascript_basic_UnreachableCode",
+  "title" : "A ''return'', ''break'', ''continue'', or ''throw'' statement should be the last in a block.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "java_coupling_LooseCoupling",
   "title" : "Avoid using implementation types like ''{0}''; use the interface instead"
 }, {
@@ -627,6 +656,31 @@
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_basic_AssignmentInOperand",
+  "title" : "Avoid assignments in operands",
+  "parameters" : [ {
+    "name" : "allowWhile",
+    "description" : "allowWhile"
+  }, {
+    "name" : "allowTernary",
+    "description" : "allowTernary"
+  }, {
+    "name" : "allowTernaryResults",
+    "description" : "allowTernaryResults"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "allowIf",
+    "description" : "allowIf"
+  }, {
+    "name" : "allowFor",
+    "description" : "allowFor"
+  }, {
+    "name" : "allowIncrementDecrement",
+    "description" : "allowIncrementDecrement"
   } ]
 }, {
   "patternId" : "plsql_dates_TO_DATEWithoutDateFormat",
@@ -735,11 +789,15 @@
   "patternId" : "java_strings_StringInstantiation",
   "title" : "Avoid instantiating String objects; this is usually unnecessary."
 }, {
+  "patternId" : "ecmascript_braces_IfStmtsMustUseBraces",
+  "title" : "Avoid using if statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "java_coupling_CouplingBetweenObjects",
   "title" : "High amount of different objects as members denotes a high coupling"
-}, {
-  "patternId" : "java_migrating_to_13_",
-  "title" : ""
 }, {
   "patternId" : "java_unusedcode_UnusedFormalParameter",
   "title" : "Avoid unused {0} parameters such as ''{1}''."
@@ -1024,11 +1082,11 @@
   "patternId" : "java_unusedcode_UnusedModifier",
   "title" : "Avoid modifiers which are implied by the context"
 }, {
-  "patternId" : "java_typeresolution_SignatureDeclareThrowsException",
-  "title" : "A method/constructor shouldn't explicitly throw java.lang.Exception",
+  "patternId" : "ecmascript_braces_WhileLoopsMustUseBraces",
+  "title" : "Avoid using 'while' statements without curly braces",
   "parameters" : [ {
-    "name" : "IgnoreJUnitCompletely",
-    "description" : "IgnoreJUnitCompletely"
+    "name" : "xpath",
+    "description" : "xpath"
   } ]
 }, {
   "patternId" : "java_naming_MethodNamingConventions",
@@ -1036,6 +1094,13 @@
 }, {
   "patternId" : "java_braces_ForLoopsMustUseBraces",
   "title" : "Avoid using 'for' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_basic_EqualComparison",
+  "title" : "Use '==='/'!==' to compare with true/false or Numbers",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -1116,6 +1181,13 @@
 }, {
   "patternId" : "java_optimizations_AvoidArrayLoops",
   "title" : "System.arraycopy is more efficient",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_basic_UseBaseWithParseInt",
+  "title" : "Always provide a base when using parseInt() functions",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -1324,9 +1396,6 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "java_migrating_to_junit4_",
-  "title" : ""
-}, {
   "patternId" : "java_junit_UseAssertEqualsInsteadOfAssertTrue",
   "title" : "Use assertEquals(x, y) instead of assertTrue(x.equals(y))",
   "parameters" : [ {
@@ -1430,14 +1499,24 @@
   "patternId" : "java_comments_CommentSize",
   "title" : "Comment is too large"
 }, {
+  "patternId" : "ecmascript_basic_AvoidTrailingComma",
+  "title" : "Avoid trailing commas in object or array literals",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "allowObjectLiteral",
+    "description" : "allowObjectLiteral"
+  }, {
+    "name" : "allowArrayLiteral",
+    "description" : "allowArrayLiteral"
+  } ]
+}, {
   "patternId" : "plsql_codesize_TooManyFields",
   "title" : "Too many fields"
 }, {
   "patternId" : "java_controversial_AssignmentInOperand",
   "title" : "Avoid assignments in operands"
-}, {
-  "patternId" : "java_typeresolution_CloneMethodMustImplementCloneable",
-  "title" : "clone() method should be implemented only if implementing Cloneable interface"
 }, {
   "patternId" : "java_strings_InefficientEmptyStringCheck",
   "title" : "String.trim().length()==0 is an inefficient way to validate an empty String."
@@ -1445,8 +1524,22 @@
   "patternId" : "java_strings_UselessStringValueOf",
   "title" : "No need to call String.valueOf to append to a string."
 }, {
+  "patternId" : "pom_basic_ProjectVersionAsDependencyVersion",
+  "title" : "Do not use project's version to express a dependency's version.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "java_junit_JUnitSpelling",
   "title" : "You may have misspelled a JUnit framework method (setUp or tearDown)",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_braces_ForLoopsMustUseBraces",
+  "title" : "Avoid using 'for' statements without curly braces",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -1462,11 +1555,21 @@
   "patternId" : "java_design_GodClass",
   "title" : "Possible God class"
 }, {
+  "patternId" : "ecmascript_braces_IfElseStmtsMustUseBraces",
+  "title" : "Avoid using 'if...else' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "java_basic_DoubleCheckedLocking",
   "title" : "Double checked locking is not thread safe in Java."
 }, {
   "patternId" : "java_optimizations_MethodArgumentCouldBeFinal",
   "title" : "Parameter ''{0}'' is not assigned and could be declared final"
+}, {
+  "patternId" : "ecmascript_basic_ConsistentReturn",
+  "title" : "A function should not mix 'return' statements with and without a result."
 }, {
   "patternId" : "java_optimizations_UseStringBufferForStringAppends",
   "title" : "Prefer StringBuffer over += for concatenating strings"
@@ -1488,6 +1591,13 @@
   "patternId" : "java_unnecessary_UselessOverridingMethod",
   "title" : "Overriding method merely calls super"
 }, {
+  "patternId" : "ecmascript_basic_ScopeForInVariable",
+  "title" : "The for-in loop variable ''{0}'' should be explicitly scoped with 'var' to avoid pollution.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "xml_basic_MistypedCDATASection",
   "title" : "Potentialy mistyped CDATA section with extra [ at beginning or ] at the end.",
   "parameters" : [ {
@@ -1508,9 +1618,6 @@
     "name" : "xpath",
     "description" : "xpath"
   } ]
-}, {
-  "patternId" : "java_migrating_to_14_",
-  "title" : ""
 }, {
   "patternId" : "java_naming_GenericsNaming",
   "title" : "Generics names should be a one letter long and upper case.",
@@ -1622,6 +1729,13 @@
     "description" : "xpath"
   } ]
 }, {
+  "patternId" : "ecmascript_unnecessary_NoElseReturn",
+  "title" : "The else block is unnecessary",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "java_migrating_AvoidEnumAsIdentifier",
   "title" : "Avoid using enum as an identifier; it's a reserved word in JDK 1.5",
   "parameters" : [ {
@@ -1631,6 +1745,16 @@
 }, {
   "patternId" : "java_coupling_ExcessiveImports",
   "title" : "A high number of imports can indicate a high degree of coupling within an object."
+}, {
+  "patternId" : "xsl_xpath_AvoidAxisNavigation",
+  "title" : "Axis navigation has the largest impact when writing an XPath query.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "checkSelfDescendantAbreviation",
+    "description" : "checkSelfDescendantAbreviation"
+  } ]
 }, {
   "patternId" : "java_junit_UseAssertSameInsteadOfAssertTrue",
   "title" : "Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)",
@@ -1654,9 +1778,6 @@
 }, {
   "patternId" : "vm_basic_UnusedMacroParameter",
   "title" : "Avoid unused macro parameters such as ''{0}''"
-}, {
-  "patternId" : "java_typeresolution_LooseCoupling",
-  "title" : "Avoid using implementation types like ''{0}''; use the interface instead"
 }, {
   "patternId" : "java_controversial_AvoidPrefixingMethodParameters",
   "title" : "Avoid prefixing parameters by in, out or inOut. Uses Javadoc to document this behavior.",
@@ -1687,6 +1808,13 @@
 }, {
   "patternId" : "java_design_AccessorClassGeneration",
   "title" : "Avoid instantiation through private constructors from outside of the constructor's class."
+}, {
+  "patternId" : "xsl_xpath_UseConcatOnce",
+  "title" : "The xpath concat() function accepts as many arguments as required, you may be able to factorize this expression",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
 }, {
   "patternId" : "java_basic_AvoidDecimalLiteralsInBigDecimalConstructor",
   "title" : "Avoid creating BigDecimal with a decimal (float/double) literal. Use a String literal",
@@ -1754,6 +1882,13 @@
     "name" : "maximumStaticImports",
     "description" : "maximumStaticImports"
   }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "ecmascript_unnecessary_UnnecessaryBlock",
+  "title" : "Unnecessary block.",
+  "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
   } ]

@@ -1,0 +1,11 @@
+/*#Patterns: vm_basic_AvoidReassigningParameters */
+
+/*#Warn: vm_basic_AvoidReassigningParameters */
+#macro( mymacro $v1 )
+    #if($c1)
+        stuff
+        #set($v1 = "other data")
+    #else
+        stuff
+    #end
+#end

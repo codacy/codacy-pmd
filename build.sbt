@@ -1,10 +1,12 @@
 import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
 
-name := """codacy-engine-pmdjava"""
+organization := "codacy"
 
-version := "1.0-SNAPSHOT"
+name := "codacy-pmd"
 
-val languageVersion = "2.11.7"
+version := "1.0.0-SNAPSHOT"
+
+val languageVersion = "2.11.8"
 
 scalaVersion := languageVersion
 
@@ -13,11 +15,27 @@ resolvers ++= Seq(
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
 )
 
+val pmdVersion = "5.5.3"
+
+val jacksonVersion = "2.5.4"
+
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-json" % "2.3.8" withSources(),
-  "org.scala-lang.modules" %% "scala-xml" % "1.0.4" withSources(),
-  "com.codacy" %% "codacy-engine-scala-seed" % "2.7.1"
+  "com.typesafe.play" %% "play-json" % "2.4.8",
+  "com.codacy" %% "codacy-engine-scala-seed" % "2.7.3" withSources(),
+  "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
+  "net.sourceforge.pmd" % "pmd-core" % pmdVersion withSources(),
+  "net.sourceforge.pmd" % "pmd-java" % pmdVersion withSources(),
+  "net.sourceforge.pmd" % "pmd-jsp" % pmdVersion withSources(),
+  "net.sourceforge.pmd" % "pmd-javascript" % pmdVersion withSources(),
+  "net.sourceforge.pmd" % "pmd-perl" % pmdVersion withSources(),
+  "net.sourceforge.pmd" % "pmd-plsql" % pmdVersion withSources(),
+  "net.sourceforge.pmd" % "pmd-vm" % pmdVersion withSources(),
+  "net.sourceforge.pmd" % "pmd-xml" % pmdVersion withSources()
+  //  , "net.sourceforge.pmd" % "pmd-apex" % pmdVersion withSources()
 )
+
+// FIXES: package database contains object and package with same name: DBType
+// scalacOptions := scalacOptions.value.filterNot(_ == "-Xfatal-warnings") ++ Seq("-Yresolve-term-conflict:object")
 
 enablePlugins(JavaAppPackaging)
 
@@ -26,14 +44,9 @@ enablePlugins(DockerPlugin)
 version in Docker := "1.0"
 
 val installAll =
-  s"""apk --no-cache add bash curl &&
-     |cd /tmp &&
-     |export PMD_VERSION=5.5.2 &&
-     |curl -L -o pmd-bin-$$PMD_VERSION.zip "http://sourceforge.net/projects/pmd/files/pmd/$$PMD_VERSION/pmd-bin-$$PMD_VERSION.zip/download" &&
-     |unzip pmd-bin-$$PMD_VERSION.zip &&
-     |mv pmd-bin-$$PMD_VERSION/ /usr/local/pmd-bin &&
-     |rm /tmp/pmd-bin-$$PMD_VERSION.zip &&
-     |rm -rf /var/cache/apk/*""".stripMargin.replaceAll(System.lineSeparator(), " ")
+  """apk update && apk add bash curl &&
+    |rm -rf /tmp/* &&
+    |rm -rf /var/cache/apk/*""".stripMargin.replaceAll(System.lineSeparator(), " ")
 
 mappings in Universal <++= (resourceDirectory in Compile) map { (resourceDir: File) =>
   val src = resourceDir / "docs"
@@ -53,6 +66,8 @@ daemonUser in Docker := dockerUser
 daemonGroup in Docker := dockerGroup
 
 dockerBaseImage := "develar/java"
+
+mainClass in Compile := Some("codacy.Engine")
 
 dockerCommands := dockerCommands.value.flatMap {
   case cmd@Cmd("WORKDIR", _) => List(cmd,

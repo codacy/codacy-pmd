@@ -1,0 +1,10 @@
+<!--#Patterns: xml_basic_MistypedCDATASection -->
+
+<root>
+    <child>
+        <!--#Warn: xml_basic_MistypedCDATASection -->
+        <![CDATA[[
+         some text data
+      ]]>
+    </child>
+</root>

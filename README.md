@@ -9,16 +9,28 @@ Check the **Docs** section for more information.
 
 ## Usage
 
-You can create the docker by doing:
+#### Publish the docker
 
 ```
-sbt docker:publishLocal
+sbt 'set version in Docker := "dev"' 'set name := "pmd"' docker:publishLocal
 ```
 
-The docker is ran with the following command:
+#### Run the docker
 
 ```
-docker run -it -v $srcDir:/src  <DOCKER_NAME>:<DOCKER_VERSION>
+docker run --user=docker --rm=true -v <PATH-TO-CODE>:/src -v <PATH-TO>/ruleset.xml:/src/ruleset.xml codacy/pmd:dev
+```
+> Make sure all the volumes mounted have the right permissions for user `docker`
+
+#### Generate Docs
+
+```sh
+sbt "run-main codacy.pmd.DocGenerator rulesets"
+```
+
+**Only patterns.json and description.json**
+```sh
+sbt "run-main codacy.pmd.DocGenerator"
 ```
 
 ## Docs

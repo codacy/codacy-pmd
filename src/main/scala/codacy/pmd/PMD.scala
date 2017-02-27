@@ -2,7 +2,6 @@ package codacy.pmd
 
 import java.io.{File, OutputStream, PrintStream}
 import java.nio.file.{Files, Path, Paths}
-import java.util
 import java.util.Collections
 
 import codacy.docker.api._
@@ -10,12 +9,10 @@ import codacy.helpers.ResourceHelper
 import net.sourceforge.pmd
 import net.sourceforge.pmd.lang.Language
 import net.sourceforge.pmd.renderers.Renderer
-import net.sourceforge.pmd.stat.Metric
-import net.sourceforge.pmd.{PMDConfiguration, ReportListener, RuleContext, RuleSet, RuleSets, RuleViolation, RulesetsFactoryUtils}
+import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RuleSets, RulesetsFactoryUtils}
 import play.api.libs.json.{JsString, JsValue, Json}
 
 import scala.collection.JavaConversions._
-import scala.util.control.NonFatal
 import scala.util.{Failure, Success, Try}
 import scala.xml.Elem
 
@@ -25,9 +22,6 @@ object PMD extends Tool {
 
   override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], filesOpt: Option[Set[Source.File]])
                     (implicit specification: Tool.Specification): Try[List[Result]] = {
-    val syncList = Collections.synchronizedList(new util.ArrayList[Result]())
-
-    // TODO: need to find a way to read this errors
     swallowStderr()
 
     val pmdConfig = new PMDConfiguration()
@@ -71,28 +65,40 @@ object PMD extends Tool {
       val files = pmd.PMD.getApplicableFiles(pmdConfig, languages)
 
       Try {
-        val ctx = new RuleContext
-        ctx.getReport.addListener(new ReportListener() {
-          def ruleViolationAdded(violation: RuleViolation) {
-            patternIdByRuleNameAndRuleSet(violation.getRule.getLanguage.getTerseName, violation.getRule.getName,
-              violation.getRule.getRuleSetName).foreach {
-              patternId =>
-                val issue = Result.Issue(relativizeToolOutputPath(source, violation.getFilename),
-                  Result.Message(violation.getDescription),
-                  patternId,
-                  Source.Line(violation.getBeginLine))
-                syncList.add(issue)
-            }
+        val codacyRenderer = new CodacyInMemoryRenderer()
+        val renderer: Renderer = codacyRenderer
+        val renderers = Collections.singletonList(renderer)
+
+        pmd.PMD.processFiles(pmdConfig, ruleSetFactory, files, new RuleContext, renderers)
+
+        val ruleViolations = codacyRenderer.getRulesViolations.to[List].flatMap { violation =>
+          patternIdByRuleNameAndRuleSet(violation.getRule.getLanguage.getTerseName, violation.getRule.getName,
+            violation.getRule.getRuleSetName).map {
+            patternId =>
+              Result.Issue(relativizeToolOutputPath(source, violation.getFilename),
+                Result.Message(violation.getDescription),
+                patternId,
+                Source.Line(violation.getBeginLine))
           }
+        }
 
-          def metricAdded(metric: Metric) {}
-        })
+        val suppressedViolations = codacyRenderer.getSuppressedViolations.to[List].flatMap { supressed =>
+          val violation = supressed.getRuleViolation
+          patternIdByRuleNameAndRuleSet(violation.getRule.getLanguage.getTerseName, violation.getRule.getName,
+            violation.getRule.getRuleSetName).map {
+            patternId =>
+              Result.Issue(relativizeToolOutputPath(source, violation.getFilename),
+                Result.Message(violation.getDescription),
+                patternId,
+                Source.Line(violation.getBeginLine))
+          }
+        }
 
-        val renderers = new util.ArrayList[Renderer]()
+        val errors = codacyRenderer.getErrors.to[List].map { error =>
+          Result.FileError(Source.File(error.getFile), Some(ErrorMessage(error.getMsg)))
+        }
 
-        pmd.PMD.processFiles(pmdConfig, ruleSetFactory, files, ctx, renderers)
-
-        syncList.toList
+        ruleViolations ++ suppressedViolations ++ errors
       }
     }
   }
@@ -185,4 +191,5 @@ object PMD extends Tool {
 
       <property name={parameter.name.value} value={paramValue}/>
   }
+
 }

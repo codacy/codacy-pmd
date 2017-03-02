@@ -82,23 +82,11 @@ object PMD extends Tool {
           }
         }
 
-        val suppressedViolations = codacyRenderer.getSuppressedViolations.to[List].flatMap { supressed =>
-          val violation = supressed.getRuleViolation
-          patternIdByRuleNameAndRuleSet(violation.getRule.getLanguage.getTerseName, violation.getRule.getName,
-            violation.getRule.getRuleSetName).map {
-            patternId =>
-              Result.Issue(relativizeToolOutputPath(source, violation.getFilename),
-                Result.Message(violation.getDescription),
-                patternId,
-                Source.Line(violation.getBeginLine))
-          }
-        }
-
         val errors = codacyRenderer.getErrors.to[List].map { error =>
           Result.FileError(Source.File(error.getFile), Some(ErrorMessage(error.getMsg)))
         }
 
-        ruleViolations ++ suppressedViolations ++ errors
+        ruleViolations ++ errors
       }
     }
   }

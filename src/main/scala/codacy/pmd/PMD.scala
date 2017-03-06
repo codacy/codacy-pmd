@@ -18,7 +18,7 @@ import scala.xml.Elem
 
 object PMD extends Tool {
 
-  private lazy val configFileNames = Set("ruleset.xml")
+  private lazy val configFileNames = Set("ruleset.xml", "apex-ruleset.xml")
 
   override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], filesOpt: Option[Set[Source.File]])
                     (implicit specification: Tool.Specification): Try[List[Result]] = {

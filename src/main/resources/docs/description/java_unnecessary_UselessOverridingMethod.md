@@ -1,16 +1,21 @@
-The overriding method merely calls the same method defined in a `superclass`.
-There is a RunTime penalty for performing `2` method calls instead of one and therefore you should not do it.
+Since: PMD 3.3
 
-Ex:
+The overriding method merely calls the same method defined in a superclass.
 
+Example(s):
 ```
 public void foo(String bar) {
-	super.foo(bar); // why bother overriding?
+  super.foo(bar);      // why bother overriding?
 }
 
 public String foo() {
-	return super.foo(); // why bother overriding?
+	return super.foo();  // why bother overriding?
+}
+
+@Id
+public Long getId() {
+  return super.getId();  // OK if 'ignoreAnnotations' is false, which is the default behavior
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unnecessary.html#UselessOverridingMethod)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/unnecessary.html#UselessOverridingMethod)

@@ -1,14 +1,22 @@
-A suspicious octal escape sequence was found inside a String literal. An octal escape sequence inside a literal String shall consist of a backslash, followed by:
+Since: PMD 1.5
 
-`OctalDigit | OctalDigit OctalDigit | ZeroToThree OctalDigit OctalDigit`
+A suspicious octal escape sequence was found inside a String literal.
+The Java language specification (section 3.10.6) says an octal
+escape sequence inside a literal String shall consist of a backslash
+followed by:
 
-Ex:
+   OctalDigit | OctalDigit OctalDigit | ZeroToThree OctalDigit OctalDigit
 
+Any octal escape sequence followed by non-octal digits can be confusing,
+e.g. &quot;\038&quot; is interpreted as the octal escape sequence &quot;\03&quot; followed by
+the literal character &quot;8&quot;.
+
+Example(s):
 ```
 public void foo() {
-	// interpreted as octal 12, followed by character '8'
-	System.out.println("suspicious: \128");
+  // interpreted as octal 12, followed by character '8'
+  System.out.println("suspicious: \128");
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#SuspiciousOctalEscape)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#SuspiciousOctalEscape)

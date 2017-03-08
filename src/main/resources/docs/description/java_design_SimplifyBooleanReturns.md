@@ -1,21 +1,23 @@
-Avoid unnecessary if-then-else statements when returning a boolean.
-The result of the conditional test can be returned instead.
+Since: PMD 0.9
 
-Ex:
+Avoid unnecessary if-then-else statements when returning a boolean. The result of
+the conditional test can be returned instead.
 
+Example(s):
 ```
 public boolean isBarEqualTo(int x) {
-
-  if (bar == x) {		 // this bit of code...
-    return true;
-  } else {
-    return false;
-  }
+   
+	if (bar == x) {		 // this bit of code...
+		return true;
+	} else {
+		return false;
+    }
 }
 
 public boolean isBarEqualTo(int x) {
-  return bar == x;	// can be replaced with this
-}
-  ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#SimplifyBooleanReturns)
+   	return bar == x;	// can be replaced with this
+}
+```
+
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#SimplifyBooleanReturns)

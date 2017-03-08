@@ -1,15 +1,17 @@
-It can be confusing to have a field name with the same name as a method.
-While this is permitted, having information (field) and actions (method) is not clear naming.
+Since: PMD 3.0
 
-Ex:
+It can be confusing to have a field name with the same name as a method. While this is permitted, 
+having information (field) and actions (method) is not clear naming. Developers versed in 
+Smalltalk often prefer this approach as the methods denote accessor methods.
 
+Example(s):
 ```
 public class Foo {
-  // bar is data or an action or both?
-  Object bar;
-  void bar() {
-  }
+	Object bar;
+	// bar is data or an action or both?
+	void bar() {
+	}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#AvoidFieldNameMatchingMethodName)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#AvoidFieldNameMatchingMethodName)

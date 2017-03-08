@@ -1,9 +1,10 @@
-Avoid instantiating `String` objects; this is usually unnecessary since they are immutable and can be safely shared.
+Since: PMD 1.0
 
-Ex:
+Avoid instantiating String objects; this is usually unnecessary since they are immutable and can be safely shared.
 
+Example(s):
 ```
 private String bar = new String("bar"); // just do a String bar = "bar";
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/strings.html#StringInstantiation)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#StringInstantiation)

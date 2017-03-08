@@ -1,24 +1,19 @@
-Identifies `private` fields whose values never change once they are initialized either in the declaration of the field or by a constructor.
-This helps in converting existing classes to becoming immutable ones.
-When possible you should use immutable objects instead of mutable ones.
+Since: PMD 2.0
 
-Working with immutable objects it's less error prone and has a lot of advantages.
-You can be sure the value won't change, so you can pass it to functions without worrying.
-Making an immutable object thread safe is easier.
-Programmers won't introduce bugs by changing values that weren't suppose to change.
+Identifies private fields whose values never change once they are initialized either in the declaration 
+of the field or by a constructor.  This helps in converting existing classes to becoming immutable ones.
 
-Ex:
-
+Example(s):
 ```
 public class Foo {
-  private int x; // should be final
+  private int x; // could be final
   public Foo() {
-    x = 7;
+      x = 7;
   }
   public void foo() {
-    int a = x + 2;
+     int a = x + 2;
   }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#ImmutableField)

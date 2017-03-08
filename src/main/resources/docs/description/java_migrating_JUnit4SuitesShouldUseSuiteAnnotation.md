@@ -1,14 +1,21 @@
-In JUnit 3, test suites are indicated by the `suite()` method. In JUnit 4, suites are indicated through the `@RunWith(Suite.class)` annotation.
+Since: PMD 4.0
 
-Ex:
+In JUnit 3, test suites are indicated by the suite() method. In JUnit 4, suites are indicated
+through the @RunWith(Suite.class) annotation.
 
+Example(s):
 ```
 public class BadExample extends TestCase{
 
-  public static Test suite(){
-    return new Suite();
-  }
+    public static Test suite(){
+    	return new Suite();
+    }
+}
+
+@RunWith(Suite.class)
+@SuiteClasses( { TestOne.class, TestTwo.class })
+public class GoodTest {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/migrating.html#JUnit4SuitesShouldUseSuiteAnnotation)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/migrating.html#JUnit4SuitesShouldUseSuiteAnnotation)

@@ -13,8 +13,8 @@ import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RuleSets, Ru
 import play.api.libs.json.{JsString, JsValue, Json}
 
 import scala.collection.JavaConversions._
-import scala.util.{Failure, Success, Try}
-import scala.xml.Elem
+import scala.util.{Failure, Properties, Success, Try}
+import scala.xml.{Source => _, _}
 
 object PMD extends Tool {
 
@@ -22,8 +22,6 @@ object PMD extends Tool {
 
   override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], filesOpt: Option[Set[Source.File]])
                     (implicit specification: Tool.Specification): Try[List[Result]] = {
-    swallowStderr()
-
     val pmdConfig = new PMDConfiguration()
 
     filesOpt.fold[Unit] {
@@ -107,16 +105,6 @@ object PMD extends Tool {
     languages
   }
 
-  private def swallowStderr(): Unit = {
-    // Hide PMD errors from STDERR
-    //    val err = System.err
-    System.setErr(new PrintStream(new OutputStream() {
-      def write(b: Int) {
-      }
-    }))
-    //    System.setOut(err)
-  }
-
   private def patternIdByRuleNameAndRuleSet(langAlias: String, ruleName: String, ruleSet: String)
                                            (implicit specification: Tool.Specification): Option[Pattern.Id] = {
     RuleSets.getRuleSet(ruleSet).flatMap { ruleSet =>
@@ -135,7 +123,7 @@ object PMD extends Tool {
     val rules = conf.flatMap(generateRule)
 
     val xmlConfiguration =
-      <ruleset name="All Java Rules"
+      <ruleset name="Codacy Ruleset"
                xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
@@ -145,10 +133,14 @@ object PMD extends Tool {
     fileForConfig(xmlConfiguration)
   }
 
-  private def fileForConfig(config: Elem) = tmpfile(config.toString)
+  private def fileForConfig(config: Elem) = tmpfile(config)
 
-  private[this] def tmpfile(content: String, prefix: String = "ruleset", suffix: String = ".xml"): Try[Path] = {
-    ResourceHelper.writeFile(Files.createTempFile(prefix, suffix), content)
+  private[this] def tmpfile(content: Elem, prefix: String = "ruleset", suffix: String = ".xml"): Try[Path] = {
+    Try {
+      val tmpFile = Files.createTempFile(prefix, suffix)
+      XML.save(tmpFile.toAbsolutePath.toString, content, "UTF-8", xmlDecl = true, null)
+      tmpFile
+    }
   }
 
   private[this] def patternNameById(patternId: Pattern.Id): Option[String] = {
@@ -160,13 +152,21 @@ object PMD extends Tool {
   }
 
   private[this] def generateRule(patternDef: Pattern.Definition): Option[Elem] = {
-    val xmlProperties = patternDef.parameters.map(_.map(generateParameter)).getOrElse(Set.empty)
-    patternNameById(patternDef.patternId).map { ruleId =>
-      <rule ref={ruleId}>
-        <properties>
-          {xmlProperties}
-        </properties>
-      </rule>
+    patternNameById(patternDef.patternId).map {
+      case ruleId if patternDef.parameters.exists(_.nonEmpty) =>
+        val xmlProperties = patternDef.parameters
+          // HACK: Codacy converts the version parameter from 2.0 to 2 leading PMD to fail, excluding it for now
+          .map(_.filter(_.name.value != "version"))
+          .map(_.map(generateParameter)).getOrElse(Set.empty)
+
+        <rule ref={ruleId}>
+          <properties>
+            {xmlProperties}
+          </properties>
+        </rule>
+
+      case ruleId =>
+          <rule ref={ruleId}/>
     }
   }
 
@@ -177,7 +177,15 @@ object PMD extends Tool {
       case other => Json.stringify(other)
     }
 
-      <property name={parameter.name.value} value={paramValue}/>
+    if (paramValue.contains(Properties.lineSeparator)) {
+      <property name={parameter.name.value}>
+        <value>
+          {PCData(paramValue)}
+        </value>
+      </property>
+    } else {
+        <property name={parameter.name.value} value={paramValue}/>
+    }
   }
 
 }

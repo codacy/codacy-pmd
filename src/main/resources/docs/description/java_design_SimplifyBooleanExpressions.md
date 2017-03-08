@@ -1,16 +1,16 @@
-Avoid unnecessary comparisons in `boolean` expressions, they serve no purpose and impacts readability.
+Since: PMD 1.05
 
-Ex:
+Avoid unnecessary comparisons in boolean expressions, they serve no purpose and impacts readability.
 
+Example(s):
 ```
 public class Bar {
-  // can be simplified to bar = isFoo();
+  // can be simplified to
+  // bar = isFoo();
   private boolean bar = (isFoo() == true);
 
-  public isFoo() {
-    return false;
-  }
+  public isFoo() { return false;}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#SimplifyBooleanExpressions)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#SimplifyBooleanExpressions)

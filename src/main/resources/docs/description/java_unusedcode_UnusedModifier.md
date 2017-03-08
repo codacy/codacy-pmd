@@ -1,20 +1,31 @@
-Fields in interfaces are automatically `public static final`, and methods are `public abstract`.
-`Classes` or `interfaces` nested in an `interface` are automatically `public` and `static` (all nested interfaces are automatically `static`).
+Since: PMD 1.02
 
+Fields in interfaces and annotations are automatically `public static final`, and methods are `public abstract`.
+Classes, interfaces or annotations nested in an interface or annotation are automatically `public static`
+(all nested interfaces and annotations are automatically static).
+Nested enums are automatically `static`.
 For historical reasons, modifiers which are implied by the context are accepted by the compiler, but are superfluous.
 
-Ex:
-
+Example(s):
 ```
-    public interface Foo {
-        public abstract void bar(); 		// both abstract and public are ignored by the compiler
-        public static final int X = 0; 	    // public, static, and final all ignored
-        public static class Bar {} 		    // public, static ignored
-        public static interface Baz {} 	    // ditto
-    }
-    public class Bar {
-        public static interface Baz {} // static ignored
-    }
+public @interface Annotation {
+  public abstract void bar(); 		// both abstract and public are ignored by the compiler
+  public static final int X = 0; 	// public, static, and final all ignored
+  public static class Bar {} 		// public, static ignored
+  public static interface Baz {} 	// ditto
+}
+public interface Foo {
+  public abstract void bar(); 		// both abstract and public are ignored by the compiler
+  public static final int X = 0; 	// public, static, and final all ignored
+  public static class Bar {} 		// public, static ignored
+  public static interface Baz {} 	// ditto
+}
+public class Bar {
+  public static interface Baz {} // static ignored
+  public static enum FoorBar { // static ignored
+    FOO;
+  }
+}
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedModifier)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/unusedcode.html#UnusedModifier)

@@ -1,13 +1,14 @@
-Be sure to specify a `Locale` when creating `SimpleDateFormat` instances to ensure that locale-appropriate formatting is used.
+Since: PMD 2.0
 
-Ex:
+Be sure to specify a Locale when creating SimpleDateFormat instances to ensure that locale-appropriate
+formatting is used.
 
+Example(s):
 ```
 public class Foo {
-  private SimpleDateFormat sdf = new SimpleDateFormat("pattern"); //bad usage
-
-  private SimpleDateFormat sdf = new SimpleDateFormat("pattern", Locale.FRANCE); //correct usage
+  // Should specify Locale.US (or whatever)
+  private SimpleDateFormat sdf = new SimpleDateFormat("pattern");
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#SimpleDateFormatNeedsLocale)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#SimpleDateFormatNeedsLocale)

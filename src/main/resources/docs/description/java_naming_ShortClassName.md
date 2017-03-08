@@ -1,13 +1,11 @@
-Short class names with fewer than e.g. five characters are not recommended.
-Class names are very important for code reading and understanding.
+Since: PMD 5.0
 
-Very short names are usually not helpful to the reader.
+Short Classnames with fewer than e.g. five characters are not recommended.
 
-Ex:
-
+Example(s):
 ```
 public class Foo {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#ShortClassName)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#ShortClassName)

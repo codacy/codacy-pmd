@@ -1,10 +1,10 @@
-Class names should be in CamelCase and always begin with an upper case character.
-CamelCase is easier to read.
+Since: PMD 1.2
 
-Ex:
+Class names should always begin with an upper case character.
 
+Example(s):
 ```
 public class Foo {}
 ```
 
-  [Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#ClassNamingConventions)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#ClassNamingConventions)

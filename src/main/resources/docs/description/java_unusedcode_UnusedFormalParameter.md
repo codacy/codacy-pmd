@@ -1,15 +1,14 @@
-Parameters are passed to methods so they can be used during the method execution.
+Since: PMD 0.8
 
-Any parameter  not used inside the method, should be removed.
+Avoid passing parameters to methods or constructors without actually referencing them in the method body.
 
-Ex:
-
+Example(s):
 ```
 public class Foo {
-  private void bar(String howdy) {
-    // howdy is not used
-  }
+	private void bar(String howdy) {
+	// howdy is not used
+	}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedFormalParameter)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/unusedcode.html#UnusedFormalParameter)

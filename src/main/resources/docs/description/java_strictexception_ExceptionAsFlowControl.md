@@ -1,7 +1,9 @@
-Using `Exceptions` as form of flow control is not recommended as they obscure true exceptions when debugging. Either add the necessary validation or use an alternate control structure.
+Since: PMD 1.8
 
-Ex:
+Using Exceptions as form of flow control is not recommended as they obscure true exceptions when debugging.
+Either add the necessary validation or use an alternate control structure.
 
+Example(s):
 ```
 public void bar() {
     try {
@@ -16,4 +18,4 @@ public void bar() {
   }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/strictexception.html#ExceptionAsFlowControl)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strictexception.html#ExceptionAsFlowControl)

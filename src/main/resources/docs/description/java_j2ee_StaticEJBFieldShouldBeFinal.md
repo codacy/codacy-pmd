@@ -1,7 +1,10 @@
-According to the J2EE specification, an EJB should not have any static fields with write access. However, static read-only fields are allowed. This ensures proper behavior especially when instances are distributed by the container on several JREs.
+Since: PMD 4.1
 
-Ex:
+According to the J2EE specification, an EJB should not have any static fields
+with write access. However, static read-only fields are allowed. This ensures proper
+behavior especially when instances are distributed by the container on several JREs.
 
+Example(s):
 ```
 public class SomeEJB extends EJBObject implements EJBLocalHome {
 
@@ -11,4 +14,4 @@ public class SomeEJB extends EJBObject implements EJBLocalHome {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/j2ee.html#StaticEJBFieldShouldBeFinal)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/j2ee.html#StaticEJBFieldShouldBeFinal)

@@ -1,13 +1,13 @@
-Integer literals starting with `0 (zero)` are interpreted as an octal value.
+Since: PMD 3.9
 
-A Integer literal starting with `0` may be misleading and introduce a bug,
-if starts with `0`, the rest of literal will be interpreted as an octal value.
+Integer literals should not start with zero since this denotes that the rest of literal will be
+interpreted as an octal value.
 
-Ex:
+Example(s):
 ```
-    int i = 012;	// set i with 10 not 12
-    int j = 010;	// set j with 8 not 10
-    k = i * j;		// set k with 80 not 120
+int i = 012;	// set i with 10 not 12
+int j = 010;	// set j with 8 not 10
+k = i * j;		// set k with 80 not 120
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#AvoidUsingOctalValues)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#AvoidUsingOctalValues)

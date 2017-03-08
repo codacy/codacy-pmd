@@ -1,20 +1,18 @@
+Since: PMD 0.3
+
 Fields, formal arguments, or local variable names that are too long can make the code difficult to follow.
 
-Ex:
-
+Example(s):
 ```
 public class Something {
-  int reallyLongIntName = -3;  			// VIOLATION - Field
-
-  public static void main( String argumentsList[] ) { // VIOLATION - Formal
-
-    int otherReallyLongName = -5; 		// VIOLATION - Local
-
-    for (int interestingIntIndex = 0;	interestingIntIndex < 10; interestingIntIndex ++ ) { // VIOLATION - For
-
+	int reallyLongIntName = -3;  			// VIOLATION - Field
+	public static void main( String argumentsList[] ) { // VIOLATION - Formal
+		int otherReallyLongName = -5; 		// VIOLATION - Local
+		for (int interestingIntIndex = 0;	// VIOLATION - For
+             interestingIntIndex < 10;
+             interestingIntIndex ++ ) {
     }
-  }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#LongVariable)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#LongVariable)

@@ -1,20 +1,18 @@
-Avoid importing anything from the package `java.lang`. These classes are automatically imported (JLS 7.5.3).
+Since: PMD 0.5
 
-Ex:
+Avoid importing anything from the package 'java.lang'.  These classes are automatically imported (JLS 7.5.3).
 
+Example(s):
 ```
-import java.lang.String; // this is unnecessary
-public class Foo {
+import java.lang.String;	// this is unnecessary
 
-}
+public class Foo {}
 
 // --- in another source code file...
 
-import java.lang.*; // this is bad
+import java.lang.*;	// this is bad
 
-public class Foo {
-	
-}
+public class Foo {}
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/imports.html#DontImportJavaLang)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/imports.html#DontImportJavaLang)

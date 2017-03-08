@@ -1,16 +1,16 @@
-Field names using all uppercase characters - Sun's Java naming conventions indicating constants - should be declared as final.
-Names using only uppercase are considered constants for most programmers, using them as variables can induce errors.
+Since: PMD 2.0
 
-Ex:
+Field names using all uppercase characters - Sun's Java naming conventions indicating constants - should
+be declared as final.
 
+Example(s):
 ```
-    public class Foo {
-     // this is bad, since someone could accidentally change the value of PI
-	double PI = 3.16;
-
-    final double PI = 3.16; //this is ok
-
-    }
+public class Foo {
+ // this is bad, since someone could accidentally
+ // do PI = 2.71828; which is actually e
+ // final double PI = 3.16; is ok
+  double PI = 3.16;
+}
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#SuspiciousConstantFieldName)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#SuspiciousConstantFieldName)

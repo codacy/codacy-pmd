@@ -1,19 +1,14 @@
-When comparing objects you must use the `equals()` method.
-The `==` operator in Java checks for reference equality: it returns `true` if the pointers are the same.
-It does not check for contents equality.
+Since: PMD 3.2
 
-Ex:
+Use equals() to compare object references; avoid comparing them with ==.
 
+Example(s):
 ```
 class Foo {
-  boolean bar(String a, String b) { //wrong
+  boolean bar(String a, String b) {
     return a == b;
-  }
-
-  boolean bar(String a, String b) { //right
-    return a.equals(b);
   }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#CompareObjectsWithEquals)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#CompareObjectsWithEquals)

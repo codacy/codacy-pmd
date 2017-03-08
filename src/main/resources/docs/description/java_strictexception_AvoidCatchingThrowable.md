@@ -1,7 +1,9 @@
-Catching `Throwable` errors is not recommended since its scope is very broad. It includes runtime issues such as `OutOfMemoryError` that should be exposed and managed separately.
+Since: PMD 1.2
 
-Ex:
+Catching Throwable errors is not recommended since its scope is very broad. It includes runtime issues such as 
+OutOfMemoryError that should be exposed and managed separately.
 
+Example(s):
 ```
 public void bar() {
 	try {
@@ -12,4 +14,4 @@ public void bar() {
   }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/strictexception.html#AvoidCatchingThrowable)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strictexception.html#AvoidCatchingThrowable)

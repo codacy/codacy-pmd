@@ -1,23 +1,24 @@
-For any method that returns an `array`, it is a better to return an empty array rather than a `null` reference.
-This removes the need for `null` checking all results and avoids inadvertent `NullPointerExceptions`.
+Since: PMD 4.2
 
-Ex:
+For any method that returns an array, it is a better to return an empty array rather than a 
+null reference. This removes the need for null checking all results and avoids inadvertent
+NullPointerExceptions.
 
+Example(s):
 ```
 public class Example {
-  
-  // Not a good idea...
-  public int[] badBehavior() {
-    // ...
-    return null;
-  }
+    // Not a good idea...
+    public int[] badBehavior() {
+                   // ...
+        return null;
+    }
 
-  // Good behavior
-  public String[] bonnePratique() {
-    //...
-    return new String[0];
-  }
+    // Good behavior
+    public String[] bonnePratique() {
+      //...
+     return new String[0];
+    }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ReturnEmptyArrayRatherThanNull)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#ReturnEmptyArrayRatherThanNull)

@@ -1,13 +1,14 @@
-Avoid using final local variables. Instead turn them into fields. It is not a good practice to instantiate something final inside a method.
+Since: PMD 4.1
 
-Ex:
+Avoid using final local variables, turn them into fields.
 
+Example(s):
 ```
 public class MyClass {
-  public void foo() {
-    final String finalLocalVariable;
-  }
+    public void foo() {
+        final String finalLocalVariable;
+    }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#AvoidFinalLocalVariable)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#AvoidFinalLocalVariable)

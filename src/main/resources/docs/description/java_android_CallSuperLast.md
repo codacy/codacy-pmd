@@ -1,7 +1,8 @@
+Since: PMD 4.2.5
+
 Super should be called at the end of the method
 
-Ex:
-
+Example(s):
 ```
 public class DummyActivity extends Activity {
 	public void onPause() {
@@ -11,4 +12,4 @@ public class DummyActivity extends Activity {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/android.html#CallSuperLast)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/android.html#CallSuperLast)

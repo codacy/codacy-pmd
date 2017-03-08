@@ -1,9 +1,10 @@
+Since: PMD 4.0
+
 Errors are system exceptions. Do not extend them.
 
-Ex:
-
+Example(s):
 ```
 public class Foo extends Error { }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/strictexception.html#DoNotExtendJavaLangError)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strictexception.html#DoNotExtendJavaLangError)

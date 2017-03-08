@@ -1,16 +1,16 @@
-Empty initializers serve no purpose and therefore should be removed.
+Since: PMD 5.0
 
-Ex:
+Empty initializers serve no purpose and should be removed.
 
+Example(s):
 ```
 public class Foo {
-  static {
-    //Delete this
-  }
-  {
-    //and this
-  }
+
+   static {} // Why ?
+
+   {} // Again, why ?
+
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/empty.html#EmptyInitializer)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/empty.html#EmptyInitializer)

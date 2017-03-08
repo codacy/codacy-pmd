@@ -1,16 +1,13 @@
-Method names should be in camelCase, always begin with a lower case character, and should not contain underscores.
+Since: PMD 1.2
 
+Method names should always begin with a lower case character, and should not contain underscores.
 
-Ex:
-
+Example(s):
 ```
 public class Foo {
-  public void fooStuff() {
-  }
-
-  public void Anotherstuff() { //incorrect usage
-  }
+	public void fooStuff() {
+	}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#MethodNamingConventions)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#MethodNamingConventions)

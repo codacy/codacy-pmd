@@ -1,17 +1,18 @@
-Empty `finally` blocks serve no purpose and should be removed.
+Since: PMD 0.4
 
-Ex:
+Empty finally blocks serve no purpose and should be removed.
 
+Example(s):
 ```
 public class Foo {
-  public void bar() { 	
-    try {
-      int x=2;
-    } finally {
-      // empty!
-    }
-  }
+ public void bar() {
+  try {
+    int x=2;
+   } finally {
+    // empty!
+   }
+ }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/empty.html#EmptyFinallyBlock)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/empty.html#EmptyFinallyBlock)

@@ -1,10 +1,12 @@
-The conversion of literals to `strings` by concatenating them with empty `strings` is inefficient. It is much better to use one of the type-specific `toString()` methods instead.
+Since: PMD 4.0
 
-Ex:
+The conversion of literals to strings by concatenating them with empty strings is inefficient.
+It is much better to use one of the type-specific toString() methods instead.
 
+Example(s):
 ```
-String s = "" + 123; // inefficient
-String t = Integer.toString(456); // preferred approach
+String s = "" + 123; 				// inefficient 
+String t = Integer.toString(456); 	// preferred approach
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#AddEmptyString)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/optimizations.html#AddEmptyString)

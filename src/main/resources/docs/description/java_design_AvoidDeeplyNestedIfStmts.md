@@ -1,16 +1,15 @@
-Deeply nested `if-then` statements are harder to read and error-prone to maintain.
-Consider a more Object Oriented approach (using objects to delegate responsibilities), or break part of the logic into functions.
-The technique to break some logic into functions is called `Extract Method`, support for it can be found under Refactoring options on most IDEs.
+Since: PMD 1.0
 
-Ex:
+Avoid creating deeply nested if-then statements since they are harder to read and error-prone to maintain.
 
+Example(s):
 ```
 public class Foo {
   public void bar(int x, int y, int z) {
     if (x>y) {
       if (y>z) {
         if (z==x) {
-          // !! too deep
+         // !! too deep
         }
       }
     }
@@ -18,4 +17,4 @@ public class Foo {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#AvoidDeeplyNestedIfStmts)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#AvoidDeeplyNestedIfStmts)

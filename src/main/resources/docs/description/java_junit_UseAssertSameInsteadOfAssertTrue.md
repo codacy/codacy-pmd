@@ -1,15 +1,17 @@
-This rule detects JUnit assertions in object references equality. These assertions should be made by more specific methods, like `assertSame`, `assertNotSame`.
+Since: PMD 3.1
 
-Ex:
+This rule detects JUnit assertions in object references equality. These assertions should be made 
+by more specific methods, like assertSame, assertNotSame.
 
+Example(s):
 ```
 public class FooTest extends TestCase {
-  void testCode() {
-    Object a, b;
-    assertTrue(a == b); // bad usage
-    assertSame(a, b);  // good usage
-  }
+ void testCode() {
+  Object a, b;
+  assertTrue(a == b); // bad usage
+  assertSame(a, b);  // good usage
+ }
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/junit.html#UseAssertSameInsteadOfAssertTrue)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/junit.html#UseAssertSameInsteadOfAssertTrue)

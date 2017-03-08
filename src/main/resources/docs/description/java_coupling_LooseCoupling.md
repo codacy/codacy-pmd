@@ -1,25 +1,24 @@
-"Program to an interface rather than to an implementation"
+Since: PMD 0.7
 
-The use of implementation types as object references limits your ability to use alternate implementations in the future as requirements change.
-Whenever available, referencing objects by their interface types provides much more flexibility.
+The use of implementation types as object references limits your ability to use alternate
+implementations in the future as requirements change. Whenever available, referencing objects 
+by their interface types provides much more flexibility.
 
-Ex:
-
+Example(s):
 ```
 // sub-optimal approach
 private ArrayList list = new ArrayList();
 
 public HashSet getFoo() {
-    return new HashSet();
+	return new HashSet();
 }
 
-// preferred approach
+	// preferred approach
 private List list = new ArrayList();
 
 public Set getFoo() {
-    return new HashSet();
+	return new HashSet();
 }
 ```
 
-
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/coupling.html#LooseCoupling)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/coupling.html#LooseCoupling)

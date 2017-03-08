@@ -1,11 +1,12 @@
-Consecutively calling `StringBuffer`/`StringBuilder`.append with `String` literals
+Since: PMD 3.5
 
-Ex:
+Consecutively calling StringBuffer/StringBuilder.append with String literals
 
+Example(s):
 ```
 StringBuffer buf = new StringBuffer();
 buf.append("Hello").append(" ").append("World"); // poor
 buf.append("Hello World");        				 // good
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends)

@@ -1,16 +1,14 @@
-Each class should declare at least one constructor for clarity.
+Since: PMD 1.04
 
-Ex:
+Each class should declare at least one constructor.
 
+Example(s):
 ```
 public class Foo {
-
-  // missing constructor
-
-  public void doSomething() { }
-
-  public void doOtherThing { }
+   // missing constructor
+  public void doSomething() { ... }
+  public void doOtherThing { ... }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#AtLeastOneConstructor)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#AtLeastOneConstructor)

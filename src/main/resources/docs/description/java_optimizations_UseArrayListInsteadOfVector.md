@@ -1,16 +1,15 @@
-`Vector` is analog to the `ArrayList` hence they are very similar.
+Since: PMD 3.0
 
-`ArrayLists` bring to the table a much better performance than `Vectors` when no threads are involved.
+ArrayList is a much better Collection implementation than Vector if thread-safe operation is not required.
 
-Ex:
-
+Example(s):
 ```
 public class SimpleTest extends TestCase {
-  public void testX() {
-    Collection c1 = new Vector();
-    Collection c2 = new ArrayList(); // achieves the same with much better performance
-  }
+	public void testX() {
+		Collection c1 = new Vector();		
+		Collection c2 = new ArrayList();	// achieves the same with much better performance
+	}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#UseArrayListInsteadOfVector)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/optimizations.html#UseArrayListInsteadOfVector)

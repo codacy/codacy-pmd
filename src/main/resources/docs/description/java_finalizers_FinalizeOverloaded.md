@@ -1,15 +1,15 @@
-Methods named `finalize()` should not have parameters. It is confusing and most likely an attempt to overload `Object.finalize()`.
+Since: PMD 1.5
 
-Ex:
+Methods named finalize() should not have parameters.  It is confusing and most likely an attempt to
+overload Object.finalize(). It will not be called by the VM.
 
+Example(s):
 ```
 public class Foo {
-  // this is confusing and probably a bug
-  protected void finalize(int a) { }
-
-  //this is better
-  protected void finalize() { }
+   // this is confusing and probably a bug
+   protected void finalize(int a) {
+   }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/finalizers.html#FinalizeOverloaded)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/finalizers.html#FinalizeOverloaded)

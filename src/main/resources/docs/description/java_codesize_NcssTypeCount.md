@@ -1,21 +1,23 @@
-This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given type.
+Since: PMD 3.9
 
-**NCSS ignores comments**, and counts actual statements.
+This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines
+of code for a given type. NCSS ignores comments, and counts actual statements. Using this algorithm,
+lines of code that are split are counted as one.
 
-Using this algorithm, **lines of code that are split are counted as one**.
-
-Ex:
-
+Example(s):
 ```
-	public class Foo extends Bar {
-		public Foo() {
+public class Foo extends Bar {
+ public Foo() {
+ //this class only has 6 NCSS lines
+     super();
 
 
-		//this class only has 6 NCSS lines
-		super();
-		super.foo();
-		}
-	}
+
+
+
+      super.foo();
+ }
+}
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#NcssTypeCount)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/codesize.html#NcssTypeCount)

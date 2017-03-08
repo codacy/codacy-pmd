@@ -1,17 +1,16 @@
-`Thread.notify()` awakens a thread monitoring the object.
-If more than one thread is monitoring, then only one is chosen.
-The thread chosen is arbitrary, its usually safer to call `notifyAll()` instead.
+Since: PMD 3.0
 
-Ex:
+Thread.notify() awakens a thread monitoring the object. If more than one thread is monitoring, then only
+one is chosen.  The thread chosen is arbitrary; thus its usually safer to call notifyAll() instead.
 
+Example(s):
 ```
 void bar() {
-  // If many threads are monitoring x, only one (and you won't know which) will be notified.
-  x.notify();
-
-  // use instead:
-  x.notifyAll();
-}
+    x.notify();
+    // If many threads are monitoring x, only one (and you won't know which) will be notified.
+    // use instead:
+    x.notifyAll();
+  }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#UseNotifyAllInsteadOfNotify)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#UseNotifyAllInsteadOfNotify)

@@ -1,13 +1,14 @@
-Serializable classes should provide a `serialVersionUID` field.
+Since: PMD 3.0
 
-Ex:
+Serializable classes should provide a serialVersionUID field.
 
+Example(s):
 ```
 public class Foo implements java.io.Serializable {
-  String name;
-  // Define serialization id to avoid serialization related bugs
-  // i.e., public static final long serialVersionUID = 4328743;
+ String name;
+ // Define serialization id to avoid serialization related bugs
+ // i.e., public static final long serialVersionUID = 4328743;
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/javabeans.html#MissingSerialVersionUID)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/javabeans.html#MissingSerialVersionUID)

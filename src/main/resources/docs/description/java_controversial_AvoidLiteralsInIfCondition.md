@@ -1,22 +1,29 @@
-Avoid using hard-coded literals in conditional statements. By declaring them as static variables or private members with descriptive names **maintainability and readability** are enhanced.
+Since: PMD 4.2.6
 
-**WARNING** This does not apply to '*magic numbers*' like -1 and 0.
+Avoid using hard-coded literals in conditional statements. By declaring them as static variables
+or private members with descriptive names maintainability is enhanced. By default, the literals &quot;-1&quot; and &quot;0&quot; are ignored.
+More exceptions can be defined with the property &quot;ignoreMagicNumbers&quot;.
 
-Ex:
-
+Example(s):
 ```
 private static final int MAX_NUMBER_OF_REQUESTS = 10;
-public void checkRequests() {
-  if (i == 10) {
-    // magic number, buried in a method
-    doSomething();
-  }
 
-  if (i == MAX_NUMBER_OF_REQUESTS) {
-    // preferred approach
-    doSomething();
-  }
+public void checkRequests() {
+
+    if (i == 10) {                        // magic number, buried in a method
+      doSomething();
+    }
+
+    if (i == MAX_NUMBER_OF_REQUESTS) {    // preferred approach
+      doSomething();
+    }
+
+    if (aString.indexOf('.') != -1) {}     // magic number -1, by default ignored
+    if (aString.indexOf('.') >= 0) { }     // alternative approach
+
+    if (aDouble > 0.0) {}                  // magic number 0.0
+    if (aDouble >= Double.MIN_VALUE) {}    // preferred approach
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#AvoidLiteralsInIfCondition)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#AvoidLiteralsInIfCondition)

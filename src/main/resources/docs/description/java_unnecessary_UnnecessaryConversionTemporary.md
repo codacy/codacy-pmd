@@ -1,13 +1,15 @@
-Avoid the use temporary objects when converting primitives to `Strings`. Use the `static` conversion methods on the wrapper classes instead. This will save you an object and performance wise enhance your code.
+Since: PMD 0.1
 
-Ex:
+Avoid the use temporary objects when converting primitives to Strings. Use the static conversion methods
+on the wrapper classes instead.
 
+Example(s):
 ```
-	public String convert(int x) {
-		String foo = new Integer(x).toString(); // this wastes an object
-
-		return Integer.toString(x); // preferred approach
-	}
+public String convert(int x) {
+	String foo = new Integer(x).toString();	// this wastes an object
+	
+	return Integer.toString(x);				// preferred approach
+}
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unnecessary.html#UnnecessaryConversionTemporary)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/unnecessary.html#UnnecessaryConversionTemporary)

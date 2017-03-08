@@ -1,7 +1,8 @@
-No need to call `String.valueOf` to append to a `string`; just use the `valueOf()` argument directly.
+Since: PMD 3.8
 
-Ex:
+No need to call String.valueOf to append to a string; just use the valueOf() argument directly.
 
+Example(s):
 ```
 public String convert(int i) {
 	String s;
@@ -11,4 +12,4 @@ public String convert(int i) {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/strings.html#UselessStringValueOf)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#UselessStringValueOf)

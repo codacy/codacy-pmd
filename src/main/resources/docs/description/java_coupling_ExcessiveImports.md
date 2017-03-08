@@ -1,9 +1,10 @@
-A high number of imports can indicate a high degree of coupling within an object. This rule counts the number of unique imports and reports a violation if the count is above the user-specified threshold.
+Since: PMD 1.04
 
-Coupling is bad because it prevents the replacement or changes of components independently of the whole.
+A high number of imports can indicate a high degree of coupling within an object. This rule 
+counts the number of unique imports and reports a violation if the count is above the 
+user-specified threshold.
 
-Ex:
-
+Example(s):
 ```
 import blah.blah.Baz;
 import blah.blah.Bif;
@@ -13,4 +14,4 @@ public class Foo {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/coupling.html#ExcessiveImports)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/coupling.html#ExcessiveImports)

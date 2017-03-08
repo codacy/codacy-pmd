@@ -1,8 +1,8 @@
-Reassigning values to incoming parameters is not recommended. Use temporary local variables instead.
-It can be confusing for other people that may want to use the original parameter value later in that code, and may not notice that it has already been changed.
+Since: PMD 1.0
 
-Ex:
+Reassigning values to incoming parameters is not recommended.  Use temporary local variables instead.
 
+Example(s):
 ```
 public class Foo {
   private void foo(String bar) {
@@ -11,4 +11,4 @@ public class Foo {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#AvoidReassigningParameters)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#AvoidReassigningParameters)

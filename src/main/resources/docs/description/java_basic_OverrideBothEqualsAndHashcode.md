@@ -1,33 +1,29 @@
-Override both `public boolean Object.equals(Object other)`, and `public int Object.hashCode()`, or override neither.
-Even if you are inheriting a `hashCode()` from a parent class, consider implementing `hashCode` and explicitly delegating to your superclass.
+Since: PMD 0.4
 
-This enforces the relation between the two methods:
+Override both public boolean Object.equals(Object other), and public int Object.hashCode(), or override neither.  Even if you are inheriting a hashCode() from a parent class, consider implementing hashCode and explicitly delegating to your superclass.
 
-Whenever `a.equals(b)`, then `a.hashCode()` must be same as `b.hashCode()`
-
-Ex:
-
+Example(s):
 ```
 public class Bar {		// poor, missing a hashcode() method
-  public boolean equals(Object o) {
-    // do some comparison
-  }
+	public boolean equals(Object o) {
+      // do some comparison
+	}
 }
 
 public class Baz {		// poor, missing an equals() method
-  public int hashCode() {
-    // return some hash value
-  }
+	public int hashCode() {
+      // return some hash value
+	}
 }
 
 public class Foo {		// perfect, both methods provided
-  public boolean equals(Object other) {
-    // do some comparison
-  }
-  public int hashCode() {
-    // return some hash value
-  }
+	public boolean equals(Object other) {
+      // do some comparison
+	}
+	public int hashCode() {
+      // return some hash value
+	}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#OverrideBothEqualsAndHashcode)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#OverrideBothEqualsAndHashcode)

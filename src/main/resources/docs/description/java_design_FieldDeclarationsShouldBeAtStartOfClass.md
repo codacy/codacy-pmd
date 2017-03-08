@@ -1,8 +1,8 @@
-Fields should be declared at the top of the `class`, before any method declarations, constructors, initializers or inner classes.
-It is a widely accepted good code style.
+Since: PMD 5.0
 
-Ex:
+Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
 
+Example(s):
 ```
 public class HelloWorldBean {
 
@@ -18,4 +18,4 @@ public class HelloWorldBean {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass)

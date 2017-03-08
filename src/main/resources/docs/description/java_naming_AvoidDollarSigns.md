@@ -1,11 +1,11 @@
-Dont't use dollar ($) signs in variable/method/class/interface names.
+Since: PMD 1.5
 
-Ex:
+Avoid using dollar signs in variable/method/class/interface names.
 
+Example(s):
 ```
-// not a recommended name
-public class Fo$o {
+public class Fo$o {  // not a recommended name
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#AvoidDollarSigns)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#AvoidDollarSigns)

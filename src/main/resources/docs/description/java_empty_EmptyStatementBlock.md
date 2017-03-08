@@ -1,20 +1,19 @@
-Empty block statements serve no purpose and therefore should be removed.
+Since: PMD 5.0
 
-Ex:
+Empty block statements serve no purpose and should be removed.
 
+Example(s):
 ```
 public class Foo {
-  private int _bar;
 
-  public void setBar(int bar) {
-    {
-      _bar = bar; // Why not?
-    }
-    {
-      // But remove this.
-    }
-  }
+   private int _bar;
+
+   public void setBar(int bar) {
+      { _bar = bar; } // Why not?
+      {} // But remove this.
+   }
+
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/empty.html#EmptyStatementBlock)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/empty.html#EmptyStatementBlock)

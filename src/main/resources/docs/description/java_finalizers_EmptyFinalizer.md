@@ -1,14 +1,12 @@
-Empty finalize methods serve **no purpose** and therefore it should be removed.
+Since: PMD 1.5
 
-Ex:
+Empty finalize methods serve no purpose and should be removed.
 
+Example(s):
 ```
 public class Foo {
-
-  //It serves no purpose
-  protected void finalize() { }
-
+   protected void finalize() {}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/finalizers.html#EmptyFinalizer)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/finalizers.html#EmptyFinalizer)

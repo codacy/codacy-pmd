@@ -1,15 +1,17 @@
-Empty try blocks have no use whatsoever so avoid writing tries unless you have a specific use for them
+Since: PMD 0.4
 
-Ex:
+Avoid empty try blocks - what's the point?
 
+Example(s):
 ```
 public class Foo {
-  public void bar() {
-    try { } catch (Exception e) {
-      e.printStackTrace();
-    }
+ public void bar() {
+  try {
+  } catch (Exception e) {
+    e.printStackTrace();
   }
+ }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/empty.html#EmptyTryBlock)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/empty.html#EmptyTryBlock)

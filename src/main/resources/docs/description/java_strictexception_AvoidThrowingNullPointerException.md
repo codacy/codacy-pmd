@@ -1,7 +1,10 @@
-Avoid throwing `NullPointerExceptions`. These are confusing because most people will assume that the virtual machine threw it. Consider using an `IllegalArgumentException` instead; this will be clearly seen as a programmer-initiated exception.
+Since: PMD 1.8
 
-Ex:
+Avoid throwing NullPointerExceptions. These are confusing because most people will assume that the
+virtual machine threw it. Consider using an IllegalArgumentException instead; this will be
+clearly seen as a programmer-initiated exception.
 
+Example(s):
 ```
 public class Foo {
   void bar() {
@@ -10,4 +13,4 @@ public class Foo {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/strictexception.html#AvoidThrowingNullPointerException)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strictexception.html#AvoidThrowingNullPointerException)

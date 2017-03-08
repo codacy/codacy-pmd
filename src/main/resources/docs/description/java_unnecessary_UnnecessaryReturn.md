@@ -1,14 +1,15 @@
-Avoid the use of unnecessary `return` statements. Since it will not do anything to your code.
+Since: PMD 1.3
 
-Ex:
+Avoid the use of unnecessary return statements.
 
+Example(s):
 ```
 public class Foo {
-	public void bar() {
-		int x = 42;
-		return;
-	}
+  public void bar() {
+    int x = 42;
+    return;
+  }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unnecessary.html#UnnecessaryReturn)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/unnecessary.html#UnnecessaryReturn)

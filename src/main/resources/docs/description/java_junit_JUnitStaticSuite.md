@@ -1,7 +1,8 @@
-The `suite()` method in a JUnit test needs to be both `public` and `static`.
+Since: PMD 1.0
 
-Ex:
+The suite() method in a JUnit test needs to be both public and static.
 
+Example(s):
 ```
 import junit.framework.*;
 
@@ -11,4 +12,4 @@ public class Foo extends TestCase {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/junit.html#JUnitStaticSuite)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/junit.html#JUnitStaticSuite)

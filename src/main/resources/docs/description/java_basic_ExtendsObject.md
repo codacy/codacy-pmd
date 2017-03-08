@@ -1,12 +1,11 @@
+Since: PMD 5.0
+
 No need to explicitly extend Object.
-All objects in java implicitly extend Object, so it is redundant.
 
-Ex:
-
+Example(s):
 ```
 public class Foo extends Object { 	// not required
-
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#ExtendsObject)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#ExtendsObject)

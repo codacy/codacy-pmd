@@ -1,15 +1,13 @@
-When overriding the `finalize()`, the new method **should be set as `protected`**. If made public, other classes may invoke it at inappropriate times which can severely harm your program.
+Since: PMD 1.1
 
-Ex:
+When overriding the finalize(), the new method should be set as protected.  If made public, 
+other classes may invoke it at inappropriate times.
 
+Example(s):
 ```
-public void finalize() { //this isn't good
-// do something
-}
-
-protected void finalize() { //much better
-  //do something
+public void finalize() {
+	// do something
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/finalizers.html#FinalizeShouldBeProtected)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/finalizers.html#FinalizeShouldBeProtected)

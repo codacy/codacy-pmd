@@ -1,24 +1,25 @@
-The `isEmpty()` method on `java.util.Collection` is provided to determine if a collection has any elements.
-Comparing the value of `size()` to `0` does not convey intent as well as the `isEmpty()` method.
+Since: PMD 3.9
 
-Ex:
+The isEmpty() method on java.util.Collection is provided to determine if a collection has any elements.
+Comparing the value of size() to 0 does not convey intent as well as the isEmpty() method.
 
+Example(s):
 ```
 public class Foo {
-  void good() {
-    List foo = getList();
-    if (foo.isEmpty()) {
-      // blah
-    }
-  }
+	void good() {
+       	List foo = getList();
+		if (foo.isEmpty()) {
+			// blah
+		}
+   	}
 
-  void bad() {
-    List foo = getList();
-    if (foo.size() == 0) {
-      // blah
-    }
-  }
+    void bad() {
+   	    List foo = getList();
+			if (foo.size() == 0) {
+				// blah
+			}
+    	}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#UseCollectionIsEmpty)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#UseCollectionIsEmpty)

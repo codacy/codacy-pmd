@@ -1,7 +1,8 @@
+Since: PMD 1.0
+
 Some JUnit framework methods are easy to misspell.
 
-Ex:
-
+Example(s):
 ```
 import junit.framework.*;
 
@@ -11,4 +12,4 @@ public class Foo extends TestCase {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/junit.html#JUnitSpelling)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/junit.html#JUnitSpelling)

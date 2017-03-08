@@ -1,9 +1,10 @@
-Methods such as `getDeclaredConstructors()`, `getDeclaredConstructor(Class[])` and `setAccessible()`, as the interface `PrivilegedAction`, allows for the runtime alteration of variable, class, or method visibility, even if they are private.
+Since: PMD 4.1
 
-**This violates the principle of encapsulation!**
+Methods such as getDeclaredConstructors(), getDeclaredConstructor(Class[]) and setAccessible(),
+as the interface PrivilegedAction, allows for the runtime alteration of variable, class, or
+method visibility, even if they are private. This violates the principle of encapsulation.
 
-Ex:
-
+Example(s):
 ```
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
@@ -15,25 +16,23 @@ public class Violation {
     Class[] arrayOfClass = new Class[1];
     this.getClass().getDeclaredConstructors();
     this.getClass().getDeclaredConstructor(arrayOfClass);
-    Class clazz = 	this.getClass();
+    Class clazz = this.getClass();
     clazz.getDeclaredConstructor(arrayOfClass);
     clazz.getDeclaredConstructors();
-
-    // Possible call to forbidden setAccessible
+      // Possible call to forbidden setAccessible
     clazz.getMethod("", arrayOfClass).setAccessible(false);
     AccessibleObject.setAccessible(null, false);
     Method.setAccessible(null, false);
     Method[] methodsArray = clazz.getMethods();
     int nbMethod;
-
-    for (nbMethod = 0; nbMethod < methodsArray.length; nbMethod++) {
+    for ( nbMethod = 0; nbMethod < methodsArray.length; nbMethod++ ) {
       methodsArray[nbMethod].setAccessible(false);
     }
 
-    // Possible call to forbidden PrivilegedAction PrivilegedAction
-    priv = (PrivilegedAction) new Object(); priv.run();
+      // Possible call to forbidden PrivilegedAction
+    PrivilegedAction priv = (PrivilegedAction) new Object(); priv.run();
   }
- }
- ```
+}
+```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#AvoidAccessibilityAlteration)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#AvoidAccessibilityAlteration)

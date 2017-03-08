@@ -1,19 +1,15 @@
-Do not use `protected` methods in `final` classes since they cannot be subclassed.
-This should only be allowed in `final` classes that extend other classes with `protected` methods (whose visibility cannot be reduced).
-Clarify your intent by using `private` or `package` access modifiers instead (`package` access modifier is attained by using no modifier keyword).
+Since: PMD 5.1
 
-Ex:
+Do not use protected methods in most final classes since they cannot be subclassed. This should 
+only be allowed in final classes that extend other classes with protected methods (whose
+visibility cannot be reduced). Clarify your intent by using private or package access modifiers instead.
 
+Example(s):
 ```
 public final class Foo {
-  private int bar() {
-
-  }
-  protected int baz() {
-    // Foo cannot be subclassed, and doesn't extend anything, so is baz() really private or package visible?
-  }
+  private int bar() {}
+  protected int baz() {} // Foo cannot be subclassed, and doesn't extend anything, so is baz() really private or package visible? 
 }
 ```
 
-
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#AvoidProtectedMethodInFinalClassNotExtending)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#AvoidProtectedMethodInFinalClassNotExtending)

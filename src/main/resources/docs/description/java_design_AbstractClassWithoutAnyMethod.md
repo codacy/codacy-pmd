@@ -1,24 +1,15 @@
-If an abstract class does not provides any methods, it may be acting as a simple data container that is not meant to be instantiated.
-In this case, it is probably better to use a private or protected constructor in order to prevent instantiation than make the class misleadingly abstract.
+Since: PMD 4.2
 
-Ex:
+If an abstract class does not provides any methods, it may be acting as a simple data container 
+that is not meant to be instantiated. In this case, it is probably better to use a private or 
+protected constructor in order to prevent instantiation than make the class misleadingly abstract.
 
+Example(s):
 ```
-//Is this a data container?
-public class abstract BadExample {
-    String field;
-    int otherField;
-}
-
-//This is a better approach
-public class  GoodExample {
-    String field;
-    int otherField;
-
-    private GoodExample() {
-        //With private constructor prohibits instantiation
-    }
+public class abstract Example {
+	String field;
+	int otherField;
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#AbstractClassWithoutAnyMethod)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#AbstractClassWithoutAnyMethod)

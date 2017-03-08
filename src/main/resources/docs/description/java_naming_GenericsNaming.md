@@ -1,23 +1,24 @@
+Since: PMD 4.2.6
+
 Names for references to generic values should be limited to a single uppercase letter.
 
-Ex:
-
+Example(s):
 ```
 public interface GenericDao<E extends BaseModel, K extends Serializable> extends BaseDao {
-  // This is ok...
+   // This is ok...
 }
 
 public interface GenericDao<E extends BaseModel, K extends Serializable> {
-  // Also this
+   // Also this
 }
 
 public interface GenericDao<e extends BaseModel, K extends Serializable> {
-  // 'e' should be an 'E'
+   // 'e' should be an 'E'
 }
 
 public interface GenericDao<EF extends BaseModel, K extends Serializable> {
-  // 'EF' is not ok.
+   // 'EF' is not ok.
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#GenericsNaming)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#GenericsNaming)

@@ -1,16 +1,16 @@
-Do not use if statements whose conditionals are always true or always false.
-An if(true) is like unused code, in the sense that the code block after will always run.
+Since: PMD 1.5
 
-Ex:
+Do not use "if" statements whose conditionals are always true or always false.
 
+Example(s):
 ```
-    public class Foo {
-        public void close() {
-            if (true) {		// fixed conditional, not recommended
-                // ...
-            }
-        }
-    }
+public class Foo {
+	public void close() {
+		if (true) {		// fixed conditional, not recommended
+			// ...
+		}
+	}
+}
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#UnconditionalIfStatement)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#UnconditionalIfStatement)

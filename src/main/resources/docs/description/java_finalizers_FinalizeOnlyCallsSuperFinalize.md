@@ -1,11 +1,12 @@
-If the `finalize()` is implemented, it should do something besides just calling `super.finalize()`.
+Since: PMD 1.5
 
-Ex:
+If the finalize() is implemented, it should do something besides just calling super.finalize().
 
+Example(s):
 ```
 protected void finalize() {
-  super.finalize();  //Use it for more than this
+	super.finalize();
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/finalizers.html#FinalizeOnlyCallsSuperFinalize)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/finalizers.html#FinalizeOnlyCallsSuperFinalize)

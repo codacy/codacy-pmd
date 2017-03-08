@@ -1,12 +1,13 @@
-If the `finalize()` is implemented, its last action should **always** be to call `super.finalize()`.
+Since: PMD 1.5
 
-Ex:
+If the finalize() is implemented, its last action should be to call super.finalize.
 
+Example(s):
 ```
 protected void finalize() {
-  something();
-  super.finalize(); //the right way
+	something();
+	// neglected to call super.finalize()
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/finalizers.html#FinalizeDoesNotCallSuperFinalize)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/finalizers.html#FinalizeDoesNotCallSuperFinalize)

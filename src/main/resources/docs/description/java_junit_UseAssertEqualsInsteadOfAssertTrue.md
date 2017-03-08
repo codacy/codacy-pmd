@@ -1,7 +1,8 @@
-This rule detects JUnit assertions in object equality. These assertions should be made by more specific methods, like `assertEquals`.
+Since: PMD 3.1
 
-Ex:
+This rule detects JUnit assertions in object equality. These assertions should be made by more specific methods, like assertEquals.
 
+Example(s):
 ```
 public class FooTest extends TestCase {
 	void testCode() {
@@ -12,4 +13,4 @@ public class FooTest extends TestCase {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/junit.html#UseAssertEqualsInsteadOfAssertTrue)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/junit.html#UseAssertEqualsInsteadOfAssertTrue)

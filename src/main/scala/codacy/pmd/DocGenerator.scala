@@ -12,7 +12,9 @@ import scala.xml.{Elem, Node, XML}
 
 object DocGenerator {
 
-  private case class Ruleset(name: String, fullName: String, patterns: List[(Pattern.Description, Pattern.Specification)])
+  private case class Ruleset(name: String, fullName: String, patterns: List[(Pattern.Description, Pattern.Specification, PatternExtendedDescription)])
+
+  private case class PatternExtendedDescription(patternId: Pattern.Id, extendedDescription: String)
 
   private val rulesetsRoot = "rulesets"
 
@@ -48,7 +50,7 @@ object DocGenerator {
       patterns.flatMap(_.toOption).flatten
     } match {
       case Success(rulesets) =>
-        val (patternDescriptions, patternSpecifications) = rulesets.flatMap(_.patterns).unzip
+        val (patternDescriptions, patternSpecifications, extendedDescriptions) = rulesets.flatMap(_.patterns).unzip3
         val spec = Tool.Specification(Tool.Name("pmd"), patternSpecifications)
         val jsonSpecifications = Json.prettyPrint(Json.toJson(spec))
         val jsonDescriptions = Json.prettyPrint(Json.toJson(patternDescriptions))
@@ -151,11 +153,17 @@ object DocGenerator {
         val repoRoot = new java.io.File(".")
         val docsRoot = new java.io.File(repoRoot, "src/main/resources/docs")
         val patternsFile = new java.io.File(docsRoot, "patterns.json")
-        val descriptionsFile = new java.io.File(docsRoot, "description/description.json")
+        val descriptionsRoot = new java.io.File(docsRoot, "description")
+        val descriptionsFile = new java.io.File(descriptionsRoot, "description.json")
         val rulesetsCodeFile = new java.io.File(repoRoot, "src/main/scala/codacy/pmd/RuleSets.scala")
 
         ResourceHelper.writeFile(patternsFile.toPath, jsonSpecifications)
         ResourceHelper.writeFile(descriptionsFile.toPath, jsonDescriptions)
+        extendedDescriptions.collect { case extendedDescription if extendedDescription.extendedDescription.trim.nonEmpty =>
+          val descriptionsFile = new java.io.File(descriptionsRoot, s"${extendedDescription.patternId}.md")
+          ResourceHelper.writeFile(descriptionsFile.toPath, extendedDescription.extendedDescription)
+        }
+
         if (args.exists(_.equalsIgnoreCase("rulesets"))) ResourceHelper.writeFile(rulesetsCodeFile.toPath, rulesetsCodeStrFull)
 
       case Failure(e) =>
@@ -163,11 +171,15 @@ object DocGenerator {
     }
   }
 
-  private def parsePatterns(language: String, langAlias: String, rulesetName: String, xml: Elem): List[(Pattern.Description, Pattern.Specification)] = {
+  private def parsePatterns(language: String, langAlias: String, rulesetName: String, xml: Elem): List[(Pattern.Description, Pattern.Specification, PatternExtendedDescription)] = {
     (for {
       rule <- xml \\ "rule"
+      deprecated = rule \@ "deprecated" if !Try(deprecated.toBoolean).getOrElse(false)
       name = rule \@ "name"
       message = rule \@ "message"
+      since = rule \@ "since"
+      longDescription = (rule \ "description").text
+      example = (rule \ "example").text
     } yield {
       val (parameterDescriptions, parameterSpecifications) = parseParameters(rule).to[Set].unzip
       val rulesetNameClean = rulesetName.stripSuffix(".xml")
@@ -178,7 +190,18 @@ object DocGenerator {
 
       (
         Pattern.Description(patternId, Pattern.Title(message), None, None, Some(parameterDescriptions).filter(_.nonEmpty)),
-        Pattern.Specification(patternId, level, category, Some(parameterSpecifications).filter(_.nonEmpty), Some(Set(Pattern.Language(language))))
+        Pattern.Specification(patternId, level, category, Some(parameterSpecifications).filter(_.nonEmpty), Some(Set(Pattern.Language(language)))),
+        PatternExtendedDescription(patternId,
+         s"""Since: PMD $since
+            |
+            |${longDescription.trim}
+            |
+            |Example(s):
+            |```
+            |${example.trim}
+            |```
+            |
+            |[Source](https://pmd.github.io/pmd-5.5.4/pmd-$language/rules/$langAlias/$rulesetNameClean.html#$name)""".stripMargin + "\n")
       )
     }).to[List]
   }
@@ -187,6 +210,7 @@ object DocGenerator {
     (for {
       property <- rule \\ "property"
       name = property \@ "name"
+      description = property \@ "description"
       defaultValueField = Option(property \@ "value").filter(_.trim.nonEmpty)
       defaultValueBody = Option(property \ "value")
         .flatMap(_.theSeq.collectFirst { case v if v.text.trim.nonEmpty => v.text })
@@ -198,7 +222,7 @@ object DocGenerator {
         .getOrElse(JsString(" "))
 
       (
-        Parameter.Description(Parameter.Name(name), Parameter.DescriptionText(name)),
+        Parameter.Description(Parameter.Name(name), Parameter.DescriptionText(description)),
         Parameter.Specification(Parameter.Name(name), defaultValue)
       )
     }).to[List]

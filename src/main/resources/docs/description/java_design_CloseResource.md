@@ -1,8 +1,8 @@
+Since: PMD 1.2.2
+
 Ensure that resources (like Connection, Statement, and ResultSet objects) are always closed after use.
-Closing the objects releases the resources (like databases or sockets).
 
-Ex:
-
+Example(s):
 ```
 public class Bar {
   public void foo() {
@@ -10,7 +10,7 @@ public class Bar {
     try {
       // do stuff
     } catch (SQLException ex) {
-      // handle exception
+     // handle exception
     } finally {
       // oops, should close the connection using 'close'!
       // c.close();
@@ -19,4 +19,4 @@ public class Bar {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#CloseResource)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#CloseResource)

@@ -1,7 +1,8 @@
-Avoid calling `toString()` on objects already known to be string instances; this is unnecessary.
+Since: PMD 1.0
 
-Ex:
+Avoid calling toString() on objects already known to be string instances; this is unnecessary.
 
+Example(s):
 ```
 private String baz() {
     String bar = "howdy";
@@ -9,4 +10,4 @@ private String baz() {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/strings.html#StringToString)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#StringToString)

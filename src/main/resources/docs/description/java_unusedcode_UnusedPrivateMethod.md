@@ -1,17 +1,12 @@
-`Private` methods are only accessible inside the class where they were defined.
+Since: PMD 0.7
 
-Any `private` method not used inside the class is useless, should be removed.
+Unused Private Method detects when a private method is declared but is unused.
 
-Ex:
-
-```   
-public class Something
-{
-  private void foo() // unused
-  {
-    System.out.println(\"This method is never invoked!\");
-  }
+Example(s):
+```
+public class Something {
+	private void foo() {} // unused
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateMethod)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/unusedcode.html#UnusedPrivateMethod)

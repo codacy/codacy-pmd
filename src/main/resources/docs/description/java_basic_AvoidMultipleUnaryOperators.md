@@ -1,8 +1,9 @@
+Since: PMD 4.2
+
 The use of multiple unary operators may be problematic, and/or confusing.
 Ensure that the intended usage is not a bug, or consider simplifying the expression.
 
-Ex:
-
+Example(s):
 ```
 // These are typo bugs, or at best needlessly complex and confusing:
 int i = - -1;
@@ -23,4 +24,4 @@ int i = ~-2;
 int j = -~7;
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#AvoidMultipleUnaryOperators)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#AvoidMultipleUnaryOperators)

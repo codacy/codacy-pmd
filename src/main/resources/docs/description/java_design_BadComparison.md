@@ -1,9 +1,11 @@
-Avoid equality comparisons with `Double.NaN` due to the implicit lack of representation precision when comparing floating point numbers these are likely to cause logic errors.
+Since: PMD 1.8
 
-Ex:
+Avoid equality comparisons with Double.NaN. Due to the implicit lack of representation
+precision when comparing floating point numbers these are likely to cause logic errors.
 
+Example(s):
 ```
 boolean x = (y == Double.NaN);
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#BadComparison)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#BadComparison)

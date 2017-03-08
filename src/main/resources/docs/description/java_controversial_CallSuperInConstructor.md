@@ -1,9 +1,9 @@
-It is a good practice to call ```super()``` in a constructor.
-Calling ```super()``` explicitly shows that the code is not evoking another super constructed (one with arguments).
-Using this convention explicitly shows the code intention.
+Since: PMD 3.0
 
-Ex:
+It is a good practice to call super() in a constructor. If super() is not called but
+another constructor (such as an overloaded constructor) is called, this rule will not report it.
 
+Example(s):
 ```
 public class Foo extends Bar{
   public Foo() {
@@ -18,4 +18,4 @@ public class Foo extends Bar{
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#CallSuperInConstructor)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#CallSuperInConstructor)

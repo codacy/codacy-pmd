@@ -1,7 +1,8 @@
-Consider replacing `Hashtable` usage with the newer `java.util.Map` if thread safety is not required.
+Since: PMD 3.4
 
-Ex:
+Consider replacing Hashtable usage with the newer java.util.Map if thread safety is not required.
 
+Example(s):
 ```
 public class Foo {
 	void bar() {
@@ -10,4 +11,4 @@ public class Foo {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/migrating.html#ReplaceHashtableWithMap)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/migrating.html#ReplaceHashtableWithMap)

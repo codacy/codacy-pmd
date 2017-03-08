@@ -1,14 +1,13 @@
-Good method names are very important for code reading and understanding.
+Since: PMD 0.3
 
-Method names that are very short, are usually not helpful to the reader.
+Method names that are very short are not helpful to the reader.
 
-Ex:
-
+Example(s):
 ```
 public class ShortMethod {
-  public void a( int i ) { // Violation
-  }
+	public void a( int i ) { // Violation
+	}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#ShortMethodName)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#ShortMethodName)

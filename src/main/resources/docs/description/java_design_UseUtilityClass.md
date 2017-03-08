@@ -1,22 +1,17 @@
-For classes that only have `static` methods, use them as utility classes.
-Note that this doesn't apply to `abstract` classes, since their subclasses may well include non-static methods.
-Also, if you want this class to be a utility class, remember to add a `private` constructor to prevent instantiation.
+Since: PMD 0.3
 
-Ex:
+For classes that only have static methods, consider making them utility classes.
+Note that this doesn't apply to abstract classes, since their subclasses may
+well include non-static methods.  Also, if you want this class to be a utility class,
+remember to add a private constructor to prevent instantiation.
+(Note, that this use was known before PMD 5.1.0 as UseSingleton).
 
+Example(s):
 ```
 public class MaybeAUtility {
-  public static void foo() {
-
-  }
-
-  public static void bar() {
-
-  }
-
-  //Add this line
-  private MaybeAUtility() { }
+  public static void foo() {}
+  public static void bar() {}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#UseUtilityClass)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#UseUtilityClass)

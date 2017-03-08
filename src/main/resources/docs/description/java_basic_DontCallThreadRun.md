@@ -1,12 +1,12 @@
-Explicitly calling `Thread.run()` method will execute in the caller’s thread of control.
-Instead, call `Thread.start()` for the intended behavior.
+Since: PMD 4.3
 
-Ex:
+Explicitly calling Thread.run() method will execute in the caller's thread of control.  Instead, call Thread.start() for the intended behavior.
 
+Example(s):
 ```
 Thread t = new Thread();
 t.run();            // use t.start() instead
 new Thread().run(); // same violation
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#DontCallThreadRun)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#DontCallThreadRun)

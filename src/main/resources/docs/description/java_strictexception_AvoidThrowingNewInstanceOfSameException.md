@@ -1,7 +1,9 @@
-Catch blocks that merely rethrow a caught `exception` wrapped inside a new instance of the same type only add to code size and runtime complexity.
+Since: PMD 4.2.5
 
-Ex:
+Catch blocks that merely rethrow a caught exception wrapped inside a new instance of the same type only add to
+code size and runtime complexity.
 
+Example(s):
 ```
 public void bar() {
       try {
@@ -13,4 +15,4 @@ public void bar() {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/strictexception.html#AvoidThrowingNewInstanceOfSameException)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strictexception.html#AvoidThrowingNewInstanceOfSameException)

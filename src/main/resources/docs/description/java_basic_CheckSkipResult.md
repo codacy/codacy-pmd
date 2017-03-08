@@ -1,26 +1,25 @@
-The `skip()` method may skip a smaller number of bytes than requested.
-Check the returned value to find out if it was the case or not.
+Since: PMD 5.0
 
-Ex:
+The skip() method may skip a smaller number of bytes than requested. Check the returned value to find out if it was the case or not.
 
+Example(s):
 ```
-    public class Foo {
+public class Foo {
 
-       private FileInputStream _s = new FileInputStream("file");
+   private FileInputStream _s = new FileInputStream("file");
 
-       public void skip(int n) throws IOException {
-          _s.skip(n); // You are not sure that exactly n bytes are skipped
-       }
+   public void skip(int n) throws IOException {
+      _s.skip(n); // You are not sure that exactly n bytes are skipped
+   }
 
-       public void skipExactly(int n) throws IOException {
-          while (n != 0) {
-             long skipped = _s.skip(n);
-             if (skipped == 0)
-                throw new EOFException();
-             n -= skipped;
-          }
-       }
-    }
+   public void skipExactly(int n) throws IOException {
+      while (n != 0) {
+         long skipped = _s.skip(n);
+         if (skipped == 0)
+            throw new EOFException();
+         n -= skipped;
+      }
+   }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/basic.html#CheckSkipResult)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#CheckSkipResult)

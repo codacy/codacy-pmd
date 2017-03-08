@@ -1,22 +1,19 @@
-Avoid using if..else statements without using braces to surround the code block.
-If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest.
+Since: PMD 0.2
 
-Ex:
+Avoid using if..else statements without using surrounding braces. If the code formatting 
+or indentation is lost then it becomes difficult to separate the code being controlled 
+from the rest.
 
+Example(s):
 ```
 // this is OK
-if (foo) {
-  x = x+1;
-}
-else {
-  x = x-1;
-}
-
-// but this is not
+if (foo) x++;
+   
+   // but this is not
 if (foo)
-  x = x+1;
-else
-  x = x-1;
+       x = x+1;
+   else
+       x = x-1;
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/braces.html#IfElseStmtsMustUseBraces)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/braces.html#IfElseStmtsMustUseBraces)

@@ -1,15 +1,15 @@
+Since: PMD 1.02
+
 There is no need to import a type that lives in the same package.
 
-Ex:
-
+Example(s):
 ```
 package foo;
-import foo.Buz; // no need for this
-import foo.*; // or this
-
-public class Bar{
-
-}
+ 
+ import foo.Buz; // no need for this
+ import foo.*; // or this
+ 
+ public class Bar{}
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/imports.html#ImportFromSamePackage)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/imports.html#ImportFromSamePackage)

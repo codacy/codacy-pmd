@@ -1,17 +1,20 @@
-`(string).startsWith` although it adds some sintactic sugar to our code and readability because of it passing in a literal of length `1`, it loses performance wise to `(string).charAt(0)`.
+Since: PMD 3.1
 
-Ex:
+Since it passes in a literal of length 1, calls to (string).startsWith can be rewritten using (string).charAt(0)
+at the expense of some readability.
 
+Example(s):
 ```
 public class Foo {
-  boolean checkIt(String x) {
-    return x.startsWith(\"a\"); // suboptimal
-  }
 
-  boolean fasterCheckIt(String x) {
-    return x.charAt(0) == 'a'; // faster approach
-  }
+	boolean checkIt(String x) {
+		return x.startsWith("a");	// suboptimal
+	}
+  
+	boolean fasterCheckIt(String x) {
+		return x.charAt(0) == 'a';	//	faster approach
+	}
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#SimplifyStartsWith)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/optimizations.html#SimplifyStartsWith)

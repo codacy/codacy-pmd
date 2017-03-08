@@ -1,8 +1,8 @@
-Use `Environment.getExternalStorageDirectory()` instead of `/sdcard`
+Since: PMD 4.2.6
 
-Ex:
+Use Environment.getExternalStorageDirectory() instead of "/sdcard"
 
-
+Example(s):
 ```
 public class MyActivity extends Activity {
 	protected void foo() {
@@ -13,4 +13,4 @@ public class MyActivity extends Activity {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/android.html#DoNotHardCodeSDCard)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/android.html#DoNotHardCodeSDCard)

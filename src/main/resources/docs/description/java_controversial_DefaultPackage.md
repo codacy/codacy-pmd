@@ -1,11 +1,11 @@
-Use explicit scoping instead of the default package private level. What this means it that you should do is make all the fields within your classes private to enforce better encapsulation.
+Since: PMD 3.4
 
-Ex:
+Use explicit scoping instead of accidental usage of default package private level.
+The rule allows methods and fields annotated with Guava's @VisibleForTesting.
 
-```
-public class Foo {
-	/* private missing */ Object bar;
-}
+Example(s):
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DefaultPackage)
+```
+
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#DefaultPackage)

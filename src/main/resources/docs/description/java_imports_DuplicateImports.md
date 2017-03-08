@@ -1,14 +1,12 @@
+Since: PMD 0.5
+
 Duplicate or overlapping import statements should be avoided.
 
-Ex:
-
+Example(s):
 ```
 import java.lang.String;
 import java.lang.*;
-
-public class Foo {
-
-}
+public class Foo {}
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/imports.html#DuplicateImports)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/imports.html#DuplicateImports)

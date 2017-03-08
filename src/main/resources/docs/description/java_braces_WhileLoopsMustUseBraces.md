@@ -1,15 +1,17 @@
-Avoid using 'while' loops without using braces to surround the code block.
-If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest.
+Since: PMD 0.7
 
-Ex:
+Avoid using 'while' statements without using braces to surround the code block. If the code 
+formatting or indentation is lost then it becomes difficult to separate the code being
+controlled from the rest.
 
+Example(s):
 ```
 while (true)	// not recommended
-  x++;
-
+      x++;
+      
 while (true) {	// preferred approach
-  x++;
+      x++;
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/braces.html#WhileLoopsMustUseBraces)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/braces.html#WhileLoopsMustUseBraces)

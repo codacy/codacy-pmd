@@ -1,48 +1,28 @@
-Non-thread safe singletons can result in bad state changes. Eliminate `static` singletons if possible by instantiating the object directly.
-Static singletons are usually not needed as only a single instance exists anyway.
-Possible fixes are to synchronize the entire method or to use an initialize-on-demand holder class (do not use the double-check idiom).
+Since: PMD 3.4
 
-There are better approaches, you can use an `enum` or instantiate the object in the declaration.
-The best approaches are shown in the examples.
+Non-thread safe singletons can result in bad state changes. Eliminate
+static singletons if possible by instantiating the object directly. Static
+singletons are usually not needed as only a single instance exists anyway.
+Other possible fixes are to synchronize the entire method or to use an
+[initialize-on-demand holder class](https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom).
 
-Ex:
+Refrain from using the double-checked locking pattern. The Java Memory Model doesn't
+guarantee it to work unless the variable is declared as `volatile`, adding an uneeded
+performance penalty. [Reference](http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 
+See Effective Java, item 48.
+
+Example(s):
 ```
-//Not recommended
-public class Foo {
+private static Foo foo = null;
 
-  private static Foo fooInstance = null;
-
-  //multiple simultaneous callers may see partially initialized objects
-  public static Foo getInstance() {
-    if (fooInstance == null) {
-      fooInstance = new Foo();
+//multiple simultaneous callers may see partially initialized objects
+public static Foo getFoo() {
+    if (foo==null) {
+        foo = new Foo();
     }
-    return fooInstance;
-  }
-}
-
-//Preferred approach
-public enum Foo {
-  INSTANCE;
-
-  public void methodA() {
-    int i = 0;
-  }
-}
-//To call methodA() do Foo.INSTANCE.methodA();
-
-
-
-//Good approach
-public class Bar {
-
-  private static Bar barInstance = new Bar();
-
-  public static Bar getInstance() {
-    return barInstance;
-  }
+    return foo;
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#NonThreadSafeSingleton)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#NonThreadSafeSingleton)

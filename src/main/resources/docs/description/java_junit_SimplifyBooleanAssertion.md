@@ -1,7 +1,16 @@
-Avoid negation in an `assertTrue` or `assertFalse` test.
+Since: PMD 3.6
 
-Ex:
+Avoid negation in an assertTrue or assertFalse test.
 
+For example, rephrase:
+
+   assertTrue(!expr);
+   
+as:
+
+   assertFalse(expr);
+
+Example(s):
 ```
 public class SimpleTest extends TestCase {
    public void testX() {
@@ -11,4 +20,4 @@ public class SimpleTest extends TestCase {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/junit.html#SimplifyBooleanAssertion)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/junit.html#SimplifyBooleanAssertion)

@@ -1,8 +1,8 @@
-No need to check for `null` before an `instanceof`.
-The `instanceof` keyword returns `false` when given a `null` argument.
+Since: PMD 3.1
 
-Ex:
+No need to check for null before an instanceof; the instanceof keyword returns false when given a null argument.
 
+Example(s):
 ```
 class Foo {
   void bar(Object x) {
@@ -13,4 +13,4 @@ class Foo {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#SimplifyConditional)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#SimplifyConditional)

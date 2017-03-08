@@ -1,33 +1,32 @@
-Throwing a new exception from a catch block without passing the original exception into the new exception will cause the original stack trace to be lost.
-A incorrect stack trace will make it very difficult to debug effectively.
+Since: PMD 3.7
 
-Ex:
+Throwing a new exception from a catch block without passing the original exception into the
+new exception will cause the original stack trace to be lost making it difficult to debug 
+effectively.
 
+Example(s):
 ```
 public class Foo {
-
-  void bad() {
-    try{
-      Integer.parseInt("a");
-    } catch (Exception e) {
-      //the new exception should receive e instead of e.gotMessage()
-      throw new Exception(e.getMessage());
+    void good() {
+        try{
+            Integer.parseInt("a");
+        } catch (Exception e) {
+            throw new Exception(e); // first possibility to create exception chain
+        }
+        try {
+            Integer.parseInt("a");
+        } catch (Exception e) {
+            throw (IllegalStateException)new IllegalStateException().initCause(e); // second possibility to create exception chain.
+        }
     }
-  }
-
-  void good() {
-    try{
-      Integer.parseInt("a");
-      } catch (Exception e) {
-        throw new Exception(e); // first possibility to create exception chain
-      }
-      try {
-        Integer.parseInt("a");
-      } catch (Exception e) {
-        throw (IllegalStateException)new IllegalStateException().initCause(e); // second possibility to create exception chain.
-      }
-  }
+    void bad() {
+        try{
+            Integer.parseInt("a");
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#PreserveStackTrace)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#PreserveStackTrace)

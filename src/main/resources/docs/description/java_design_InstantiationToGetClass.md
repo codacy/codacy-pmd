@@ -1,14 +1,14 @@
-Avoid instantiating an object just to call `getClass()` on it; use the `.class` public member instead.
-If you only need the `Class`, there is no point in creating a new object just to be discarded.
+Since: PMD 2.0
 
-Ex:
+Avoid instantiating an object just to call getClass() on it; use the .class public member instead.
 
+Example(s):
 ```
 // replace this
 Class c = new String().getClass();
 
-// with this:
+  // with this:
 Class c = String.class;
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#InstantiationToGetClass)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#InstantiationToGetClass)

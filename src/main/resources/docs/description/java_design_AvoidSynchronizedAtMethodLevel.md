@@ -1,8 +1,10 @@
-Method-level synchronization can cause problems when new code is added to the method.
-Block-level synchronization helps to ensure that only the code that needs synchronization gets it.
+Since: PMD 3.0
 
-Ex:
+Method-level synchronization can cause problems when new code is added to the method.  
+Block-level synchronization helps to ensure that only the code that needs synchronization 
+gets it.
 
+Example(s):
 ```
 public class Foo {
   // Try to avoid this:
@@ -17,7 +19,7 @@ public class Foo {
   // Try to avoid this for static methods:
   static synchronized void fooStatic() {
   }
-
+  
   // Prefer this:
   static void barStatic() {
     synchronized(Foo.class) {
@@ -26,4 +28,4 @@ public class Foo {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#AvoidSynchronizedAtMethodLevel)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#AvoidSynchronizedAtMethodLevel)

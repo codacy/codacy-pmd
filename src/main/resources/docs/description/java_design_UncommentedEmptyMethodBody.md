@@ -1,20 +1,14 @@
-By explicitly commenting empty method bodies it is easier to distinguish between intentional (commented) and unintentional empty methods.
-It gives the reader a better understanding of the meaning of that empty method.
+Since: PMD 3.4
 
-Ex:
+Uncommented Empty Method Body finds instances where a method body does not contain
+statements, but there is no comment. By explicitly commenting empty method bodies
+it is easier to distinguish between intentional (commented) and unintentional
+empty methods.
 
+Example(s):
 ```
-public class Foo {
-
-  //Is this intentional? Why is this empty?
-  public void bar() {
-  }
-
-  //This is a better approach
-  public void good() {
-    // This constructor is intentionally empty, because something something
-  }
+public void doSomething() {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#UncommentedEmptyMethodBody)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#UncommentedEmptyMethodBody)

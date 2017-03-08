@@ -1,8 +1,8 @@
-`package` names should be written in lower case.
-`package` names are written in all lower case to avoid conflict with the names of classes or interfaces.
+Since: PMD 3.3
 
-Ex:
+Detects when a package definition contains uppercase characters.
 
+Example(s):
 ```
 package com.MyCompany;  // should be lowercase name
 
@@ -10,4 +10,4 @@ public class SomeClass {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#PackageCase)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#PackageCase)

@@ -1,17 +1,20 @@
-Useless parentheses should be removed since they serve no purpose to make your code better and more readable.
+Since: PMD 5.0
 
-Ex:
+Useless parentheses should be removed.
 
+Example(s):
 ```
 public class Foo {
-  private int _bar1;
 
-  public void setBar(int n) {
-    _bar1 = Integer.valueOf((n)); // here
+   private int _bar1;
+   private Integer _bar2;
 
-    _bar1 = Integer.valueOf(n); // the correct way
-  }
+   public void setBar(int n) {
+      _bar1 = Integer.valueOf((n)); // here
+      _bar2 = (n); // and here
+   }
+
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unnecessary.html#UselessParentheses)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/unnecessary.html#UselessParentheses)

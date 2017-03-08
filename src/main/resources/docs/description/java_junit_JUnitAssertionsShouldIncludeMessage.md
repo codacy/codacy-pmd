@@ -1,7 +1,9 @@
-JUnit assertions should include an informative message - i.e., use the three-argument version of `assertEquals()`, not the two-argument version.
+Since: PMD 1.04
 
-Ex:
+JUnit assertions should include an informative message - i.e., use the three-argument version of 
+assertEquals(), not the two-argument version.
 
+Example(s):
 ```
 public class Foo extends TestCase {
  public void testSomething() {
@@ -13,4 +15,4 @@ public class Foo extends TestCase {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/junit.html#JUnitAssertionsShouldIncludeMessage)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/junit.html#JUnitAssertionsShouldIncludeMessage)

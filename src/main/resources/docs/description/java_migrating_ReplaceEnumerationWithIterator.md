@@ -1,7 +1,8 @@
-Consider replacing `Enumeration` usages with the newer `java.util.Iterator`
+Since: PMD 3.4
 
-Ex:
+Consider replacing Enumeration usages with the newer java.util.Iterator
 
+Example(s):
 ```
 public class Foo implements Enumeration {
     private int x = 42;
@@ -14,4 +15,4 @@ public class Foo implements Enumeration {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/migrating.html#ReplaceEnumerationWithIterator)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/migrating.html#ReplaceEnumerationWithIterator)

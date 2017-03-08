@@ -1,16 +1,18 @@
-Fields whose scopes are limited to just single methods do not rely on the containing object to provide them to other methods.
-They may be better implemented as local variables within those methods.
+Since: PMD 3.1
 
-Ex:
+Fields whose scopes are limited to just single methods do not rely on the containing
+object to provide them to other methods. They may be better implemented as local variables
+within those methods.
 
+Example(s):
 ```
 public class Foo {
-  private int x;  // no reason to exist at the Foo instance level
-  public void foo(int y) {
-    x = y + 5;
-    return x;
-  }
+    private int x;  // no reason to exist at the Foo instance level
+    public void foo(int y) {
+     x = y + 5;
+     return x;
+    }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#SingularField)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#SingularField)

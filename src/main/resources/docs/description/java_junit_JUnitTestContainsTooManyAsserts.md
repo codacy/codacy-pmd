@@ -1,7 +1,10 @@
-JUnit tests should not contain too many `asserts`. Many `asserts` are indicative of a complex test, for which it is harder to verify correctness. Consider breaking the test scenario into multiple, shorter test scenarios. Customize the maximum number of assertions used by this Rule to suit your needs.
+Since: PMD 5.0
 
-Ex:
+JUnit tests should not contain too many asserts.  Many asserts are indicative of a complex test, for which 
+it is harder to verify correctness.  Consider breaking the test scenario into multiple, shorter test scenarios.  
+Customize the maximum number of assertions used by this Rule to suit your needs.
 
+Example(s):
 ```
 public class MyTestCase extends TestCase {
 	// Ok
@@ -19,4 +22,4 @@ public class MyTestCase extends TestCase {
 }
 ```
 
-[Source](https://pmd.github.io/pmd-5.3.3/pmd-java/rules/java/junit.html#JUnitTestContainsTooManyAsserts)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/junit.html#JUnitTestContainsTooManyAsserts)

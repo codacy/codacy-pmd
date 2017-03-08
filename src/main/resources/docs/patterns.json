@@ -546,11 +546,6 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "java_design_UseSingleton",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "java_design_SwitchDensity",
     "level" : "Warning",
     "category" : "ErrorProne",

@@ -1,21 +1,23 @@
-A non-case label (e.g. a named `break`/`continue` label) was present in a `switch` statement. This is legal, but confusing. It is easy to mix up the `case` labels and the non-case labels.
+Since: PMD 1.5
 
-Ex:
+A non-case label (e.g. a named break/continue label) was present in a switch statement.
+This legal, but confusing. It is easy to mix up the case labels and the non-case labels.
 
+Example(s):
 ```
 public class Foo {
   void bar(int a) {
-    switch (a) {
-      case 1:
-      // do something
-      break;
-      mylabel: // this is legal, but confusing!
-      break;
-      default:
-      break;
+   switch (a) {
+     case 1:
+       // do something
+       break;
+     mylabel: // this is legal, but confusing!
+       break;
+     default:
+       break;
     }
   }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#NonCaseLabelInSwitchStatement)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#NonCaseLabelInSwitchStatement)

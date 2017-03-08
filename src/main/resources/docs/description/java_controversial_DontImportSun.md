@@ -1,10 +1,11 @@
-Avoid importing anything from the `sun.*` packages. These packages are not portable and are likely to change.
+Since: PMD 1.5
 
-Ex:
+Avoid importing anything from the 'sun.*' packages.  These packages are not portable and are likely to change.
 
+Example(s):
 ```
 import sun.misc.foo;
-public class Foo { }
+public class Foo {}
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DontImportSun)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#DontImportSun)

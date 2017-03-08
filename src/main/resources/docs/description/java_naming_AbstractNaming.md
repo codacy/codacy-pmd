@@ -1,12 +1,11 @@
-`abstract` classes should be named `AbstractXXX`. It helps to know easly which classes are `abstract`.
-`abstract` classes are created to serve as a base class, and are not instantiated.
+Since: PMD 1.4
 
-Ex:
+Abstract classes should be named 'AbstractXXX'.
 
+Example(s):
 ```
-// should be AbstractFoo
-public abstract class Foo {
+public abstract class Foo { // should be AbstractFoo
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#AbstractNaming)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#AbstractNaming)

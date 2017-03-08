@@ -1,18 +1,18 @@
-Tests for `null` should not use the `equals()` method. The `==` operator should be used instead.
-If you try to invoke `.equals(null)` on a non-initialized object you will get a `NullPointerException`.
+Since: PMD 1.9
 
-Ex:
+Tests for null should not use the equals() method. The '==' operator should be used instead.
 
+Example(s):
 ```
 String x = "foo";
 
 if (x.equals(null)) { // bad form
-  doSomething();
-}
-
+   	doSomething();
+	}
+	
 if (x == null) { 	// preferred
-  doSomething();
-}
+   	doSomething();
+	}
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#EqualsNull)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#EqualsNull)

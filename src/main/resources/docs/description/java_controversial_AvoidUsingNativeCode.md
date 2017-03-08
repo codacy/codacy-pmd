@@ -1,21 +1,24 @@
-Unnecessary reliance on Java Native Interface (JNI) calls directly reduces application portability and increases the maintenance burden.
+Since: PMD 4.1
 
-Ex:
+Unnecessary reliance on Java Native Interface (JNI) calls directly reduces application portability
+and increases the maintenance burden.
 
+Example(s):
 ```
 public class SomeJNIClass {
-  public SomeJNIClass() {
-    System.loadLibrary("nativelib");
-  }
 
-  static {
-    System.loadLibrary("nativelib");
-  }
+     public SomeJNIClass() {
+         System.loadLibrary("nativelib");
+     }
 
-  public void invalidCallsInMethod() throws SecurityException, NoSuchMethodException {
-    System.loadLibrary("nativelib");
-  }
+     static {
+         System.loadLibrary("nativelib");
+         }
+
+     public void invalidCallsInMethod() throws SecurityException, NoSuchMethodException {
+         System.loadLibrary("nativelib");
+     }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#AvoidUsingNativeCode)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#AvoidUsingNativeCode)

@@ -1,20 +1,17 @@
-Exposing internal `arrays` to the caller violates object encapsulation since elements can be removed or replaced outside of the object that owns it. It is safer to return a copy of the `array`.
+Since: PMD 2.2
 
-Ex:
+Exposing internal arrays to the caller violates object encapsulation since elements can be 
+removed or replaced outside of the object that owns it. It is safer to return a copy of the array.
 
+Example(s):
 ```
 public class SecureSystem {
   UserData [] ud;
-  public UserData [] getUserData() { //wrong
-    // Don't return directly the internal array, return a copy
-    return ud;
-  }
-
-  public UserData [] getUserData() { //right
-
-    return Arrays.copyOf(ud, ud.length);
+  public UserData [] getUserData() {
+      // Don't return directly the internal array, return a copy
+      return ud;
   }
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/sunsecure.html#MethodReturnsInternalArray)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/sunsecure.html#MethodReturnsInternalArray)

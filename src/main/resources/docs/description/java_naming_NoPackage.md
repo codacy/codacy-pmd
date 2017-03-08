@@ -1,14 +1,12 @@
-A class or interface must have a `package` definition.
-Typically use packages to organize classes belonging to the same category or providing similar functionality.
+Since: PMD 3.3
 
-The use of packages is a crucial aspect for code organization.
+Detects when a class or interface does not have a package definition.
 
-Ex:
-
+Example(s):
 ```
 // no package declaration
 public class ClassInDefaultPackage {
 }
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/naming.html#NoPackage)
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#NoPackage)

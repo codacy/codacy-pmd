@@ -1,15 +1,11 @@
-A class with too many methods is probably a good suspect for refactoring, in order to reduce its complexity and find a way to have more fine grained objects.
+Since: PMD 4.2
 
-Making your Classes have less methods that do generic stuff will make your code more modular and therefore reusable in the long term.
+A class with too many methods is probably a good suspect for refactoring, in order to reduce its complexity and find a way to
+have more fine grained objects.
 
-Ex:
-
-```
-	public class Foo {
-		public void bar1() { //inside it does something }
-		[.........]
-		public void barn() { //it will more stuff}
-	}
+Example(s):
 ```
 
-[Source](http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#TooManyMethods)
+```
+
+[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/codesize.html#TooManyMethods)

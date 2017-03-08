@@ -167,7 +167,7 @@ object DocGenerator {
     (for {
       rule <- xml \\ "rule"
       name = rule \@ "name"
-      message = rule \@ "message"
+      message = rule \@ "message" if message.nonEmpty
     } yield {
       val (parameterDescriptions, parameterSpecifications) = parseParameters(rule).to[Set].unzip
       val rulesetNameClean = rulesetName.stripSuffix(".xml")

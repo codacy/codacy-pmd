@@ -22,8 +22,6 @@ object PMD extends Tool {
 
   override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], filesOpt: Option[Set[Source.File]])
                     (implicit specification: Tool.Specification): Try[List[Result]] = {
-    swallowStderr()
-
     val pmdConfig = new PMDConfiguration()
 
     filesOpt.fold[Unit] {
@@ -105,16 +103,6 @@ object PMD extends Tool {
       }
     }
     languages
-  }
-
-  private def swallowStderr(): Unit = {
-    // Hide PMD errors from STDERR
-    //    val err = System.err
-    System.setErr(new PrintStream(new OutputStream() {
-      def write(b: Int) {
-      }
-    }))
-    //    System.setOut(err)
   }
 
   private def patternIdByRuleNameAndRuleSet(langAlias: String, ruleName: String, ruleSet: String)

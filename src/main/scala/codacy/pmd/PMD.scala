@@ -1,11 +1,11 @@
 package codacy.pmd
 
-import java.io.{File, OutputStream, PrintStream}
+import java.io.{File => JavaFile}
 import java.nio.file.{Files, Path, Paths}
 import java.util.Collections
 
 import codacy.docker.api._
-import codacy.helpers.ResourceHelper
+import codacy.dockerApi.utils.FileHelper
 import net.sourceforge.pmd
 import net.sourceforge.pmd.lang.Language
 import net.sourceforge.pmd.renderers.Renderer
@@ -41,13 +41,9 @@ object PMD extends Tool {
         }
 
       case None =>
-        val root = new File(source.path)
-        configFileNames
-          .map(new File(root, _))
-          .collectFirst {
-            case ruleset if ruleset.exists && ruleset.isFile =>
-              pmdConfig.setRuleSets(ruleset.toString)
-          }
+        FileHelper.findConfigurationFile(configFileNames, new JavaFile(source.path).toPath).foreach { ruleset =>
+          pmdConfig.setRuleSets(ruleset.toString)
+        }
     }
 
     // Load the RuleSets

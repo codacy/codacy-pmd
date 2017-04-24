@@ -23,5 +23,3 @@ public class MyClass {
   }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#UseObjectForClearerAPI)

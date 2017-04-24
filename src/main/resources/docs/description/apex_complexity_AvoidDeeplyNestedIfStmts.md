@@ -16,5 +16,3 @@ public class Foo {
 	}
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-apex/rules/apex/complexity.html#AvoidDeeplyNestedIfStmts)

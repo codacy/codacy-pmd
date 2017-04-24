@@ -5,9 +5,7 @@ forces the developer to take access restrictions into account before modifying o
 
 Example(s):
 ```
-public class without sharing Foo {
+public without sharing class Foo {
 // DML operation here
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-apex/rules/apex/security.html#ApexSharingViolations)

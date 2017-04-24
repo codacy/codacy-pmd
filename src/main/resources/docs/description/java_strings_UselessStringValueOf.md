@@ -11,5 +11,3 @@ public String convert(int i) {
 	return s;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#UselessStringValueOf)

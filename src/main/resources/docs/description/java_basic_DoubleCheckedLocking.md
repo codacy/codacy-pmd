@@ -25,5 +25,3 @@ public class Foo {
 	}
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#DoubleCheckedLocking)

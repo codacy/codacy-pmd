@@ -13,5 +13,3 @@ public class SecureSystem {
   }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/sunsecure.html#MethodReturnsInternalArray)

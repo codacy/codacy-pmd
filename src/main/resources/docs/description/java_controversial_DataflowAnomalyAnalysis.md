@@ -16,5 +16,3 @@ public void foo() {
   buz = 2;
 } // buz is undefined when leaving scope -> du-anomaly
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis)

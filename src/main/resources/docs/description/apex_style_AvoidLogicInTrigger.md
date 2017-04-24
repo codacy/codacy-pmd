@@ -21,5 +21,3 @@ trigger Accounts on Account (before insert, before update, before delete, after 
 	}
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-apex/rules/apex/style.html#AvoidLogicInTrigger)

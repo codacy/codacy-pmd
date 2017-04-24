@@ -12,5 +12,3 @@ public void foo2 (final String param) {	// better, do stuff with param never ass
   
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal)

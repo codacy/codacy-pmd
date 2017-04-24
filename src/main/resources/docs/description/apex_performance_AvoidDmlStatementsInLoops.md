@@ -14,5 +14,3 @@ public class Something {
 	}
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-apex/rules/apex/performance.html#AvoidDmlStatementsInLoops)

@@ -15,5 +15,3 @@ CREATE OR REPLACE PACKAGE pkg_
  END;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-plsql/rules/plsql/codesize.html#NcssObjectCount)

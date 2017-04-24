@@ -20,5 +20,3 @@ public interface GenericDao<EF extends BaseModel, K extends Serializable> {
    // 'EF' is not ok.
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#GenericsNaming)

@@ -13,5 +13,3 @@ function(arg) {
     window.otherGlobal = 2; // this will not trigger the rule, although it is a global variable.
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-javascript/rules/ecmascript/basic.html#GlobalVariable)

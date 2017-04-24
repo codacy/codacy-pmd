@@ -20,5 +20,3 @@ public class MyTest {
     }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/migrating.html#JUnitUseExpected)

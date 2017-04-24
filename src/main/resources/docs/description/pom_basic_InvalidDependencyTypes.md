@@ -19,5 +19,3 @@ Example(s):
   </dependencyManagement>
 </project>
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-xml/rules/pom/basic.html#InvalidDependencyTypes)

@@ -13,5 +13,3 @@ Example(s):
  /* Poor Bean suffix */
  public interface BadSuffixBean extends javax.ejb.EJBObject {}
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/j2ee.html#RemoteInterfaceNamingConvention)

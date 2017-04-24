@@ -6,5 +6,3 @@ Example(s):
 ```
 private String bar = new String("bar"); // just do a String bar = "bar";
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#StringInstantiation)

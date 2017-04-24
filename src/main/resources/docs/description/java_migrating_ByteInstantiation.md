@@ -9,5 +9,3 @@ public class Foo {
 	private Byte i = new Byte(0); // change to Byte i =	Byte.valueOf(0);
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/migrating.html#ByteInstantiation)

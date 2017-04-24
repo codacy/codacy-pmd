@@ -8,5 +8,3 @@ Example(s):
 public class ClassInDefaultPackage {
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/naming.html#NoPackage)

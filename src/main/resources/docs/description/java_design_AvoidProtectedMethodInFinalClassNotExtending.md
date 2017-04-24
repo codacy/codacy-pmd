@@ -11,5 +11,3 @@ public final class Foo {
   protected int baz() {} // Foo cannot be subclassed, and doesn't extend anything, so is baz() really private or package visible? 
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#AvoidProtectedMethodInFinalClassNotExtending)

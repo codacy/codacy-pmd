@@ -8,5 +8,3 @@ public class Foo {
    protected void finalize() {}
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/finalizers.html#EmptyFinalizer)

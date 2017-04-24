@@ -18,5 +18,3 @@ public class Bar {
   }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#CloseResource)

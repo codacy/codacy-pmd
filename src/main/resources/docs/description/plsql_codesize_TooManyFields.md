@@ -13,5 +13,3 @@ CREATE OR REPLACE PACKAGE pkg_too_many_fields AS
     C_CHAR_Z CONSTANT CHAR(1 CHAR) := 'Z';
 END pkg_too_many_fields;
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-plsql/rules/plsql/codesize.html#TooManyFields)

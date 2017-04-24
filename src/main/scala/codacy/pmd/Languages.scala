@@ -9,7 +9,8 @@ object Languages {
     "plsql" -> Set("plsql"),
     "velocity" -> Set("vm"),
     "xml" -> Set("xml", "pom", "wsdl", "xsl"),
-    "apex" -> Set("apex")
+    "apex" -> Set("apex"),
+    "visualforce" -> Set("vf")
   )
 
   def languages: Set[String] = languagesAlias.keySet

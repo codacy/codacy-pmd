@@ -16,5 +16,3 @@ public class Main {
    }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/logging-jakarta-commons.html#UseCorrectExceptionLogging)

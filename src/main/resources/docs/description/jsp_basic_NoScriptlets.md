@@ -15,5 +15,3 @@ response.setHeader("Pragma", "No-cache");
 	</BODY>
 </HTML>
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-jsp/rules/jsp/basic.html#NoScriptlets)

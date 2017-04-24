@@ -15,5 +15,3 @@ function getX() {
   return 3;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-javascript/rules/ecmascript/basic.html#AssignmentInOperand)

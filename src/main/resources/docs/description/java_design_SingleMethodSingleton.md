@@ -21,5 +21,3 @@ public static Singleton getInstance(Object obj){
 }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#SingleMethodSingleton)

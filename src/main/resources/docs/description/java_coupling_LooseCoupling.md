@@ -20,5 +20,3 @@ public Set getFoo() {
 	return new HashSet();
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/coupling.html#LooseCoupling)

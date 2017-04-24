@@ -9,5 +9,3 @@ public void finalize() {
 	// do something
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/finalizers.html#FinalizeShouldBeProtected)

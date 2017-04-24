@@ -5,10 +5,8 @@ to avoid XSS attacks.
 
 Example(s):
 ```
-public class without sharing Foo {
+public without sharing class Foo {
     String unescapedstring = ApexPage.getCurrentPage().getParameters.get('url_param');
     String usedLater = unescapedstring;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-apex/rules/apex/security.html#ApexXSSFromURLParam)

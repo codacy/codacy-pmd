@@ -9,5 +9,3 @@ private String baz() {
     return bar.toString();
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#StringToString)

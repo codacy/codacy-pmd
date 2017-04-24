@@ -11,5 +11,3 @@ public Foo() {
   // This constructor is intentionally empty. Nothing special is needed here.
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/design.html#UncommentedEmptyConstructor)

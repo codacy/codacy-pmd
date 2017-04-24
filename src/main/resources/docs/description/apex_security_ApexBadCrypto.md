@@ -5,12 +5,10 @@ Hard-wiring these values greatly compromises the security of encrypted data.
 
 Example(s):
 ```
-public class without sharing Foo {
+public without sharing class Foo {
     Blob hardCodedIV = Blob.valueOf('Hardcoded IV 123');
     Blob hardCodedKey = Blob.valueOf('0000000000000000');
     Blob data = Blob.valueOf('Data to be encrypted');
     Blob encrypted = Crypto.encrypt('AES128', hardCodedKey, hardCodedIV, data);
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-apex/rules/apex/security.html#ApexBadCrypto)

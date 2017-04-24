@@ -25,5 +25,3 @@ public void checkRequests() {
     if (aDouble >= Double.MIN_VALUE) {}    // preferred approach
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/controversial.html#AvoidLiteralsInIfCondition)

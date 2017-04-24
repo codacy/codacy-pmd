@@ -8,5 +8,3 @@ Thread t = new Thread();
 t.run();            // use t.start() instead
 new Thread().run(); // same violation
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#DontCallThreadRun)

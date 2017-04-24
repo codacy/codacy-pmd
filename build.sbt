@@ -15,7 +15,7 @@ resolvers ++= Seq(
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
 )
 
-val pmdVersion = "5.5.4"
+val pmdVersion = "5.6.0"
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.4.8",
@@ -28,6 +28,7 @@ libraryDependencies ++= Seq(
   "net.sourceforge.pmd" % "pmd-plsql" % pmdVersion withSources(),
   "net.sourceforge.pmd" % "pmd-vm" % pmdVersion withSources(),
   "net.sourceforge.pmd" % "pmd-xml" % pmdVersion withSources(),
+  "net.sourceforge.pmd" % "pmd-visualforce" % pmdVersion withSources(),
   "net.sourceforge.pmd" % "pmd-apex" % pmdVersion withSources() exclude("apex", "*"),
   "net.sourceforge.pmd" % "pmd-apex" % pmdVersion classifier "apex-jorje-shaded"
 )

@@ -7,5 +7,3 @@ Example(s):
 <xsl:variable name="var" select="concat("Welcome",concat("to you ",$name))"/>
  <xsl:variable name="var" select="concat("Welcome","to you ",$name))">
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-xml/rules/xsl/xpath.html#UseConcatOnce)

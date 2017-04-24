@@ -15,5 +15,3 @@ buf.append("World");
 StringBuffer buf = new StringBuffer();
 buf.append("Hello").append(foo).append("World"); // good
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#ConsecutiveAppendsShouldReuse)

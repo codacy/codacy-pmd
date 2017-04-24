@@ -441,19 +441,6 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "java_controversial_OneDeclarationPerLine",
-  "title" : "Use one line for each declaration, it enhances code readability.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : ""
-  }, {
-    "name" : "version",
-    "description" : ""
-  }, {
-    "name" : "strictMode",
-    "description" : "If true, mark combined declaration even if the declarations are on separate lines."
-  } ]
-}, {
   "patternId" : "java_naming_LongVariable",
   "title" : "Avoid excessively long variable names like {0}",
   "parameters" : [ {
@@ -599,19 +586,6 @@
   "title" : "Use '==='/'!==' to compare with true/false or Numbers",
   "parameters" : [ {
     "name" : "xpath",
-    "description" : ""
-  } ]
-}, {
-  "patternId" : "java_controversial_AvoidLiteralsInIfCondition",
-  "title" : "Avoid using Literals in Conditional Statements",
-  "parameters" : [ {
-    "name" : "ignoreMagicNumbers",
-    "description" : "Comma-separated list of magic numbers, that should be ignored"
-  }, {
-    "name" : "xpath",
-    "description" : ""
-  }, {
-    "name" : "version",
     "description" : ""
   } ]
 }, {
@@ -790,6 +764,16 @@
   "parameters" : [ {
     "name" : "xpath",
     "description" : ""
+  } ]
+}, {
+  "patternId" : "java_controversial_OneDeclarationPerLine",
+  "title" : "Use one line for each declaration, it enhances code readability.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : ""
+  }, {
+    "name" : "strictMode",
+    "description" : "If true, mark combined declaration even if the declarations are on separate lines."
   } ]
 }, {
   "patternId" : "java_sunsecure_MethodReturnsInternalArray",
@@ -986,6 +970,13 @@
 }, {
   "patternId" : "java_migrating_AvoidAssertAsIdentifier",
   "title" : "Avoid using assert as an identifier; it became a reserved word in JDK 1.4",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : ""
+  } ]
+}, {
+  "patternId" : "apex_braces_IfStmtsMustUseBraces",
+  "title" : "Avoid using if statements without curly braces",
   "parameters" : [ {
     "name" : "xpath",
     "description" : ""
@@ -1286,9 +1277,6 @@
   "patternId" : "java_strings_UseStringBufferLength",
   "title" : "This is an inefficient use of StringBuffer.toString; call StringBuffer.length instead."
 }, {
-  "patternId" : "java_unusedcode_UnusedModifier",
-  "title" : "Avoid modifiers which are implied by the context"
-}, {
   "patternId" : "java_migrating_JUnit4TestShouldUseBeforeAnnotation",
   "title" : "JUnit 4 tests that set up tests should use the @Before annotation",
   "parameters" : [ {
@@ -1368,6 +1356,9 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "vf_security_VfUnescapeEl",
+  "title" : "Avoid unescaped user controlled content in EL"
+}, {
   "patternId" : "java_logging-jakarta-commons_UseCorrectExceptionLogging",
   "title" : "Use the correct logging statement for logging exceptions",
   "parameters" : [ {
@@ -1416,6 +1407,16 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "java_controversial_AvoidLiteralsInIfCondition",
+  "title" : "Avoid using Literals in Conditional Statements",
+  "parameters" : [ {
+    "name" : "ignoreMagicNumbers",
+    "description" : "Comma-separated list of magic numbers, that should be ignored"
+  }, {
+    "name" : "xpath",
+    "description" : ""
+  } ]
+}, {
   "patternId" : "java_sunsecure_ArrayIsStoredDirectly",
   "title" : "The user-supplied array ''{0}'' is stored directly."
 }, {
@@ -1445,6 +1446,13 @@
 }, {
   "patternId" : "java_strictexception_AvoidCatchingNPE",
   "title" : "Avoid catching NullPointerException; consider removing the cause of the NPE.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : ""
+  } ]
+}, {
+  "patternId" : "apex_braces_WhileLoopsMustUseBraces",
+  "title" : "Avoid using 'while' statements without curly braces",
   "parameters" : [ {
     "name" : "xpath",
     "description" : ""
@@ -1570,6 +1578,13 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_braces_IfElseStmtsMustUseBraces",
+  "title" : "Avoid using 'if...else' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : ""
+  } ]
+}, {
   "patternId" : "apex_security_ApexXSSFromEscapeFalse",
   "title" : "Apex classes should escape Strings in error messages"
 }, {
@@ -1667,8 +1682,14 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "vf_security_VfCsrf",
+  "title" : "Avoid calling VF action upon page load"
+}, {
   "patternId" : "java_strings_UselessStringValueOf",
   "title" : "No need to call String.valueOf to append to a string."
+}, {
+  "patternId" : "java_unnecessary_UnnecessaryModifier",
+  "title" : "Avoid modifiers which are implied by the context"
 }, {
   "patternId" : "java_controversial_AvoidAccessibilityAlteration",
   "title" : "You should modify visibility of class or methods using getDeclaredConstructors(), getDeclaredConstructor(Class[]), setAccessible() or PrivilegedAction.",
@@ -1863,13 +1884,6 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "java_design_AvoidConstantsInterface",
-  "title" : "An Interface should be used only to model a behaviour; consider converting this to a class.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : ""
-  } ]
-}, {
   "patternId" : "java_empty_EmptyStatementNotInLoop",
   "title" : "An empty statement (semicolon) not part of a loop",
   "parameters" : [ {
@@ -1909,6 +1923,13 @@
 }, {
   "patternId" : "vm_basic_UnusedMacroParameter",
   "title" : "Avoid unused macro parameters such as ''{0}''"
+}, {
+  "patternId" : "apex_braces_ForLoopsMustUseBraces",
+  "title" : "Avoid using 'for' statements without curly braces",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : ""
+  } ]
 }, {
   "patternId" : "java_junit_SimplifyBooleanAssertion",
   "title" : "assertTrue(!expr) can be replaced by assertFalse(expr)",

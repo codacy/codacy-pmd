@@ -9,5 +9,3 @@ public class Foo {
 	private StringBuffer buffer;	// potential memory leak as an instance variable;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#AvoidStringBufferField)

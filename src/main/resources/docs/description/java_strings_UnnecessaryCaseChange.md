@@ -8,5 +8,3 @@ boolean answer1 = buz.toUpperCase().equals("baz");	 		// should be buz.equalsIgn
     
 boolean answer2 = buz.toUpperCase().equalsIgnoreCase("baz");	 // another unnecessary toUpperCase()
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/strings.html#UnnecessaryCaseChange)

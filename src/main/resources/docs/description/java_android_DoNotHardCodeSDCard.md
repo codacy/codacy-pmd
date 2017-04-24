@@ -12,5 +12,3 @@ public class MyActivity extends Activity {
 	}
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/android.html#DoNotHardCodeSDCard)

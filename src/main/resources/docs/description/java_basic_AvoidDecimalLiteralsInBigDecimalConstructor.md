@@ -18,5 +18,3 @@ BigDecimal bd = new BigDecimal("1.123");   	// preferred approach
 
 BigDecimal bd = new BigDecimal(12);     	// preferred approach, ok for integer values
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#AvoidDecimalLiteralsInBigDecimalConstructor)

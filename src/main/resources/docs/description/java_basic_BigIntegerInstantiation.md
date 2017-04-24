@@ -11,5 +11,3 @@ BigInteger bi3 = new BigInteger(0.0);	// reference BigInteger.ZERO instead
 BigInteger bi4;
 bi4 = new BigInteger(0);				// reference BigInteger.ZERO instead
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/basic.html#BigIntegerInstantiation)

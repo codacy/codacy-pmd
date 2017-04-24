@@ -13,5 +13,3 @@ while (true) {
 while (true)
    x++;
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-javascript/rules/ecmascript/braces.html#WhileLoopsMustUseBraces)

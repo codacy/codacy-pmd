@@ -9,5 +9,3 @@ Example(s):
 	if (log.isLoggable(Level.FINE)) { ...
  	    log.fine("log something" + " and " + "concat strings");
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/logging-java.html#GuardLogStatementJavaUtil)

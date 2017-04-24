@@ -13,5 +13,3 @@ public void doit() {
       System.out.println("look at the extra semicolon");;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.5.4/pmd-java/rules/java/empty.html#EmptyStatementNotInLoop)

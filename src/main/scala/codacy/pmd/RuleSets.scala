@@ -71,6 +71,7 @@ object RuleSets extends Enumeration {
       "Import Statements" -> imports,
       "Jakarta Commons Logging" -> loggingJakartaCommons,
       "Migration" -> migrating,
+      "Basic VF" -> security,
       "Basic JSF" -> basicJsf,
       "Performance" -> performance,
       "Complexity" -> complexity,

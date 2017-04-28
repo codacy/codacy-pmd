@@ -115,8 +115,12 @@ object PMD extends Tool {
     Source.File(rootPath.relativize(filePath).toString)
   }
 
-  private def configFile(conf: List[Pattern.Definition]): Try[Path] = {
-    val rules = conf.flatMap(generateRule)
+  private def configFile(conf: List[Pattern.Definition])(implicit specification: Tool.Specification): Try[Path] = {
+    val existingPatternIds = specification.patterns.map(_.patternId)
+    val rules = conf.flatMap {
+      case pattern if existingPatternIds.contains(pattern.patternId) => generateRule(pattern)
+      case _ => None
+    }
 
     val xmlConfiguration =
       <ruleset name="Codacy Ruleset"

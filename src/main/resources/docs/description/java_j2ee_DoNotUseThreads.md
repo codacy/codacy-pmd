@@ -16,3 +16,5 @@ public class OtherThread implements Runnable {
 	}
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/j2ee.html#DoNotUseThreads)

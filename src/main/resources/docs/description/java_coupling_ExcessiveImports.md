@@ -13,3 +13,5 @@ public class Foo {
  public void doWork() {}
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#ExcessiveImports)

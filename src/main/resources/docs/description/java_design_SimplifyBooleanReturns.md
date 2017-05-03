@@ -19,3 +19,5 @@ public boolean isBarEqualTo(int x) {
    	return bar == x;	// can be replaced with this
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#SimplifyBooleanReturns)

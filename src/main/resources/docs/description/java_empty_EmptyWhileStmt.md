@@ -12,3 +12,5 @@ void bar(int a, int b) {
 	}
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/empty.html#EmptyWhileStmt)

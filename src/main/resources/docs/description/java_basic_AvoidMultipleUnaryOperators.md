@@ -23,3 +23,5 @@ boolean c = false;
 int i = ~-2;
 int j = -~7;
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/basic.html#AvoidMultipleUnaryOperators)

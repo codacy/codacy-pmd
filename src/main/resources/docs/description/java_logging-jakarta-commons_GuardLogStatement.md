@@ -9,3 +9,5 @@ Example(s):
     if (log.isDebugEnabled() { ...
         log.debug("log something" + " and " + "concat strings");
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement)

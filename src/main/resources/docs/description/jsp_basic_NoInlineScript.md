@@ -11,3 +11,5 @@ Most browsers should be able to interpret the following headers:
                     
                 <meta http-equiv="Content-Type"  content="text/html; charset=UTF-8" />
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-jsp/rules/jsp/basic.html#NoInlineScript)

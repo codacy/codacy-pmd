@@ -8,3 +8,5 @@ public interface MyLocal extends javax.ejb.EJBLocalObject {}				// proper name
 
  public interface MissingProperSuffix extends javax.ejb.EJBLocalObject {}	// non-standard name
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/j2ee.html#LocalInterfaceSessionNamingConvention)

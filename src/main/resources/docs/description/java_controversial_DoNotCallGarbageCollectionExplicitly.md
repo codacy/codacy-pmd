@@ -29,3 +29,5 @@ public class GCCall {
     }
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DoNotCallGarbageCollectionExplicitly)

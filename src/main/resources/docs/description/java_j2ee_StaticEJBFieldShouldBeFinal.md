@@ -13,3 +13,5 @@ public class SomeEJB extends EJBObject implements EJBLocalHome {
 	private static final int CountB;	// preferred, read-only access
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/j2ee.html#StaticEJBFieldShouldBeFinal)

@@ -11,3 +11,5 @@ public class Foo extends TestCase {
    private static void suite() {} // oops, should be public
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/junit.html#JUnitStaticSuite)

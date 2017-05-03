@@ -9,3 +9,5 @@ public class Foo extends Bar {
 	int foo;	// There is probably a better name that can be used
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#AvoidFieldNameMatchingTypeName)

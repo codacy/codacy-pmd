@@ -18,3 +18,5 @@ if (rst.next()) {	// result is properly examined and used
 		// handle missing data
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/basic.html#CheckResultSet)

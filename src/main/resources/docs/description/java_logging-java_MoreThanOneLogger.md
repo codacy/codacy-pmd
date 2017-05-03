@@ -11,3 +11,5 @@ public class Foo {
     Logger log2= Logger.getLogger(Foo.class.getName());
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/logging-java.html#MoreThanOneLogger)

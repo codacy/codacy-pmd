@@ -10,3 +10,5 @@ public class Foo implements java.io.Serializable {
  // i.e., public static final long serialVersionUID = 4328743;
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/javabeans.html#MissingSerialVersionUID)

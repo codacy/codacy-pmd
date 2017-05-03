@@ -17,3 +17,5 @@ public Long getId() {
   return super.getId();  // OK if 'ignoreAnnotations' is false, which is the default behavior
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/unnecessary.html#UselessOverridingMethod)

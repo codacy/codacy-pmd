@@ -10,3 +10,5 @@ if (s.indexOf("d") {}
   // instead do this
 if (s.indexOf('d') {}
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/strings.html#UseIndexOfChar)

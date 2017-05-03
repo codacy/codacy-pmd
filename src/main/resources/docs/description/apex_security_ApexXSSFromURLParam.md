@@ -10,3 +10,5 @@ public without sharing class Foo {
     String usedLater = unescapedstring;
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-apex/rules/apex/security.html#ApexXSSFromURLParam)

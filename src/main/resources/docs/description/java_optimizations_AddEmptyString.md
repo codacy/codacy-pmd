@@ -8,3 +8,5 @@ Example(s):
 String s = "" + 123; 				// inefficient 
 String t = Integer.toString(456); 	// preferred approach
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#AddEmptyString)

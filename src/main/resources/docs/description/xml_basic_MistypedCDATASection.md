@@ -6,3 +6,5 @@ Example(s):
 ```
 An extra [ looks like &lt;!CDATA[[]]&gt;, and an extra ] looks like &lt;!CDATA[]]]&gt;.
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-xml/rules/xml/basic.html#MistypedCDATASection)

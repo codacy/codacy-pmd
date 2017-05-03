@@ -9,3 +9,5 @@ public without sharing class Foo {
 // DML operation here
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-apex/rules/apex/security.html#ApexSharingViolations)

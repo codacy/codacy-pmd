@@ -39,3 +39,5 @@ PROCEDURE bar AS BEGIN	-- this is something more complex than it needs to be,
 	END;
 END;
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-plsql/rules/plsql/codesize.html#NPathComplexity)

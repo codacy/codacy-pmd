@@ -15,3 +15,5 @@ Foo[] fooArray = foos.toArray(new Foo[0]);
     // avoiding of a new one via reflection
 Foo[] fooArray = foos.toArray(new Foo[foos.size()]);
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#OptimizableToArrayCall)

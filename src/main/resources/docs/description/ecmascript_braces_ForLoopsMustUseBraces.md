@@ -13,3 +13,5 @@ for (var i = 0; i < 42; i++) {
 for (var i = 0; i < 42; i++)
    foo();
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-javascript/rules/ecmascript/braces.html#ForLoopsMustUseBraces)

@@ -19,3 +19,5 @@ public class Foo {
 	// [... more more public methods ...]
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-apex/rules/apex/complexity.html#ExcessivePublicCount)

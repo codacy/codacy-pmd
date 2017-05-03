@@ -14,3 +14,5 @@ public void bar() {
       }
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/strictexception.html#AvoidThrowingNewInstanceOfSameException)

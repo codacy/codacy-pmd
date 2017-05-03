@@ -25,3 +25,5 @@ public class Foo {		// perfect, both methods provided
 	}
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/basic.html#OverrideBothEqualsAndHashcode)

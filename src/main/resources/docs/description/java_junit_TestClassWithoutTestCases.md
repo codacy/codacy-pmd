@@ -14,3 +14,5 @@ public class CarTest {
    // code
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/junit.html#TestClassWithoutTestCases)

@@ -12,3 +12,5 @@ public without sharing class Foo {
     Blob encrypted = Crypto.encrypt('AES128', hardCodedKey, hardCodedIV, data);
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-apex/rules/apex/security.html#ApexBadCrypto)

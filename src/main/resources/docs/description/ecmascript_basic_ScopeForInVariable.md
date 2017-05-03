@@ -36,3 +36,5 @@ function bar() {
    // 'p' is trashed and has value of 'dirty'!
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-javascript/rules/ecmascript/basic.html#ScopeForInVariable)

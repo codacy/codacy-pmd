@@ -11,3 +11,5 @@ public class Foo extends TestCase {
    public void TearDown() {} // oops, should be tearDown
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/junit.html#JUnitSpelling)

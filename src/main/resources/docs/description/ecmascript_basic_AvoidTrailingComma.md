@@ -12,3 +12,5 @@ function(arg) {
     var arr2 = [ 1, 2, ]; // Length 2 or 3 depending on the browser!
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-javascript/rules/ecmascript/basic.html#AvoidTrailingComma)

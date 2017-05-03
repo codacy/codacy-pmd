@@ -13,3 +13,5 @@ public void doSomething() {
 		// 98 copies omitted for brevity.
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/codesize.html#ExcessiveMethodLength)

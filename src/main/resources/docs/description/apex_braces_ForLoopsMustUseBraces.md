@@ -13,3 +13,5 @@ for (int i = 0; i < 42; i++) { // preferred approach
     foo();
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-apex/rules/apex/braces.html#ForLoopsMustUseBraces)

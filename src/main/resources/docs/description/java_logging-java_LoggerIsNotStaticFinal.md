@@ -10,3 +10,5 @@ public class Foo{
     static final Logger log = Logger.getLogger(Foo.class.getName());	// preferred approach
 }
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/logging-java.html#LoggerIsNotStaticFinal)

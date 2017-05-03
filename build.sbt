@@ -6,7 +6,7 @@ name := "codacy-pmd"
 
 version := "1.0.0-SNAPSHOT"
 
-val languageVersion = "2.11.8"
+val languageVersion = "2.11.11"
 
 scalaVersion := languageVersion
 
@@ -15,7 +15,7 @@ resolvers ++= Seq(
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
 )
 
-val pmdVersion = "5.6.0"
+val pmdVersion = "5.6.1"
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.4.8",

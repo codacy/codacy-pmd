@@ -16,3 +16,5 @@ Integer[] a = (Integer [])c.toArray();
    // this is fine and will not trigger the rule
 Integer[] b = (Integer [])c.toArray(new Integer[c.size()]);
 ```
+
+[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/basic.html#ClassCastExceptionWithToArray)

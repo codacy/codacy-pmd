@@ -116,8 +116,19 @@ object PMD extends Tool {
   }
 
   private def configFile(conf: List[Pattern.Definition])(implicit specification: Tool.Specification): Try[Path] = {
+    val updatedRules = conf.flatMap { pattern =>
+      val newPatternId = pattern.patternId.value.split("_") match {
+        case Array(patternCategory, patternName) => Some(s"""java_${patternCategory}_$patternName""")
+        case Array(langAlias, patternCategory, patternName) => Some(s"""${langAlias}_${patternCategory}_$patternName""")
+        case _ => None
+      }
+
+      newPatternId.map(npid => pattern.copy(patternId = Pattern.Id(npid)))
+    }
+
+    // Filter rules that are not listed in patterns.json
     val existingPatternIds = specification.patterns.map(_.patternId)
-    val rules = conf.flatMap {
+    val rules = updatedRules.flatMap {
       case pattern if existingPatternIds.contains(pattern.patternId) => generateRule(pattern)
       case _ => None
     }

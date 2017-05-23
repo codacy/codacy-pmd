@@ -12,5 +12,3 @@ StringBuffer sb = new StringBuffer("tmp = "+System.getProperty("java.io.tmpdir")
 StringBuffer sb = new StringBuffer("tmp = ");
 sb.append(System.getProperty("java.io.tmpdir"));
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/strings.html#InefficientStringBuffering)

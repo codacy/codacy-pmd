@@ -1,7 +1,7 @@
 Since: PMD 1.02
 
-A high ratio of statements to labels in a switch statement implies that the switch statement 
-is overloaded.  Consider moving the statements into new methods or creating subclasses based 
+A high ratio of statements to labels in a switch statement implies that the switch statement
+is overloaded.  Consider moving the statements into new methods or creating subclasses based
 on the switch variable.
 
 Example(s):
@@ -20,5 +20,3 @@ public class Foo {
   }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#SwitchDensity)

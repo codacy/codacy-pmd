@@ -35,5 +35,3 @@ void bar() {	// this is something more complex than it needs to be,
 	}
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/codesize.html#NPathComplexity)

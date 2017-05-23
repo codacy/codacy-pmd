@@ -10,5 +10,3 @@ public without sharing class Foo {
     Trigger.new[0].addError(vulnerableHTMLGoesHere, false);
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-apex/rules/apex/security.html#ApexXSSFromEscapeFalse)

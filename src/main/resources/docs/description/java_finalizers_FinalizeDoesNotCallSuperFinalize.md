@@ -9,5 +9,3 @@ protected void finalize() {
 	// neglected to call super.finalize()
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/finalizers.html#FinalizeDoesNotCallSuperFinalize)

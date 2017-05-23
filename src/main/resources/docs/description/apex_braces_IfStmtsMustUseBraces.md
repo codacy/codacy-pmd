@@ -13,5 +13,3 @@ if (foo) {	// preferred approach
 	x++;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-apex/rules/apex/braces.html#IfStmtsMustUseBraces)

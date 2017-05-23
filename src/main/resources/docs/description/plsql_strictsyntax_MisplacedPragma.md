@@ -23,5 +23,3 @@ create or replace package body inline_pragma_error is
 end inline_pragma_error;
 /
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-plsql/rules/plsql/strictsyntax.html#MisplacedPragma)

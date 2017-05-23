@@ -10,5 +10,3 @@ void foo() {
 	b.finalize();
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/finalizers.html#AvoidCallingFinalize)

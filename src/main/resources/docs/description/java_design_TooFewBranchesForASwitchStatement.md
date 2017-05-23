@@ -1,6 +1,6 @@
 Since: PMD 4.2
 
-Switch statements are indended to be used to support complex branching behaviour. Using a switch for only a few 
+Switch statements are indended to be used to support complex branching behaviour. Using a switch for only a few
 cases is ill-advised, since switches are not as easy to understand as if-then statements. In these cases use the
 if-then statement to increase code readability.
 
@@ -19,5 +19,3 @@ public class Foo {
     }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#TooFewBranchesForASwitchStatement)

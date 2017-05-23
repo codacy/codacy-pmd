@@ -7,5 +7,3 @@ Example(s):
 Boolean bar = new Boolean("true");		// unnecessary creation, just reference Boolean.TRUE;
 Boolean buz = Boolean.valueOf(false);	// ...., just reference Boolean.FALSE;
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/basic.html#BooleanInstantiation)

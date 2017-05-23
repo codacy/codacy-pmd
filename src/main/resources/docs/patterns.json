@@ -831,6 +831,15 @@
     "category" : "Security",
     "languages" : [ "apex" ]
   }, {
+    "patternId" : "jsp_basic_JspEncoding",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\t\t\t\t\t\n//CompilationUnit/Content[\nnot(Element[@Name=\"meta\"][\n   Attribute[@Name=\"content\"]/AttributeValue[contains(lower-case(@Image),\"charset=utf-8\")]\n]) \nand \n    not(JspDirective[@Name='page']/JspDirectiveAttribute[@Name='contentType'][contains(lower-case(@Value),\"charset=utf-8\")])\n]\n                    \n\t\t\t\t"
+    } ],
+    "languages" : [ "jsp" ]
+  }, {
     "patternId" : "java_junit_JUnitAssertionsShouldIncludeMessage",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -2081,15 +2090,6 @@
     "level" : "Warning",
     "category" : "Performance",
     "languages" : [ "java" ]
-  }, {
-    "patternId" : "jsp_basic_JspEncoding",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\t\t\t\t\t\n//Content[\nnot(Element[@Name=\"meta\"][\n   Attribute[@Name=\"content\"]/AttributeValue[contains(lower-case(@Image),\"charset=utf-8\")]\n]) \nand \n    not(JspDirective[@Name='page']/JspDirectiveAttribute[@Name='contentType'][contains(lower-case(@Value),\"charset=utf-8\")])\n]\n                    \n\t\t\t\t"
-    } ],
-    "languages" : [ "jsp" ]
   }, {
     "patternId" : "apex_security_ApexInsecureEndpoint",
     "level" : "Error",

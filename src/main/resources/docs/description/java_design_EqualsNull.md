@@ -9,10 +9,8 @@ String x = "foo";
 if (x.equals(null)) { // bad form
    	doSomething();
 	}
-	
+
 if (x == null) { 	// preferred
    	doSomething();
 	}
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#EqualsNull)

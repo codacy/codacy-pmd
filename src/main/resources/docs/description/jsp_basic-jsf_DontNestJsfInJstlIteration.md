@@ -10,5 +10,3 @@ Example(s):
 		</c:forEach>
 </ul> </body> </html>
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-jsp/rules/jsp/basic-jsf.html#DontNestJsfInJstlIteration)

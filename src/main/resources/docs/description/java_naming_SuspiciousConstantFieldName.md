@@ -12,5 +12,3 @@ public class Foo {
   double PI = 3.16;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#SuspiciousConstantFieldName)

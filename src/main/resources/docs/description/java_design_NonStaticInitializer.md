@@ -1,7 +1,7 @@
 Since: PMD 1.5
 
-A non-static initializer block will be called any time a constructor is invoked (just prior to 
-invoking the constructor).  While this is a valid language construct, it is rarely used and is 
+A non-static initializer block will be called any time a constructor is invoked (just prior to
+invoking the constructor).  While this is a valid language construct, it is rarely used and is
 confusing.
 
 Example(s):
@@ -13,5 +13,3 @@ public class MyClass {
   }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#NonStaticInitializer)

@@ -22,5 +22,3 @@ public class Foo implements Cloneable {
     public Object clone() // Ok
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/clone.html#CloneMethodMustBePublic)

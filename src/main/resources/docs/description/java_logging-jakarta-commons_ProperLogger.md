@@ -13,5 +13,3 @@ public class Foo {
    protected Log LOG = LogFactory.getLog(Testclass.class);			// wrong approach
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/logging-jakarta-commons.html#ProperLogger)

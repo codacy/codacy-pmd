@@ -6,5 +6,3 @@ Example(s):
 ```
 <xsl:variable name="var" select="//item/descendant::child"/>
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-xml/rules/xsl/xpath.html#AvoidAxisNavigation)

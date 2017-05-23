@@ -15,5 +15,3 @@ if (bar) {
    }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-javascript/rules/ecmascript/unnecessary.html#UnnecessaryBlock)

@@ -199,9 +199,7 @@ object DocGenerator {
             |Example(s):
             |```
             |${example.trim}
-            |```
-            |
-            |[Source](https://pmd.github.io/pmd-5.6.1/pmd-$language/rules/$langAlias/$rulesetNameClean.html#$name)${Properties.lineSeparator}""".stripMargin)
+            |```${Properties.lineSeparator}""".stripMargin)
       )
     }).to[List]
   }

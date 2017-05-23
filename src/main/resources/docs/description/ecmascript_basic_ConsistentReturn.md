@@ -22,5 +22,3 @@ function bar() {
    return false;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-javascript/rules/ecmascript/basic.html#ConsistentReturn)

@@ -15,16 +15,14 @@ public interface ConstantInterface {
 // with ignoreIfHasMethods = false
 public interface AnotherConstantInterface {
     public static final int CONST1 = 1; // violation, no fields allowed in interface!
-    
+
     int anyMethod();
 }
 
 // with ignoreIfHasMethods = true
 public interface YetAnotherConstantInterface {
     public static final int CONST1 = 1; // no violation
-    
+
     int anyMethod();
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#ConstantsInInterface)

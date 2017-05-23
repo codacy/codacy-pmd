@@ -7,13 +7,11 @@ that are the proper size.
 Example(s):
 ```
 List foos = getFoos();
-  
+
     // inefficient, the array will be discarded
 Foo[] fooArray = foos.toArray(new Foo[0]);
-    
-    // much better; this one sizes the destination array, 
+
+    // much better; this one sizes the destination array,
     // avoiding of a new one via reflection
 Foo[] fooArray = foos.toArray(new Foo[foos.size()]);
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#OptimizableToArrayCall)

@@ -45,5 +45,3 @@ BEGIN
 END update_planned_hrs;
 /
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-plsql/rules/plsql/TomKytesDespair.html#TomKytesDespair)

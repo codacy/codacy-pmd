@@ -26,5 +26,3 @@ StringBuilder sb2 = new StringBuilder('c');
 StringBuffer  sb3 = new StringBuffer("c");
 StringBuilder sb4 = new StringBuilder("c");
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/strings.html#StringBufferInstantiationWithChar)

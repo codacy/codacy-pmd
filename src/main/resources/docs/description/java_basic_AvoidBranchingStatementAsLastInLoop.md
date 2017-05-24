@@ -20,5 +20,3 @@ for (int i = 0; i < 10; i++) {
 	}
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/basic.html#AvoidBranchingStatementAsLastInLoop)

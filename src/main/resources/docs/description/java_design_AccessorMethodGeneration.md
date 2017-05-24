@@ -9,17 +9,15 @@ Example(s):
 public class OuterClass {
     private int counter;
     /* package */ int id;
-    
+
     public class InnerClass {
         InnerClass() {
             OuterClass.this.counter++; // wrong accessor method will be generated
         }
-        
+
         public int getOuterClassId() {
             return OuterClass.this.id; // id is package-private, no accessor method needed
         }
     }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#AccessorMethodGeneration)

@@ -13,5 +13,3 @@ var x = 1.12; // Ok
 var y = 1.1234567890123; // Ok
 var z = 1.12345678901234567; // Not good
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-javascript/rules/ecmascript/basic.html#InnaccurateNumericLiteral)

@@ -20,5 +20,3 @@ private int getMoreFoo(){
       return this.moreFoo;
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize)

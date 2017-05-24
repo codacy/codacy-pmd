@@ -14,5 +14,3 @@ Example(s):
 <%-- JSP comment --%>
 </BODY> </HTML>
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-jsp/rules/jsp/basic.html#NoHtmlComments)

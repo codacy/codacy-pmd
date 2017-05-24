@@ -13,5 +13,3 @@ CREATE OR REPLACE PACKAGE BODY AS
  END;
 END;
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-plsql/rules/plsql/codesize.html#NcssMethodCount)

@@ -6,7 +6,7 @@ the conditional test can be returned instead.
 Example(s):
 ```
 public boolean isBarEqualTo(int x) {
-   
+
 	if (bar == x) {		 // this bit of code...
 		return true;
 	} else {
@@ -19,5 +19,3 @@ public boolean isBarEqualTo(int x) {
    	return bar == x;	// can be replaced with this
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#SimplifyBooleanReturns)

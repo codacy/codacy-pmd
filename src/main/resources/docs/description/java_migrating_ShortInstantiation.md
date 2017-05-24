@@ -9,5 +9,3 @@ public class Foo {
 	private Short i = new Short(0); // change to Short i = Short.valueOf(0);
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/migrating.html#ShortInstantiation)

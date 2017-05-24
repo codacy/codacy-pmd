@@ -44,5 +44,3 @@ public class Foo {    // This has a Cyclomatic Complexity = 12
     }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/codesize.html#StdCyclomaticComplexity)

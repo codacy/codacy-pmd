@@ -1,7 +1,7 @@
 Since: PMD 3.7
 
 Throwing a new exception from a catch block without passing the original exception into the
-new exception will cause the original stack trace to be lost making it difficult to debug 
+new exception will cause the original stack trace to be lost making it difficult to debug
 effectively.
 
 Example(s):
@@ -28,5 +28,3 @@ public class Foo {
     }
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#PreserveStackTrace)

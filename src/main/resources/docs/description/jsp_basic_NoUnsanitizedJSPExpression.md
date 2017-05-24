@@ -11,5 +11,3 @@ ${expression}                    <!-- don't use this -->
 ${fn:escapeXml(expression)}      <!-- instead, escape it -->
 <c:out value="${expression}" />  <!-- or use c:out -->
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-jsp/rules/jsp/basic.html#NoUnsanitizedJSPExpression)

@@ -6,5 +6,3 @@ Example(s):
 ```
 <apex:page controller="AcRestActionsController" action="{!csrfInitMethod}" >
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-visualforce/rules/vf/security.html#VfCsrf)

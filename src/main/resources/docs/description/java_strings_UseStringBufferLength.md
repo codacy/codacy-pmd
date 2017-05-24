@@ -11,5 +11,3 @@ if (sb.toString().equals("")) {}	    // inefficient
     
 if (sb.length() == 0) {}	    		// preferred
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/strings.html#UseStringBufferLength)

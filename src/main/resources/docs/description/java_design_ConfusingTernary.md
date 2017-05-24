@@ -6,7 +6,7 @@ Avoid negation within an &quot;if&quot; expression with an &quot;else&quot; clau
 as:
   if (x == y) same(); else diff();
 
-Most &quot;if (x != y)&quot; cases without an &quot;else&quot; are often return cases, so consistent use of this 
+Most &quot;if (x != y)&quot; cases without an &quot;else&quot; are often return cases, so consistent use of this
 rule makes the code easier to read.  Also, this resolves trivial ordering problems, such
 as &quot;does the error case go first?&quot; or &quot;does the common case go first?&quot;.
 
@@ -16,5 +16,3 @@ boolean bar(int x, int y) {
   return (x != y) ? diff : same;
  }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#ConfusingTernary)

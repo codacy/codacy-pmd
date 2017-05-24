@@ -9,5 +9,3 @@ Example(s):
 for (int i = 0; i < 42; i++)
    foo();
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/braces.html#ForLoopsMustUseBraces)

@@ -12,5 +12,3 @@ public class Foo {
 	DataModule dmTest = new DataModule();
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-apex/rules/apex/style.html#VariableNamingConventions)

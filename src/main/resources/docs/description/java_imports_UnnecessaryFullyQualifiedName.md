@@ -12,5 +12,3 @@ public class Foo {
    private List list2; // More appropriate given import of 'java.util.List'
 }
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnnecessaryFullyQualifiedName)

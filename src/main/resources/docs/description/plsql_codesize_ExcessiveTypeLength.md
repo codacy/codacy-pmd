@@ -24,5 +24,3 @@ TYPE BODY Foo AS
 	END barn;
 END;
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-plsql/rules/plsql/codesize.html#ExcessiveTypeLength)

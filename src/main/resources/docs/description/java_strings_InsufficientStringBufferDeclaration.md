@@ -14,5 +14,3 @@ bad.append("This is a long string that will exceed the default 16 characters");
 StringBuffer good = new StringBuffer(41);
 good.append("This is a long string, which is pre-sized");
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/strings.html#InsufficientStringBufferDeclaration)

@@ -6,5 +6,3 @@ Example(s):
 ```
 <jsp:forward page='UnderConstruction.jsp'/>
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-jsp/rules/jsp/basic.html#NoJspForward)

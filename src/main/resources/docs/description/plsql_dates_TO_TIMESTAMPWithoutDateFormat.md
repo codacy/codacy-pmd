@@ -31,5 +31,3 @@ END to_timestamp_three_parameters ;
 END date_utilities ;
 /
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-plsql/rules/plsql/dates.html#TO_TIMESTAMPWithoutDateFormat)

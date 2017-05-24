@@ -8,5 +8,3 @@ public interface MyBeautifulHome extends javax.ejb.EJBHome {}		// proper name
 
 public interface MissingProperSuffix extends javax.ejb.EJBHome {}	// non-standard name
 ```
-
-[Source](https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/j2ee.html#RemoteSessionInterfaceNamingConvention)

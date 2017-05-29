@@ -123,9 +123,6 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_complexity_NcssConstructorCount",
-  "title" : "The constructor has an NCSS line count of {0}"
-}, {
   "patternId" : "java_strings_AvoidDuplicateLiterals",
   "title" : "The String literal {0} appears {1} times in this file; the first occurrence is on line {2}"
 }, {
@@ -170,6 +167,10 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_complexity_NcssMethodCount",
+  "title" : "The method ''{0}()'' has an NCSS line count of {1}",
+  "timeToFix" : 60
+}, {
   "patternId" : "vm_basic_ExcessiveTemplateLength",
   "title" : "Template is too long",
   "parameters" : [ {
@@ -183,6 +184,10 @@
   "patternId" : "java_codesize_ModifiedCyclomaticComplexity",
   "title" : "The {0} ''{1}'' has a Modified Cyclomatic Complexity of {2}."
 }, {
+  "patternId" : "apex_style_AvoidLogicInTrigger",
+  "title" : "Avoid logic in triggers",
+  "timeToFix" : 360
+}, {
   "patternId" : "java_strings_AppendCharacterWithChar",
   "title" : "Avoid appending characters as strings in StringBuffer.append."
 }, {
@@ -191,9 +196,6 @@
 }, {
   "patternId" : "vm_basic_EmptyIfStmt",
   "title" : "Avoid empty if statements"
-}, {
-  "patternId" : "apex_complexity_ExcessiveClassLength",
-  "title" : "Avoid really long classes."
 }, {
   "patternId" : "java_naming_GenericsNaming",
   "title" : "Generics names should be a one letter long and upper case.",
@@ -211,9 +213,6 @@
 }, {
   "patternId" : "plsql_codesize_ExcessivePackageBodyLength",
   "title" : "Avoid really long Object Type and Package bodies ({0} lines found)."
-}, {
-  "patternId" : "apex_complexity_NcssMethodCount",
-  "title" : "The method ''{0}()'' has an NCSS line count of {1}"
 }, {
   "patternId" : "java_design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
   "title" : "A class which only has private constructors should be final",
@@ -244,17 +243,11 @@
   "patternId" : "java_design_UseCollectionIsEmpty",
   "title" : "Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()"
 }, {
-  "patternId" : "apex_security_ApexBadCrypto",
-  "title" : "Apex classes should use random IV/key"
-}, {
   "patternId" : "jsp_basic_NoUnsanitizedJSPExpression",
   "title" : "Using unsanitized JSP expression can lead to Cross Site Scripting (XSS) attacks"
 }, {
   "patternId" : "java_junit_JUnitTestsShouldIncludeAssert",
   "title" : "JUnit tests should include assert() or fail()"
-}, {
-  "patternId" : "apex_security_ApexOpenRedirect",
-  "title" : "Apex classes should safely redirect to a known location"
 }, {
   "patternId" : "java_codesize_NPathComplexity",
   "title" : "The method {0}() has an NPath complexity of {1}"
@@ -338,6 +331,14 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_braces_WhileLoopsMustUseBraces",
+  "title" : "Avoid using 'while' statements without curly braces",
+  "timeToFix" : 10,
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : ""
+  } ]
+}, {
   "patternId" : "java_clone_ProperCloneImplementation",
   "title" : "Object clone() should be implemented with super.clone()",
   "parameters" : [ {
@@ -395,11 +396,17 @@
   "patternId" : "java_strings_ConsecutiveLiteralAppends",
   "title" : "StringBuffer (or StringBuilder).append is called {0} consecutive times with literal Strings. Use a single append with a single combined String."
 }, {
-  "patternId" : "apex_security_ApexSuggestUsingNamedCred",
-  "title" : "Suggest named credentials for authentication"
+  "patternId" : "apex_security_ApexSOQLInjection",
+  "title" : "Avoid untrusted/unescaped variables in DML query",
+  "timeToFix" : 60
 }, {
-  "patternId" : "apex_security_ApexDangerousMethods",
-  "title" : "Calling potentially dangerous method"
+  "patternId" : "apex_security_ApexInsecureEndpoint",
+  "title" : "Apex callouts should use encrypted communication channels",
+  "timeToFix" : 60
+}, {
+  "patternId" : "apex_style_AvoidGlobalModifier",
+  "title" : "Avoid using global modifier",
+  "timeToFix" : 10
 }, {
   "patternId" : "pom_basic_InvalidDependencyTypes",
   "title" : "By default, Maven only recognized the following types: $validTypes.",
@@ -464,11 +471,16 @@
   "patternId" : "java_naming_AvoidFieldNameMatchingTypeName",
   "title" : "It is somewhat confusing to have a field name matching the declaring class name"
 }, {
-  "patternId" : "apex_apexunit_ApexUnitTestShouldNotUseSeeAllDataTrue",
-  "title" : "Apex unit tests should not use @isTest(seeAllData = true)"
-}, {
   "patternId" : "java_javabeans_MissingSerialVersionUID",
   "title" : "Classes implementing Serializable should set a serialVersionUID",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : ""
+  } ]
+}, {
+  "patternId" : "apex_braces_IfElseStmtsMustUseBraces",
+  "title" : "Avoid using 'if...else' statements without curly braces",
+  "timeToFix" : 10,
   "parameters" : [ {
     "name" : "xpath",
     "description" : ""
@@ -575,6 +587,10 @@
     "description" : "Name of the static Logger variable"
   } ]
 }, {
+  "patternId" : "apex_security_ApexSharingViolations",
+  "title" : "Apex classes should declare a sharing model if DML or SOQL/SOSL is used",
+  "timeToFix" : 10
+}, {
   "patternId" : "java_optimizations_UseArraysAsList",
   "title" : "Use asList instead of tight loops",
   "parameters" : [ {
@@ -591,6 +607,10 @@
 }, {
   "patternId" : "java_codesize_ExcessiveMethodLength",
   "title" : "Avoid really long methods."
+}, {
+  "patternId" : "apex_performance_AvoidSoqlInLoops",
+  "title" : "Avoid Soql queries inside loops",
+  "timeToFix" : 360
 }, {
   "patternId" : "plsql_strictsyntax_MisplacedPragma",
   "title" : "Pragma should be used only inside the declaration block before 'BEGIN'.",
@@ -629,8 +649,9 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_style_AvoidGlobalModifier",
-  "title" : "Avoid using global modifier"
+  "patternId" : "apex_security_ApexOpenRedirect",
+  "title" : "Apex classes should safely redirect to a known location",
+  "timeToFix" : 60
 }, {
   "patternId" : "xsl_xpath_UseConcatOnce",
   "title" : "The xpath concat() function accepts as many arguments as required, you may be able to factorize this expression",
@@ -673,9 +694,6 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_security_ApexCSRF",
-  "title" : "Avoid making DML operations in Apex class constructor/init method"
-}, {
   "patternId" : "java_design_NonStaticInitializer",
   "title" : "Non-static initializers are confusing",
   "parameters" : [ {
@@ -697,12 +715,6 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_complexity_ExcessiveParameterList",
-  "title" : "Avoid long parameter lists."
-}, {
-  "patternId" : "apex_complexity_StdCyclomaticComplexity",
-  "title" : "The {0} ''{1}'' has a Standard Cyclomatic Complexity of {2}."
-}, {
   "patternId" : "java_design_FieldDeclarationsShouldBeAtStartOfClass",
   "title" : "Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes."
 }, {
@@ -721,6 +733,10 @@
 }, {
   "patternId" : "java_coupling_LooseCoupling",
   "title" : "Avoid using implementation types like ''{0}''; use the interface instead"
+}, {
+  "patternId" : "apex_security_ApexDangerousMethods",
+  "title" : "Calling potentially dangerous method",
+  "timeToFix" : 60
 }, {
   "patternId" : "jsp_basic_IframeMissingSrcAttribute",
   "title" : "IFrames must have a src attribute.",
@@ -793,6 +809,14 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_security_ApexXSSFromURLParam",
+  "title" : "Apex classes should escape/sanitize Strings obtained from URL parameters",
+  "timeToFix" : 60
+}, {
+  "patternId" : "apex_complexity_ExcessiveParameterList",
+  "title" : "Avoid long parameter lists.",
+  "timeToFix" : 60
+}, {
   "patternId" : "java_design_IdempotentOperations",
   "title" : "Avoid idempotent operations (like assigning a variable to itself)."
 }, {
@@ -817,11 +841,12 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_performance_AvoidDmlStatementsInLoops",
+  "title" : "Avoid DML statements inside loops",
+  "timeToFix" : 360
+}, {
   "patternId" : "java_migrating_JUnitUseExpected",
   "title" : "In JUnit4, use the @Test(expected) annotation to denote tests that should throw exceptions"
-}, {
-  "patternId" : "apex_security_ApexSOQLInjection",
-  "title" : "Avoid untrusted/unescaped variables in DML query"
 }, {
   "patternId" : "java_basic_ClassCastExceptionWithToArray",
   "title" : "This usage of the Collection.toArray() method will throw a ClassCastException.",
@@ -829,9 +854,6 @@
     "name" : "xpath",
     "description" : ""
   } ]
-}, {
-  "patternId" : "apex_security_ApexSharingViolations",
-  "title" : "Apex classes should declare a sharing model if DML or SOQL/SOSL is used"
 }, {
   "patternId" : "java_design_CompareObjectsWithEquals",
   "title" : "Use equals() to compare object references."
@@ -878,9 +900,6 @@
 }, {
   "patternId" : "plsql_codesize_ExcessiveMethodLength",
   "title" : "Avoid really long methods ({0} lines found)."
-}, {
-  "patternId" : "apex_style_ClassNamingConventions",
-  "title" : "Class names should begin with an uppercase character"
 }, {
   "patternId" : "ecmascript_braces_IfStmtsMustUseBraces",
   "title" : "Avoid using if statements without curly braces",
@@ -975,13 +994,6 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_braces_IfStmtsMustUseBraces",
-  "title" : "Avoid using if statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : ""
-  } ]
-}, {
   "patternId" : "java_j2ee_DoNotCallSystemExit",
   "title" : "System.exit() should not be used in J2EE/JEE apps",
   "parameters" : [ {
@@ -991,6 +1003,10 @@
 }, {
   "patternId" : "java_design_SingularField",
   "title" : "Perhaps ''{0}'' could be replaced by a local variable."
+}, {
+  "patternId" : "apex_security_ApexCSRF",
+  "title" : "Avoid making DML operations in Apex class constructor/init method",
+  "timeToFix" : 60
 }, {
   "patternId" : "java_basic_AvoidUsingHardCodedIP",
   "title" : "Do not hard code the IP address ${variableName}",
@@ -1064,6 +1080,10 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_security_ApexXSSFromEscapeFalse",
+  "title" : "Apex classes should escape Strings in error messages",
+  "timeToFix" : 60
+}, {
   "patternId" : "java_design_SingletonClassReturningNewInstance",
   "title" : "getInstance method always creates a new object and hence does not comply to Singleton Design Pattern behaviour. Please review"
 }, {
@@ -1092,9 +1112,6 @@
 }, {
   "patternId" : "java_optimizations_PrematureDeclaration",
   "title" : "Avoid declaring a variable if it is unreferenced before a possible exit point."
-}, {
-  "patternId" : "apex_apexunit_ApexUnitTestClassShouldHaveAsserts",
-  "title" : "Apex unit tests should System.assert() or assertEquals() or assertNotEquals()"
 }, {
   "patternId" : "java_controversial_AvoidUsingShortType",
   "title" : "Do not use the short type",
@@ -1143,6 +1160,14 @@
 }, {
   "patternId" : "java_basic_OverrideBothEqualsAndHashcode",
   "title" : "Ensure you override both equals() and hashCode()"
+}, {
+  "patternId" : "apex_complexity_NcssConstructorCount",
+  "title" : "The constructor has an NCSS line count of {0}",
+  "timeToFix" : 60
+}, {
+  "patternId" : "apex_complexity_ExcessiveClassLength",
+  "title" : "Avoid really long classes.",
+  "timeToFix" : 1800
 }, {
   "patternId" : "java_naming_ClassNamingConventions",
   "title" : "Class names should begin with an uppercase character"
@@ -1208,9 +1233,6 @@
     "description" : "descendant::self abreviation, '//', will also trigger this rule."
   } ]
 }, {
-  "patternId" : "apex_style_MethodWithSameNameAsEnclosingClass",
-  "title" : "Classes should not have non-constructor methods with the same name as the class"
-}, {
   "patternId" : "java_codesize_ExcessivePublicCount",
   "title" : "This class has a bunch of public methods and attributes"
 }, {
@@ -1253,12 +1275,6 @@
     "name" : "xpath",
     "description" : ""
   } ]
-}, {
-  "patternId" : "apex_performance_AvoidSoqlInLoops",
-  "title" : "Avoid Soql queries inside loops"
-}, {
-  "patternId" : "apex_performance_AvoidDmlStatementsInLoops",
-  "title" : "Avoid DML statements inside loops"
 }, {
   "patternId" : "java_design_BadComparison",
   "title" : "Avoid equality comparisons with Double.NaN",
@@ -1312,9 +1328,6 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_complexity_TooManyFields",
-  "title" : "Too many fields"
-}, {
   "patternId" : "java_naming_MethodNamingConventions",
   "title" : "Method name does not begin with a lower case character."
 }, {
@@ -1331,6 +1344,10 @@
     "name" : "xpath",
     "description" : ""
   } ]
+}, {
+  "patternId" : "apex_style_MethodWithSameNameAsEnclosingClass",
+  "title" : "Classes should not have non-constructor methods with the same name as the class",
+  "timeToFix" : 10
 }, {
   "patternId" : "java_design_UncommentedEmptyConstructor",
   "title" : "Document empty constructor",
@@ -1376,8 +1393,9 @@
   "patternId" : "java_design_SingleMethodSingleton",
   "title" : "Class contains multiple getInstance methods. Please review."
 }, {
-  "patternId" : "apex_complexity_ExcessivePublicCount",
-  "title" : "This class has a bunch of public methods and attributes"
+  "patternId" : "apex_style_VariableNamingConventions",
+  "title" : "{0} variable {1} should begin with {2}",
+  "timeToFix" : 10
 }, {
   "patternId" : "java_clone_CloneMethodMustImplementCloneable",
   "title" : "clone() method should be implemented only if implementing Cloneable interface",
@@ -1417,6 +1435,10 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_complexity_NcssTypeCount",
+  "title" : "The type has an NCSS line count of {0}",
+  "timeToFix" : 1800
+}, {
   "patternId" : "java_sunsecure_ArrayIsStoredDirectly",
   "title" : "The user-supplied array ''{0}'' is stored directly."
 }, {
@@ -1446,13 +1468,6 @@
 }, {
   "patternId" : "java_strictexception_AvoidCatchingNPE",
   "title" : "Avoid catching NullPointerException; consider removing the cause of the NPE.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : ""
-  } ]
-}, {
-  "patternId" : "apex_braces_WhileLoopsMustUseBraces",
-  "title" : "Avoid using 'while' statements without curly braces",
   "parameters" : [ {
     "name" : "xpath",
     "description" : ""
@@ -1530,8 +1545,9 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_style_VariableNamingConventions",
-  "title" : "{0} variable {1} should begin with {2}"
+  "patternId" : "apex_security_ApexCRUDViolation",
+  "title" : "Validate CRUD permission before SOQL/DML operation",
+  "timeToFix" : 60
 }, {
   "patternId" : "plsql_dates_TO_TIMESTAMPWithoutDateFormat",
   "title" : "TO_TIMESTAMP without date format",
@@ -1548,9 +1564,6 @@
 }, {
   "patternId" : "java_codesize_NcssConstructorCount",
   "title" : "The constructor with {0} parameters has an NCSS line count of {1}"
-}, {
-  "patternId" : "apex_style_AvoidLogicInTrigger",
-  "title" : "Avoid logic in triggers"
 }, {
   "patternId" : "java_logging-java_SystemPrintln",
   "title" : "{0} is used",
@@ -1578,16 +1591,6 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_braces_IfElseStmtsMustUseBraces",
-  "title" : "Avoid using 'if...else' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : ""
-  } ]
-}, {
-  "patternId" : "apex_security_ApexXSSFromEscapeFalse",
-  "title" : "Apex classes should escape Strings in error messages"
-}, {
   "patternId" : "ecmascript_basic_UnreachableCode",
   "title" : "A ''return'', ''break'', ''continue'', or ''throw'' statement should be the last in a block.",
   "parameters" : [ {
@@ -1602,8 +1605,9 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_style_MethodNamingConventions",
-  "title" : "Method name does not begin with a lower case character."
+  "patternId" : "apex_security_ApexBadCrypto",
+  "title" : "Apex classes should use random IV/key",
+  "timeToFix" : 360
 }, {
   "patternId" : "java_empty_EmptyInitializer",
   "title" : "Empty initializer was found",
@@ -1626,6 +1630,10 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_complexity_TooManyFields",
+  "title" : "Too many fields",
+  "timeToFix" : 1800
+}, {
   "patternId" : "java_unusedcode_UnusedLocalVariable",
   "title" : "Avoid unused local variables such as ''{0}''."
 }, {
@@ -1636,9 +1644,6 @@
     "description" : ""
   } ]
 }, {
-  "patternId" : "apex_security_ApexInsecureEndpoint",
-  "title" : "Apex callouts should use encrypted communication channels"
-}, {
   "patternId" : "java_comments_CommentSize",
   "title" : "Comment is too large"
 }, {
@@ -1647,9 +1652,6 @@
 }, {
   "patternId" : "java_controversial_AssignmentInOperand",
   "title" : "Avoid assignments in operands"
-}, {
-  "patternId" : "apex_security_ApexXSSFromURLParam",
-  "title" : "Apex classes should escape/sanitize Strings obtained from URL parameters"
 }, {
   "patternId" : "jsp_basic_JspEncoding",
   "title" : "JSP file should use UTF-8 encoding",
@@ -1675,6 +1677,10 @@
   "patternId" : "java_strings_InefficientEmptyStringCheck",
   "title" : "String.trim().length()==0 is an inefficient way to validate an empty String."
 }, {
+  "patternId" : "apex_complexity_AvoidDeeplyNestedIfStmts",
+  "title" : "Deeply nested if..then statements are hard to read",
+  "timeToFix" : 360
+}, {
   "patternId" : "java_controversial_DefaultPackage",
   "title" : "Use explicit scoping instead of the default package private level",
   "parameters" : [ {
@@ -1691,6 +1697,10 @@
   "patternId" : "java_unnecessary_UnnecessaryModifier",
   "title" : "Avoid modifiers which are implied by the context"
 }, {
+  "patternId" : "apex_security_ApexSuggestUsingNamedCred",
+  "title" : "Suggest named credentials for authentication",
+  "timeToFix" : 60
+}, {
   "patternId" : "java_controversial_AvoidAccessibilityAlteration",
   "title" : "You should modify visibility of class or methods using getDeclaredConstructors(), getDeclaredConstructor(Class[]), setAccessible() or PrivilegedAction.",
   "parameters" : [ {
@@ -1704,9 +1714,6 @@
     "name" : "xpath",
     "description" : ""
   } ]
-}, {
-  "patternId" : "apex_complexity_AvoidDeeplyNestedIfStmts",
-  "title" : "Deeply nested if..then statements are hard to read"
 }, {
   "patternId" : "ecmascript_basic_InnaccurateNumericLiteral",
   "title" : "The numeric literal ''{0}'' will have at different value at runtime.",
@@ -1754,11 +1761,12 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_apexunit_ApexUnitTestShouldNotUseSeeAllDataTrue",
+  "title" : "Apex unit tests should not use @isTest(seeAllData = true)",
+  "timeToFix" : 360
+}, {
   "patternId" : "java_unnecessary_UselessOverridingMethod",
   "title" : "Overriding method merely calls super"
-}, {
-  "patternId" : "apex_complexity_NcssTypeCount",
-  "title" : "The type has an NCSS line count of {0}"
 }, {
   "patternId" : "java_design_AvoidProtectedMethodInFinalClassNotExtending",
   "title" : "Avoid protected methods in a final class that doesn't extend anything other than Object.  Change to private or package access.",
@@ -1836,6 +1844,10 @@
   "patternId" : "plsql_codesize_ExcessivePackageSpecificationLength",
   "title" : "Avoid really long Package Specifications ({0} lines found)."
 }, {
+  "patternId" : "apex_style_MethodNamingConventions",
+  "title" : "Method name does not begin with a lower case character.",
+  "timeToFix" : 10
+}, {
   "patternId" : "java_optimizations_RedundantFieldInitializer",
   "title" : "Avoid using redundant field initializer for ''${variableName}''"
 }, {
@@ -1891,8 +1903,16 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_complexity_StdCyclomaticComplexity",
+  "title" : "The {0} ''{1}'' has a Standard Cyclomatic Complexity of {2}.",
+  "timeToFix" : 1800
+}, {
   "patternId" : "vm_basic_NoInlineJavaScript",
   "title" : "Avoid inline JavaScript"
+}, {
+  "patternId" : "apex_complexity_ExcessivePublicCount",
+  "title" : "This class has a bunch of public methods and attributes",
+  "timeToFix" : 1800
 }, {
   "patternId" : "java_controversial_UseConcurrentHashMap",
   "title" : "If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation",
@@ -1908,11 +1928,16 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_braces_IfStmtsMustUseBraces",
+  "title" : "Avoid using if statements without curly braces",
+  "timeToFix" : 10,
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : ""
+  } ]
+}, {
   "patternId" : "java_coupling_LoosePackageCoupling",
   "title" : "Use of ''{0}'' outside of package hierarchy ''{1}'' is not recommended; use recommended classes instead"
-}, {
-  "patternId" : "apex_security_ApexCRUDViolation",
-  "title" : "Validate CRUD permission before SOQL/DML operation"
 }, {
   "patternId" : "java_basic_DontCallThreadRun",
   "title" : "Don't call Thread.run() explicitly, use Thread.start()",
@@ -1923,13 +1948,6 @@
 }, {
   "patternId" : "vm_basic_UnusedMacroParameter",
   "title" : "Avoid unused macro parameters such as ''{0}''"
-}, {
-  "patternId" : "apex_braces_ForLoopsMustUseBraces",
-  "title" : "Avoid using 'for' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : ""
-  } ]
 }, {
   "patternId" : "java_junit_SimplifyBooleanAssertion",
   "title" : "assertTrue(!expr) can be replaced by assertFalse(expr)",
@@ -1992,8 +2010,24 @@
     "description" : ""
   } ]
 }, {
+  "patternId" : "apex_braces_ForLoopsMustUseBraces",
+  "title" : "Avoid using 'for' statements without curly braces",
+  "timeToFix" : 10,
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : ""
+  } ]
+}, {
   "patternId" : "jsp_basic_DuplicateJspImports",
   "title" : "Avoid duplicate imports such as ''{0}''"
+}, {
+  "patternId" : "apex_style_ClassNamingConventions",
+  "title" : "Class names should begin with an uppercase character",
+  "timeToFix" : 10
+}, {
+  "patternId" : "apex_apexunit_ApexUnitTestClassShouldHaveAsserts",
+  "title" : "Apex unit tests should System.assert() or assertEquals() or assertNotEquals()",
+  "timeToFix" : 60
 }, {
   "patternId" : "java_design_EmptyMethodInAbstractClassShouldBeAbstract",
   "title" : "An empty method in an abstract class should be abstract instead",

@@ -188,8 +188,10 @@ object DocGenerator {
       val (level, category) = RuleSets.getLevelAndCategory(rulesetNameClean)
         .getOrElse((Result.Level.Warn, Pattern.Category.CodeStyle))
 
+      val timeToFix = Patterns.timeToFix.get(patternId.value).map(Pattern.TimeToFix.apply)
+
       (
-        Pattern.Description(patternId, Pattern.Title(message), None, None, Some(parameterDescriptions).filter(_.nonEmpty)),
+        Pattern.Description(patternId, Pattern.Title(message), None, timeToFix, Some(parameterDescriptions).filter(_.nonEmpty)),
         Pattern.Specification(patternId, level, category, Some(parameterSpecifications).filter(_.nonEmpty), Some(Set(Pattern.Language(language)))),
         PatternExtendedDescription(patternId,
          s"""Since: PMD $since

@@ -1,4 +1,6 @@
 import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
+import scala.util.parsing.json.JSON
+import scala.io.Source
 
 organization := "codacy"
 
@@ -14,8 +16,11 @@ resolvers ++= Seq(
   "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/",
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
 )
+val filename  = "src/main/resources/docs/patterns.json"
 
-val pmdVersion = "5.7.0"
+val toolMap = JSON.parseFull(Source.fromFile(filename).getLines().mkString).get.asInstanceOf[Map[String,String]]
+
+val pmdVersion = toolMap("version")
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.4.8",

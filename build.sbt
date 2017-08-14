@@ -20,7 +20,9 @@ val filename  = "src/main/resources/docs/patterns.json"
 
 val toolMap = JSON.parseFull(Source.fromFile(filename).getLines().mkString).get.asInstanceOf[Map[String,String]]
 
-val pmdVersion = toolMap("version")
+val defaultVersion = "5.7.0"
+
+val pmdVersion = toolMap.getOrElse("version", defaultVersion)
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.4.8",

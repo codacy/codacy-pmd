@@ -16,30 +16,35 @@ resolvers ++= Seq(
   "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/",
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
 )
-val filename  = "src/main/resources/docs/patterns.json"
 
-val toolMap = JSON.parseFull(Source.fromFile(filename).getLines().mkString).get.asInstanceOf[Map[String,String]]
+lazy val toolVersionKey = SettingKey[String]("The version of the underlying tool retrieved from patterns.json")
 
-val defaultVersion = "5.7.0"
+toolVersionKey := {
+  val jsonFile = (resourceDirectory in Compile).value / "docs" / "patterns.json"
+  val toolMap = JSON.parseFull(Source.fromFile(jsonFile).getLines().mkString)
+    .getOrElse(throw new Exception("patterns.json is not a valid json"))
+    .asInstanceOf[Map[String, String]]
+  toolMap.getOrElse[String]("version", throw new Exception("Failed to retrieve 'version' from patterns.json"))
+}
 
-val pmdVersion = toolMap.getOrElse("version", defaultVersion)
-
-libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-json" % "2.4.8",
-  "com.codacy" %% "codacy-engine-scala-seed" % "2.7.7" withSources(),
-  "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
-  "net.sourceforge.pmd" % "pmd-core" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-java" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-jsp" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-javascript" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-plsql" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-vm" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-xml" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-visualforce" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-apex" % pmdVersion withSources() exclude("apex", "*"),
-  "net.sourceforge.pmd" % "pmd-apex" % pmdVersion classifier "apex-jorje-shaded"
-)
-
+libraryDependencies ++= {
+  val toolVersion = toolVersionKey.value
+  Seq(
+    "com.typesafe.play" %% "play-json" % "2.4.8",
+    "com.codacy" %% "codacy-engine-scala-seed" % "2.7.7" withSources(),
+    "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
+    "net.sourceforge.pmd" % "pmd-core" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-java" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-jsp" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-javascript" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-plsql" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-vm" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-xml" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources() exclude("apex", "*"),
+    "net.sourceforge.pmd" % "pmd-apex" % toolVersion classifier "apex-jorje-shaded"
+  )
+}
 enablePlugins(JavaAppPackaging)
 
 enablePlugins(DockerPlugin)
@@ -73,13 +78,13 @@ dockerBaseImage := "develar/java"
 mainClass in Compile := Some("codacy.Engine")
 
 dockerCommands := dockerCommands.value.flatMap {
-  case cmd@Cmd("WORKDIR", _) => List(cmd,
-    Cmd("RUN", installAll)
-  )
-  case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
-    Cmd("RUN", "mv /opt/docker/docs /docs"),
-    Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
-    ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
-  )
-  case other => List(other)
+    case cmd@Cmd("WORKDIR", _) => List(cmd,
+      Cmd("RUN", installAll)
+    )
+    case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
+      Cmd("RUN", "mv /opt/docker/docs /docs"),
+      Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
+      ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
+    )
+    case other => List(other)
 }

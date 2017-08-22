@@ -1,5 +1,6 @@
 {
   "name" : "pmd",
+  "version" : "5.7.0",
   "patterns" : [ {
     "patternId" : "apex_complexity_TooManyFields",
     "level" : "Warning",

@@ -1,4 +1,6 @@
 import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
+import scala.util.parsing.json.JSON
+import scala.io.Source
 
 organization := "codacy"
 
@@ -15,24 +17,34 @@ resolvers ++= Seq(
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
 )
 
-val pmdVersion = "5.7.0"
+lazy val toolVersionKey = SettingKey[String]("The version of the underlying tool retrieved from patterns.json")
 
-libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-json" % "2.4.8",
-  "com.codacy" %% "codacy-engine-scala-seed" % "2.7.7" withSources(),
-  "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
-  "net.sourceforge.pmd" % "pmd-core" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-java" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-jsp" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-javascript" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-plsql" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-vm" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-xml" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-visualforce" % pmdVersion withSources(),
-  "net.sourceforge.pmd" % "pmd-apex" % pmdVersion withSources() exclude("apex", "*"),
-  "net.sourceforge.pmd" % "pmd-apex" % pmdVersion classifier "apex-jorje-shaded"
-)
+toolVersionKey := {
+  val jsonFile = (resourceDirectory in Compile).value / "docs" / "patterns.json"
+  val toolMap = JSON.parseFull(Source.fromFile(jsonFile).getLines().mkString)
+    .getOrElse(throw new Exception("patterns.json is not a valid json"))
+    .asInstanceOf[Map[String, String]]
+  toolMap.getOrElse[String]("version", throw new Exception("Failed to retrieve 'version' from patterns.json"))
+}
 
+libraryDependencies ++= {
+  val toolVersion = toolVersionKey.value
+  Seq(
+    "com.typesafe.play" %% "play-json" % "2.4.8",
+    "com.codacy" %% "codacy-engine-scala-seed" % "2.7.7" withSources(),
+    "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
+    "net.sourceforge.pmd" % "pmd-core" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-java" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-jsp" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-javascript" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-plsql" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-vm" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-xml" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion withSources(),
+    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources() exclude("apex", "*"),
+    "net.sourceforge.pmd" % "pmd-apex" % toolVersion classifier "apex-jorje-shaded"
+  )
+}
 enablePlugins(JavaAppPackaging)
 
 enablePlugins(DockerPlugin)
@@ -66,13 +78,13 @@ dockerBaseImage := "develar/java"
 mainClass in Compile := Some("codacy.Engine")
 
 dockerCommands := dockerCommands.value.flatMap {
-  case cmd@Cmd("WORKDIR", _) => List(cmd,
-    Cmd("RUN", installAll)
-  )
-  case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
-    Cmd("RUN", "mv /opt/docker/docs /docs"),
-    Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
-    ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
-  )
-  case other => List(other)
+    case cmd@Cmd("WORKDIR", _) => List(cmd,
+      Cmd("RUN", installAll)
+    )
+    case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
+      Cmd("RUN", "mv /opt/docker/docs /docs"),
+      Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
+      ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
+    )
+    case other => List(other)
 }

@@ -31,7 +31,7 @@ libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
   Seq(
     "com.typesafe.play" %% "play-json" % "2.4.8",
-    "com.codacy" %% "codacy-engine-scala-seed" % "2.7.7" withSources(),
+    "com.codacy" %% "codacy-engine-scala-seed" % "2.7.9" withSources(),
     "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
     "net.sourceforge.pmd" % "pmd-core" % toolVersion withSources(),
     "net.sourceforge.pmd" % "pmd-java" % toolVersion withSources(),

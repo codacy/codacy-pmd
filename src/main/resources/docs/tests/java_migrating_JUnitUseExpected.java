@@ -1,17 +1,17 @@
 //#Patterns: java_migrating_JUnitUseExpected
 
-public class MyTest {
+import java.lang.Thread;
+import org.junit.Test;
 
-    @Test public void testBad() {
+public class Foo {
+    @Test
+    public void foo() throws Throwable {
+        TypeSet.Resolver r = new TypeSet.ImplicitImportResolver();
         try {
-            doSomething();
+            r.resolve("PMD");
             //#Info: java_migrating_JUnitUseExpected
-            fail("should have thrown an exception");
-        } catch (Exception e) {
+            fail("Should have thrown an exception");
+        } catch (ClassNotFoundException cnfe) {
         }
-    }
-
-    @Test(expected=Exception.class) public void testGood() {
-        doSomething();
     }
 }

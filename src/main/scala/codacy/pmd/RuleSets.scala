@@ -11,14 +11,20 @@ object RuleSets extends Enumeration {
 
   val braces = Value("braces")
   val empty = Value("empty")
+  val migrating_to_junit4 = Value("migrating_to_junit4")
   val strictsyntax = Value("strictsyntax")
   val dates = Value("dates")
+  val migrating_to_15 = Value("migrating_to_15")
+  val typeresolution = Value("typeresolution")
   val basic = Value("basic")
+  val ruleset = Value("ruleset")
   val j2ee = Value("j2ee")
   val performance = Value("performance")
   val unusedcode = Value("unusedcode")
   val comments = Value("comments")
   val TomKytesDespair = Value("TomKytesDespair")
+  val metrics = Value("metrics")
+  val migrating_to_13 = Value("migrating_to_13")
   val naming = Value("naming")
   val security = Value("security")
   val migrating = Value("migrating")
@@ -37,6 +43,7 @@ object RuleSets extends Enumeration {
   val coupling = Value("coupling")
   val finalizers = Value("finalizers")
   val apexunit = Value("apexunit")
+  val migrating_to_14 = Value("migrating_to_14")
   val xpath = Value("xpath")
   val imports = Value("imports")
   val codesize = Value("codesize")
@@ -59,9 +66,13 @@ object RuleSets extends Enumeration {
   private lazy val RuleNameToSet = {
     Map(
       "Code Size" -> codesize,
+      "Metrics temporary ruleset" -> metrics,
       "Optimization" -> optimizations,
       "Basic Ecmascript" -> basic,
       "Basic POM" -> basic,
+      "Type Resolution" -> typeresolution,
+      "Default ruleset used by the CodeClimate Engine for Salesforce.com Apex" -> ruleset,
+      "Migration14" -> migrating_to_14,
       "Comments" -> comments,
       "Braces" -> braces,
       "JavaBeans" -> javabeans,
@@ -69,14 +80,18 @@ object RuleSets extends Enumeration {
       "Android" -> android,
       "Basic JSP" -> basic,
       "Import Statements" -> imports,
+      "MigratingToJUnit4" -> migrating_to_junit4,
+      "Migration15" -> migrating_to_15,
       "Jakarta Commons Logging" -> loggingJakartaCommons,
       "Migration" -> migrating,
       "Basic VF" -> security,
+      "Controversial Ecmascript" -> controversial,
       "Basic JSF" -> basicJsf,
       "Performance" -> performance,
       "Complexity" -> complexity,
       "Strict Syntax" -> strictsyntax,
       "Strict Exceptions" -> strictexception,
+      "Migration13" -> migrating_to_13,
       "JUnit" -> junit,
       "Basic XML" -> basic,
       "Design" -> design,

@@ -1,7 +1,7 @@
 Since: PMD 3.0
 
 When a class has the final modifier, all the methods are automatically final and do not need to be
-tagged as such.
+tagged as such. Similarly, private methods can't be overriden, and therefore do not need to be tagged either.
 
 Example(s):
 ```

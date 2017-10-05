@@ -5,7 +5,7 @@ import java.util
 import codacy.docker.api.Implicits._
 import codacy.docker.api.{Parameter, Pattern, Result, Tool}
 import codacy.helpers.ResourceHelper
-import play.api.libs.json.{JsString, Json}
+import play.api.libs.json.{JsObject, JsString, Json}
 
 import scala.util.{Failure, Properties, Success, Try}
 import scala.xml.{Elem, Node, Utility, XML}
@@ -19,6 +19,13 @@ object DocGenerator {
   private val rulesetsRoot = "rulesets"
 
   def main(args: Array[String]): Unit = {
+    val version: String = args.headOption.orElse {
+      ResourceHelper.getResourceContent("docs/patterns.json").toOption
+        .flatMap { lines => Json.parse(lines.mkString("\n")).as[JsObject].\("version").asOpt[String] }
+    }.getOrElse {
+      throw new Exception("No version provided")
+    }
+
     Try {
       val patterns = for {
         language <- Languages.languages
@@ -26,32 +33,43 @@ object DocGenerator {
         languageRulesetsPath = s"$rulesetsRoot/$langAlias"
         propertiesFilePath = s"$languageRulesetsPath/rulesets.properties"
       } yield {
-        ResourceHelper.getResourceStream(propertiesFilePath).map { propStream =>
+        val markedRulesets = ResourceHelper.getResourceStream(propertiesFilePath).map { propStream =>
           val prop = new util.Properties()
           prop.load(propStream)
-          val rulesetPaths = prop.getProperty("rulesets.filenames").split(",").map(_.trim).filter(_.nonEmpty)
-          val patternsPerRuleset = for {
-            rulesetPath <- rulesetPaths
-            rulesetName <- rulesetPath.split("/").lastOption.map(_.stripSuffix(".xml"))
-          } yield {
-            for {
-              rulesetContents <- ResourceHelper.getResourceContent(rulesetPath)
-              xml <- Try(XML.loadString(rulesetContents.mkString(Properties.lineSeparator)))
-              rulesetLongName = xml \@ "name"
-            } yield {
-              val rulesetPatterns = parsePatterns(language, langAlias, rulesetName, xml)
-              Ruleset(rulesetName, rulesetLongName, rulesetPatterns)
-            }
-          }
+          prop.getProperty("rulesets.filenames").split(",").map(_.trim).filter(_.nonEmpty).to[Set]
+        }.getOrElse(Set.empty[String])
 
-          patternsPerRuleset.flatMap(_.toOption)
-        }
+        ResourceHelper.listResourceDirectory(languageRulesetsPath)
+          .map(_.filter(_.endsWith(".xml")))
+          .map {
+            rulesetPaths =>
+              val patternsPerRuleset = for {
+                rulesetFilePath <- rulesetPaths
+                rulesetPath = s"$languageRulesetsPath/$rulesetFilePath"
+                rulesetName <- rulesetPath.split("/").lastOption.map(_.stripSuffix(".xml"))
+              } yield {
+                if (!markedRulesets.contains(rulesetPath)) {
+                  Console.println(s"${Console.YELLOW} [$language] Ruleset $rulesetName is missing from rulesets.properties")
+                }
+
+                for {
+                  rulesetContents <- ResourceHelper.getResourceContent(rulesetPath)
+                  xml <- Try(XML.loadString(rulesetContents.mkString(Properties.lineSeparator)))
+                  rulesetLongName = xml \@ "name"
+                } yield {
+                  val rulesetPatterns = parsePatterns(language, langAlias, rulesetName, xml)
+                  Ruleset(rulesetName, rulesetLongName, rulesetPatterns)
+                }
+              }
+
+              patternsPerRuleset.flatMap(_.toOption)
+          }
       }
       patterns.flatMap(_.toOption).flatten
     } match {
       case Success(rulesets) =>
         val (patternDescriptions, patternSpecifications, extendedDescriptions) = rulesets.flatMap(_.patterns).unzip3
-        val spec = Tool.Specification(Tool.Name("pmd"), patternSpecifications)
+        val spec = Tool.Specification(Tool.Name("pmd"), Some(Tool.Version(version)), patternSpecifications)
         val jsonSpecifications = Json.prettyPrint(Json.toJson(spec))
         val jsonDescriptions = Json.prettyPrint(Json.toJson(patternDescriptions))
 
@@ -164,7 +182,7 @@ object DocGenerator {
           ResourceHelper.writeFile(descriptionsFile.toPath, extendedDescription.extendedDescription)
         }
 
-        if (args.exists(_.equalsIgnoreCase("rulesets"))) ResourceHelper.writeFile(rulesetsCodeFile.toPath, rulesetsCodeStrFull)
+        ResourceHelper.writeFile(rulesetsCodeFile.toPath, rulesetsCodeStrFull)
 
       case Failure(e) =>
         e.printStackTrace()
@@ -175,7 +193,7 @@ object DocGenerator {
     (for {
       rule <- xml \\ "rule"
       deprecated = rule \@ "deprecated" if !Try(deprecated.toBoolean).getOrElse(false)
-      name = rule \@ "name"
+      name = rule \@ "name" if name.trim.nonEmpty
       message = rule \@ "message"
       since = rule \@ "since"
       longDescription = (rule \ "description").text
@@ -210,8 +228,8 @@ object DocGenerator {
     (for {
       property <- rule \\ "property"
       // HACK: Codacy converts the version parameter from 2.0 to 2 leading PMD to fail, excluding it for now
-      name = property \@ "name" if name != "version"
-      description = property \@ "description"
+      name = property \@ "name" if name != "version" && name.trim.nonEmpty
+      description = Option(property \@ "description").filter(_.trim.nonEmpty).getOrElse(name)
       defaultValueField = Option(property \@ "value").filter(_.trim.nonEmpty)
       defaultValueBody = Option(property \ "value")
         .flatMap(_.theSeq.collectFirst { case v if v.text.trim.nonEmpty => v.text })

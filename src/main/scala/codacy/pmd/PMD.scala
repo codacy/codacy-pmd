@@ -20,7 +20,9 @@ object PMD extends Tool {
 
   private lazy val configFileNames = Set("ruleset.xml", "apex-ruleset.xml")
 
-  override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], filesOpt: Option[Set[Source.File]])
+  private lazy val patternCompatibility = Map("java_codesize_CyclomaticComplexity" -> "java_metrics_CyclomaticComplexity")
+
+  override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], filesOpt: Option[Set[Source.File]], options: Map[Configuration.Key, Configuration.Value])
                     (implicit specification: Tool.Specification): Try[List[Result]] = {
     val pmdConfig = new PMDConfiguration()
 
@@ -123,7 +125,9 @@ object PMD extends Tool {
         case _ => None
       }
 
-      newPatternId.map(npid => pattern.copy(patternId = Pattern.Id(npid)))
+      newPatternId.map { npid =>
+        pattern.copy(patternId = Pattern.Id(patternCompatibility.getOrElse(npid, npid)))
+      }
     }
 
     // Filter rules that are not listed in patterns.json
@@ -138,7 +142,7 @@ object PMD extends Tool {
                xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
-        {rules}
+        <description>Codacy UI Ruleset</description>{rules}
       </ruleset>
 
     fileForConfig(xmlConfiguration)

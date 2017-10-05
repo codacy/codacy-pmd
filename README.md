@@ -24,13 +24,11 @@ docker run --user=docker --rm=true -v <PATH-TO-CODE>:/src -v <PATH-TO>/ruleset.x
 
 #### Generate Docs
 
-```sh
-sbt "run-main codacy.pmd.DocGenerator rulesets"
-```
+1. Update the version in `src/main/resources/docs/patterns.json`
 
-**Only patterns.json and description.json**
+2. Run the DocGenerator
 ```sh
-sbt "run-main codacy.pmd.DocGenerator"
+sbt "run-main codacy.pmd.DocGenerator [<VERSION>]"
 ```
 
 ## Docs

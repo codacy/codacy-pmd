@@ -1,9 +1,9 @@
-//#Patterns: java_codesize_CyclomaticComplexity
+//#Patterns: java_metrics_CyclomaticComplexity
 
-//#Warn: java_codesize_CyclomaticComplexity
+//#Warn: java_metrics_CyclomaticComplexity
 public class Foo {
 
-    //#Warn: java_codesize_CyclomaticComplexity
+    //#Warn: java_metrics_CyclomaticComplexity
     public void bar() {
         int i = 0;
         while (i < 1) {

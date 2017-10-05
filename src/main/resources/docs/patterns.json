@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "5.7.0",
+  "version" : "5.8.1",
   "patterns" : [ {
     "patternId" : "apex_complexity_TooManyFields",
     "level" : "Warning",
@@ -55,6 +55,15 @@
       "default" : "false"
     } ],
     "languages" : [ "java" ]
+  }, {
+    "patternId" : "ecmascript_controversial_AvoidWithStatement",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//WithStatement\n   "
+    } ],
+    "languages" : [ "javascript" ]
   }, {
     "patternId" : "apex_performance_AvoidSoqlInLoops",
     "level" : "Warning",
@@ -431,11 +440,6 @@
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "java_codesize_CyclomaticComplexity",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "java_imports_UnnecessaryFullyQualifiedName",
     "level" : "Info",
     "category" : "UnusedCode",
@@ -529,6 +533,11 @@
       "name" : "xpath",
       "default" : "\n\n//MethodDeclarator[(@Image[fn:matches(.,'^test')] or ../../Annotation/MarkerAnnotation/Name[@Image='Test']) and count(..//PrimaryPrefix/Name[@Image[fn:matches(.,'^assert')]]) > $maximumAsserts]\n\n\t\t\t\t"
     } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "java_typeresolution_LooseCoupling",
+    "level" : "Warning",
+    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "java_controversial_OnlyOneReturn",
@@ -832,6 +841,15 @@
     "category" : "Security",
     "languages" : [ "apex" ]
   }, {
+    "patternId" : "java_unnecessary_UnnecessaryFinalModifier",
+    "level" : "Warning",
+    "category" : "Performance",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//ClassOrInterfaceDeclaration[@Final='true' and @Interface='false']\n    /ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n        [count(./Annotation/MarkerAnnotation/Name[@Image='SafeVarargs' or @Image='java.lang.SafeVarargs']) = 0]\n    /MethodDeclaration[@Final='true']\n    | //MethodDeclaration[@Final='true' and @Private='true']\n    \n              "
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "jsp_basic_JspEncoding",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -936,11 +954,6 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "java_codesize_ModifiedCyclomaticComplexity",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "java_design_AbstractClassWithoutAnyMethod",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -1043,15 +1056,6 @@
     }, {
       "name" : "checkParameterizedMethods",
       "default" : "false"
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "java_unnecessary_UnnecessaryFinalModifier",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n    \n//ClassOrInterfaceDeclaration[@Final='true' and @Interface='false']\n    /ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n        [count(./Annotation/MarkerAnnotation/Name[@Image='SafeVarargs' or @Image='java.lang.SafeVarargs']) = 0]\n    /MethodDeclaration[@Final='true']\n    \n              "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -1378,18 +1382,6 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "java_empty_EmptyCatchBlock",
-    "level" : "Info",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n    \n//CatchStatement\n [count(Block/BlockStatement) = 0 and ($allowCommentedBlocks != 'true' or Block/@containsComment = 'false')]\n [FormalParameter/Type/ReferenceType\n   /ClassOrInterfaceType[@Image != 'InterruptedException' and @Image != 'CloneNotSupportedException']\n ]\n \n             "
-    }, {
-      "name" : "allowCommentedBlocks",
-      "default" : "false"
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "java_strictexception_AvoidThrowingNullPointerException",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -1420,6 +1412,15 @@
     "patternId" : "java_design_AvoidReassigningParameters",
     "level" : "Warning",
     "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "java_typeresolution_SignatureDeclareThrowsException",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "IgnoreJUnitCompletely",
+      "default" : "false"
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "java_finalizers_FinalizeShouldBeProtected",
@@ -1460,6 +1461,11 @@
       "name" : "xpath",
       "default" : "\n                      \n//ClassOrInterfaceDeclaration[string-length(@Image) < $minimum]\n                      \n                  "
     } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "java_metrics_CyclomaticComplexity",
+    "level" : "Warning",
+    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "plsql_TomKytesDespair_TomKytesDespair",
@@ -1518,15 +1524,6 @@
     "parameters" : [ {
       "name" : "xpath",
       "default" : "\n                    \n//VariableDeclaratorId\n[starts-with(@Image, 'm_')]\n[not (../../../FieldDeclaration)]\n                    \n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "java_empty_EmptyTryBlock",
-    "level" : "Info",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//TryStatement/Block[1][count(*) = 0]\n\n              "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -1774,6 +1771,15 @@
     "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
+    "patternId" : "java_empty_EmptyTryBlock",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//TryStatement[not(ResourceSpecification)]/Block[1][count(*) = 0]\n\n              "
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "apex_braces_ForLoopsMustUseBraces",
     "level" : "Info",
     "category" : "CodeStyle",
@@ -1916,6 +1922,21 @@
     "level" : "Error",
     "category" : "Security",
     "languages" : [ "apex" ]
+  }, {
+    "patternId" : "java_empty_EmptyCatchBlock",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n    \n//CatchStatement\n [count(Block/BlockStatement) = 0 and ($allowCommentedBlocks != 'true' or Block/@containsComment = 'false')]\n [FormalParameter/Type/ReferenceType\n   /ClassOrInterfaceType[@Image != 'InterruptedException' and @Image != 'CloneNotSupportedException']\n ]\n [FormalParameter/VariableDeclaratorId[not(matches(@Image, $allowExceptionNameRegex))]]\n \n             "
+    }, {
+      "name" : "allowCommentedBlocks",
+      "default" : "false"
+    }, {
+      "name" : "allowExceptionNameRegex",
+      "default" : "^$"
+    } ],
+    "languages" : [ "java" ]
   }, {
     "patternId" : "java_design_UnnecessaryLocalBeforeReturn",
     "level" : "Warning",
@@ -2173,11 +2194,6 @@
       "name" : "xpath",
       "default" : "\n                  \n          //Expression\n           /PrimaryExpression\n            /PrimaryPrefix\n             /Expression[count(*)=1]\n              /PrimaryExpression\n              /PrimaryPrefix\n              "
     } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "java_codesize_StdCyclomaticComplexity",
-    "level" : "Warning",
-    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "java_codesize_ExcessiveParameterList",
@@ -2652,6 +2668,16 @@
     "patternId" : "java_optimizations_AvoidInstantiatingObjectsInLoops",
     "level" : "Warning",
     "category" : "Performance",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "java_typeresolution_UnusedImports",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "java_typeresolution_CloneMethodMustImplementCloneable",
+    "level" : "Warning",
+    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "java_strings_StringInstantiation",

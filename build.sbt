@@ -77,9 +77,17 @@ dockerBaseImage := "develar/java"
 
 mainClass in Compile := Some("codacy.Engine")
 
+dockerEntrypoint := Seq("/tini", "-g", "--", s"bin/${name.value}")
+
 dockerCommands := dockerCommands.value.flatMap {
     case cmd@Cmd("WORKDIR", _) => List(cmd,
       Cmd("RUN", installAll)
+    )
+    case cmd@(Cmd("USER", _)) => List(
+      Cmd("ENV", "TINI_VERSION v0.16.1"),
+      Cmd("ADD", "https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini"),
+      Cmd("RUN", "chmod +x /tini"),
+      cmd
     )
     case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
       Cmd("RUN", "mv /opt/docker/docs /docs"),

@@ -77,7 +77,7 @@ dockerBaseImage := "develar/java"
 
 mainClass in Compile := Some("codacy.Engine")
 
-dockerEntrypoint := Seq("/tini", "-g", "--", "bin/codacy-pmd")
+dockerEntrypoint := Seq("/tini", "-g", "--", s"bin/${name.value}")
 
 dockerCommands := dockerCommands.value.flatMap {
     case cmd@Cmd("WORKDIR", _) => List(cmd,

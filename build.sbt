@@ -89,9 +89,10 @@ dockerCommands := dockerCommands.value.flatMap {
       Cmd("RUN", "chmod +x /tini"),
       cmd
     )
-    case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
-      Cmd("RUN", "mv /opt/docker/docs /docs"),
+    case cmd@(Cmd("ADD", _)) => List(
       Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
+      cmd,
+      Cmd("RUN", "mv /opt/docker/docs /docs"),
       ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
     )
     case other => List(other)

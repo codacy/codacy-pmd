@@ -2,7 +2,6 @@ package codacy.pmd;
 
 import net.sourceforge.pmd.Report;
 import net.sourceforge.pmd.RuleViolation;
-import net.sourceforge.pmd.lang.rule.properties.StringProperty;
 import net.sourceforge.pmd.renderers.AbstractIncrementingRenderer;
 
 import java.io.IOException;
@@ -18,14 +17,10 @@ public class CodacyInMemoryRenderer extends AbstractIncrementingRenderer {
 
     private static final String NAME = "codacy";
 
-    private static final StringProperty ENCODING = new StringProperty("encoding",
-            "Codacy encoding format, defaults to UTF-8.", "UTF-8", 0);
-
     private List<RuleViolation> ruleViolations = new LinkedList<>();
 
     public CodacyInMemoryRenderer() {
         super(NAME, "Codacy In Memory.");
-        definePropertyDescriptor(ENCODING);
         // Using a stub writer since we are saving the violations in memory
         writer = new Writer() {
             @Override

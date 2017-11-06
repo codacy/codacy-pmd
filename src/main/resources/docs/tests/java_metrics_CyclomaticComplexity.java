@@ -1,6 +1,5 @@
 //#Patterns: java_metrics_CyclomaticComplexity
 
-//#Warn: java_metrics_CyclomaticComplexity
 public class Foo {
 
     //#Warn: java_metrics_CyclomaticComplexity

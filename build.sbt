@@ -14,9 +14,9 @@ scalaVersion := languageVersion
 
 resolvers ++= Seq(
   "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/",
-  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
+  "Sonatype OSS Releases" at "https://oss.sonatype.org/content/repositories/releases",
+  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 )
-
 lazy val toolVersionKey = SettingKey[String]("The version of the underlying tool retrieved from patterns.json")
 
 toolVersionKey := {
@@ -41,15 +41,15 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd-vm" % toolVersion withSources(),
     "net.sourceforge.pmd" % "pmd-xml" % toolVersion withSources(),
     "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion withSources(),
-    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources() exclude("apex", "*"),
-    "net.sourceforge.pmd" % "pmd-apex" % toolVersion classifier "apex-jorje-shaded"
+    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources() exclude("apex", "*")
   )
 }
+
 enablePlugins(JavaAppPackaging)
 
 enablePlugins(DockerPlugin)
 
-version in Docker := "1.0"
+version in Docker := "1.0.0"
 
 val installAll =
   """apk update && apk add bash curl &&
@@ -80,20 +80,20 @@ mainClass in Compile := Some("codacy.Engine")
 dockerEntrypoint := Seq("/tini", "-g", "--", s"bin/${name.value}")
 
 dockerCommands := dockerCommands.value.flatMap {
-    case cmd@Cmd("WORKDIR", _) => List(cmd,
-      Cmd("RUN", installAll)
-    )
-    case cmd@(Cmd("USER", _)) => List(
-      Cmd("ENV", "TINI_VERSION v0.16.1"),
-      Cmd("ADD", "https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini"),
-      Cmd("RUN", "chmod +x /tini"),
-      cmd
-    )
-    case cmd@(Cmd("ADD", _)) => List(
-      Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
-      cmd,
-      Cmd("RUN", "mv /opt/docker/docs /docs"),
-      ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
-    )
-    case other => List(other)
+  case cmd@Cmd("WORKDIR", _) => List(cmd,
+    Cmd("RUN", installAll)
+  )
+  case cmd@(Cmd("USER", _)) => List(
+    Cmd("ENV", "TINI_VERSION v0.16.1"),
+    Cmd("ADD", "https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini"),
+    Cmd("RUN", "chmod +x /tini"),
+    cmd
+  )
+  case cmd@(Cmd("ADD", _)) => List(
+    Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
+    cmd,
+    Cmd("RUN", "mv /opt/docker/docs /docs"),
+    ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
+  )
+  case other => List(other)
 }

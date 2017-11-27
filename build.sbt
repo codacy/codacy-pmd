@@ -77,10 +77,11 @@ dockerBaseImage := "develar/java"
 
 mainClass in Compile := Some("codacy.Engine")
 
-dockerEntrypoint := Seq("/tini", "-g", "--", s"bin/${name.value}")
+dockerEntrypoint := Seq("/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
 
 dockerCommands := dockerCommands.value.flatMap {
-    case cmd@Cmd("WORKDIR", _) => List(cmd,
+    case cmd@Cmd("WORKDIR", _) => List(
+      Cmd("WORKDIR", "/src"),
       Cmd("RUN", installAll)
     )
     case cmd@(Cmd("USER", _)) => List(
@@ -93,7 +94,8 @@ dockerCommands := dockerCommands.value.flatMap {
       Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
       cmd,
       Cmd("RUN", "mv /opt/docker/docs /docs"),
-      ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
+      ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*),
+      ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/opt"): _*)
     )
     case other => List(other)
 }

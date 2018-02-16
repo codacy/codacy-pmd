@@ -73,7 +73,6 @@ object RuleSets extends Enumeration {
       "Documentation" -> documentation,
       "Code Size" -> codesize,
       "Metrics temporary ruleset" -> metrics,
-      "Errorprone" -> errorprone,
       "Optimization" -> optimizations,
       "Basic Ecmascript" -> basic,
       "Basic POM" -> basic,
@@ -81,7 +80,6 @@ object RuleSets extends Enumeration {
       "Default ruleset used by the CodeClimate Engine for Salesforce.com Apex" -> ruleset,
       "Migration14" -> migrating_to_14,
       "Comments" -> comments,
-      "Codestyle" -> codestyle,
       "Error Prone" -> errorprone,
       "Braces" -> braces,
       "JavaBeans" -> javabeans,
@@ -106,6 +104,7 @@ object RuleSets extends Enumeration {
       "JUnit" -> junit,
       "Basic XML" -> basic,
       "Code Style" -> codestyle,
+      "Metrics" -> metrics,
       "Design" -> design,
       "Security Code Guidelines" -> sunsecure,
       "Tom Kyte's Despair" -> TomKytesDespair,
@@ -169,4 +168,4 @@ object RuleSets extends Enumeration {
   }
 
 }
-          
+      

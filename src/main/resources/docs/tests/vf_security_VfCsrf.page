@@ -1,7 +1,0 @@
-<!--#Patterns: vf_security_VfCsrf -->
-
-
-<!--#Err: vf_security_VfCsrf -->
-<apex:page controller="AcRestActionsController" action="{!csrfInitMethod}" >
-
-<apex:page controller="AcRestActionsController"  >

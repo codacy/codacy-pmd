@@ -1,0 +1,10 @@
+<!--#Patterns: category_xml_errorprone_MistypedCDATASection -->
+
+<root>
+    <child>
+        <!--#Warn: category_xml_errorprone_MistypedCDATASection -->
+        <![CDATA[[
+         some text data
+      ]]>
+    </child>
+</root>

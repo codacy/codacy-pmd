@@ -107,7 +107,7 @@ object PMD extends Tool {
   private def patternIdByRuleNameAndRuleSet(langAlias: String, ruleName: String, ruleSet: String)
                                            (implicit specification: Tool.Specification): Option[Pattern.Id] = {
     RuleSets.getRuleSet(ruleSet).flatMap { ruleSet =>
-      val patternId = Pattern.Id(s"${langAlias}_${ruleSet}_$ruleName")
+      val patternId = Pattern.Id(s"category_${langAlias}_${ruleSet}_$ruleName")
       specification.patterns.collectFirst { case patternDef if patternDef.patternId == patternId => patternDef.patternId }
     }
   }
@@ -119,17 +119,23 @@ object PMD extends Tool {
   }
 
   private def configFile(conf: List[Pattern.Definition])(implicit specification: Tool.Specification): Try[Path] = {
-    val updatedRules = conf.flatMap { pattern =>
-      val newPatternId = pattern.patternId.value.split("_") match {
-        case Array(patternCategory, patternName) => Some(s"""rulesets_java_${patternCategory}_$patternName""")
-        case Array(langAlias, patternCategory, patternName) => Some(s"""rulesets_${langAlias}_${patternCategory}_$patternName""")
-        case Array(root, langAlias, patternCategory, patternName) => Some(s"""${root}_${langAlias}_${patternCategory}_$patternName""")
-        case _ => None
+
+      def prefixPatternId(pattern: Pattern.Definition, prefix: String) = {
+        pattern.patternId.value.split("_") match {
+          case Array(patternCategory, patternName) => Some(s"""${prefix}_java_${patternCategory}_$patternName""")
+          case Array(langAlias, patternCategory, patternName) => Some(s"""${prefix}_${langAlias}_${patternCategory}_$patternName""")
+          case Array(root, langAlias, patternCategory, patternName) => Some(s"""${root}_${langAlias}_${patternCategory}_$patternName""")
+          case _ => None
+        }
       }
 
-      newPatternId.map { npid =>
-        pattern.copy(patternId = Pattern.Id(deprecatedReferences.getOrElse(npid, npid)))
-      }
+    val updatedRules = conf.flatMap { pattern =>
+      prefixPatternId(pattern, "rulesets")
+        .flatMap(deprecatedReferences.get)
+        .orElse(prefixPatternId(pattern, "category"))
+        .map { npid =>
+          pattern.copy(patternId = Pattern.Id(npid))
+        }
     }
 
     // Filter rules that are not listed in patterns.json

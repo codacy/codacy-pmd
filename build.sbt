@@ -41,7 +41,7 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd-vm" % toolVersion withSources(),
     "net.sourceforge.pmd" % "pmd-xml" % toolVersion withSources(),
     "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion withSources(),
-    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources() exclude("apex", "*")
+    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources()
   )
 }
 

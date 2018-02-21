@@ -196,7 +196,12 @@ object DocGenerator {
         |      performance -> (Result.Level.Warn, Pattern.Category.Performance),
         |      security -> (Result.Level.Err, Pattern.Category.Security),
         |      apexunit -> (Result.Level.Warn, Pattern.Category.CodeStyle),
-        |      complexity -> (Result.Level.Warn, Pattern.Category.ErrorProne)
+        |      complexity -> (Result.Level.Warn, Pattern.Category.ErrorProne),
+        |      multithreading -> (Result.Level.Warn, Pattern.Category.ErrorProne),
+        |      bestpractices -> (Result.Level.Warn, Pattern.Category.CodeStyle),
+        |      documentation -> (Result.Level.Info, Pattern.Category.CodeStyle),
+        |      errorprone -> (Result.Level.Warn, Pattern.Category.ErrorProne),
+        |      codestyle -> (Result.Level.Info, Pattern.Category.CodeStyle)
         |    )
         |  }
         |

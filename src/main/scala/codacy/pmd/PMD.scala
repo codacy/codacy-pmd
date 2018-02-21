@@ -9,6 +9,7 @@ import codacy.dockerApi.utils.FileHelper
 import net.sourceforge.pmd
 import net.sourceforge.pmd.lang.Language
 import net.sourceforge.pmd.renderers.Renderer
+import net.sourceforge.pmd.util.ResourceLoader
 import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RuleSets, RulesetsFactoryUtils}
 import play.api.libs.json.{JsString, JsValue, Json}
 
@@ -20,7 +21,7 @@ object PMD extends Tool {
 
   private lazy val configFileNames = Set("ruleset.xml", "apex-ruleset.xml")
 
-  private lazy val patternCompatibility = Map("java_codesize_CyclomaticComplexity" -> "java_metrics_CyclomaticComplexity")
+  private lazy val deprecatedReferences: Map[String, String] = DocGenerator.listDeprecatedPatterns
 
   override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], filesOpt: Option[Set[Source.File]], options: Map[Configuration.Key, Configuration.Value])
                     (implicit specification: Tool.Specification): Try[List[Result]] = {
@@ -49,7 +50,7 @@ object PMD extends Tool {
     }
 
     // Load the RuleSets
-    val ruleSetFactory = RulesetsFactoryUtils.getRulesetFactory(pmdConfig)
+    val ruleSetFactory = RulesetsFactoryUtils.getRulesetFactory(pmdConfig, new ResourceLoader())
 
     val ruleSetsOpt = Option(RulesetsFactoryUtils.getRuleSets(pmdConfig.getRuleSets, ruleSetFactory))
 
@@ -106,7 +107,7 @@ object PMD extends Tool {
   private def patternIdByRuleNameAndRuleSet(langAlias: String, ruleName: String, ruleSet: String)
                                            (implicit specification: Tool.Specification): Option[Pattern.Id] = {
     RuleSets.getRuleSet(ruleSet).flatMap { ruleSet =>
-      val patternId = Pattern.Id(s"${langAlias}_${ruleSet}_$ruleName")
+      val patternId = Pattern.Id(s"category_${langAlias}_${ruleSet}_$ruleName")
       specification.patterns.collectFirst { case patternDef if patternDef.patternId == patternId => patternDef.patternId }
     }
   }
@@ -118,16 +119,23 @@ object PMD extends Tool {
   }
 
   private def configFile(conf: List[Pattern.Definition])(implicit specification: Tool.Specification): Try[Path] = {
-    val updatedRules = conf.flatMap { pattern =>
-      val newPatternId = pattern.patternId.value.split("_") match {
-        case Array(patternCategory, patternName) => Some(s"""java_${patternCategory}_$patternName""")
-        case Array(langAlias, patternCategory, patternName) => Some(s"""${langAlias}_${patternCategory}_$patternName""")
-        case _ => None
+
+      def prefixPatternId(pattern: Pattern.Definition, prefix: String) = {
+        pattern.patternId.value.split("_") match {
+          case Array(patternCategory, patternName) => Some(s"""${prefix}_java_${patternCategory}_$patternName""")
+          case Array(langAlias, patternCategory, patternName) => Some(s"""${prefix}_${langAlias}_${patternCategory}_$patternName""")
+          case Array(root, langAlias, patternCategory, patternName) => Some(s"""${root}_${langAlias}_${patternCategory}_$patternName""")
+          case _ => None
+        }
       }
 
-      newPatternId.map { npid =>
-        pattern.copy(patternId = Pattern.Id(patternCompatibility.getOrElse(npid, npid)))
-      }
+    val updatedRules = conf.flatMap { pattern =>
+      prefixPatternId(pattern, "rulesets")
+        .flatMap(deprecatedReferences.get)
+        .orElse(prefixPatternId(pattern, "category"))
+        .map { npid =>
+          pattern.copy(patternId = Pattern.Id(npid))
+        }
     }
 
     // Filter rules that are not listed in patterns.json
@@ -158,16 +166,18 @@ object PMD extends Tool {
     }
   }
 
-  private[this] def patternNameById(patternId: Pattern.Id): Option[String] = {
+  private[this] def referenceFromPatternId(patternId: Pattern.Id): Option[String] = {
     patternId.value.split("_") match {
-      case Array(patternCategory, patternName) => Some(s"""rulesets/java/$patternCategory.xml/$patternName""")
-      case Array(langAlias, patternCategory, patternName) => Some(s"""rulesets/$langAlias/$patternCategory.xml/$patternName""")
-      case _ => None
+      case Array(root, langAlias, patternCategory, patternName) =>
+        Some(s"""$root/$langAlias/$patternCategory.xml/$patternName""")
+
+      case _ =>
+        None
     }
   }
 
   private[this] def generateRule(patternDef: Pattern.Definition): Option[Elem] = {
-    patternNameById(patternDef.patternId).map {
+    referenceFromPatternId(patternDef.patternId).map {
       case ruleId if patternDef.parameters.exists(_.nonEmpty) =>
         val xmlProperties = patternDef.parameters
           // HACK: Codacy converts the version parameter from 2.0 to 2 leading PMD to fail, excluding it for now

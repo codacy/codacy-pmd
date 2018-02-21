@@ -1,0 +1,14 @@
+//#Patterns: category_java_documentation_UncommentedEmptyConstructor
+public class Foo {
+
+	public Foo() {
+  	// This constructor is intentionally empty. Nothing special is needed here.
+	}
+}
+
+public class Bar {
+
+	//#Warn: category_java_documentation_UncommentedEmptyConstructor
+	public Bar() {
+	}
+}

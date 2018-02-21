@@ -14,9 +14,9 @@ scalaVersion := languageVersion
 
 resolvers ++= Seq(
   "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/",
-  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
+  "Sonatype OSS Releases" at "https://oss.sonatype.org/content/repositories/releases",
+  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 )
-
 lazy val toolVersionKey = SettingKey[String]("The version of the underlying tool retrieved from patterns.json")
 
 toolVersionKey := {
@@ -41,30 +41,32 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd-vm" % toolVersion withSources(),
     "net.sourceforge.pmd" % "pmd-xml" % toolVersion withSources(),
     "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion withSources(),
-    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources() exclude("apex", "*"),
-    "net.sourceforge.pmd" % "pmd-apex" % toolVersion classifier "apex-jorje-shaded"
+    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources()
   )
 }
+
 enablePlugins(JavaAppPackaging)
 
 enablePlugins(DockerPlugin)
 
-version in Docker := "1.0"
+version in Docker := "1.0.0"
 
 val installAll =
   """apk update && apk add bash curl &&
     |rm -rf /tmp/* &&
     |rm -rf /var/cache/apk/*""".stripMargin.replaceAll(System.lineSeparator(), " ")
 
-mappings in Universal <++= (resourceDirectory in Compile) map { (resourceDir: File) =>
-  val src = resourceDir / "docs"
-  val dest = "/docs"
+mappings in Universal ++= {
+  (resourceDirectory in Compile) map { (resourceDir: File) =>
+    val src = resourceDir / "docs"
+    val dest = "/docs"
 
-  for {
-    path <- (src ***).get
-    if !path.isDirectory
-  } yield path -> path.toString.replaceFirst(src.toString, dest)
-}
+    for {
+      path <- src.***.get
+      if !path.isDirectory
+    } yield path -> path.toString.replaceFirst(src.toString, dest)
+  }
+}.value
 
 val dockerUser = "docker"
 val dockerGroup = "docker"

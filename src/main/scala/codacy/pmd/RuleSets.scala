@@ -27,7 +27,9 @@ object RuleSets extends Enumeration {
   val migrating_to_13 = Value("migrating_to_13")
   val naming = Value("naming")
   val security = Value("security")
+  val multithreading = Value("multithreading")
   val migrating = Value("migrating")
+  val bestpractices = Value("bestpractices")
   val design = Value("design")
   val loggingJava = Value("logging-java")
   val sunsecure = Value("sunsecure")
@@ -37,6 +39,7 @@ object RuleSets extends Enumeration {
   val unnecessary = Value("unnecessary")
   val controversial = Value("controversial")
   val strictexception = Value("strictexception")
+  val documentation = Value("documentation")
   val junit = Value("junit")
   val javabeans = Value("javabeans")
   val optimizations = Value("optimizations")
@@ -46,10 +49,12 @@ object RuleSets extends Enumeration {
   val migrating_to_14 = Value("migrating_to_14")
   val xpath = Value("xpath")
   val imports = Value("imports")
+  val errorprone = Value("errorprone")
   val codesize = Value("codesize")
   val loggingJakartaCommons = Value("logging-jakarta-commons")
   val complexity = Value("complexity")
   val cloneImplementation = Value("clone")
+  val codestyle = Value("codestyle")
   val android = Value("android")
 
   def getRuleSet(name: String): Option[RuleSets.Value] = RuleNameToSet.get(name)
@@ -65,6 +70,7 @@ object RuleSets extends Enumeration {
 
   private lazy val RuleNameToSet = {
     Map(
+      "Documentation" -> documentation,
       "Code Size" -> codesize,
       "Metrics temporary ruleset" -> metrics,
       "Optimization" -> optimizations,
@@ -74,6 +80,7 @@ object RuleSets extends Enumeration {
       "Default ruleset used by the CodeClimate Engine for Salesforce.com Apex" -> ruleset,
       "Migration14" -> migrating_to_14,
       "Comments" -> comments,
+      "Error Prone" -> errorprone,
       "Braces" -> braces,
       "JavaBeans" -> javabeans,
       "PLSQL DATETIME" -> dates,
@@ -86,6 +93,8 @@ object RuleSets extends Enumeration {
       "Migration" -> migrating,
       "Basic VF" -> security,
       "Controversial Ecmascript" -> controversial,
+      "Best Practices" -> bestpractices,
+      "Multithreading" -> multithreading,
       "Basic JSF" -> basicJsf,
       "Performance" -> performance,
       "Complexity" -> complexity,
@@ -94,6 +103,8 @@ object RuleSets extends Enumeration {
       "Migration13" -> migrating_to_13,
       "JUnit" -> junit,
       "Basic XML" -> basic,
+      "Code Style" -> codestyle,
+      "Metrics" -> metrics,
       "Design" -> design,
       "Security Code Guidelines" -> sunsecure,
       "Tom Kyte's Despair" -> TomKytesDespair,
@@ -157,4 +168,4 @@ object RuleSets extends Enumeration {
   }
 
 }
-          
+      

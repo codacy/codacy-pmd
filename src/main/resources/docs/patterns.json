@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.0.1",
+  "version" : "6.1.0",
   "patterns" : [ {
     "patternId" : "category_jsp_security_NoUnsanitizedJSPExpression",
     "level" : "Error",
@@ -12,6 +12,34 @@
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
+    "patternId" : "category_java_errorprone_EmptyTryBlock",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//TryStatement[not(ResourceSpecification)]/Block[1][count(*) = 0]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_BeanMembersShouldSerialize",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_multithreading_DontCallThreadRun",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//StatementExpression/PrimaryExpression\n[\n    PrimaryPrefix\n    [\n        ./Name[ends-with(@Image, '.run') or @Image = 'run']\n        and substring-before(Name/@Image, '.') =//VariableDeclarator/VariableDeclaratorId/@Image\n            [../../../Type/ReferenceType/ClassOrInterfaceType[typeof(@Image, 'java.lang.Thread', 'Thread')]]\n        or (./AllocationExpression/ClassOrInterfaceType[typeof(@Image, 'java.lang.Thread', 'Thread')]\n        and ../PrimarySuffix[@Image = 'run'])\n    ]\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_SingletonClassReturningNewInstance",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_java_design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -21,15 +49,12 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_ShortMethodName",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_RemoteSessionInterfaceNamingConvention",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
-      "name" : "minimum",
-      "default" : "3"
-    }, {
       "name" : "xpath",
-      "default" : "\n\n//MethodDeclarator[string-length(@Image) < $minimum]\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBHome')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Home')\n    )\n]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -38,12 +63,30 @@
     "category" : "ErrorProne",
     "languages" : [ "plsql" ]
   }, {
-    "patternId" : "category_apex_codestyle_IfStmtsMustUseBraces",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_AvoidProtectedMethodInFinalClassNotExtending",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//IfBlockStatement/BlockStatement[@CurlyBrace='false']\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Final='true' and not(ExtendsList)]\n/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n/MethodDeclaration[@Protected='true'][MethodDeclarator/@Image != 'finalize']\n \n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_MissingStaticMethodInNonInstantiatableClass",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Nested='false']\n[\n  (\n    ./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration\n    and\n    count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration) = count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Private='true'])\n  )\n  and\n  not(.//MethodDeclaration[@Static='true'])\n  and\n  not(.//FieldDeclaration[@Private='false'][@Static='true'])\n  and\n  not(.//ClassOrInterfaceDeclaration[@Nested='true']\n           [@Public='true']\n           [@Static='true']\n           [not(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration) or ./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Public='true']]\n           [./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/MethodDeclaration\n                [@Public='true']\n                [./ResultType/Type/ReferenceType/ClassOrInterfaceType\n                    [@Image = //ClassOrInterfaceDeclaration[@Nested='false']/@Image]\n                ]\n            ]\n        )\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_apex_errorprone_EmptyWhileStmt",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//WhileLoopStatement[./BlockStatement[count(*) = 0]]\n\n                "
     } ],
     "languages" : [ "apex" ]
   }, {
@@ -66,18 +109,30 @@
     "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_UnconditionalIfStatement",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_PrematureDeclaration",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_FinalizeDoesNotCallSuperFinalize",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n \n//IfStatement/Expression\n [count(PrimaryExpression)=1]\n /PrimaryExpression/PrimaryPrefix/Literal/BooleanLiteral\n\n                "
+      "default" : "\n\n\n//MethodDeclaration[MethodDeclarator[@Image='finalize'][not(FormalParameters/*)]]\n   /Block\n      /BlockStatement[last()]\n      [not(Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]\n      [not(Statement/TryStatement/FinallyStatement\n       /Block/BlockStatement/Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_SingletonClassReturningNewInstance",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_AbstractNaming",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceDeclaration\n [@Abstract='true' and @Interface='false']\n [not (starts-with(@Image,'Abstract'))]\n|\n//ClassOrInterfaceDeclaration\n [@Abstract='false']\n [$strict='true']\n [starts-with(@Image, 'Abstract')]\n\n                "
+    }, {
+      "name" : "strict",
+      "default" : "true"
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_plsql_design_TooManyMethods",
@@ -98,6 +153,27 @@
     "parameters" : [ {
       "name" : "xpath",
       "default" : "\n\n//PrimaryExpression\n [PrimaryPrefix/Name[contains(@Image,'printStackTrace')]]\n [PrimarySuffix[not(boolean(Arguments/ArgumentList/Expression))]]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_ProperLogger",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceBodyDeclaration[FieldDeclaration//ClassOrInterfaceType[@Image='Log']\n and\n not(FieldDeclaration[@Final='true'][@Static='true'][@Private='true'][.//VariableDeclaratorId[@Image=$staticLoggerName]]\n //ArgumentList//ClassOrInterfaceType/@Image = ancestor::ClassOrInterfaceDeclaration/@Image)\n and\n not(FieldDeclaration[@Final='true'][@Private='true'][.//VariableDeclaratorId[@Image='log']]\n [count(.//VariableInitializer)=0]\n [ancestor::ClassOrInterfaceBody//StatementExpression[.//PrimaryExpression/descendant::*[@Image='log']][count(.//AllocationExpression)=0]]\n )]\n\n                "
+    }, {
+      "name" : "staticLoggerName",
+      "default" : "LOG"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_documentation_UncommentedEmptyMethodBody",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration/Block[count(BlockStatement) = 0 and @containsComment = 'false']\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -133,12 +209,12 @@
     "category" : "ErrorProne",
     "languages" : [ "plsql" ]
   }, {
-    "patternId" : "category_java_errorprone_EmptyStatementNotInLoop",
+    "patternId" : "category_java_errorprone_AvoidInstanceofChecksInCatchClause",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//EmptyStatement\n [not(\n       ../../../ForStatement\n       or ../../../WhileStatement\n       or ../../../BlockStatement/ClassOrInterfaceDeclaration\n       or ../../../../../../ForStatement/Statement[1]\n        /Block[1]/BlockStatement[1]/Statement/EmptyStatement\n       or ../../../../../../WhileStatement/Statement[1]\n        /Block[1]/BlockStatement[1]/Statement/EmptyStatement)\n ]\n\n                "
+      "default" : "\n\n//CatchStatement/FormalParameter\n /following-sibling::Block//InstanceOfExpression/PrimaryExpression/PrimaryPrefix\n  /Name[\n   @Image = ./ancestor::Block/preceding-sibling::FormalParameter\n    /VariableDeclaratorId/@Image\n  ]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -147,36 +223,22 @@
     "category" : "ErrorProne",
     "languages" : [ "plsql" ]
   }, {
-    "patternId" : "category_ecmascript_codestyle_AssignmentInOperand",
+    "patternId" : "category_java_errorprone_UnconditionalIfStatement",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
-      "name" : "allowTernary",
-      "default" : "false"
-    }, {
-      "name" : "allowWhile",
-      "default" : "false"
-    }, {
-      "name" : "allowTernaryResults",
-      "default" : "false"
-    }, {
-      "name" : "allowIf",
-      "default" : "false"
-    }, {
-      "name" : "allowFor",
-      "default" : "false"
-    }, {
       "name" : "xpath",
-      "default" : "\n\n    //IfStatement[$allowIf = \"false\"]/child::node()[1]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n    //WhileLoop[$allowWhile = \"false\"]/child::node()[1]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n    //DoLoop[$allowWhile = \"false\"]/child::node()[2]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n    //ForLoop[$allowFor = \"false\"]/child::node()[2]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n   //ConditionalExpression[$allowTernary = \"false\"]/child::node()[1]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n   //ConditionalExpression[$allowTernaryResults = \"false\"]/child::node()[position() = 2 or position() = 3]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n\n                "
-    }, {
-      "name" : "allowIncrementDecrement",
-      "default" : "false"
+      "default" : "\n \n//IfStatement/Expression\n [count(PrimaryExpression)=1]\n /PrimaryExpression/PrimaryPrefix/Literal/BooleanLiteral\n\n                "
     } ],
-    "languages" : [ "javascript" ]
+    "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_documentation_CommentContent",
+    "patternId" : "category_java_errorprone_EmptyFinalizer",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[MethodDeclarator[@Image='finalize'][not(FormalParameters/*)]]\n  /Block[count(*)=0]\n\n                "
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_performance_OptimizableToArrayCall",
@@ -197,23 +259,28 @@
     } ],
     "languages" : [ "java" ]
   }, {
+    "patternId" : "category_java_errorprone_SuspiciousOctalEscape",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_UnnecessaryModifier",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_EmptyStatementNotInLoop",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//EmptyStatement\n [not(\n       ../../../ForStatement\n       or ../../../WhileStatement\n       or ../../../BlockStatement/ClassOrInterfaceDeclaration\n       or ../../../../../../ForStatement/Statement[1]\n        /Block[1]/BlockStatement[1]/Statement/EmptyStatement\n       or ../../../../../../WhileStatement/Statement[1]\n        /Block[1]/BlockStatement[1]/Statement/EmptyStatement)\n ]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_java_bestpractices_AccessorClassGeneration",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_BrokenNullCheck",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_multithreading_DoNotUseThreads",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//ClassOrInterfaceType[@Image = 'Thread' or @Image = 'Runnable']"
-    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_apex_design_TooManyFields",
@@ -221,69 +288,50 @@
     "category" : "ErrorProne",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_errorprone_SuspiciousHashcodeMethodName",
+    "patternId" : "category_java_errorprone_ReturnEmptyArrayRatherThanNull",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_JUnitSpelling",
-    "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//MethodDeclarator[(not(@Image = 'setUp')\n and translate(@Image, 'SETuP', 'setUp') = 'setUp')\n or (not(@Image = 'tearDown')\n and translate(@Image, 'TEARdOWN', 'tearDown') = 'tearDown')]\n [FormalParameters[count(*) = 0]]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n\n                "
+      "default" : "\n\n//MethodDeclaration\n[\n(./ResultType/Type[@Array='true'])\nand\n(./Block/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral)\n]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_FinalizeOnlyCallsSuperFinalize",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration[MethodDeclarator[@Image=\"finalize\"][not(FormalParameters/*)]]\n   /Block[count(BlockStatement)=1]\n     /BlockStatement[\n       Statement/StatementExpression/PrimaryExpression\n       [./PrimaryPrefix[@SuperModifier='true']]\n       [./PrimarySuffix[@Image='finalize']]\n     ]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_UnnecessaryCaseChange",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_NonStaticInitializer",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//Initializer[@Static='false']\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_UseEqualsToCompareStrings",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//EqualityExpression/PrimaryExpression\n[(PrimaryPrefix/Literal\n   [starts-with(@Image, '\"')]\n   [ends-with(@Image, '\"')]\nand count(PrimarySuffix) = 0)]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_design_ExcessiveMethodLength",
+    "patternId" : "category_java_multithreading_NonThreadSafeSingleton",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_FieldDeclarationsShouldBeAtStartOfClass",
+    "patternId" : "category_java_errorprone_InstantiationToGetClass",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_StaticEJBFieldShouldBeFinal",
-    "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[\n    (\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'SessionBean')])\n    or\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'EJBHome')])\n    or\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalObject')])\n    or\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalHome')])\n    or\n    (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBObject')])\n    )\n    and\n    (./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration[\n         (./FieldDeclaration[@Static = 'true'])\n         and\n         (./FieldDeclaration[@Final = 'false'])\n    ])\n]\n\n                "
+      "default" : "\n\n//PrimarySuffix\n [@Image='getClass']\n [parent::PrimaryExpression\n  [PrimaryPrefix/AllocationExpression]\n  [count(PrimarySuffix) = 2]\n ]\n\n                "
     } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidLosingExceptionInformation",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CatchStatement/Block/BlockStatement/Statement/StatementExpression/PrimaryExpression/PrimaryPrefix/Name\n[\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getMessage')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getLocalizedMessage')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getCause')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getStackTrace')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.toString')\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_apex_errorprone_AvoidDirectAccessTriggerMap",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ArrayLoadExpression[TriggerVariableExpression and LiteralExpression]\n\n                "
+    } ],
+    "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_design_ExcessiveMethodLength",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_plsql_design_NcssMethodCount",
@@ -292,6 +340,11 @@
     "languages" : [ "plsql" ]
   }, {
     "patternId" : "category_java_design_LawOfDemeter",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_CloseResource",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "java" ]
@@ -313,28 +366,40 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_pom_errorprone_InvalidDependencyTypes",
+    "patternId" : "category_java_errorprone_CallSuperLast",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[MethodDeclarator[\n  @Image='finish' or\n  @Image='onDestroy' or\n  @Image='onPause' or\n  @Image='onSaveInstanceState' or\n  @Image='onStop' or\n  @Image='onTerminate'\n  ]]\n   /Block/BlockStatement[last()]\n    [not(Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/MethodDeclarator/@Image])]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  typeof(@Image, 'android.app.Activity', 'Activity') or\n  typeof(@Image, 'android.app.Application', 'Application') or\n  typeof(@Image, 'android.app.Service', 'Service')\n]]]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_CallSuperInConstructor",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//dependencyManagement/dependency/type/text[not(contains('pom, jar, maven-plugin, ejb, war, ear, rar, par',@Image))]\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration[ count (ExtendsList/*) > 0 ]\n/ClassOrInterfaceBody\n /ClassOrInterfaceBodyDeclaration\n /ConstructorDeclaration[ count (.//ExplicitConstructorInvocation)=0 ]\n\n                "
     } ],
-    "languages" : [ "xml" ]
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_apex_design_NcssConstructorCount",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_ecmascript_errorprone_InnaccurateNumericLiteral",
+    "patternId" : "category_java_errorprone_AvoidLiteralsInIfCondition",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
+      "name" : "ignoreMagicNumbers",
+      "default" : "-1,0"
+    }, {
       "name" : "xpath",
-      "default" : "\n\n//NumberLiteral[\n    @Image != @Number\n    and translate(@Image, \"e\", \"E\") != @Number\n    and concat(@Image, \".0\") != @Number\n    and @Image != substring-before(translate(@Number, \".\", \"\"), \"E\")]\n\n                "
+      "default" : "\n\n//IfStatement/Expression/*/PrimaryExpression/PrimaryPrefix/Literal\n[not(NullLiteral)]\n[not(BooleanLiteral)]\n[empty(index-of(tokenize($ignoreMagicNumbers, '\\s*,\\s*'), @Image))]\n\n                "
     } ],
-    "languages" : [ "javascript" ]
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_vm_bestpractices_UnusedMacroParameter",
     "level" : "Warning",
@@ -350,36 +415,9 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_apex_codestyle_VariableNamingConventions",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_VariableNamingConventions",
+    "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_errorprone_EmptySwitchStatements",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//SwitchStatement[count(*) = 1]"
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_EmptyMethodInAbstractClassShouldBeAbstract",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[@Abstract = 'true']\n    /ClassOrInterfaceBody\n    /ClassOrInterfaceBodyDeclaration\n    /MethodDeclaration[@Abstract = 'false' and @Native = 'false']\n    [\n        ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral) = 'true' )\n        or\n        ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal[@Image = '0']) = 'true' )\n        or\n        ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal[string-length(@Image) = 2]) = 'true' )\n        or\n        (./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/EmptyStatement)\n        or\n        ( count (./Block/*) = 0 )\n    ]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_EmptyTryBlock",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//TryStatement[not(ResourceSpecification)]/Block[1][count(*) = 0]\n\n                "
-    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_vf_security_VfCsrf",
@@ -387,31 +425,16 @@
     "category" : "Security",
     "languages" : [ "visualforce" ]
   }, {
-    "patternId" : "category_java_multithreading_DoubleCheckedLocking",
+    "patternId" : "category_java_errorprone_DoNotExtendJavaLangThrowable",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_EmptySynchronizedBlock",
-    "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//SynchronizedStatement/Block[1][count(*) = 0]"
+      "default" : "\n\n//ClassOrInterfaceDeclaration/ExtendsList/ClassOrInterfaceType\n  [@Image=\"Throwable\" or @Image=\"java.lang.Throwable\"]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_MethodArgumentCouldBeFinal",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_java_bestpractices_PreserveStackTrace",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_multithreading_NonThreadSafeSingleton",
     "level" : "Warning",
     "category" : "CodeStyle",
     "languages" : [ "java" ]
@@ -422,6 +445,15 @@
     "parameters" : [ {
       "name" : "xpath",
       "default" : "\n\n//CatchStatement[FormalParameter\n /VariableDeclaratorId/@Image = Block/BlockStatement/Statement\n /ThrowStatement/Expression/PrimaryExpression[count(PrimarySuffix)=0]/PrimaryPrefix/Name/@Image\n and count(Block/BlockStatement/Statement) =1]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_JumbledIncrementer",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n//ForStatement\n  [\n    ForUpdate/StatementExpressionList/StatementExpression/PostfixExpression/PrimaryExpression/PrimaryPrefix/Name/@Image\n    =\n    ancestor::ForStatement/ForInit//VariableDeclaratorId/@Image\n  ]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -438,11 +470,6 @@
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_ArrayIsStoredDirectly",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidCallingFinalize",
     "level" : "Warning",
     "category" : "CodeStyle",
     "languages" : [ "java" ]
@@ -475,6 +502,29 @@
     "category" : "Security",
     "languages" : [ "apex" ]
   }, {
+    "patternId" : "category_java_codestyle_OnlyOneReturn",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_ecmascript_codestyle_NoElseReturn",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//IfStatement[@Else=\"true\"][Scope[1]/ReturnStatement]\n\n                "
+    } ],
+    "languages" : [ "javascript" ]
+  }, {
+    "patternId" : "category_java_errorprone_DoNotCallGarbageCollectionExplicitly",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Name[\n(starts-with(@Image, 'System.') and\n(starts-with(@Image, 'System.gc') or\nstarts-with(@Image, 'System.runFinalization'))) or\n(\nstarts-with(@Image,'Runtime.getRuntime') and\n../../PrimarySuffix[ends-with(@Image,'gc')]\n)\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_plsql_design_ExcessiveTypeLength",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -485,50 +535,20 @@
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_LocalHomeNamingConvention",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalHome')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'LocalHome')\n    )\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_EmptyStatementBlock",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//BlockStatement/Statement/Block[count(*) = 0]"
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_jsp_design_NoInlineStyleInformation",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "jsp" ]
   }, {
-    "patternId" : "category_java_errorprone_OverrideBothEqualsAndHashcode",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_AbstractNaming",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration\n [@Abstract='true' and @Interface='false']\n [not (starts-with(@Image,'Abstract'))]\n|\n//ClassOrInterfaceDeclaration\n [@Abstract='false']\n [$strict='true']\n [starts-with(@Image, 'Abstract')]\n\n                "
-    }, {
-      "name" : "strict",
-      "default" : "true"
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_vm_design_AvoidDeeplyNestedIfStmts",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "velocity" ]
+  }, {
+    "patternId" : "category_java_errorprone_IdempotentOperations",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_UseAssertEqualsInsteadOfAssertTrue",
     "level" : "Warning",
@@ -539,12 +559,12 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_CloneThrowsCloneNotSupportedException",
+    "patternId" : "category_java_errorprone_DontUseFloatTypeForLoopIndices",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration\n[\nMethodDeclarator/@Image = 'clone'\nand count(MethodDeclarator/FormalParameters/*) = 0\nand count(NameList/Name[contains\n(@Image,'CloneNotSupportedException')]) = 0\n]\n[\n../../../../ClassOrInterfaceDeclaration[@Final = 'false']\n]\n\n                "
+      "default" : "\n\n//ForStatement/ForInit/LocalVariableDeclaration\n/Type/PrimitiveType[@Image=\"float\"]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -557,14 +577,37 @@
     } ],
     "languages" : [ "jsp" ]
   }, {
+    "patternId" : "category_plsql_codestyle_MisplacedPragma",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ProgramUnit/Pragma\n\n                "
+    } ],
+    "languages" : [ "plsql" ]
+  }, {
+    "patternId" : "category_java_errorprone_NullAssignment",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_java_performance_UseStringBufferForStringAppends",
     "level" : "Warning",
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_CheckSkipResult",
+    "patternId" : "category_java_errorprone_BrokenNullCheck",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_PackageCase",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//PackageDeclaration/Name[lower-case(@Image)!=@Image]"
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_performance_AvoidArrayLoops",
@@ -576,43 +619,10 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_EmptyCatchBlock",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//CatchStatement\n [count(Block/BlockStatement) = 0 and ($allowCommentedBlocks != 'true' or Block/@containsComment = 'false')]\n [FormalParameter/Type/ReferenceType\n   /ClassOrInterfaceType[@Image != 'InterruptedException' and @Image != 'CloneNotSupportedException']\n ]\n [FormalParameter/VariableDeclaratorId[not(matches(@Image, $allowExceptionNameRegex))]]\n\n                "
-    }, {
-      "name" : "allowCommentedBlocks",
-      "default" : "false"
-    }, {
-      "name" : "allowExceptionNameRegex",
-      "default" : "^(ignored|expected)$"
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_apex_security_ApexDangerousMethods",
     "level" : "Error",
     "category" : "Security",
     "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_codestyle_AvoidPrefixingMethodParameters",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration/MethodDeclarator/FormalParameters/FormalParameter/VariableDeclaratorId[\n        pmd:matches(@Image,'^in[A-Z].*','^out[A-Z].*','^in$','^out$')\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_DontUseFloatTypeForLoopIndices",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ForStatement/ForInit/LocalVariableDeclaration\n/Type/PrimitiveType[@Image=\"float\"]\n\n                "
-    } ],
-    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_SimplifyBooleanExpressions",
     "level" : "Warning",
@@ -623,21 +633,30 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_WhileLoopsMustUseBraces",
+    "patternId" : "category_java_errorprone_LoggerIsNotStaticFinal",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//WhileStatement[not(Statement/Block)]"
+      "default" : "\n\n//VariableDeclarator\n [parent::FieldDeclaration]\n [../Type/ReferenceType\n  /ClassOrInterfaceType[@Image='Logger']\n   and\n  (..[@Final='false'] or ..[@Static = 'false'] ) ]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_multithreading_UseConcurrentHashMap",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_IfStmtsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//Type[../VariableDeclarator/VariableInitializer//AllocationExpression/ClassOrInterfaceType[@Image != 'ConcurrentHashMap']]\n/ReferenceType/ClassOrInterfaceType[@Image = 'Map']\n\n                "
+      "default" : "\n\n//IfStatement[count(*) < 3][not(Statement/Block)]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_LocalInterfaceSessionNamingConvention",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalObject')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Local')\n    )\n]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -645,15 +664,6 @@
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "plsql" ]
-  }, {
-    "patternId" : "category_java_errorprone_CallSuperLast",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration[MethodDeclarator[\n  @Image='finish' or\n  @Image='onDestroy' or\n  @Image='onPause' or\n  @Image='onSaveInstanceState' or\n  @Image='onStop' or\n  @Image='onTerminate'\n  ]]\n   /Block/BlockStatement[last()]\n    [not(Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/MethodDeclarator/@Image])]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  typeof(@Image, 'android.app.Activity', 'Activity') or\n  typeof(@Image, 'android.app.Application', 'Application') or\n  typeof(@Image, 'android.app.Service', 'Service')\n]]]\n\n                "
-    } ],
-    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_performance_AvoidUsingShortType",
     "level" : "Warning",
@@ -669,19 +679,46 @@
     "category" : "Security",
     "languages" : [ "apex" ]
   }, {
+    "patternId" : "category_java_errorprone_CloneMethodReturnTypeMustMatchClassName",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration\n[\nMethodDeclarator/@Image = 'clone'\nand MethodDeclarator/FormalParameters/@ParameterCount = 0\nand not (ResultType//ClassOrInterfaceType/@Image = ancestor::ClassOrInterfaceDeclaration[1]/@Image)\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_vf_security_VfUnescapeEl",
     "level" : "Error",
     "category" : "Security",
     "languages" : [ "visualforce" ]
+  }, {
+    "patternId" : "category_pom_errorprone_ProjectVersionAsDependencyVersion",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//dependency/version/text[contains(@Image,'{project.version}')]\n\n                "
+    } ],
+    "languages" : [ "xml" ]
+  }, {
+    "patternId" : "category_java_codestyle_UnnecessaryReturn",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_MethodReturnsInternalArray",
     "level" : "Warning",
     "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_SuspiciousOctalEscape",
+    "patternId" : "category_java_errorprone_FinalizeOverloaded",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration\n /MethodDeclarator[@Image='finalize'][FormalParameters[count(*)>0]]\n\n                "
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_ExceptionAsFlowControl",
@@ -689,18 +726,43 @@
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_AvoidCatchingNPE",
+    "patternId" : "category_pom_errorprone_InvalidDependencyTypes",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//CatchStatement/FormalParameter/Type\n /ReferenceType/ClassOrInterfaceType[@Image='NullPointerException']\n\n                "
+      "default" : "\n\n//dependencyManagement/dependency/type/text[not(@Image = $validTypes)]\n\n                "
+    }, {
+      "name" : "validTypes",
+      "default" : "pom,jar,maven-plugin,ejb,war,ear,rar,par"
+    } ],
+    "languages" : [ "xml" ]
+  }, {
+    "patternId" : "category_java_errorprone_MissingBreakInSwitch",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//SwitchStatement\n[(count(.//BreakStatement)\n + count(BlockStatement//Statement/ReturnStatement)\n + count(BlockStatement//Statement/ContinueStatement)\n + count(BlockStatement//Statement/ThrowStatement)\n + count(BlockStatement//Statement/IfStatement[@Else='true' and Statement[2][ReturnStatement|ContinueStatement|ThrowStatement]]/Statement[1][ReturnStatement|ContinueStatement|ThrowStatement])\n + count(SwitchLabel[name(following-sibling::node()) = 'SwitchLabel'])\n + count(SwitchLabel[count(following-sibling::node()) = 0])\n  < count (SwitchLabel))]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_CloseResource",
+    "patternId" : "category_java_errorprone_FinalizeShouldBeProtected",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[@Protected=\"false\"]\n  /MethodDeclarator[@Image=\"finalize\"]\n  [not(FormalParameters/*)]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_multithreading_AvoidSynchronizedAtMethodLevel",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//MethodDeclaration[@Synchronized='true']"
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_ecmascript_bestpractices_UseBaseWithParseInt",
@@ -721,100 +783,37 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_PrematureDeclaration",
+    "patternId" : "category_vm_errorprone_EmptyIfStmt",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
+    "category" : "ErrorProne",
+    "languages" : [ "velocity" ]
   }, {
-    "patternId" : "category_java_errorprone_BadComparison",
-    "level" : "Warning",
+    "patternId" : "category_ecmascript_codestyle_ForLoopsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//EqualityExpression[@Image='==']\n /PrimaryExpression/PrimaryPrefix\n /Name[@Image='Double.NaN' or @Image='Float.NaN']\n\n                "
+      "default" : "\n\n//ForLoop[not(child::Scope)]\n|\n//ForInLoop[not(child::Scope)]\n\n                "
     } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_CloneMethodMustBePublic",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration[@Public='false']\n  [MethodDeclarator/@Image = 'clone']\n  [MethodDeclarator/FormalParameters/@ParameterCount = 0]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_MDBAndSessionBeanNamingConvention",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//TypeDeclaration/ClassOrInterfaceDeclaration\n[\n    (\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'SessionBean')])\n        or\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'MessageDrivenBean')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Bean')\n    )\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidInstanceofChecksInCatchClause",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//CatchStatement/FormalParameter\n /following-sibling::Block//InstanceOfExpression/PrimaryExpression/PrimaryPrefix\n  /Name[\n   @Image = ./ancestor::Block/preceding-sibling::FormalParameter\n    /VariableDeclaratorId/@Image\n  ]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_LoggerIsNotStaticFinal",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//VariableDeclarator\n [parent::FieldDeclaration]\n [../Type/ReferenceType\n  /ClassOrInterfaceType[@Image='Logger']\n   and\n  (..[@Final='false'] or ..[@Static = 'false'] ) ]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidBranchingStatementAsLastInLoop",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidDuplicateLiterals",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
+    "languages" : [ "javascript" ]
   }, {
     "patternId" : "category_java_design_ExcessiveImports",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_ecmascript_codestyle_IfStmtsMustUseBraces",
+    "patternId" : "category_java_errorprone_DoNotCallSystemExit",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//IfStatement[@Else = \"false\" and not(child::Scope)]\n\n                "
-    } ],
-    "languages" : [ "javascript" ]
-  }, {
-    "patternId" : "category_java_codestyle_ShortClassName",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "minimum",
-      "default" : "5"
-    }, {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[string-length(@Image) < $minimum]\n\n                "
+      "default" : "\n\n//Name[\n    starts-with(@Image,'System.exit')\n    or\n    (starts-with(@Image,'Runtime.getRuntime') and ../../PrimarySuffix[ends-with(@Image,'exit')])\n]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_SingularField",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_UnnecessaryFullyQualifiedName",
-    "level" : "Warning",
-    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_vm_design_NoInlineStyles",
@@ -840,21 +839,29 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_DoNotHardCodeSDCard",
+    "patternId" : "category_apex_errorprone_EmptyTryOrFinallyBlock",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//Literal[starts-with(@Image,'\"/sdcard')]"
+      "default" : "\n\n//TryCatchFinallyBlockStatement[./BlockStatement[count(*) = 0]]\n\n                "
     } ],
+    "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidBranchingStatementAsLastInLoop",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_AtLeastOneConstructor",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_ShortVariable",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
+      "name" : "minimum",
+      "default" : "3"
+    }, {
       "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[\n  not(ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration)\n  and\n  (@Static = 'false')\n  and\n  (count(./descendant::MethodDeclaration[@Static = 'true']) < 1)\n]\n  [@Interface='false']\n\n                "
+      "default" : "\n\n//VariableDeclaratorId[string-length(@Image) < $minimum]\n [not(ancestor::ForInit)]\n [not(../../VariableDeclarator and ../../../LocalVariableDeclaration and ../../../../ForStatement)]\n [not((ancestor::FormalParameter) and (ancestor::TryStatement))]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -868,20 +875,6 @@
     "category" : "Security",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_codestyle_VariableNamingConventions",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_AvoidUsingNativeCode",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//Name[starts-with(@Image,'System.loadLibrary')]"
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_xsl_performance_AvoidAxisNavigation",
     "level" : "Warning",
     "category" : "Performance",
@@ -894,17 +887,10 @@
     } ],
     "languages" : [ "xml" ]
   }, {
-    "patternId" : "category_java_documentation_UncommentedEmptyConstructor",
-    "level" : "Warning",
+    "patternId" : "category_apex_codestyle_VariableNamingConventions",
+    "level" : "Info",
     "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ConstructorDeclaration[@Private='false']\n                        [count(BlockStatement) = 0 and ($ignoreExplicitConstructorInvocation = 'true' or not(ExplicitConstructorInvocation)) and @containsComment = 'false']\n                        [not(../Annotation/MarkerAnnotation/Name[typeof(@Image, 'javax.inject.Inject', 'Inject')])]\n\n                "
-    }, {
-      "name" : "ignoreExplicitConstructorInvocation",
-      "default" : "false"
-    } ],
-    "languages" : [ "java" ]
+    "languages" : [ "apex" ]
   }, {
     "patternId" : "category_java_performance_AvoidFileStream",
     "level" : "Warning",
@@ -920,37 +906,37 @@
     "category" : "Security",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_ecmascript_codestyle_UnnecessaryBlock",
+    "patternId" : "category_ecmascript_errorprone_EqualComparison",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//Block[not(parent::FunctionNode or parent::IfStatement or parent::ForLoop or parent::ForInLoop\n    or parent::WhileLoop or parent::DoLoop or parent::TryStatement or parent::CatchClause)]\n|\n//Scope[not(parent::FunctionNode or parent::IfStatement or parent::ForLoop or parent::ForInLoop\n    or parent::WhileLoop or parent::DoLoop or parent::TryStatement or parent::CatchClause)]\n\n                "
+      "default" : "\n\n//InfixExpression[(@Image = \"==\" or @Image = \"!=\")\n  and\n (child::KeywordLiteral[@Image = \"true\" or @Image = \"false\"]\n or\n child::NumberLiteral)\n]\n\n                "
     } ],
     "languages" : [ "javascript" ]
+  }, {
+    "patternId" : "category_java_errorprone_UseEqualsToCompareStrings",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//EqualityExpression/PrimaryExpression\n[(PrimaryPrefix/Literal\n   [starts-with(@Image, '\"')]\n   [ends-with(@Image, '\"')]\nand count(PrimarySuffix) = 0)]\n\n                "
+    } ],
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_performance_ConsecutiveAppendsShouldReuse",
     "level" : "Warning",
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_ecmascript_codestyle_NoElseReturn",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_UnnecessaryConstructor",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//IfStatement[@Else=\"true\"][Scope[1]/ReturnStatement]\n\n                "
+      "default" : "\n\n//ClassOrInterfaceBody[count(ClassOrInterfaceBodyDeclaration/ConstructorDeclaration)=1]\n/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration\n[@Public='true']\n[not(FormalParameters/*)]\n[not(BlockStatement)]\n[not(NameList)]\n[count(ExplicitConstructorInvocation/Arguments/ArgumentList/Expression)=0]\n\n                "
     } ],
-    "languages" : [ "javascript" ]
-  }, {
-    "patternId" : "category_ecmascript_codestyle_WhileLoopsMustUseBraces",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//WhileLoop[not(child::Scope)]\n\n                "
-    } ],
-    "languages" : [ "javascript" ]
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_plsql_design_ExcessiveObjectLength",
     "level" : "Warning",
@@ -971,20 +957,6 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_DoNotThrowExceptionInFinally",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//FinallyStatement[descendant::ThrowStatement]"
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_ImportFromSamePackage",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_java_performance_ConsecutiveLiteralAppends",
     "level" : "Warning",
     "category" : "Performance",
@@ -999,36 +971,23 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_InstantiationToGetClass",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//PrimarySuffix\n [@Image='getClass']\n [parent::PrimaryExpression\n  [PrimaryPrefix/AllocationExpression]\n  [count(PrimarySuffix) = 2]\n ]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_java_performance_InefficientStringBuffering",
     "level" : "Warning",
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_CallSuperInConstructor",
+    "patternId" : "category_java_errorprone_AvoidAccessibilityAlteration",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[ count (ExtendsList/*) > 0 ]\n/ClassOrInterfaceBody\n /ClassOrInterfaceBodyDeclaration\n /ConstructorDeclaration[ count (.//ExplicitConstructorInvocation)=0 ]\n\n                "
+      "default" : "\n\n//PrimaryExpression[\n(\n(PrimarySuffix[\n        ends-with(@Image,'getDeclaredConstructors')\n                or\n        ends-with(@Image,'getDeclaredConstructor')\n                or\n        ends-with(@Image,'setAccessible')\n        ])\nor\n(PrimaryPrefix/Name[\n        ends-with(@Image,'getDeclaredConstructor')\n        or\n        ends-with(@Image,'getDeclaredConstructors')\n        or\n        starts-with(@Image,'AccessibleObject.setAccessible')\n        ])\n)\nand\n(//ImportDeclaration/Name[\n        contains(@Image,'java.security.PrivilegedAction')])\n]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_RemoteSessionInterfaceNamingConvention",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_DuplicateImports",
+    "level" : "Info",
     "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBHome')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Home')\n    )\n]\n\n                "
-    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_performance_LongInstantiation",
@@ -1040,15 +999,6 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_ecmascript_codestyle_UnreachableCode",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n    //ReturnStatement[following-sibling::node()]\n|\n    //ContinueStatement[following-sibling::node()]\n|\n    //BreakStatement[following-sibling::node()]\n|\n    //ThrowStatement[following-sibling::node()]\n\n                "
-    } ],
-    "languages" : [ "javascript" ]
-  }, {
     "patternId" : "category_java_bestpractices_ReplaceVectorWithList",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -1058,39 +1008,50 @@
     } ],
     "languages" : [ "java" ]
   }, {
+    "patternId" : "category_java_codestyle_SuspiciousConstantFieldName",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Interface='false']\n /ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration\n  [@Final='false']\n  [VariableDeclarator/VariableDeclaratorId[upper-case(@Image)=@Image]]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_apex_design_NcssTypeCount",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_codestyle_TooManyStaticImports",
+    "patternId" : "category_java_errorprone_JUnitSpelling",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
-      "name" : "maximumStaticImports",
-      "default" : "4"
-    }, {
       "name" : "xpath",
-      "default" : "\n\n.[count(ImportDeclaration[@Static = 'true']) > $maximumStaticImports]\n\n                "
+      "default" : "\n\n//MethodDeclarator[(not(@Image = 'setUp')\n and translate(@Image, 'SETuP', 'setUp') = 'setUp')\n or (not(@Image = 'tearDown')\n and translate(@Image, 'TEARdOWN', 'tearDown') = 'tearDown')]\n [FormalParameters[count(*) = 0]]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_apex_codestyle_IfElseStmtsMustUseBraces",
-    "level" : "Warning",
+    "patternId" : "category_ecmascript_codestyle_IfStmtsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//IfBlockStatement/BlockStatement[@CurlyBrace='false'][count(child::*) > 0]\n|\n//IfElseBlockStatement/BlockStatement[@CurlyBrace='false'][count(child::*) > 0]\n\n                "
+      "default" : "\n\n//IfStatement[@Else = \"false\" and not(child::Scope)]\n\n                "
+    } ],
+    "languages" : [ "javascript" ]
+  }, {
+    "patternId" : "category_apex_codestyle_ForLoopsMustUseBraces",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ForLoopStatement/BlockStatement[@CurlyBrace='false']\n|\n//ForEachStatement/BlockStatement[@CurlyBrace='false']\n\n                "
     } ],
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_errorprone_DoNotCallSystemExit",
+    "patternId" : "category_java_errorprone_AvoidCatchingThrowable",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//Name[\n    starts-with(@Image,'System.exit')\n    or\n    (starts-with(@Image,'Runtime.getRuntime') and ../../PrimarySuffix[ends-with(@Image,'exit')])\n]\n\n                "
-    } ],
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_jsp_bestpractices_NoClassAttribute",
@@ -1102,11 +1063,6 @@
     } ],
     "languages" : [ "jsp" ]
   }, {
-    "patternId" : "category_jsp_codestyle_DuplicateJspImports",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "jsp" ]
-  }, {
     "patternId" : "category_java_performance_UseArraysAsList",
     "level" : "Warning",
     "category" : "Performance",
@@ -1116,44 +1072,39 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_UselessParentheses",
-    "level" : "Warning",
+    "patternId" : "category_ecmascript_codestyle_IfElseStmtsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//Expression[not(parent::PrimaryPrefix)]/PrimaryExpression[count(*)>1]\n  /PrimaryPrefix/Expression\n    [not(./CastExpression)]\n    [not(./ConditionalExpression[@Ternary='true'])]\n    [not(./AdditiveExpression[//Literal[@StringLiteral='true']])]\n|\n//Expression[not(parent::PrimaryPrefix)]/PrimaryExpression[count(*)=1]\n  /PrimaryPrefix/Expression\n|\n//Expression/ConditionalAndExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    count(./CastExpression)=0 and\n    count(./EqualityExpression/MultiplicativeExpression)=0 and\n    count(./ConditionalExpression[@Ternary='true'])=0 and\n    count(./ConditionalOrExpression)=0]\n|\n//Expression/ConditionalOrExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    not(./CastExpression) and\n    not(./ConditionalExpression[@Ternary='true']) and\n    not(./EqualityExpression/MultiplicativeExpression)]\n|\n//Expression/ConditionalExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    not(./CastExpression) and\n    not(./EqualityExpression)]\n|\n//Expression/AdditiveExpression[not(./PrimaryExpression/PrimaryPrefix/Literal[@StringLiteral='true'])]\n  /PrimaryExpression[1]/PrimaryPrefix/Expression[\n    count(*)=1 and\n    not(./CastExpression) and\n    not(./AdditiveExpression[@Image = '-']) and\n    not(./ShiftExpression) and\n    not(./RelationalExpression) and\n    not(./InstanceOfExpression) and\n    not(./EqualityExpression) and\n    not(./AndExpression) and\n    not(./ExclusiveOrExpression) and\n    not(./InclusiveOrExpression) and\n    not(./ConditionalAndExpression) and\n    not(./ConditionalOrExpression) and\n    not(./ConditionalExpression)]\n|\n//Expression/EqualityExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    not(./CastExpression) and\n    not(./AndExpression) and\n    not(./InclusiveOrExpression) and\n    not(./ExclusiveOrExpression) and\n    not(./ConditionalExpression) and\n    not(./ConditionalAndExpression) and\n    not(./ConditionalOrExpression) and\n    not(./EqualityExpression)]\n\n                "
+      "default" : "\n\n//ExpressionStatement[parent::IfStatement[@Else = \"true\"]]\n   [not(child::Scope)]\n   [not(child::IfStatement)]\n\n                "
+    } ],
+    "languages" : [ "javascript" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidEnumAsIdentifier",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//VariableDeclaratorId[@Image='enum']"
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_CompareObjectsWithEquals",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_MIsLeadingVariableName",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_AvoidProtectedFieldInFinalClass",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//VariableDeclaratorId\n[starts-with(@Image, 'm_')]\n[not (../../../FieldDeclaration)]\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Final='true']\n/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n/FieldDeclaration[@Protected='true']\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_EmptyFinallyBlock",
+    "patternId" : "category_java_errorprone_UseLocaleWithCaseConversions",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//FinallyStatement[count(Block/BlockStatement) = 0]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_SimpleDateFormatNeedsLocale",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//AllocationExpression\n [ClassOrInterfaceType[@Image='SimpleDateFormat']]\n [Arguments[@ArgumentCount=1]]\n\n                    "
+      "default" : "\n\n//PrimaryExpression\n[\nPrimaryPrefix\n[Name[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@ArgumentCount=0]]\n\nor\n\nPrimarySuffix\n[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@ArgumentCount=0]]\n]\n[not(PrimaryPrefix/Name[ends-with(@Image, 'toHexString')])]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -1162,27 +1113,18 @@
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
+    "patternId" : "category_plsql_errorprone_TO_DATE_TO_CHAR",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryExpression\n    [PrimaryPrefix/Name/@Image='TO_DATE']\n    [count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1]\n    [.//PrimaryExpression\n        [PrimaryPrefix/Name/@Image='TO_CHAR']\n        [count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1]\n    ]\n\n                "
+    } ],
+    "languages" : [ "plsql" ]
+  }, {
     "patternId" : "category_java_bestpractices_UnusedPrivateField",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_jsp_errorprone_JspEncoding",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//CompilationUnit/Content[\nnot(Element[@Name=\"meta\"][\n   Attribute[@Name=\"content\"]/AttributeValue[contains(lower-case(@Image),\"charset=utf-8\")]\n]) \nand \n    not(JspDirective[@Name='page']/JspDirectiveAttribute[@Name='contentType'][contains(lower-case(@Value),\"charset=utf-8\")])\n]\n\n                "
-    } ],
-    "languages" : [ "jsp" ]
-  }, {
-    "patternId" : "category_java_errorprone_MisplacedNullCheck",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//Expression\n    /*[self::ConditionalOrExpression or self::ConditionalAndExpression]\n    /descendant::PrimaryExpression/PrimaryPrefix\n    /Name[starts-with(@Image,\n        concat(ancestor::PrimaryExpression/following-sibling::EqualityExpression\n            [./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n            /PrimaryExpression/PrimaryPrefix\n            /Name[count(../../PrimarySuffix)=0]/@Image,\".\")\n        )\n     ]\n     [count(ancestor::ConditionalAndExpression/EqualityExpression\n            [@Image='!=']\n            [./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n            [starts-with(following-sibling::*/PrimaryExpression/PrimaryPrefix/Name/@Image,\n                concat(./PrimaryExpression/PrimaryPrefix/Name/@Image, '.'))]\n      ) = 0\n     ]\n\n                "
-    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_AvoidUsingHardCodedIP",
@@ -1194,28 +1136,23 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_AvoidUsingOctalValues",
+    "patternId" : "category_java_errorprone_BadComparison",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidLosingExceptionInformation",
-    "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//CatchStatement/Block/BlockStatement/Statement/StatementExpression/PrimaryExpression/PrimaryPrefix/Name\n[\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getMessage')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getLocalizedMessage')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getCause')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.getStackTrace')\n   or\n   @Image = concat(../../../../../../../FormalParameter/VariableDeclaratorId/@Image, '.toString')\n]\n\n                "
+      "default" : "\n\n//EqualityExpression[@Image='==']\n /PrimaryExpression/PrimaryPrefix\n /Name[@Image='Double.NaN' or @Image='Float.NaN']\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_ecmascript_errorprone_EqualComparison",
+    "patternId" : "category_java_errorprone_ProperCloneImplementation",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//InfixExpression[(@Image = \"==\" or @Image = \"!=\")\n  and\n (child::KeywordLiteral[@Image = \"true\" or @Image = \"false\"]\n or\n child::NumberLiteral)\n]\n\n                "
+      "default" : "\n\n//MethodDeclarator\n[@Image = 'clone']\n[count(FormalParameters/*) = 0]\n[count(../Block//*[\n    (self::AllocationExpression) and\n    (./ClassOrInterfaceType/@Image = ancestor::\nClassOrInterfaceDeclaration[1]/@Image)\n  ])> 0\n]\n\n                "
     } ],
-    "languages" : [ "javascript" ]
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_UnusedPrivateMethod",
     "level" : "Warning",
@@ -1227,14 +1164,14 @@
     "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_apex_codestyle_ForLoopsMustUseBraces",
+    "patternId" : "category_ecmascript_errorprone_InnaccurateNumericLiteral",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ForLoopStatement/BlockStatement[@CurlyBrace='false']\n|\n//ForEachStatement/BlockStatement[@CurlyBrace='false']\n\n                "
+      "default" : "\n\n//NumberLiteral[\n    @Image != @Number\n    and translate(@Image, \"e\", \"E\") != @Number\n    and concat(@Image, \".0\") != @Number\n    and @Image != substring-before(translate(@Number, \".\", \"\"), \"E\")]\n\n                "
     } ],
-    "languages" : [ "apex" ]
+    "languages" : [ "javascript" ]
   }, {
     "patternId" : "category_java_bestpractices_AvoidStringBufferField",
     "level" : "Warning",
@@ -1245,13 +1182,14 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_FinalizeDoesNotCallSuperFinalize",
+    "patternId" : "category_java_errorprone_SuspiciousHashcodeMethodName",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_documentation_CommentSize",
+    "level" : "Info",
     "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n\n//MethodDeclaration[MethodDeclarator[@Image='finalize'][not(FormalParameters/*)]]\n   /Block\n      /BlockStatement[last()]\n      [not(Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]\n      [not(Statement/TryStatement/FinallyStatement\n       /Block/BlockStatement/Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]\n\n                "
-    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_apex_design_CyclomaticComplexity",
@@ -1259,13 +1197,9 @@
     "category" : "ErrorProne",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_codestyle_AvoidProtectedMethodInFinalClassNotExtending",
+    "patternId" : "category_java_multithreading_DoubleCheckedLocking",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[@Final='true' and not(ExtendsList)]\n/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n/MethodDeclaration[@Protected='true'][MethodDeclarator/@Image != 'finalize']\n \n                "
-    } ],
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_ExcessiveParameterList",
@@ -1291,18 +1225,13 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_apex_errorprone_AvoidDirectAccessTriggerMap",
+    "patternId" : "category_java_errorprone_UnusedNullCheckInEquals",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ArrayLoadExpression[TriggerVariableExpression and LiteralExpression]\n\n                "
+      "default" : "\n\n(//PrimaryPrefix[ends-with(Name/@Image, '.equals') and Name/@Image != 'Arrays.equals'] | //PrimarySuffix[@Image='equals' and not(../PrimaryPrefix/Literal)])\n /following-sibling::PrimarySuffix/Arguments/ArgumentList/Expression\n /PrimaryExpression[count(PrimarySuffix)=0]/PrimaryPrefix\n /Name[@Image = ./../../../../../../../../../../Expression/ConditionalAndExpression\n /EqualityExpression[@Image=\"!=\" and count(./preceding-sibling::*)=0 and\n ./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n  /PrimaryExpression/PrimaryPrefix/Name/@Image]\n\n                "
     } ],
-    "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_errorprone_MoreThanOneLogger",
-    "level" : "Warning",
-    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_PositionLiteralsFirstInComparisons",
@@ -1314,33 +1243,19 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_DoNotCallGarbageCollectionExplicitly",
+    "patternId" : "category_plsql_errorprone_TO_DATEWithoutDateFormat",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//Name[\n(starts-with(@Image, 'System.') and\n(starts-with(@Image, 'System.gc') or\nstarts-with(@Image, 'System.runFinalization'))) or\n(\nstarts-with(@Image,'Runtime.getRuntime') and\n../../PrimarySuffix[ends-with(@Image,'gc')]\n)\n]\n\n                "
+      "default" : "\n\n//PrimaryExpression[PrimaryPrefix/Name/@Image='TO_DATE'  and count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1 ]\n\n                "
     } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_SingleMethodSingleton",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
+    "languages" : [ "plsql" ]
   }, {
     "patternId" : "category_apex_security_ApexXSSFromEscapeFalse",
     "level" : "Error",
     "category" : "Security",
     "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_multithreading_AvoidThreadGroup",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//AllocationExpression/ClassOrInterfaceType[pmd-java:typeof(@Image, 'java.lang.ThreadGroup')]|\n//PrimarySuffix[contains(@Image, 'getThreadGroup')]\n\n                "
-    } ],
-    "languages" : [ "java" ]
   }, {
     "patternId" : "category_jsp_bestpractices_NoHtmlComments",
     "level" : "Warning",
@@ -1351,41 +1266,23 @@
     } ],
     "languages" : [ "jsp" ]
   }, {
-    "patternId" : "category_java_codestyle_IfStmtsMustUseBraces",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//IfStatement[count(*) < 3][not(Statement/Block)]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_plsql_errorprone_TO_DATEWithoutDateFormat",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//PrimaryExpression[PrimaryPrefix/Name/@Image='TO_DATE'  and count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1 ]\n\n                "
-    } ],
-    "languages" : [ "plsql" ]
-  }, {
     "patternId" : "category_vm_errorprone_EmptyForeachStmt",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "languages" : [ "velocity" ]
   }, {
-    "patternId" : "category_java_codestyle_OnlyOneReturn",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_SuspiciousConstantFieldName",
-    "level" : "Warning",
+    "patternId" : "category_apex_codestyle_IfElseStmtsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[@Interface='false']\n /ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration\n  [@Final='false']\n  [VariableDeclarator/VariableDeclaratorId[upper-case(@Image)=@Image]]\n\n                "
+      "default" : "\n\n//IfBlockStatement/BlockStatement[@CurlyBrace='false'][count(child::*) > 0]\n|\n//IfElseBlockStatement/BlockStatement[@CurlyBrace='false'][count(child::*) > 0]\n\n                "
     } ],
+    "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_codestyle_MethodNamingConventions",
+    "level" : "Info",
+    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_ReplaceEnumerationWithIterator",
@@ -1394,6 +1291,15 @@
     "parameters" : [ {
       "name" : "xpath",
       "default" : "\n\n//ImplementsList/ClassOrInterfaceType[@Image='Enumeration']\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_EmptyWhileStmt",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//WhileStatement/Statement[./Block[count(*) = 0]  or ./EmptyStatement]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -1411,16 +1317,9 @@
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_LongVariable",
+    "patternId" : "category_java_errorprone_CloneMethodMustImplementCloneable",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "minimum",
-      "default" : "17"
-    }, {
-      "name" : "xpath",
-      "default" : "\n\n//VariableDeclaratorId[string-length(@Image) > $minimum]\n\n                "
-    } ],
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_plsql_design_ExcessiveMethodLength",
@@ -1442,28 +1341,46 @@
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
+    "patternId" : "category_java_errorprone_ClassCastExceptionWithToArray",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CastExpression[Type/ReferenceType/ClassOrInterfaceType[@Image !=\n\"Object\"]]/PrimaryExpression\n[\n PrimaryPrefix/Name[ends-with(@Image, '.toArray')]\n and\n PrimarySuffix/Arguments[count(*) = 0]\nand\ncount(PrimarySuffix) = 1\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_java_design_CouplingBetweenObjects",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_DefaultPackage",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_EmptyMethodInAbstractClassShouldBeAbstract",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[@Interface='false']\n/ClassOrInterfaceBody\n/ClassOrInterfaceBodyDeclaration\n[not(Annotation//Name[ends-with(@Image, 'VisibleForTesting')])]\n[\nFieldDeclaration[@PackagePrivate='true']\nor MethodDeclaration[@PackagePrivate='true']\n]\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Abstract = 'true']\n    /ClassOrInterfaceBody\n    /ClassOrInterfaceBodyDeclaration\n    /MethodDeclaration[@Abstract = 'false' and @Native = 'false']\n    [\n        ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral) = 'true' )\n        or\n        ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal[@Image = '0']) = 'true' )\n        or\n        ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal[string-length(@Image) = 2]) = 'true' )\n        or\n        (./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/EmptyStatement)\n        or\n        ( count (./Block/*) = 0 )\n    ]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_apex_errorprone_EmptyTryOrFinallyBlock",
+    "patternId" : "category_xml_errorprone_MistypedCDATASection",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//TryCatchFinallyBlockStatement[./BlockStatement[count(*) = 0]]\n\n                "
+      "default" : "\n\n//cdata-section[starts-with(@Image,'[') or ends-with(@Image,']')]\n\n                "
     } ],
-    "languages" : [ "apex" ]
+    "languages" : [ "xml" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidCatchingNPE",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CatchStatement/FormalParameter/Type\n /ReferenceType/ClassOrInterfaceType[@Image='NullPointerException']\n\n                "
+    } ],
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_SignatureDeclareThrowsException",
     "level" : "Warning",
@@ -1479,13 +1396,14 @@
     } ],
     "languages" : [ "jsp" ]
   }, {
-    "patternId" : "category_java_errorprone_MissingSerialVersionUID",
-    "level" : "Warning",
+    "patternId" : "category_java_documentation_CommentContent",
+    "level" : "Info",
     "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration\n [\n  count(ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n   /FieldDeclaration/VariableDeclarator/VariableDeclaratorId[@Image='serialVersionUID']) = 0\nand\n  count(ImplementsList\n   [ClassOrInterfaceType/@Image='Serializable'\n   or ClassOrInterfaceType/@Image='java.io.Serializable']) =1\nand\n   @Abstract = 'false'\n]\n\n                "
-    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_ClassNamingConventions",
+    "level" : "Info",
+    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_CheckResultSet",
@@ -1493,36 +1411,9 @@
     "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_AvoidMultipleUnaryOperators",
+    "patternId" : "category_java_errorprone_CompareObjectsWithEquals",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_pom_errorprone_ProjectVersionAsDependencyVersion",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//dependency/version/text[contains(@Image,'{project.version}')]\n\n                "
-    } ],
-    "languages" : [ "xml" ]
-  }, {
-    "patternId" : "category_java_errorprone_StringBufferInstantiationWithChar",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//AllocationExpression/ClassOrInterfaceType\n[@Image='StringBuffer' or @Image='StringBuilder']\n/../Arguments/ArgumentList/Expression/PrimaryExpression\n/PrimaryPrefix/\nLiteral\n  [starts-with(@Image, \"'\")]\n  [ends-with(@Image, \"'\")]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_NoPackage",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration[count(preceding::PackageDeclaration) = 0]"
-    } ],
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_UnusedImports",
@@ -1530,31 +1421,50 @@
     "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
+    "patternId" : "category_java_codestyle_MethodArgumentCouldBeFinal",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidDecimalLiteralsInBigDecimalConstructor",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//AllocationExpression\n[ClassOrInterfaceType[@Image=\"BigDecimal\"]]\n[Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix\n    [\n        Literal[(not(ends-with(@Image,'\"'))) and contains(@Image,\".\")]\n        or\n        Name[ancestor::Block/BlockStatement/LocalVariableDeclaration\n                [Type[PrimitiveType[@Image='double' or @Image='float']\n                      or ReferenceType/ClassOrInterfaceType[@Image='Double' or @Image='Float']]]\n                /VariableDeclarator/VariableDeclaratorId/@Image = @Image\n            ]\n        or\n        Name[ancestor::MethodDeclaration/MethodDeclarator/FormalParameters/FormalParameter\n                [Type[PrimitiveType[@Image='double' or @Image='float']\n                      or ReferenceType/ClassOrInterfaceType[@Image='Double' or @Image='Float']]]\n                /VariableDeclaratorId/@Image = @Image\n            ]\n    ]\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_JUnitStaticSuite",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[not(@Static='true') or not(@Public='true')]\n[MethodDeclarator/@Image='suite']\n[MethodDeclarator/FormalParameters/@ParameterCount=0]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_apex_security_ApexCRUDViolation",
     "level" : "Error",
     "category" : "Security",
     "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_errorprone_CheckSkipResult",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_performance_StringToString",
     "level" : "Warning",
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_UnnecessaryConstructor",
+    "patternId" : "category_java_errorprone_MissingSerialVersionUID",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceBody[count(ClassOrInterfaceBodyDeclaration/ConstructorDeclaration)=1]\n/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration\n[@Public='true']\n[not(FormalParameters/*)]\n[not(BlockStatement)]\n[not(NameList)]\n[count(ExplicitConstructorInvocation/Arguments/ArgumentList/Expression)=0]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_EmptyFinalizer",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration[MethodDeclarator[@Image='finalize'][not(FormalParameters/*)]]\n  /Block[count(*)=0]\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration\n [\n  count(ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n   /FieldDeclaration/VariableDeclarator/VariableDeclaratorId[@Image='serialVersionUID']) = 0\nand\n  count(ImplementsList\n   [ClassOrInterfaceType/@Image='Serializable'\n   or ClassOrInterfaceType/@Image='java.io.Serializable']) =1\nand\n   @Abstract = 'false'\n]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -1563,21 +1473,18 @@
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_ShortVariable",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_AtLeastOneConstructor",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
-      "name" : "minimum",
-      "default" : "3"
-    }, {
       "name" : "xpath",
-      "default" : "\n\n//VariableDeclaratorId[string-length(@Image) < $minimum]\n [not(ancestor::ForInit)]\n [not(../../VariableDeclarator and ../../../LocalVariableDeclaration and ../../../../ForStatement)]\n [not((ancestor::FormalParameter) and (ancestor::TryStatement))]\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration[\n  not(ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration)\n  and\n  (@Static = 'false')\n  and\n  (count(./descendant::MethodDeclaration[@Static = 'true']) < 1)\n]\n  [@Interface='false']\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_CloneMethodMustImplementCloneable",
+    "patternId" : "category_java_errorprone_DontImportSun",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_NcssCount",
@@ -1585,9 +1492,18 @@
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_UnnecessaryLocalBeforeReturn",
+    "patternId" : "category_java_errorprone_FinalizeOnlyCallsSuperFinalize",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[MethodDeclarator[@Image=\"finalize\"][not(FormalParameters/*)]]\n   /Block[count(BlockStatement)=1]\n     /BlockStatement[\n       Statement/StatementExpression/PrimaryExpression\n       [./PrimaryPrefix[@SuperModifier='true']]\n       [./PrimarySuffix[@Image='finalize']]\n     ]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidFieldNameMatchingTypeName",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_JUnit4TestShouldUseAfterAnnotation",
@@ -1599,9 +1515,9 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_DuplicateImports",
+    "patternId" : "category_java_errorprone_UnnecessaryConversionTemporary",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_LoosePackageCoupling",
@@ -1618,30 +1534,12 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_UnnecessaryBooleanAssertion",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_RemoteInterfaceNamingConvention",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//StatementExpression\n[\nPrimaryExpression/PrimaryPrefix/Name[@Image='assertTrue' or  @Image='assertFalse']\nand\nPrimaryExpression/PrimarySuffix/Arguments/ArgumentList/Expression\n[PrimaryExpression/PrimaryPrefix/Literal/BooleanLiteral\nor\nUnaryExpressionNotPlusMinus[@Image='!']\n/PrimaryExpression/PrimaryPrefix[Literal/BooleanLiteral or Name[count(../../*)=1]]]\n]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_plsql_errorprone_TO_TIMESTAMPWithoutDateFormat",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//PrimaryExpression[PrimaryPrefix/Name/@Image='TO_TIMESTAMP'  and count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1 ] \n\n                "
-    } ],
-    "languages" : [ "plsql" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidAccessibilityAlteration",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//PrimaryExpression[\n(\n(PrimarySuffix[\n        ends-with(@Image,'getDeclaredConstructors')\n                or\n        ends-with(@Image,'getDeclaredConstructor')\n                or\n        ends-with(@Image,'setAccessible')\n        ])\nor\n(PrimaryPrefix/Name[\n        ends-with(@Image,'getDeclaredConstructor')\n        or\n        ends-with(@Image,'getDeclaredConstructors')\n        or\n        starts-with(@Image,'AccessibleObject.setAccessible')\n        ])\n)\nand\n(//ImportDeclaration/Name[\n        contains(@Image,'java.security.PrivilegedAction')])\n]\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBObject')])\n    )\n    and\n    (\n        ends-with(@Image,'Session')\n        or\n        ends-with(@Image,'EJB')\n        or\n        ends-with(@Image,'Bean')\n    )\n]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -1654,33 +1552,63 @@
     } ],
     "languages" : [ "plsql" ]
   }, {
-    "patternId" : "category_java_errorprone_UnnecessaryConversionTemporary",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_apex_errorprone_AvoidHardcodingId",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_codestyle_ExtendsObject",
-    "level" : "Warning",
+    "patternId" : "category_xsl_codestyle_UseConcatOnce",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ExtendsList/ClassOrInterfaceType[@Image='Object' or @Image='java.lang.Object']\n\n                "
+      "default" : "\n\n//node()[contains(substring-after(@select,'concat'),'concat')]\n\n                "
+    } ],
+    "languages" : [ "xml" ]
+  }, {
+    "patternId" : "category_java_errorprone_EmptyFinallyBlock",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//FinallyStatement[count(Block/BlockStatement) = 0]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_ConfusingTernary",
+    "patternId" : "category_java_errorprone_NonStaticInitializer",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Initializer[@Static='false']\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_ecmascript_codestyle_UnnecessaryParentheses",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ParenthesizedExpression/ParenthesizedExpression\n\n                "
+    } ],
+    "languages" : [ "javascript" ]
+  }, {
+    "patternId" : "category_java_multithreading_UseConcurrentHashMap",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Type[../VariableDeclarator/VariableInitializer//AllocationExpression/ClassOrInterfaceType[@Image != 'ConcurrentHashMap']]\n/ReferenceType/ClassOrInterfaceType[@Image = 'Map']\n\n                "
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_TooManyFields",
     "level" : "Warning",
     "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_EmptyInitializer",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//Initializer/Block[count(*)=0]"
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_ecmascript_bestpractices_GlobalVariable",
@@ -1697,18 +1625,28 @@
     "category" : "Performance",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_codestyle_AvoidProtectedFieldInFinalClass",
+    "patternId" : "category_java_errorprone_AssignmentToNonFinalStatic",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[@Final='true']\n/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n/FieldDeclaration[@Protected='true']\n\n                "
-    } ],
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_CyclomaticComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_EqualsNull",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryExpression\n  [\n    PrimaryPrefix[Name[ends-with(@Image, 'equals')]]\n      [following-sibling::node()/Arguments/ArgumentList[count(Expression)=1]\n          /Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n\n    or\n\n    PrimarySuffix[ends-with(@Image, 'equals')]\n      [following-sibling::node()/Arguments/ArgumentList[count(Expression)=1]\n          /Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n\n  ]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_ConfusingTernary",
+    "level" : "Info",
+    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_UseObjectForClearerAPI",
@@ -1729,20 +1667,6 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_IfElseStmtsMustUseBraces",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//Statement\n [parent::IfStatement[@Else='true']]\n [not(child::Block)]\n [not(child::IfStatement)]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AssignmentToNonFinalStatic",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_java_bestpractices_UnusedFormalParameter",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -1753,131 +1677,9 @@
     "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_AssignmentInOperand",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_SuspiciousEqualsMethodName",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclarator[@Image = 'equals']\n[   \n    (count(FormalParameters/*) = 1\n    and not (FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object'])\n    or not (../ResultType/Type/PrimitiveType[@Image = 'boolean'])\n    )  or  (\n    count(FormalParameters/*) = 2\n    and ../ResultType/Type/PrimitiveType[@Image = 'boolean']\n    and FormalParameters//ClassOrInterfaceType[@Image = 'Object' or @Image = 'java.lang.Object']\n    and not(../../Annotation/MarkerAnnotation/Name[@Image='Override'])\n    )\n]\n| //MethodDeclarator[@Image = 'equal']\n[\n    count(FormalParameters/*) = 1\n    and FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object']\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_JUnitStaticSuite",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration[not(@Static='true') or not(@Public='true')]\n[MethodDeclarator/@Image='suite']\n[MethodDeclarator/FormalParameters/@ParameterCount=0]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_jsp_bestpractices_NoJspForward",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//Element[ @Name=\"jsp:forward\" ]\n\n                "
-    } ],
-    "languages" : [ "jsp" ]
-  }, {
-    "patternId" : "category_java_performance_UselessStringValueOf",
-    "level" : "Warning",
-    "category" : "Performance",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_ClassNamingConventions",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_performance_SimplifyStartsWith",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//PrimaryExpression\n [PrimaryPrefix/Name\n  [ends-with(@Image, '.startsWith')] or PrimarySuffix[@Image='startsWith']]\n [PrimarySuffix/Arguments/ArgumentList\n  /Expression/PrimaryExpression/PrimaryPrefix\n  /Literal\n   [string-length(@Image)=3]\n   [starts-with(@Image, '\"')]\n   [ends-with(@Image, '\"')]\n ]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_jsp_design_NoLongScripts",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//HtmlScript[(@EndLine - @BeginLine > 10)]\n\n                "
-    } ],
-    "languages" : [ "jsp" ]
-  }, {
-    "patternId" : "category_ecmascript_codestyle_UnnecessaryParentheses",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ParenthesizedExpression/ParenthesizedExpression\n\n                "
-    } ],
-    "languages" : [ "javascript" ]
-  }, {
-    "patternId" : "category_apex_codestyle_WhileLoopsMustUseBraces",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//WhileLoopStatement/BlockStatement[@CurlyBrace='false']\n\n                "
-    } ],
-    "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_errorprone_MissingStaticMethodInNonInstantiatableClass",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration[@Nested='false']\n[\n  (\n    ./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration\n    and\n    count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration) = count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Private='true'])\n  )\n  and\n  not(.//MethodDeclaration[@Static='true'])\n  and\n  not(.//FieldDeclaration[@Private='false'][@Static='true'])\n  and\n  not(.//ClassOrInterfaceDeclaration[@Nested='true']\n           [@Public='true']\n           [@Static='true']\n           [not(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration) or ./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Public='true']]\n           [./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/MethodDeclaration\n                [@Public='true']\n                [./ResultType/Type/ReferenceType/ClassOrInterfaceType\n                    [@Image = //ClassOrInterfaceDeclaration[@Nested='false']/@Image]\n                ]\n            ]\n        )\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_vm_errorprone_EmptyIfStmt",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "velocity" ]
-  }, {
-    "patternId" : "category_java_bestpractices_ReplaceHashtableWithMap",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//Type/ReferenceType/ClassOrInterfaceType[@Image='Hashtable']"
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidLiteralsInIfCondition",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "ignoreMagicNumbers",
-      "default" : "-1,0"
-    }, {
-      "name" : "xpath",
-      "default" : "\n\n//IfStatement/Expression/*/PrimaryExpression/PrimaryPrefix/Literal\n[not(NullLiteral)]\n[not(BooleanLiteral)]\n[empty(index-of(tokenize($ignoreMagicNumbers, '\\s*,\\s*'), @Image))]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_design_FinalFieldCouldBeStatic",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//FieldDeclaration\n [@Final='true' and @Static='false']\n   /VariableDeclarator/VariableInitializer/Expression\n    /PrimaryExpression[not(PrimarySuffix)]/PrimaryPrefix/Literal\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_ecmascript_errorprone_AvoidTrailingComma",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
       "default" : "\n\n//ObjectLiteral[$allowObjectLiteral = \"false\" and @TrailingComma = 'true']\n|\n//ArrayLiteral[$allowArrayLiteral = \"false\" and @TrailingComma = 'true']\n\n                "
@@ -1890,6 +1692,120 @@
     } ],
     "languages" : [ "javascript" ]
   }, {
+    "patternId" : "category_jsp_bestpractices_NoJspForward",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Element[ @Name=\"jsp:forward\" ]\n\n                "
+    } ],
+    "languages" : [ "jsp" ]
+  }, {
+    "patternId" : "category_java_errorprone_UseCorrectExceptionLogging",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CatchStatement/Block/BlockStatement/Statement/StatementExpression\n/PrimaryExpression[PrimaryPrefix/Name[starts-with(@Image,\nconcat(ancestor::ClassOrInterfaceDeclaration/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration\n[Type//ClassOrInterfaceType[@Image='Log']]\n/VariableDeclarator/VariableDeclaratorId/@Image, '.'))]]\n[PrimarySuffix/Arguments[@ArgumentCount='1']]\n[PrimarySuffix/Arguments//Name/@Image = ancestor::CatchStatement/FormalParameter/VariableDeclaratorId/@Image]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_apex_errorprone_EmptyCatchBlock",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CatchBlockStatement[./BlockStatement[count(*) = 0]]\n\n                "
+    } ],
+    "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_performance_UselessStringValueOf",
+    "level" : "Warning",
+    "category" : "Performance",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_StringBufferInstantiationWithChar",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//AllocationExpression/ClassOrInterfaceType\n[@Image='StringBuffer' or @Image='StringBuilder']\n/../Arguments/ArgumentList/Expression/PrimaryExpression\n/PrimaryPrefix/\nLiteral\n  [starts-with(@Image, \"'\")]\n  [ends-with(@Image, \"'\")]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_performance_SimplifyStartsWith",
+    "level" : "Warning",
+    "category" : "Performance",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//PrimaryExpression\n [PrimaryPrefix/Name\n  [ends-with(@Image, '.startsWith')] or PrimarySuffix[@Image='startsWith']]\n [PrimarySuffix/Arguments/ArgumentList\n  /Expression/PrimaryExpression/PrimaryPrefix\n  /Literal\n   [string-length(@Image)=3]\n   [starts-with(@Image, '\"')]\n   [ends-with(@Image, '\"')]\n ]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_DontImportJavaLang",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_jsp_design_NoLongScripts",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//HtmlScript[(@EndLine - @BeginLine > 10)]\n\n                "
+    } ],
+    "languages" : [ "jsp" ]
+  }, {
+    "patternId" : "category_java_errorprone_ConstructorCallsOverridableMethod",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_multithreading_DoNotUseThreads",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//ClassOrInterfaceType[@Image = 'Thread' or @Image = 'Runnable']"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_bestpractices_ReplaceHashtableWithMap",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//Type/ReferenceType/ClassOrInterfaceType[@Image='Hashtable']"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_EmptyIfStmt",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//IfStatement/Statement\n [EmptyStatement or Block[count(*) = 0]]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_design_FinalFieldCouldBeStatic",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//FieldDeclaration\n [@Final='true' and @Static='false']\n   /VariableDeclarator/VariableInitializer/Expression\n    /PrimaryExpression[not(PrimarySuffix)]/PrimaryPrefix/Literal\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidAssertAsIdentifier",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//VariableDeclaratorId[@Image='assert']"
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_java_design_UselessOverridingMethod",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -1901,6 +1817,38 @@
     "parameters" : [ {
       "name" : "xpath",
       "default" : "\n\n//PrimaryExpression[\n PrimaryPrefix/Name[@Image = 'assertTrue' or @Image = 'assertFalse']\n][\n PrimarySuffix/Arguments/ArgumentList[\n  Expression/EqualityExpression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral\n ]\n]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_MethodWithSameNameAsEnclosingClass",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_AvoidFinalLocalVariable",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//LocalVariableDeclaration[\n  @Final = 'true'\n  and not(../../ForStatement)\n  and\n  (\n    (count(VariableDeclarator/VariableInitializer) = 0)\n    or\n    (VariableDeclarator/VariableInitializer/Expression/PrimaryExpression/PrimaryPrefix/Literal)\n  )\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_UnnecessaryBooleanAssertion",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//StatementExpression\n[\nPrimaryExpression/PrimaryPrefix/Name[@Image='assertTrue' or  @Image='assertFalse']\nand\nPrimaryExpression/PrimarySuffix/Arguments/ArgumentList/Expression\n[PrimaryExpression/PrimaryPrefix/Literal/BooleanLiteral\nor\nUnaryExpressionNotPlusMinus[@Image='!']\n/PrimaryExpression/PrimaryPrefix[Literal/BooleanLiteral or Name[count(../../*)=1]]]\n]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeof(@Image, 'junit.framework.TestCase','TestCase')] or //MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.Test', 'Test')]]]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_MDBAndSessionBeanNamingConvention",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//TypeDeclaration/ClassOrInterfaceDeclaration\n[\n    (\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'SessionBean')])\n        or\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'MessageDrivenBean')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Bean')\n    )\n]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -1927,46 +1875,67 @@
     "category" : "ErrorProne",
     "languages" : [ "velocity" ]
   }, {
-    "patternId" : "category_java_errorprone_ClassCastExceptionWithToArray",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_WhileLoopsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//CastExpression[Type/ReferenceType/ClassOrInterfaceType[@Image !=\n\"Object\"]]/PrimaryExpression\n[\n PrimaryPrefix/Name[ends-with(@Image, '.toArray')]\n and\n PrimarySuffix/Arguments[count(*) = 0]\nand\ncount(PrimarySuffix) = 1\n]\n\n                "
+      "default" : "//WhileStatement[not(Statement/Block)]"
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_multithreading_DontCallThreadRun",
-    "level" : "Warning",
+    "patternId" : "category_ecmascript_codestyle_WhileLoopsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//StatementExpression/PrimaryExpression\n[\n    PrimaryPrefix\n    [\n        ./Name[ends-with(@Image, '.run') or @Image = 'run']\n        and substring-before(Name/@Image, '.') =//VariableDeclarator/VariableDeclaratorId/@Image\n            [../../../Type/ReferenceType/ClassOrInterfaceType[typeof(@Image, 'java.lang.Thread', 'Thread')]]\n        or (./AllocationExpression/ClassOrInterfaceType[typeof(@Image, 'java.lang.Thread', 'Thread')]\n        and ../PrimarySuffix[@Image = 'run'])\n    ]\n]\n\n                "
+      "default" : "\n\n//WhileLoop[not(child::Scope)]\n\n                "
+    } ],
+    "languages" : [ "javascript" ]
+  }, {
+    "patternId" : "category_java_errorprone_NonCaseLabelInSwitchStatement",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//SwitchStatement//BlockStatement/Statement/LabeledStatement"
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_plsql_codestyle_MisplacedPragma",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_DefaultPackage",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ProgramUnit/Pragma\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration[@Interface='false']\n/ClassOrInterfaceBody\n/ClassOrInterfaceBodyDeclaration\n[not(Annotation//Name[ends-with(@Image, 'VisibleForTesting')])]\n[\nFieldDeclaration[@PackagePrivate='true']\nor MethodDeclaration[@PackagePrivate='true']\n]\n\n                "
     } ],
-    "languages" : [ "plsql" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidFieldNameMatchingTypeName",
-    "level" : "Warning",
-    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_ConstructorCallsOverridableMethod",
+    "patternId" : "category_java_errorprone_CallSuperFirst",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[MethodDeclarator[\n  @Image='onCreate' or\n  @Image='onConfigurationChanged' or\n  @Image='onPostCreate' or\n  @Image='onPostResume' or\n  @Image='onRestart' or\n  @Image='onRestoreInstanceState' or\n  @Image='onResume' or\n  @Image='onStart'\n  ]]\n    /Block[not(\n      (BlockStatement[1]/Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/MethodDeclarator/@Image]))]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  typeof(@Image, 'android.app.Activity', 'Activity') or\n  typeof(@Image, 'android.app.Application', 'Application') or\n  typeof(@Image, 'android.app.Service', 'Service')\n]]]\n\n                "
+    } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_DontImportSun",
+    "patternId" : "category_java_multithreading_AvoidThreadGroup",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//AllocationExpression/ClassOrInterfaceType[pmd-java:typeof(@Image, 'java.lang.ThreadGroup')]|\n//PrimarySuffix[contains(@Image, 'getThreadGroup')]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_AvoidPrefixingMethodParameters",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration/MethodDeclarator/FormalParameters/FormalParameter/VariableDeclaratorId[\n        pmd:matches(@Image,'^in[A-Z].*','^out[A-Z].*','^in$','^out$')\n]\n\n                "
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_apex_security_ApexInsecureEndpoint",
@@ -1974,63 +1943,84 @@
     "category" : "Security",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_errorprone_EmptyIfStmt",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//IfStatement/Statement\n [EmptyStatement or Block[count(*) = 0]]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_multithreading_UseNotifyAllInsteadOfNotify",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//StatementExpression/PrimaryExpression\n[PrimarySuffix/Arguments[@ArgumentCount = '0']]\n[\n    PrimaryPrefix[\n        ./Name[@Image='notify' or ends-with(@Image,'.notify')]\n        or ../PrimarySuffix/@Image='notify'\n        or (./AllocationExpression and ../PrimarySuffix[@Image='notify'])\n    ]\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_LocalInterfaceSessionNamingConvention",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalObject')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Local')\n    )\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_plsql_design_ExcessivePackageBodyLength",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "plsql" ]
   }, {
-    "patternId" : "category_apex_codestyle_MethodNamingConventions",
-    "level" : "Warning",
+    "patternId" : "category_ecmascript_codestyle_AssignmentInOperand",
+    "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "apex" ]
+    "parameters" : [ {
+      "name" : "allowTernary",
+      "default" : "false"
+    }, {
+      "name" : "allowWhile",
+      "default" : "false"
+    }, {
+      "name" : "allowTernaryResults",
+      "default" : "false"
+    }, {
+      "name" : "allowIf",
+      "default" : "false"
+    }, {
+      "name" : "allowFor",
+      "default" : "false"
+    }, {
+      "name" : "xpath",
+      "default" : "\n\n    //IfStatement[$allowIf = \"false\"]/child::node()[1]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n    //WhileLoop[$allowWhile = \"false\"]/child::node()[1]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n    //DoLoop[$allowWhile = \"false\"]/child::node()[2]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n    //ForLoop[$allowFor = \"false\"]/child::node()[2]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n   //ConditionalExpression[$allowTernary = \"false\"]/child::node()[1]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n|\n   //ConditionalExpression[$allowTernaryResults = \"false\"]/child::node()[position() = 2 or position() = 3]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = \"false\" and (@Image = \"--\" or @Image = \"++\")]]\n\n                "
+    }, {
+      "name" : "allowIncrementDecrement",
+      "default" : "false"
+    } ],
+    "languages" : [ "javascript" ]
   }, {
-    "patternId" : "category_xsl_codestyle_UseConcatOnce",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_FieldDeclarationsShouldBeAtStartOfClass",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_ecmascript_codestyle_UnreachableCode",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//node()[contains(substring-after(@select,'concat'),'concat')]\n\n                "
+      "default" : "\n\n    //ReturnStatement[following-sibling::node()]\n|\n    //ContinueStatement[following-sibling::node()]\n|\n    //BreakStatement[following-sibling::node()]\n|\n    //ThrowStatement[following-sibling::node()]\n\n                "
     } ],
-    "languages" : [ "xml" ]
+    "languages" : [ "javascript" ]
+  }, {
+    "patternId" : "category_java_codestyle_LongVariable",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "minimum",
+      "default" : "17"
+    }, {
+      "name" : "xpath",
+      "default" : "\n\n//VariableDeclaratorId[string-length(@Image) > $minimum]\n\n                "
+    } ],
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_apex_design_StdCyclomaticComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_multithreading_AvoidUsingVolatile",
+    "patternId" : "category_java_errorprone_StaticEJBFieldShouldBeFinal",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//FieldDeclaration[contains(@Volatile,'true')]"
+      "default" : "\n\n//ClassOrInterfaceDeclaration[\n    (\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'SessionBean')])\n    or\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'EJBHome')])\n    or\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalObject')])\n    or\n    (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalHome')])\n    or\n    (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBObject')])\n    )\n    and\n    (./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration[\n         (./FieldDeclaration[@Static = 'true'])\n         and\n         (./FieldDeclaration[@Final = 'false'])\n    ])\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_DoNotHardCodeSDCard",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//Literal[starts-with(@Image,'\"/sdcard')]"
     } ],
     "languages" : [ "java" ]
   }, {
@@ -2038,15 +2028,6 @@
     "level" : "Warning",
     "category" : "Performance",
     "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_plsql_errorprone_TO_DATE_TO_CHAR",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//PrimaryExpression\n    [PrimaryPrefix/Name/@Image='TO_DATE']\n    [count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1]\n    [.//PrimaryExpression\n        [PrimaryPrefix/Name/@Image='TO_CHAR']\n        [count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1]\n    ]\n\n                "
-    } ],
-    "languages" : [ "plsql" ]
   }, {
     "patternId" : "category_apex_design_AvoidDeeplyNestedIfStmts",
     "level" : "Warning",
@@ -2058,19 +2039,10 @@
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_xml_errorprone_MistypedCDATASection",
-    "level" : "Warning",
+    "patternId" : "category_apex_codestyle_MethodNamingConventions",
+    "level" : "Info",
     "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//cdata-section[starts-with(@Image,'[') or ends-with(@Image,']')]\n\n                "
-    } ],
-    "languages" : [ "xml" ]
-  }, {
-    "patternId" : "category_java_documentation_CommentRequired",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
+    "languages" : [ "apex" ]
   }, {
     "patternId" : "category_java_bestpractices_UseAssertTrueInsteadOfAssertEquals",
     "level" : "Warning",
@@ -2081,24 +2053,54 @@
     } ],
     "languages" : [ "java" ]
   }, {
+    "patternId" : "category_java_codestyle_NoPackage",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//ClassOrInterfaceDeclaration[count(preceding::PackageDeclaration) = 0]"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_BooleanGetMethodName",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclaration[\nMethodDeclarator[count(FormalParameters/FormalParameter) = 0 or $checkParameterizedMethods = 'true']\n                [starts-with(@Image, 'get')]\nand\nResultType/Type/PrimitiveType[@Image = 'boolean']\nand not(../Annotation//Name[@Image = 'Override'])\n]\n\n                "
+    }, {
+      "name" : "checkParameterizedMethods",
+      "default" : "false"
+    } ],
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_plsql_design_CyclomaticComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "plsql" ]
+  }, {
+    "patternId" : "category_apex_codestyle_IfStmtsMustUseBraces",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//IfBlockStatement/BlockStatement[@CurlyBrace='false']\n\n                "
+    } ],
+    "languages" : [ "apex" ]
   }, {
     "patternId" : "category_java_performance_UseIndexOfChar",
     "level" : "Warning",
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_ecmascript_codestyle_ForLoopsMustUseBraces",
+    "patternId" : "category_java_errorprone_CloneMethodMustBePublic",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ForLoop[not(child::Scope)]\n|\n//ForInLoop[not(child::Scope)]\n\n                "
+      "default" : "\n\n//MethodDeclaration[@Public='false']\n  [MethodDeclarator/@Image = 'clone']\n  [MethodDeclarator/FormalParameters/@ParameterCount = 0]\n\n                "
     } ],
-    "languages" : [ "javascript" ]
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_TooManyMethods",
     "level" : "Warning",
@@ -2121,67 +2123,52 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_NonCaseLabelInSwitchStatement",
+    "patternId" : "category_java_errorprone_OverrideBothEqualsAndHashcode",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidMultipleUnaryOperators",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_apex_errorprone_EmptyIfStmt",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//IfBlockStatement\n [BlockStatement[count(*) = 0]]\n\n                "
+    } ],
+    "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_codestyle_ForLoopShouldBeWhileLoop",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//SwitchStatement//BlockStatement/Statement/LabeledStatement"
+      "default" : "\n\n//ForStatement\n  [not(LocalVariableDeclaration)]\n  [not(ForInit)]\n  [not(ForUpdate)]\n  [Expression]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_ProperLogger",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_UnnecessaryLocalBeforeReturn",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_EmptyCatchBlock",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceBodyDeclaration[FieldDeclaration//ClassOrInterfaceType[@Image='Log']\n and\n not(FieldDeclaration[@Final='true'][@Static='true'][@Private='true'][.//VariableDeclaratorId[@Image=$staticLoggerName]]\n //ArgumentList//ClassOrInterfaceType/@Image = ancestor::ClassOrInterfaceDeclaration/@Image)\n and\n not(FieldDeclaration[@Final='true'][@Private='true'][.//VariableDeclaratorId[@Image='log']]\n [count(.//VariableInitializer)=0]\n [ancestor::ClassOrInterfaceBody//StatementExpression[.//PrimaryExpression/descendant::*[@Image='log']][count(.//AllocationExpression)=0]]\n )]\n\n                "
+      "default" : "\n\n//CatchStatement\n [count(Block/BlockStatement) = 0 and ($allowCommentedBlocks != 'true' or Block/@containsComment = 'false')]\n [FormalParameter/Type/ReferenceType\n   /ClassOrInterfaceType[@Image != 'InterruptedException' and @Image != 'CloneNotSupportedException']\n ]\n [FormalParameter/VariableDeclaratorId[not(matches(@Image, $allowExceptionNameRegex))]]\n\n                "
     }, {
-      "name" : "staticLoggerName",
-      "default" : "LOG"
+      "name" : "allowCommentedBlocks",
+      "default" : "false"
+    }, {
+      "name" : "allowExceptionNameRegex",
+      "default" : "^(ignored|expected)$"
     } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidEnumAsIdentifier",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//VariableDeclaratorId[@Image='enum']"
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_CommentDefaultAccessModifier",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "regex",
-      "default" : "\n\n\\/\\*\\s+default\\s+\\*\\/\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidCatchingThrowable",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_IdempotentOperations",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_EmptyInitializer",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//Initializer/Block[count(*)=0]"
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_BeanMembersShouldSerialize",
-    "level" : "Warning",
-    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_jsp_design_NoScriptlets",
@@ -2193,33 +2180,10 @@
     } ],
     "languages" : [ "jsp" ]
   }, {
-    "patternId" : "category_java_documentation_CommentSize",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_apex_bestpractices_ApexUnitTestClassShouldHaveAsserts",
     "level" : "Warning",
     "category" : "CodeStyle",
     "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_multithreading_AvoidSynchronizedAtMethodLevel",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//MethodDeclaration[@Synchronized='true']"
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_EqualsNull",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//PrimaryExpression\n  [\n    PrimaryPrefix[Name[ends-with(@Image, 'equals')]]\n      [following-sibling::node()/Arguments/ArgumentList[count(Expression)=1]\n          /Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n\n    or\n\n    PrimarySuffix[ends-with(@Image, 'equals')]\n      [following-sibling::node()/Arguments/ArgumentList[count(Expression)=1]\n          /Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n\n  ]\n\n                "
-    } ],
-    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_AvoidThrowingNewInstanceOfSameException",
     "level" : "Warning",
@@ -2230,75 +2194,45 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_InvalidSlf4jMessageFormat",
+    "patternId" : "category_java_errorprone_CloneThrowsCloneNotSupportedException",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_AvoidDollarSigns",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_apex_errorprone_EmptyCatchBlock",
-    "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//CatchBlockStatement[./BlockStatement[count(*) = 0]]\n\n                "
+      "default" : "\n\n//MethodDeclaration\n[\nMethodDeclarator/@Image = 'clone'\nand count(MethodDeclarator/FormalParameters/*) = 0\nand count(NameList/Name[contains\n(@Image,'CloneNotSupportedException')]) = 0\n]\n[\n../../../../ClassOrInterfaceDeclaration[@Final = 'false']\n]\n\n                "
     } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_apex_errorprone_AvoidHardcodingId",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_codestyle_ForLoopShouldBeWhileLoop",
+    "patternId" : "category_java_errorprone_AssignmentInOperand",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ForStatement\n  [not(LocalVariableDeclaration)]\n  [not(ForInit)]\n  [not(ForUpdate)]\n  [Expression]\n\n                "
-    } ],
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_apex_codestyle_ClassNamingConventions",
+    "patternId" : "category_apex_errorprone_MethodWithSameNameAsEnclosingClass",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_codestyle_PackageCase",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_GenericsNaming",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//PackageDeclaration/Name[lower-case(@Image)!=@Image]"
+      "default" : "\n\n//TypeDeclaration/ClassOrInterfaceDeclaration/TypeParameters/TypeParameter[\n  string-length(@Image) > 1 \n  or\n  string:upper-case(@Image) != @Image\n]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_UnusedNullCheckInEquals",
+    "patternId" : "category_java_errorprone_DoNotThrowExceptionInFinally",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n(//PrimaryPrefix[ends-with(Name/@Image, '.equals') and Name/@Image != 'Arrays.equals'] | //PrimarySuffix[@Image='equals' and not(../PrimaryPrefix/Literal)])\n /following-sibling::PrimarySuffix/Arguments/ArgumentList/Expression\n /PrimaryExpression[count(PrimarySuffix)=0]/PrimaryPrefix\n /Name[@Image = ./../../../../../../../../../../Expression/ConditionalAndExpression\n /EqualityExpression[@Image=\"!=\" and count(./preceding-sibling::*)=0 and\n ./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n  /PrimaryExpression/PrimaryPrefix/Name/@Image]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_BooleanGetMethodName",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration[\nMethodDeclarator[count(FormalParameters/FormalParameter) = 0 or $checkParameterizedMethods = 'true']\n                [starts-with(@Image, 'get')]\nand\nResultType/Type/PrimitiveType[@Image = 'boolean']\nand not(../Annotation//Name[@Image = 'Override'])\n]\n\n                "
-    }, {
-      "name" : "checkParameterizedMethods",
-      "default" : "false"
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_JumbledIncrementer",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n//ForStatement\n  [\n    ForUpdate/StatementExpressionList/StatementExpression/PostfixExpression/PrimaryExpression/PrimaryPrefix/Name/@Image\n    =\n    ancestor::ForStatement/ForInit//VariableDeclaratorId/@Image\n  ]\n\n                "
+      "default" : "//FinallyStatement[descendant::ThrowStatement]"
     } ],
     "languages" : [ "java" ]
   }, {
@@ -2307,9 +2241,36 @@
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_multithreading_UnsynchronizedStaticDateFormatter",
+    "patternId" : "category_java_errorprone_SuspiciousEqualsMethodName",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//MethodDeclarator[@Image = 'equals']\n[   \n    (count(FormalParameters/*) = 1\n    and not (FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object'])\n    or not (../ResultType/Type/PrimitiveType[@Image = 'boolean'])\n    )  or  (\n    count(FormalParameters/*) = 2\n    and ../ResultType/Type/PrimitiveType[@Image = 'boolean']\n    and FormalParameters//ClassOrInterfaceType[@Image = 'Object' or @Image = 'java.lang.Object']\n    and not(../../Annotation/MarkerAnnotation/Name[@Image='Override'])\n    )\n]\n| //MethodDeclarator[@Image = 'equal']\n[\n    count(FormalParameters/*) = 1\n    and FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object']\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_UseProperClassLoader",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//PrimarySuffix[@Image='getClassLoader']"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_LocalVariableCouldBeFinal",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_CommentDefaultAccessModifier",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "regex",
+      "default" : "\n\n\\/\\*\\s+default\\s+\\*\\/\n\n                "
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_DefaultLabelNotLastInSwitchStmt",
@@ -2321,50 +2282,9 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_DoNotExtendJavaLangThrowable",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration/ExtendsList/ClassOrInterfaceType\n  [@Image=\"Throwable\" or @Image=\"java.lang.Throwable\"]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_AvoidAssertAsIdentifier",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//VariableDeclaratorId[@Image='assert']"
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_java_bestpractices_AvoidReassigningParameters",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_codestyle_UnnecessaryReturn",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_ProperCloneImplementation",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclarator\n[@Image = 'clone']\n[count(FormalParameters/*) = 0]\n[count(../Block//*[\n    (self::AllocationExpression) and\n    (./ClassOrInterfaceType/@Image = ancestor::\nClassOrInterfaceDeclaration[1]/@Image)\n  ])> 0\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_FinalizeShouldBeProtected",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration[@Protected=\"false\"]\n  /MethodDeclarator[@Image=\"finalize\"]\n  [not(FormalParameters/*)]\n\n                "
-    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_performance_BigIntegerInstantiation",
@@ -2386,19 +2306,44 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_DontImportJavaLang",
-    "level" : "Warning",
+    "patternId" : "category_jsp_codestyle_DuplicateJspImports",
+    "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "java" ]
+    "languages" : [ "jsp" ]
   }, {
     "patternId" : "category_apex_security_ApexSuggestUsingNamedCred",
     "level" : "Error",
     "category" : "Security",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_errorprone_UselessOperationOnImmutable",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_UselessParentheses",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Expression[not(parent::PrimaryPrefix)]/PrimaryExpression[count(*)>1]\n  /PrimaryPrefix/Expression\n    [not(./CastExpression)]\n    [not(./ConditionalExpression[@Ternary='true'])]\n    [not(./AdditiveExpression[//Literal[@StringLiteral='true']])]\n|\n//Expression[not(parent::PrimaryPrefix)]/PrimaryExpression[count(*)=1]\n  /PrimaryPrefix/Expression\n|\n//Expression/ConditionalAndExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    count(./CastExpression)=0 and\n    count(./EqualityExpression/MultiplicativeExpression)=0 and\n    count(./ConditionalExpression[@Ternary='true'])=0 and\n    count(./ConditionalOrExpression)=0]\n|\n//Expression/ConditionalOrExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    not(./CastExpression) and\n    not(./ConditionalExpression[@Ternary='true']) and\n    not(./EqualityExpression/MultiplicativeExpression)]\n|\n//Expression/ConditionalExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    not(./CastExpression) and\n    not(./EqualityExpression)]\n|\n//Expression/AdditiveExpression[not(./PrimaryExpression/PrimaryPrefix/Literal[@StringLiteral='true'])]\n  /PrimaryExpression[1]/PrimaryPrefix/Expression[\n    count(*)=1 and\n    not(./CastExpression) and\n    not(./AdditiveExpression[@Image = '-']) and\n    not(./ShiftExpression) and\n    not(./RelationalExpression) and\n    not(./InstanceOfExpression) and\n    not(./EqualityExpression) and\n    not(./AndExpression) and\n    not(./ExclusiveOrExpression) and\n    not(./InclusiveOrExpression) and\n    not(./ConditionalAndExpression) and\n    not(./ConditionalOrExpression) and\n    not(./ConditionalExpression)]\n|\n//Expression/EqualityExpression/PrimaryExpression/PrimaryPrefix/Expression[\n    count(*)=1 and\n    not(./CastExpression) and\n    not(./AndExpression) and\n    not(./InclusiveOrExpression) and\n    not(./ExclusiveOrExpression) and\n    not(./ConditionalExpression) and\n    not(./ConditionalAndExpression) and\n    not(./ConditionalOrExpression) and\n    not(./EqualityExpression)]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_multithreading_AvoidUsingVolatile",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//FieldDeclaration[contains(@Volatile,'true')]"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_documentation_UncommentedEmptyConstructor",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ConstructorDeclaration[@Private='false']\n                        [count(BlockStatement) = 0 and ($ignoreExplicitConstructorInvocation = 'true' or not(ExplicitConstructorInvocation)) and @containsComment = 'false']\n                        [not(../Annotation/MarkerAnnotation/Name[typeof(@Image, 'javax.inject.Inject', 'Inject')])]\n\n                "
+    }, {
+      "name" : "ignoreExplicitConstructorInvocation",
+      "default" : "false"
+    } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_vm_design_NoInlineJavaScript",
@@ -2406,39 +2351,27 @@
     "category" : "ErrorProne",
     "languages" : [ "velocity" ]
   }, {
-    "patternId" : "category_apex_errorprone_EmptyStatementBlock",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_ShortClassName",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
+      "name" : "minimum",
+      "default" : "5"
+    }, {
       "name" : "xpath",
-      "default" : "\n\n//Method/ModifierNode[@Abstract!='true' and ../BlockStatement[count(*) = 0]]\n| //Method/BlockStatement//BlockStatement[count(*) = 0 and @Location != parent::*/@Location]\n\n                "
-    } ],
-    "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_apex_errorprone_EmptyWhileStmt",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//WhileLoopStatement[./BlockStatement[count(*) = 0]]\n\n                "
-    } ],
-    "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_codestyle_RemoteInterfaceNamingConvention",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBObject')])\n    )\n    and\n    (\n        ends-with(@Image,'Session')\n        or\n        ends-with(@Image,'EJB')\n        or\n        ends-with(@Image,'Bean')\n    )\n]\n\n                "
+      "default" : "\n\n//ClassOrInterfaceDeclaration[string-length(@Image) < $minimum]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_CloneMethodReturnTypeMustMatchClassName",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_ShortMethodName",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
+      "name" : "minimum",
+      "default" : "3"
+    }, {
       "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration\n[\nMethodDeclarator/@Image = 'clone'\nand MethodDeclarator/FormalParameters/@ParameterCount = 0\nand not (ResultType//ClassOrInterfaceType/@Image = ancestor::ClassOrInterfaceDeclaration[1]/@Image)\n]\n\n                "
+      "default" : "\n\n//MethodDeclarator[string-length(@Image) < $minimum]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -2452,15 +2385,6 @@
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_AvoidFinalLocalVariable",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//LocalVariableDeclaration[\n  @Final = 'true'\n  and not(../../ForStatement)\n  and\n  (\n    (count(VariableDeclarator/VariableInitializer) = 0)\n    or\n    (VariableDeclarator/VariableInitializer/Expression/PrimaryExpression/PrimaryPrefix/Literal)\n  )\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_apex_bestpractices_AvoidGlobalModifier",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -2469,6 +2393,11 @@
     "patternId" : "category_java_design_SimplifyBooleanReturns",
     "level" : "Warning",
     "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_UnnecessaryFullyQualifiedName",
+    "level" : "Info",
+    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_performance_ShortInstantiation",
@@ -2485,45 +2414,17 @@
     "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_GenericsNaming",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//TypeDeclaration/ClassOrInterfaceDeclaration/TypeParameters/TypeParameter[\n  string-length(@Image) > 1 \n  or\n  string:upper-case(@Image) != @Image\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_apex_design_ExcessivePublicCount",
+    "patternId" : "category_java_errorprone_ReturnFromFinallyBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_bestpractices_GuardLogStatement",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_MissingBreakInSwitch",
-    "level" : "Warning",
-    "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//SwitchStatement\n[(count(.//BreakStatement)\n + count(BlockStatement//Statement/ReturnStatement)\n + count(BlockStatement//Statement/ContinueStatement)\n + count(BlockStatement//Statement/ThrowStatement)\n + count(BlockStatement//Statement/IfStatement[@Else='true' and Statement[2][ReturnStatement|ContinueStatement|ThrowStatement]]/Statement[1][ReturnStatement|ContinueStatement|ThrowStatement])\n + count(SwitchLabel[name(following-sibling::node()) = 'SwitchLabel'])\n + count(SwitchLabel[count(following-sibling::node()) = 0])\n  < count (SwitchLabel))]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_UseLocaleWithCaseConversions",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//PrimaryExpression\n[\nPrimaryPrefix\n[Name[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@ArgumentCount=0]]\n\nor\n\nPrimarySuffix\n[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@ArgumentCount=0]]\n]\n[not(PrimaryPrefix/Name[ends-with(@Image, 'toHexString')])]\n\n                "
+      "default" : "//FinallyStatement//ReturnStatement"
     } ],
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_codestyle_UselessQualifiedThis",
-    "level" : "Warning",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
@@ -2531,9 +2432,76 @@
     } ],
     "languages" : [ "java" ]
   }, {
+    "patternId" : "category_java_errorprone_SingleMethodSingleton",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_multithreading_UnsynchronizedStaticDateFormatter",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_EmptySwitchStatements",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//SwitchStatement[count(*) = 1]"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_AvoidUsingNativeCode",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//Name[starts-with(@Image,'System.loadLibrary')]"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_ImportFromSamePackage",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_apex_design_ExcessivePublicCount",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_codestyle_ExtendsObject",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ExtendsList/ClassOrInterfaceType[@Image='Object' or @Image='java.lang.Object']\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_bestpractices_GuardLogStatement",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "languages" : [ "java" ]
+  }, {
     "patternId" : "category_java_performance_StringInstantiation",
     "level" : "Warning",
     "category" : "Performance",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_TestClassWithoutTestCases",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_InvalidSlf4jMessageFormat",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidCallingFinalize",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_AvoidThrowingNullPointerException",
@@ -2550,18 +2518,9 @@
     "category" : "ErrorProne",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_errorprone_AvoidDecimalLiteralsInBigDecimalConstructor",
+    "patternId" : "category_java_errorprone_DataflowAnomalyAnalysis",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//AllocationExpression\n[ClassOrInterfaceType[@Image=\"BigDecimal\"]]\n[Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix\n    [\n        Literal[(not(ends-with(@Image,'\"'))) and contains(@Image,\".\")]\n        or\n        Name[ancestor::Block/BlockStatement/LocalVariableDeclaration\n                [Type[PrimitiveType[@Image='double' or @Image='float']\n                      or ReferenceType/ClassOrInterfaceType[@Image='Double' or @Image='Float']]]\n                /VariableDeclarator/VariableDeclaratorId/@Image = @Image\n            ]\n        or\n        Name[ancestor::MethodDeclaration/MethodDeclarator/FormalParameters/FormalParameter\n                [Type[PrimitiveType[@Image='double' or @Image='float']\n                      or ReferenceType/ClassOrInterfaceType[@Image='Double' or @Image='Float']]]\n                /VariableDeclaratorId/@Image = @Image\n            ]\n    ]\n]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_TestClassWithoutTestCases",
-    "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_DoNotExtendJavaLangError",
@@ -2573,23 +2532,14 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_ReturnEmptyArrayRatherThanNull",
+    "patternId" : "category_plsql_errorprone_TO_TIMESTAMPWithoutDateFormat",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration\n[\n(./ResultType/Type[@Array='true'])\nand\n(./Block/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral)\n]\n\n                "
+      "default" : "\n\n//PrimaryExpression[PrimaryPrefix/Name/@Image='TO_TIMESTAMP'  and count(PrimarySuffix/Arguments/ArgumentList/Argument) = 1 ] \n\n                "
     } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_java_errorprone_EmptyWhileStmt",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//WhileStatement/Statement[./Block[count(*) = 0]  or ./EmptyStatement]\n\n                "
-    } ],
-    "languages" : [ "java" ]
+    "languages" : [ "plsql" ]
   }, {
     "patternId" : "category_java_bestpractices_JUnit4TestShouldUseBeforeAnnotation",
     "level" : "Warning",
@@ -2600,14 +2550,51 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_AvoidFieldNameMatchingMethodName",
+    "patternId" : "category_java_errorprone_EmptySynchronizedBlock",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//SynchronizedStatement/Block[1][count(*) = 0]"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_apex_codestyle_ClassNamingConventions",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_documentation_CommentRequired",
+    "level" : "Info",
     "category" : "CodeStyle",
     "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_multithreading_UseNotifyAllInsteadOfNotify",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//StatementExpression/PrimaryExpression\n[PrimarySuffix/Arguments[@ArgumentCount = '0']]\n[\n    PrimaryPrefix[\n        ./Name[@Image='notify' or ends-with(@Image,'.notify')]\n        or ../PrimarySuffix/@Image='notify'\n        or (./AllocationExpression and ../PrimarySuffix[@Image='notify'])\n    ]\n]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_apex_errorprone_EmptyStatementBlock",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Method/ModifierNode[@Abstract!='true' and ../BlockStatement[count(*) = 0]]\n| //Method/BlockStatement//BlockStatement[count(*) = 0 and @Location != parent::*/@Location]\n\n                "
+    } ],
+    "languages" : [ "apex" ]
   }, {
     "patternId" : "category_java_performance_AvoidInstantiatingObjectsInLoops",
     "level" : "Warning",
     "category" : "Performance",
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_AvoidDollarSigns",
+    "level" : "Info",
+    "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_plsql_design_TooManyFields",
@@ -2629,15 +2616,6 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_UseProperClassLoader",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//PrimarySuffix[@Image='getClassLoader']"
-    } ],
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_java_design_AvoidThrowingRawExceptionTypes",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -2647,13 +2625,9 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_ForLoopsMustUseBraces",
+    "patternId" : "category_java_errorprone_UselessOperationOnImmutable",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "//ForStatement[not(Statement/Block)]"
-    } ],
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_AvoidDeeplyNestedIfStmts",
@@ -2670,6 +2644,15 @@
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_errorprone_SimpleDateFormatNeedsLocale",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//AllocationExpression\n [ClassOrInterfaceType[@Image='SimpleDateFormat']]\n [Arguments[@ArgumentCount=1]]\n\n                    "
+    } ],
+    "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_design_SimplifyConditional",
     "level" : "Warning",
@@ -2689,29 +2672,28 @@
     } ],
     "languages" : [ "jsp" ]
   }, {
-    "patternId" : "category_java_errorprone_MethodWithSameNameAsEnclosingClass",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
     "patternId" : "category_java_performance_InefficientEmptyStringCheck",
     "level" : "Warning",
     "category" : "Performance",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_LocalVariableCouldBeFinal",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_LocalHomeNamingConvention",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalHome')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'LocalHome')\n    )\n]\n\n                "
+    } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_apex_errorprone_MethodWithSameNameAsEnclosingClass",
+    "patternId" : "category_java_errorprone_AvoidFieldNameMatchingMethodName",
     "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "apex" ]
+    "category" : "ErrorProne",
+    "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_NullAssignment",
+    "patternId" : "category_java_errorprone_AvoidUsingOctalValues",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_java_bestpractices_AccessorMethodGeneration",
@@ -2719,35 +2701,51 @@
     "category" : "CodeStyle",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_MethodNamingConventions",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_apex_errorprone_EmptyIfStmt",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_ForLoopsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//IfBlockStatement\n [BlockStatement[count(*) = 0]]\n\n                "
-    } ],
-    "languages" : [ "apex" ]
-  }, {
-    "patternId" : "category_java_documentation_UncommentedEmptyMethodBody",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration/Block[count(BlockStatement) = 0 and @containsComment = 'false']\n\n                "
+      "default" : "//ForStatement[not(Statement/Block)]"
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_ReturnFromFinallyBlock",
+    "patternId" : "category_java_errorprone_MisplacedNullCheck",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Expression\n    /*[self::ConditionalOrExpression or self::ConditionalAndExpression]\n    /descendant::PrimaryExpression/PrimaryPrefix\n    /Name[starts-with(@Image,\n        concat(ancestor::PrimaryExpression/following-sibling::EqualityExpression\n            [./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n            /PrimaryExpression/PrimaryPrefix\n            /Name[count(../../PrimarySuffix)=0]/@Image,\".\")\n        )\n     ]\n     [count(ancestor::ConditionalAndExpression/EqualityExpression\n            [@Image='!=']\n            [./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n            [starts-with(following-sibling::*/PrimaryExpression/PrimaryPrefix/Name/@Image,\n                concat(./PrimaryExpression/PrimaryPrefix/Name/@Image, '.'))]\n      ) = 0\n     ]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_jsp_errorprone_JspEncoding",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//CompilationUnit/Content[\nnot(Element[@Name=\"meta\"][\n   Attribute[@Name=\"content\"]/AttributeValue[contains(lower-case(@Image),\"charset=utf-8\")]\n]) \nand \n    not(JspDirective[@Name='page']/JspDirectiveAttribute[@Name='contentType'][contains(lower-case(@Value),\"charset=utf-8\")])\n]\n\n                "
+    } ],
+    "languages" : [ "jsp" ]
+  }, {
+    "patternId" : "category_java_codestyle_TooManyStaticImports",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "maximumStaticImports",
+      "default" : "4"
+    }, {
+      "name" : "xpath",
+      "default" : "\n\n.[count(ImportDeclaration[@Static = 'true']) > $maximumStaticImports]\n\n                "
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_java_codestyle_MIsLeadingVariableName",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//FinallyStatement//ReturnStatement"
+      "default" : "\n\n//VariableDeclaratorId\n[starts-with(@Image, 'm_')]\n[not (../../../FieldDeclaration)]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
@@ -2761,24 +2759,6 @@
     "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_CallSuperFirst",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration[MethodDeclarator[\n  @Image='onCreate' or\n  @Image='onConfigurationChanged' or\n  @Image='onPostCreate' or\n  @Image='onPostResume' or\n  @Image='onRestart' or\n  @Image='onRestoreInstanceState' or\n  @Image='onResume' or\n  @Image='onStart'\n  ]]\n    /Block[not(\n      (BlockStatement[1]/Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/MethodDeclarator/@Image]))]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  typeof(@Image, 'android.app.Activity', 'Activity') or\n  typeof(@Image, 'android.app.Application', 'Application') or\n  typeof(@Image, 'android.app.Service', 'Service')\n]]]\n\n                "
-    } ],
-    "languages" : [ "java" ]
-  }, {
-    "patternId" : "category_ecmascript_codestyle_IfElseStmtsMustUseBraces",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "xpath",
-      "default" : "\n\n//ExpressionStatement[parent::IfStatement[@Else = \"true\"]]\n   [not(child::Scope)]\n   [not(child::IfStatement)]\n\n                "
-    } ],
-    "languages" : [ "javascript" ]
-  }, {
     "patternId" : "category_java_bestpractices_ConstantsInInterface",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -2791,27 +2771,41 @@
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_UseCorrectExceptionLogging",
-    "level" : "Warning",
+    "patternId" : "category_java_codestyle_IfElseStmtsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//CatchStatement/Block/BlockStatement/Statement/StatementExpression\n/PrimaryExpression[PrimaryPrefix/Name[starts-with(@Image,\nconcat(ancestor::ClassOrInterfaceDeclaration/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration\n[Type//ClassOrInterfaceType[@Image='Log']]\n/VariableDeclarator/VariableDeclaratorId/@Image, '.'))]]\n[PrimarySuffix/Arguments[@ArgumentCount='1']]\n[PrimarySuffix/Arguments//Name/@Image = ancestor::CatchStatement/FormalParameter/VariableDeclaratorId/@Image]\n\n                "
+      "default" : "\n\n//Statement\n [parent::IfStatement[@Else='true']]\n [not(child::Block)]\n [not(child::IfStatement)]\n\n                "
     } ],
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_errorprone_FinalizeOverloaded",
+    "patternId" : "category_java_errorprone_EmptyStatementBlock",
     "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//BlockStatement/Statement/Block[count(*) = 0]"
+    } ],
+    "languages" : [ "java" ]
+  }, {
+    "patternId" : "category_apex_codestyle_WhileLoopsMustUseBraces",
+    "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "\n\n//MethodDeclaration\n /MethodDeclarator[@Image='finalize'][FormalParameters[count(*)>0]]\n\n                "
+      "default" : "\n\n//WhileLoopStatement/BlockStatement[@CurlyBrace='false']\n\n                "
     } ],
+    "languages" : [ "apex" ]
+  }, {
+    "patternId" : "category_java_errorprone_AvoidDuplicateLiterals",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
-    "patternId" : "category_java_codestyle_UnnecessaryModifier",
+    "patternId" : "category_java_errorprone_UnnecessaryCaseChange",
     "level" : "Warning",
-    "category" : "CodeStyle",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_apex_design_ExcessiveParameterList",
@@ -2819,9 +2813,18 @@
     "category" : "ErrorProne",
     "languages" : [ "apex" ]
   }, {
-    "patternId" : "category_java_errorprone_DataflowAnomalyAnalysis",
-    "level" : "Warning",
+    "patternId" : "category_ecmascript_codestyle_UnnecessaryBlock",
+    "level" : "Info",
     "category" : "CodeStyle",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "\n\n//Block[not(parent::FunctionNode or parent::IfStatement or parent::ForLoop or parent::ForInLoop\n    or parent::WhileLoop or parent::DoLoop or parent::TryStatement or parent::CatchClause)]\n|\n//Scope[not(parent::FunctionNode or parent::IfStatement or parent::ForLoop or parent::ForInLoop\n    or parent::WhileLoop or parent::DoLoop or parent::TryStatement or parent::CatchClause)]\n\n                "
+    } ],
+    "languages" : [ "javascript" ]
+  }, {
+    "patternId" : "category_java_errorprone_MoreThanOneLogger",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "languages" : [ "java" ]
   }, {
     "patternId" : "category_vm_design_ExcessiveTemplateLength",

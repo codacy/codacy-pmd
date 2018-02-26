@@ -2,6 +2,7 @@ Since: PMD 4.0
 
 Calling new Byte() causes memory allocation that can be avoided by the static Byte.valueOf().
 It makes use of an internal cache that recycles earlier instances making it more memory efficient.
+Note that new Byte() is deprecated since JDK 9 for that reason.
 
 Example(s):
 ```

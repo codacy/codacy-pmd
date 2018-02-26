@@ -2,6 +2,7 @@ Since: PMD 3.5
 
 Calling new Integer() causes memory allocation that can be avoided by the static Integer.valueOf().
 It makes use of an internal cache that recycles earlier instances making it more memory efficient.
+Note that new Integer() is deprecated since JDK 9 for that reason.
 
 Example(s):
 ```

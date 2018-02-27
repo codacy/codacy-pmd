@@ -2,7 +2,7 @@
 
 public class Foo {
 
-    //#Warn: category_java_codestyle_DefaultPackage
+    //#Info: category_java_codestyle_DefaultPackage
     Object bar;
     private Object foo;
 

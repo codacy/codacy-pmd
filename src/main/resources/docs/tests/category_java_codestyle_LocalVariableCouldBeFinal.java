@@ -2,7 +2,7 @@
 
 public class Bar {
     public void foo() {
-        //#Warn: category_java_codestyle_LocalVariableCouldBeFinal
+        //#Info: category_java_codestyle_LocalVariableCouldBeFinal
         String txtA = "a";
         
         final String txtB = "b"; 

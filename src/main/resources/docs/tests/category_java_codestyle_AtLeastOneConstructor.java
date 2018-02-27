@@ -1,6 +1,6 @@
 //#Patterns: category_java_codestyle_AtLeastOneConstructor
 
-//#Warn: category_java_codestyle_AtLeastOneConstructor
+//#Info: category_java_codestyle_AtLeastOneConstructor
 public class Foo {
 
 }

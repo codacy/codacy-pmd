@@ -9,7 +9,7 @@ public abstract class ShouldBeAbstract {
         return null;
     }
 
-//#Warn: category_java_codestyle_EmptyMethodInAbstractClassShouldBeAbstract
+//#Info: category_java_codestyle_EmptyMethodInAbstractClassShouldBeAbstract
     public void couldBeAbstract() {
     }
 }

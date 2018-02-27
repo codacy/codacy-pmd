@@ -2,7 +2,7 @@
 public class Foo {
 
 	boolean bar(int x, int y) {
-		//#Warn: category_java_codestyle_ConfusingTernary
+		//#Info: category_java_codestyle_ConfusingTernary
 		return (x != y) ? diff : same;
 	}
 

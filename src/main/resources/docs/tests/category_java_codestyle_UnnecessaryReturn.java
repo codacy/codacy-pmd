@@ -2,7 +2,7 @@
 
 public class Foo {
     public void bar() {
-        //#Warn: category_java_codestyle_UnnecessaryReturn
+        //#Info: category_java_codestyle_UnnecessaryReturn
         return;
     }
 }

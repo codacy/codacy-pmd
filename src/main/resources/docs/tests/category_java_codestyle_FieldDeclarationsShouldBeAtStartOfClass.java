@@ -10,7 +10,7 @@ public class HelloWorldBean {
   }
 
   // Field declared after methods / inner classes - avoid this
-//#Warn: category_java_codestyle_FieldDeclarationsShouldBeAtStartOfClass
+//#Info: category_java_codestyle_FieldDeclarationsShouldBeAtStartOfClass
   private String _fieldInWrongLocation;
 }
 

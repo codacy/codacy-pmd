@@ -1,6 +1,6 @@
 Since: PMD 3.5
 
-Instead of manually copying data between two arrays, use the efficient System.arraycopy method instead.
+Instead of manually copying data between two arrays, use the efficient Arrays.copyOf or System.arraycopy method instead.
 
 Example(s):
 ```

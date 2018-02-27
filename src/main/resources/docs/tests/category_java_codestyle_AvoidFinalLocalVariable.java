@@ -4,7 +4,7 @@ public class Foo {
 
     public void bar() {
         
-        //#Warn: category_java_codestyle_AvoidFinalLocalVariable
+        //#Info: category_java_codestyle_AvoidFinalLocalVariable
         final String simple;
         String hello;
     }

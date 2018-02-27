@@ -13,10 +13,10 @@ public class Foo {
         }
 
         if (foo)
-            //#Warn: category_java_codestyle_IfElseStmtsMustUseBraces
+            //#Info: category_java_codestyle_IfElseStmtsMustUseBraces
             x = x+1;
         else
-            //#Warn: category_java_codestyle_IfElseStmtsMustUseBraces
+            //#Info: category_java_codestyle_IfElseStmtsMustUseBraces
             x = x-1;
     }
 

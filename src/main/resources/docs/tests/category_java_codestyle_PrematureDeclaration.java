@@ -4,7 +4,7 @@ public class Foo {
 
     public void bar(String[] strings) {
 
-        //#Warn: category_java_codestyle_PrematureDeclaration
+        //#Info: category_java_codestyle_PrematureDeclaration
         int length = 0;
 
         if (strings  == null || strings.length == 0) {

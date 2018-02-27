@@ -6,7 +6,7 @@ end;
 create or replace package body inline_pragma_error is
   procedure do_transaction(p_input_token        in varchar(200)) is
   begin
-    --#Warn: category_plsql_codestyle_MisplacedPragma
+    --#Info: category_plsql_codestyle_MisplacedPragma
     PRAGMA AUTONOMOUS_TRANSACTION;
     bno74.log_hentglass_request(p_hentglass_request
                                ,v_logging_req_seq_no);

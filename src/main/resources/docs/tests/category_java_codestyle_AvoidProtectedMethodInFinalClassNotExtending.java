@@ -8,7 +8,7 @@ public final class Foo {
  	private int bar() {
 
     }
-    //#Warn: category_java_codestyle_AvoidProtectedMethodInFinalClassNotExtending
+    //#Info: category_java_codestyle_AvoidProtectedMethodInFinalClassNotExtending
   	protected int baz() {
 
     }

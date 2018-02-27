@@ -2,7 +2,7 @@
 
 public class Foo extends Bar {
     
-    //#Warn: category_java_codestyle_CallSuperInConstructor
+    //#Info: category_java_codestyle_CallSuperInConstructor
     public Foo() {  
 
     }

@@ -4,7 +4,7 @@ public class Foo {
 
     public void bar(int x) {
         if (x > 0) {
-            //#Warn: category_java_codestyle_OnlyOneReturn
+            //#Info: category_java_codestyle_OnlyOneReturn
             return "hey";
         }
 

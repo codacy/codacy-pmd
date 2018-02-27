@@ -8,7 +8,7 @@ public class Foo {
 
 public class Bar {
 
-	//#Warn: category_java_documentation_UncommentedEmptyConstructor
+	//#Info: category_java_documentation_UncommentedEmptyConstructor
 	public Bar() {
 	}
 }

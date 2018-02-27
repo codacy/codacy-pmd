@@ -2,7 +2,7 @@
 
 public class Foo {
     
-    //#Warn: category_java_codestyle_AvoidPrefixingMethodParameters
+    //#Info: category_java_codestyle_AvoidPrefixingMethodParameters
     public void notSoGoodCode(int inLeftOperand) {
         outRightOperand = 1;
     }

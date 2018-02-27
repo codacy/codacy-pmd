@@ -1,6 +1,7 @@
 Since: PMD 1.2
 
 Avoid instantiating Boolean objects; you can reference Boolean.TRUE, Boolean.FALSE, or call Boolean.valueOf() instead.
+Note that new Boolean() is deprecated since JDK 9 for that reason.
 
 Example(s):
 ```

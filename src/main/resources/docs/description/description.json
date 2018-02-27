@@ -371,6 +371,16 @@
   "patternId" : "category_java_errorprone_AvoidFieldNameMatchingTypeName",
   "title" : "It is somewhat confusing to have a field name matching the declaring class name"
 }, {
+  "patternId" : "category_pom_errorprone_InvalidDependencyTypes",
+  "title" : "By default, Maven only recognizes the following types: pom, jar, maven-plugin, ejb, war, ear, rar, par.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "validTypes",
+    "description" : "Set of valid types."
+  } ]
+}, {
   "patternId" : "category_java_codestyle_LocalVariableCouldBeFinal",
   "title" : "Local variable ''{0}'' could be declared final"
 }, {
@@ -1346,9 +1356,6 @@
   "patternId" : "category_java_performance_UnnecessaryWrapperObjectCreation",
   "title" : "Unnecessary wrapper object creation"
 }, {
-  "patternId" : "category_java_performance_ConsecutiveLiteralAppends",
-  "title" : "StringBuffer (or StringBuilder).append is called {0} consecutive times with literal Strings. Use a single append with a single combined String."
-}, {
   "patternId" : "category_apex_codestyle_ClassNamingConventions",
   "title" : "Class names should begin with an uppercase character"
 }, {
@@ -1586,13 +1593,6 @@
 }, {
   "patternId" : "category_java_errorprone_CloneThrowsCloneNotSupportedException",
   "title" : "clone() method should throw CloneNotSupportedException",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
-}, {
-  "patternId" : "category_pom_errorprone_InvalidDependencyTypes",
-  "title" : "By default, Maven only recognizes the following types: pom, jar, maven-plugin, ejb, war, ear, rar, par.",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -1951,6 +1951,9 @@
     "name" : "xpath",
     "description" : "xpath"
   } ]
+}, {
+  "patternId" : "category_java_performance_ConsecutiveLiteralAppends",
+  "title" : "StringBuffer (or StringBuilder).append is called {0} consecutive times with literals. Use a single append with a single combined String."
 }, {
   "patternId" : "category_java_bestpractices_GuardLogStatement",
   "title" : "There is log block not surrounded by if"

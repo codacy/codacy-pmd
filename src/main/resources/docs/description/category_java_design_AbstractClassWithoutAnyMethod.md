@@ -6,7 +6,7 @@ protected constructor in order to prevent instantiation than make the class misl
 
 Example(s):
 ```
-public class abstract Example {
+public abstract class Example {
     String field;
     int otherField;
 }

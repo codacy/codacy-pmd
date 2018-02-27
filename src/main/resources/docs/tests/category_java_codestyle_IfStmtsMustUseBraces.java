@@ -3,7 +3,7 @@ public class Foo {
 
     public void bar() {
 
-        //#Warn: category_java_codestyle_IfStmtsMustUseBraces
+        //#Info: category_java_codestyle_IfStmtsMustUseBraces
         if (foo)	// not recommended
             x++;
 

@@ -2,7 +2,7 @@
 public class Foo {
     public void bar() {
     }
-    //#Warn: category_java_codestyle_BooleanGetMethodName
+    //#Info: category_java_codestyle_BooleanGetMethodName
    	public boolean getFoo() {
     }
     public boolean isReady() {

@@ -1,6 +1,11 @@
 Since: PMD 1.2
 
-Method names should always begin with a lower case character, and should not contain underscores.
+Configurable naming conventions for method declarations. This rule reports
+            method declarations which do not match the regex that applies to their
+            specific kind (e.g. JUnit test or native method). Each regex can be
+            configured through properties.
+
+            By default this rule uses the standard Java naming convention (Camel case).
 
 Example(s):
 ```

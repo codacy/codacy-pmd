@@ -102,13 +102,6 @@
   "patternId" : "category_java_errorprone_UselessOperationOnImmutable",
   "title" : "An operation on an Immutable object (String, BigDecimal or BigInteger) won't change the object itself"
 }, {
-  "patternId" : "category_java_codestyle_IfStmtsMustUseBraces",
-  "title" : "Avoid using if statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
-}, {
   "patternId" : "category_java_documentation_UncommentedEmptyConstructor",
   "title" : "Document empty constructor",
   "parameters" : [ {
@@ -158,6 +151,9 @@
     "name" : "xpath",
     "description" : "xpath"
   } ]
+}, {
+  "patternId" : "category_java_security_InsecureCryptoIv",
+  "title" : "Do not use hard coded initialization vector in crypto operations"
 }, {
   "patternId" : "category_jsp_bestpractices_NoClassAttribute",
   "title" : "Do not use an attribute called 'class'.",
@@ -445,13 +441,6 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "category_java_codestyle_IfElseStmtsMustUseBraces",
-  "title" : "Avoid using 'if...else' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
-}, {
   "patternId" : "category_plsql_errorprone_TO_TIMESTAMPWithoutDateFormat",
   "title" : "TO_TIMESTAMP without date format",
   "parameters" : [ {
@@ -484,9 +473,6 @@
 }, {
   "patternId" : "category_java_design_NPathComplexity",
   "title" : "The {0} ''{1}'' has an NPath complexity of {2}"
-}, {
-  "patternId" : "category_java_codestyle_ClassNamingConventions",
-  "title" : "Class names should begin with an uppercase character"
 }, {
   "patternId" : "category_vm_design_CollapsibleIfStatements",
   "title" : "These nested if statements could be combined"
@@ -552,9 +538,6 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "category_java_codestyle_MethodNamingConventions",
-  "title" : "Method name does not begin with a lower case character."
-}, {
   "patternId" : "category_java_codestyle_LocalInterfaceSessionNamingConvention",
   "title" : "The Local Interface of a Session EJB should be suffixed by 'Local'",
   "parameters" : [ {
@@ -581,13 +564,6 @@
 }, {
   "patternId" : "category_plsql_design_ExcessiveMethodLength",
   "title" : "Avoid really long methods ({0} lines found)."
-}, {
-  "patternId" : "category_java_codestyle_UnnecessaryConstructor",
-  "title" : "Avoid unnecessary constructors - the compiler will generate these for you",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
 }, {
   "patternId" : "category_jsp_bestpractices_DontNestJsfInJstlIteration",
   "title" : "Do not nest JSF component custom actions inside a custom action that iterates over its body.",
@@ -638,13 +614,6 @@
 }, {
   "patternId" : "category_java_design_UselessOverridingMethod",
   "title" : "Overriding method merely calls super"
-}, {
-  "patternId" : "category_java_codestyle_ForLoopsMustUseBraces",
-  "title" : "Avoid using 'for' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
 }, {
   "patternId" : "category_vm_design_AvoidDeeplyNestedIfStmts",
   "title" : "Deeply nested if..then statements are hard to read"
@@ -735,6 +704,16 @@
   }, {
     "name" : "xpath",
     "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "category_java_bestpractices_JUnit4TestShouldUseTestAnnotation",
+  "title" : "JUnit 4 tests that execute tests should use the @Test annotation",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "testClassPattern",
+    "description" : "The regex pattern used to identify test classes"
   } ]
 }, {
   "patternId" : "category_java_errorprone_ConstructorCallsOverridableMethod",
@@ -844,6 +823,9 @@
     "name" : "xpath",
     "description" : "xpath"
   } ]
+}, {
+  "patternId" : "category_java_codestyle_ClassNamingConventions",
+  "title" : "The {0} name ''{1}'' doesn''t match ''{2}''"
 }, {
   "patternId" : "category_java_errorprone_UseEqualsToCompareStrings",
   "title" : "Use equals() to compare strings instead of ''=='' or ''!=''",
@@ -986,6 +968,9 @@
     "description" : "xpath"
   } ]
 }, {
+  "patternId" : "category_java_bestpractices_MissingOverride",
+  "title" : "The method ''{0}'' is missing an @Override annotation."
+}, {
   "patternId" : "category_java_codestyle_MIsLeadingVariableName",
   "title" : "Avoid naming non-fields with the prefix 'm_'",
   "parameters" : [ {
@@ -1007,20 +992,6 @@
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
-  } ]
-}, {
-  "patternId" : "category_java_bestpractices_JUnit4TestShouldUseTestAnnotation",
-  "title" : "JUnit 4 tests that execute tests should use the @Test annotation",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
-}, {
-  "patternId" : "category_java_codestyle_CommentDefaultAccessModifier",
-  "title" : "Missing commented default access modifier",
-  "parameters" : [ {
-    "name" : "regex",
-    "description" : "regex"
   } ]
 }, {
   "patternId" : "category_java_bestpractices_JUnit4TestShouldUseBeforeAnnotation",
@@ -1194,6 +1165,9 @@
   "patternId" : "category_java_design_CouplingBetweenObjects",
   "title" : "High amount of different objects as members denotes a high coupling"
 }, {
+  "patternId" : "category_java_codestyle_UnnecessaryConstructor",
+  "title" : "Avoid unnecessary constructors - the compiler will generate these for you"
+}, {
   "patternId" : "category_java_errorprone_StringBufferInstantiationWithChar",
   "title" : "Do not instantiate a StringBuffer or StringBuilder with a char",
   "parameters" : [ {
@@ -1317,6 +1291,9 @@
   "patternId" : "category_java_errorprone_ImportFromSamePackage",
   "title" : "No need to import a type that lives in the same package"
 }, {
+  "patternId" : "category_java_security_HardCodedCryptoKey",
+  "title" : "Do not use hard coded encryption keys"
+}, {
   "patternId" : "category_ecmascript_codestyle_WhileLoopsMustUseBraces",
   "title" : "Avoid using 'while' statements without curly braces",
   "parameters" : [ {
@@ -1371,6 +1348,34 @@
 }, {
   "patternId" : "category_java_bestpractices_AccessorClassGeneration",
   "title" : "Avoid instantiation through private constructors from outside of the constructor's class."
+}, {
+  "patternId" : "category_java_codestyle_ControlStatementBraces",
+  "title" : "This statement should have braces",
+  "parameters" : [ {
+    "name" : "checkWhileStmt",
+    "description" : "Require that 'while' loops use braces"
+  }, {
+    "name" : "checkDoWhileStmt",
+    "description" : "Require that 'do ... while' loops use braces"
+  }, {
+    "name" : "checkIfElseStmt",
+    "description" : "Require that 'if ... else' statements use braces"
+  }, {
+    "name" : "checkCaseStmt",
+    "description" : "Require that cases of a switch have braces"
+  }, {
+    "name" : "checkSingleIfStmt",
+    "description" : "Require that 'if' statements with a single branch use braces"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  }, {
+    "name" : "checkForStmt",
+    "description" : "Require that 'for' loops should use braces"
+  }, {
+    "name" : "allowEmptyLoop",
+    "description" : "Allow loops with an empty statement, e.g. 'while(true);'"
+  } ]
 }, {
   "patternId" : "category_java_errorprone_MoreThanOneLogger",
   "title" : "Class contains more than one logger."
@@ -1535,6 +1540,9 @@
     "description" : "xpath"
   } ]
 }, {
+  "patternId" : "category_java_codestyle_CommentDefaultAccessModifier",
+  "title" : "Missing commented default access modifier"
+}, {
   "patternId" : "category_java_design_LawOfDemeter",
   "title" : "Potential violation of Law of Demeter"
 }, {
@@ -1598,16 +1606,6 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "category_java_codestyle_AbstractNaming",
-  "title" : "Abstract classes should be named 'AbstractXXX'",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  }, {
-    "name" : "strict",
-    "description" : "Also flag classes, that are named Abstract, but are not abstract."
-  } ]
-}, {
   "patternId" : "category_java_errorprone_AvoidCallingFinalize",
   "title" : "Avoid calling finalize() explicitly"
 }, {
@@ -1633,9 +1631,6 @@
 }, {
   "patternId" : "category_apex_security_ApexSuggestUsingNamedCred",
   "title" : "Suggest named credentials for authentication"
-}, {
-  "patternId" : "category_java_performance_InefficientEmptyStringCheck",
-  "title" : "String.trim().length()==0 is an inefficient way to validate an empty String."
 }, {
   "patternId" : "category_java_errorprone_EmptySynchronizedBlock",
   "title" : "Avoid empty synchronized blocks",
@@ -1678,6 +1673,9 @@
 }, {
   "patternId" : "category_java_performance_InsufficientStringBufferDeclaration",
   "title" : "StringBuffer constructor is initialized with size {0}, but has at least {1} characters appended."
+}, {
+  "patternId" : "category_java_codestyle_MethodNamingConventions",
+  "title" : "The {0} name ''{1}'' doesn''t match ''{2}''"
 }, {
   "patternId" : "category_java_codestyle_ShortMethodName",
   "title" : "Avoid using short method names",
@@ -1797,6 +1795,12 @@
   "patternId" : "category_java_errorprone_SingletonClassReturningNewInstance",
   "title" : "getInstance method always creates a new object and hence does not comply to Singleton Design Pattern behaviour. Please review"
 }, {
+  "patternId" : "category_java_performance_InefficientEmptyStringCheck",
+  "title" : "String.trim().length() == 0 / String.trim().isEmpty() is an inefficient way to validate a blank String."
+}, {
+  "patternId" : "category_java_codestyle_IdenticalCatchBranches",
+  "title" : "''catch'' branch identical to ''{0}'' branch"
+}, {
   "patternId" : "category_java_design_AvoidCatchingGenericException",
   "title" : "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block",
   "parameters" : [ {
@@ -1895,6 +1899,9 @@
     "description" : "Name of the static Logger variable"
   } ]
 }, {
+  "patternId" : "category_java_codestyle_UnnecessaryAnnotationValueElement",
+  "title" : "Avoid the use of value in annotations when it's the only element"
+}, {
   "patternId" : "category_apex_security_ApexXSSFromEscapeFalse",
   "title" : "Apex classes should escape Strings in error messages"
 }, {
@@ -1970,13 +1977,6 @@
 }, {
   "patternId" : "category_java_errorprone_DoNotExtendJavaLangThrowable",
   "title" : "Exceptions should not extend java.lang.Throwable",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
-}, {
-  "patternId" : "category_java_codestyle_WhileLoopsMustUseBraces",
-  "title" : "Avoid using 'while' statements without curly braces",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"

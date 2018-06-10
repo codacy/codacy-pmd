@@ -52,7 +52,7 @@ enablePlugins(DockerPlugin)
 version in Docker := "1.0.0"
 
 val installAll =
-  """apk update && apk add bash curl &&
+  """apk update && apk add bash curl tini &&
     |rm -rf /tmp/* &&
     |rm -rf /var/cache/apk/*""".stripMargin.replaceAll(System.lineSeparator(), " ")
 
@@ -75,22 +75,16 @@ daemonUser in Docker := dockerUser
 
 daemonGroup in Docker := dockerGroup
 
-dockerBaseImage := "develar/java"
+dockerBaseImage := "openjdk:8-jre-alpine"
 
 mainClass in Compile := Some("codacy.Engine")
 
-dockerEntrypoint := Seq("/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
+dockerEntrypoint := Seq("/sbin/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
 
 dockerCommands := dockerCommands.value.flatMap {
     case cmd@Cmd("WORKDIR", _) => List(
       Cmd("WORKDIR", "/src"),
       Cmd("RUN", installAll)
-    )
-    case cmd@(Cmd("USER", _)) => List(
-      Cmd("ENV", "TINI_VERSION v0.16.1"),
-      Cmd("ADD", "https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini"),
-      Cmd("RUN", "chmod +x /tini"),
-      cmd
     )
     case cmd@(Cmd("ADD", _)) => List(
       Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),

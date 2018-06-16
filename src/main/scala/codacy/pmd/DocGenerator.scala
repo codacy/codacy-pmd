@@ -7,6 +7,7 @@ import codacy.docker.api.{Parameter, Pattern, Result, Tool}
 import codacy.helpers.ResourceHelper
 import play.api.libs.json.{JsObject, JsString, Json}
 
+import scala.collection.immutable.ListSet
 import scala.util.{Failure, Properties, Success, Try}
 import scala.xml.{Elem, Node, Utility, XML}
 
@@ -104,9 +105,16 @@ object DocGenerator {
 
   private def writePatterns(version: String, rulesets: Set[DocGenerator.Ruleset]): Unit = {
     val (patternDescriptions, patternSpecifications, extendedDescriptions) = rulesets.flatMap(_.patterns).unzip3
-    val spec = Tool.Specification(Tool.Name("pmd"), Some(Tool.Version(version)), patternSpecifications)
+
+    val sortedPatternSpecifications = ListSet(patternSpecifications.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
+      .map(p => p.copy(parameters = p.parameters.map(pp => ListSet(pp.toSeq.sortBy(_.name.value): _*))))
+    val sortedPatternDescriptions = ListSet(patternDescriptions.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
+      .map(p => p.copy(parameters = p.parameters.map(pp => ListSet(pp.toSeq.sortBy(_.name.value): _*))))
+
+    val spec = Tool.Specification(Tool.Name("pmd"), Some(Tool.Version(version)), sortedPatternSpecifications)
+
     val jsonSpecifications = Json.prettyPrint(Json.toJson(spec))
-    val jsonDescriptions = Json.prettyPrint(Json.toJson(patternDescriptions))
+    val jsonDescriptions = Json.prettyPrint(Json.toJson(sortedPatternDescriptions))
 
     val specialMappings = Map("clone" -> "cloneImplementation")
 

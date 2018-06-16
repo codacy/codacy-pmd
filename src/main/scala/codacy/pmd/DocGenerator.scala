@@ -291,9 +291,9 @@ object DocGenerator {
       // HACK: Codacy converts the version parameter from 2.0 to 2 leading PMD to fail, excluding it for now
       name = property \@ "name" if name != "version" && name.trim.nonEmpty
       description = Option(property \@ "description").filter(_.trim.nonEmpty).getOrElse(name)
-      defaultValueField = Option(property \@ "value").filter(_.trim.nonEmpty)
+      defaultValueField = Option(property \@ "value").filter(_.trim.nonEmpty).map(_.trim)
       defaultValueBody = Option(property \ "value")
-        .flatMap(_.theSeq.collectFirst { case v if v.text.trim.nonEmpty => v.text })
+        .flatMap(_.theSeq.collectFirst { case v if v.text.trim.nonEmpty => v.text.trim })
     } yield {
       val defaultValue = defaultValueField.orElse(defaultValueBody)
         .map(JsString)

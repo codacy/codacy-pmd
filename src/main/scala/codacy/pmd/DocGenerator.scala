@@ -69,7 +69,7 @@ object DocGenerator {
     } match {
       case Success(rulesets) =>
         val (patternDescriptions, patternSpecifications, extendedDescriptions) = rulesets.flatMap(_.patterns).unzip3
-        val spec = Tool.Specification(Tool.Name("pmd"), Some(Tool.Version(version)), patternSpecifications)
+        val spec = Tool.Specification(Tool.Name("pmd-legacy"), Some(Tool.Version(version)), patternSpecifications)
         val jsonSpecifications = Json.prettyPrint(Json.toJson(spec))
         val jsonDescriptions = Json.prettyPrint(Json.toJson(patternDescriptions))
 

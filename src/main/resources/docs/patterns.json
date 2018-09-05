@@ -1,5 +1,5 @@
 {
-  "name" : "pmd",
+  "name" : "pmd-legacy",
   "version" : "5.8.1",
   "patterns" : [ {
     "patternId" : "apex_complexity_TooManyFields",

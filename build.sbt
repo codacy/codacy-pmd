@@ -13,8 +13,9 @@ val languageVersion = "2.11.11"
 scalaVersion := languageVersion
 
 resolvers ++= Seq(
-  "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/",
-  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases"
+  "Maven Central 2" at "http://central.maven.org/maven2/",
+  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases",
+  "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/"
 )
 
 lazy val toolVersionKey = SettingKey[String]("The version of the underlying tool retrieved from patterns.json")

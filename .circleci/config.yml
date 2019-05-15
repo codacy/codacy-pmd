@@ -9,6 +9,7 @@ jobs:
       - run: 
           name: Clone test project
           working_directory: ~/
+          # Loose dependency to `codacy-plugins-test` repo
           command: |
             (git -C ~/codacy-plugins-test fetch --all && 
               git -C ~/codacy-plugins-test reset --hard origin/master) || 

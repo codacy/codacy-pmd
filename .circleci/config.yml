@@ -45,10 +45,16 @@ jobs:
       - deploy:
           name: Push application Docker image
           command: |
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker tag $CIRCLE_PROJECT_REPONAME codacy/$CIRCLE_PROJECT_REPONAME
-            docker tag $CIRCLE_PROJECT_REPONAME codacy/$CIRCLE_PROJECT_REPONAME:1.0.$CIRCLE_BUILD_NUM
-            docker push codacy/$CIRCLE_PROJECT_REPONAME
+            deploy_docker() {
+              docker login -u $DOCKER_USER -p $DOCKER_PASS
+              docker tag $CIRCLE_PROJECT_REPONAME codacy/$CIRCLE_PROJECT_REPONAME
+              docker tag $CIRCLE_PROJECT_REPONAME codacy/$CIRCLE_PROJECT_REPONAME:1.0.$CIRCLE_BUILD_NUM
+              docker push codacy/$CIRCLE_PROJECT_REPONAME
+            }
+
+            case "${CIRCLE_BRANCH}" in
+                master|pmd-legacy) deploy_docker;;
+            esac
 
 workflows:
   version: 2

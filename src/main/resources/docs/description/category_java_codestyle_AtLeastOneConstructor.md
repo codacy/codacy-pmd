@@ -1,6 +1,7 @@
 Since: PMD 1.04
 
-Each class should declare at least one constructor.
+Each non-static class should declare at least one constructor.
+Classes with solely static members are ignored, refer to [UseUtilityClassRule](pmd_rules_java_design.html#useutilityclass) to detect those.
 
 Example(s):
 ```

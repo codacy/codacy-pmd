@@ -1,8 +1,10 @@
 Since: PMD 5.0
 
-JUnit tests should not contain too many asserts.  Many asserts are indicative of a complex test, for which 
-it is harder to verify correctness.  Consider breaking the test scenario into multiple, shorter test scenarios.  
+Unit tests should not contain too many asserts. Many asserts are indicative of a complex test, for which 
+it is harder to verify correctness.  Consider breaking the test scenario into multiple, shorter test scenarios.
 Customize the maximum number of assertions used by this Rule to suit your needs.
+
+This rule checks for JUnit4, JUnit5 and TestNG Tests, as well as methods starting with &quot;test&quot;.
 
 Example(s):
 ```

@@ -1,6 +1,6 @@
 Since: PMD 5.4.0
 
-Look for qualified this usages in the same class.
+Reports qualified this usages in the same class.
 
 Example(s):
 ```

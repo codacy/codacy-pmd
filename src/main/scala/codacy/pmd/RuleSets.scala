@@ -46,6 +46,7 @@ object RuleSets extends Enumeration {
   val coupling = Value("coupling")
   val finalizers = Value("finalizers")
   val apexunit = Value("apexunit")
+  val quickstart = Value("quickstart")
   val migrating_to_14 = Value("migrating_to_14")
   val xpath = Value("xpath")
   val imports = Value("imports")
@@ -82,6 +83,7 @@ object RuleSets extends Enumeration {
       "Comments" -> comments,
       "Error Prone" -> errorprone,
       "Braces" -> braces,
+      "quickstart" -> quickstart,
       "JavaBeans" -> javabeans,
       "PLSQL DATETIME" -> dates,
       "Android" -> android,

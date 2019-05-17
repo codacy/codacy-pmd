@@ -1,6 +1,12 @@
 [ {
+  "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
+  "title" : "Apex test assert statement should make use of the message parameter."
+}, {
   "patternId" : "category_apex_bestpractices_ApexUnitTestClassShouldHaveAsserts",
   "title" : "Apex unit tests should System.assert() or assertEquals() or assertNotEquals()"
+}, {
+  "patternId" : "category_apex_bestpractices_ApexUnitTestMethodShouldHaveIsTestAnnotation",
+  "title" : "Apex test methods should have @isTest annotation."
 }, {
   "patternId" : "category_apex_bestpractices_ApexUnitTestShouldNotUseSeeAllDataTrue",
   "title" : "Apex unit tests should not use @isTest(seeAllData = true)"
@@ -37,6 +43,16 @@
 }, {
   "patternId" : "category_apex_codestyle_MethodNamingConventions",
   "title" : "Method name does not begin with a lower case character."
+}, {
+  "patternId" : "category_apex_codestyle_OneDeclarationPerLine",
+  "title" : "Use one statement for each line, it enhances code readability.",
+  "parameters" : [ {
+    "name" : "strictMode",
+    "description" : "If true, mark combined declaration even if the declarations are on separate lines."
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
 }, {
   "patternId" : "category_apex_codestyle_VariableNamingConventions",
   "title" : "{0} variable {1} should begin with {2}"
@@ -78,6 +94,9 @@
   "patternId" : "category_apex_design_TooManyFields",
   "title" : "Too many fields"
 }, {
+  "patternId" : "category_apex_documentation_ApexDoc",
+  "title" : "ApexDoc comment is missing or incorrect"
+}, {
   "patternId" : "category_apex_errorprone_AvoidDirectAccessTriggerMap",
   "title" : "Avoid directly accessing Trigger.old and Trigger.new",
   "parameters" : [ {
@@ -87,6 +106,9 @@
 }, {
   "patternId" : "category_apex_errorprone_AvoidHardcodingId",
   "title" : "Hardcoding Id's is bound to break when changing environments."
+}, {
+  "patternId" : "category_apex_errorprone_AvoidNonExistentAnnotations",
+  "title" : "Use of non existent annotations will lead to broken Apex code which will not compile in the future."
 }, {
   "patternId" : "category_apex_errorprone_EmptyCatchBlock",
   "title" : "Avoid empty catch blocks",
@@ -330,6 +352,9 @@
     "description" : "xpath"
   } ]
 }, {
+  "patternId" : "category_java_bestpractices_AvoidReassigningLoopVariables",
+  "title" : "Avoid reassigning the loop control variable ''{0}''"
+}, {
   "patternId" : "category_java_bestpractices_AvoidReassigningParameters",
   "title" : "Avoid reassigning parameters such as ''{0}''"
 }, {
@@ -341,11 +366,7 @@
   } ]
 }, {
   "patternId" : "category_java_bestpractices_AvoidUsingHardCodedIP",
-  "title" : "Do not hard code the IP address ${variableName}",
-  "parameters" : [ {
-    "name" : "pattern",
-    "description" : "Regular Expression"
-  } ]
+  "title" : "Do not hard code the IP address ${variableName}"
 }, {
   "patternId" : "category_java_bestpractices_CheckResultSet",
   "title" : "Always check the return of one of the navigation method (next,previous,first,last) of a ResultSet."
@@ -370,8 +391,18 @@
   "patternId" : "category_java_bestpractices_ForLoopCanBeForeach",
   "title" : "This 'for' loop can be replaced by a 'foreach' loop"
 }, {
+  "patternId" : "category_java_bestpractices_ForLoopVariableCount",
+  "title" : "Too many control variables in the 'for' statement",
+  "parameters" : [ {
+    "name" : "maximumVariables",
+    "description" : "A regular for statement will have 1 control variable"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "category_java_bestpractices_GuardLogStatement",
-  "title" : "There is log block not surrounded by if"
+  "title" : "Logger calls should be surrounded by log level guards."
 }, {
   "patternId" : "category_java_bestpractices_JUnit4SuitesShouldUseSuiteAnnotation",
   "title" : "JUnit 4 indicates test suites via annotations, not the suite method.",
@@ -381,21 +412,21 @@
   } ]
 }, {
   "patternId" : "category_java_bestpractices_JUnit4TestShouldUseAfterAnnotation",
-  "title" : "JUnit 4 tests that clean up tests should use the @After annotation",
+  "title" : "JUnit 4 tests that clean up tests should use the @After annotation, JUnit5 tests should use @AfterEach or @AfterAll",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_bestpractices_JUnit4TestShouldUseBeforeAnnotation",
-  "title" : "JUnit 4 tests that set up tests should use the @Before annotation",
+  "title" : "JUnit 4 tests that set up tests should use the @Before annotation, JUnit5 tests should use @BeforeEach or @BeforeAll",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_bestpractices_JUnit4TestShouldUseTestAnnotation",
-  "title" : "JUnit 4 tests that execute tests should use the @Test annotation",
+  "title" : "JUnit 4 tests that execute tests should use the @Test annotation, JUnit 5 tests should use @Test, @RepeatedTest, @TestFactory, @TestTemplate or @ParameterizedTest",
   "parameters" : [ {
     "name" : "testClassPattern",
     "description" : "The regex pattern used to identify test classes"
@@ -408,7 +439,7 @@
   "title" : "JUnit assertions should include a message"
 }, {
   "patternId" : "category_java_bestpractices_JUnitTestContainsTooManyAsserts",
-  "title" : "JUnit tests should not contain more than ${maximumAsserts} assert(s).",
+  "title" : "Unit tests should not contain more than ${maximumAsserts} assert(s).",
   "parameters" : [ {
     "name" : "maximumAsserts",
     "description" : "Maximum number of Asserts in a test method"
@@ -540,6 +571,16 @@
   "patternId" : "category_java_bestpractices_UseCollectionIsEmpty",
   "title" : "Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()"
 }, {
+  "patternId" : "category_java_bestpractices_UseTryWithResources",
+  "title" : "Consider using a try-with-resources statement instead of explicitly closing the resource",
+  "parameters" : [ {
+    "name" : "closeMethods",
+    "description" : "Method names in finally block, which trigger this rule"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "category_java_bestpractices_UseVarargs",
   "title" : "Consider using varargs for methods or constructors which take an array the last parameter.",
   "parameters" : [ {
@@ -547,25 +588,21 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "category_java_codestyle_AtLeastOneConstructor",
-  "title" : "Each class should declare at least one constructor",
+  "patternId" : "category_java_bestpractices_WhileLoopWithLiteralBoolean",
+  "title" : "The loop can be simplified.",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
   } ]
+}, {
+  "patternId" : "category_java_codestyle_AtLeastOneConstructor",
+  "title" : "Each class should declare at least one constructor"
 }, {
   "patternId" : "category_java_codestyle_AvoidDollarSigns",
   "title" : "Avoid using dollar signs in variable/method/class/interface names"
 }, {
   "patternId" : "category_java_codestyle_AvoidFinalLocalVariable",
   "title" : "Avoid using final local variables, turn them into fields",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
-}, {
-  "patternId" : "category_java_codestyle_AvoidPrefixingMethodParameters",
-  "title" : "Avoid prefixing parameters by in, out or inOut. Uses Javadoc to document this behavior.",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -676,12 +713,18 @@
   "patternId" : "category_java_codestyle_FieldDeclarationsShouldBeAtStartOfClass",
   "title" : "Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes."
 }, {
+  "patternId" : "category_java_codestyle_FieldNamingConventions",
+  "title" : "The {0} name ''{1}'' doesn''t match ''{2}''"
+}, {
   "patternId" : "category_java_codestyle_ForLoopShouldBeWhileLoop",
   "title" : "This for loop could be simplified to a while loop",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
   } ]
+}, {
+  "patternId" : "category_java_codestyle_FormalParameterNamingConventions",
+  "title" : "The {0} name ''{1}'' doesn''t match ''{2}''"
 }, {
   "patternId" : "category_java_codestyle_GenericsNaming",
   "title" : "Generics names should be a one letter long and upper case.",
@@ -692,6 +735,9 @@
 }, {
   "patternId" : "category_java_codestyle_IdenticalCatchBranches",
   "title" : "''catch'' branch identical to ''{0}'' branch"
+}, {
+  "patternId" : "category_java_codestyle_LinguisticNaming",
+  "title" : "Linguistics Antipattern - Method name and return type is inconsistent linguistically"
 }, {
   "patternId" : "category_java_codestyle_LocalHomeNamingConvention",
   "title" : "The Local Home interface of a Session EJB should be suffixed by 'LocalHome'",
@@ -710,6 +756,9 @@
   "patternId" : "category_java_codestyle_LocalVariableCouldBeFinal",
   "title" : "Local variable ''{0}'' could be declared final"
 }, {
+  "patternId" : "category_java_codestyle_LocalVariableNamingConventions",
+  "title" : "The {0} name ''{1}'' doesn''t match ''{2}''"
+}, {
   "patternId" : "category_java_codestyle_LongVariable",
   "title" : "Avoid excessively long variable names like {0}",
   "parameters" : [ {
@@ -727,13 +776,6 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "category_java_codestyle_MIsLeadingVariableName",
-  "title" : "Avoid naming non-fields with the prefix 'm_'",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
-}, {
   "patternId" : "category_java_codestyle_MethodArgumentCouldBeFinal",
   "title" : "Parameter ''{0}'' is not assigned and could be declared final"
 }, {
@@ -741,7 +783,7 @@
   "title" : "The {0} name ''{1}'' doesn''t match ''{2}''"
 }, {
   "patternId" : "category_java_codestyle_NoPackage",
-  "title" : "All classes and interfaces must belong to a named package",
+  "title" : "All classes, interfaces, enums and annotations must belong to a named package",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -804,13 +846,6 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "category_java_codestyle_SuspiciousConstantFieldName",
-  "title" : "The field name indicates a constant but its modifiers do not",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
-}, {
   "patternId" : "category_java_codestyle_TooManyStaticImports",
   "title" : "Too many static imports may lead to messy code",
   "parameters" : [ {
@@ -834,10 +869,27 @@
   "title" : "Consider simply returning the value vs storing it in local variable ''{0}''"
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryModifier",
-  "title" : "Avoid modifiers which are implied by the context"
+  "title" : "Unnecessary modifier{0} on {1} ''{2}''{3}"
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryReturn",
   "title" : "Avoid unnecessary return statements"
+}, {
+  "patternId" : "category_java_codestyle_UseDiamondOperator",
+  "title" : "Explicit type arguments can be replaced by Diamond Operator",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "category_java_codestyle_UseUnderscoresInNumericLiterals",
+  "title" : "Number {0} should separate every third digit with an underscore",
+  "parameters" : [ {
+    "name" : "acceptableDecimalLength",
+    "description" : "Length under which literals in base 10 are not required to have underscores"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
 }, {
   "patternId" : "category_java_codestyle_UselessParentheses",
   "title" : "Useless parentheses.",
@@ -852,9 +904,6 @@
     "name" : "xpath",
     "description" : "xpath"
   } ]
-}, {
-  "patternId" : "category_java_codestyle_VariableNamingConventions",
-  "title" : "{0} variable {1} should begin with {2}"
 }, {
   "patternId" : "category_java_design_AbstractClassWithoutAnyMethod",
   "title" : "No abstract method which means that the keyword is most likely used to prevent instantiation. Use a private or protected constructor instead.",
@@ -896,6 +945,13 @@
 }, {
   "patternId" : "category_java_design_AvoidThrowingRawExceptionTypes",
   "title" : "Avoid throwing raw exception types.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "category_java_design_AvoidUncheckedExceptionsInSignatures",
+  "title" : "A method or constructor should not explicitly declare unchecked exceptions in its ''throws'' clause",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -1234,6 +1290,13 @@
 }, {
   "patternId" : "category_java_errorprone_DataflowAnomalyAnalysis",
   "title" : "Found ''{0}''-anomaly for variable ''{1}'' (lines ''{2}''-''{3}'')."
+}, {
+  "patternId" : "category_java_errorprone_DetachedTestCase",
+  "title" : "Probable detached JUnit test case.",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
 }, {
   "patternId" : "category_java_errorprone_DoNotCallGarbageCollectionExplicitly",
   "title" : "Do not explicitly trigger a garbage collection.",
@@ -1669,8 +1732,8 @@
   "patternId" : "category_java_multithreading_NonThreadSafeSingleton",
   "title" : "Singleton is not thread safe"
 }, {
-  "patternId" : "category_java_multithreading_UnsynchronizedStaticDateFormatter",
-  "title" : "Static DateFormatter objects should be accessed in a synchronized manner"
+  "patternId" : "category_java_multithreading_UnsynchronizedStaticFormatter",
+  "title" : "Static Formatter objects should be accessed in a synchronized manner"
 }, {
   "patternId" : "category_java_multithreading_UseConcurrentHashMap",
   "title" : "If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation",
@@ -1823,7 +1886,7 @@
   "title" : "String.indexOf(char) is faster than String.indexOf(String)."
 }, {
   "patternId" : "category_java_performance_UseStringBufferForStringAppends",
-  "title" : "Prefer StringBuffer over += for concatenating strings"
+  "title" : "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over += for concatenating strings"
 }, {
   "patternId" : "category_java_performance_UseStringBufferLength",
   "title" : "This is an inefficient use of StringBuffer.toString; call StringBuffer.length instead."
@@ -1916,6 +1979,31 @@
     "description" : "xpath"
   } ]
 }, {
+  "patternId" : "category_plsql_codestyle_AvoidTabCharacter",
+  "title" : "Avoid tab characters for indentation. Use spaces instead."
+}, {
+  "patternId" : "category_plsql_codestyle_CodeFormat",
+  "title" : "Please check the formatting/indentation"
+}, {
+  "patternId" : "category_plsql_codestyle_ForLoopNaming",
+  "title" : "Use meaningful names for loop variables",
+  "parameters" : [ {
+    "name" : "allowSimpleLoops",
+    "description" : "Ignore simple loops, that are not nested"
+  }, {
+    "name" : "cursorPattern",
+    "description" : "The pattern used for the curosr loop variable"
+  }, {
+    "name" : "indexPattern",
+    "description" : "The pattern used for the index loop variable"
+  }, {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "category_plsql_codestyle_LineLength",
+  "title" : "The line is too long."
+}, {
   "patternId" : "category_plsql_codestyle_MisplacedPragma",
   "title" : "Pragma should be used only inside the declaration block before 'BEGIN'.",
   "parameters" : [ {
@@ -1998,7 +2086,7 @@
   } ]
 }, {
   "patternId" : "category_pom_errorprone_ProjectVersionAsDependencyVersion",
-  "title" : "Do not use project's version to express a dependency's version.",
+  "title" : "Do not use project.version to express a dependency version.",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"

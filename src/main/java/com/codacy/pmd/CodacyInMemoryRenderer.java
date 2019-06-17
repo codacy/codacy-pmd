@@ -1,4 +1,4 @@
-package codacy.pmd;
+package com.codacy.pmd;
 
 import net.sourceforge.pmd.Report;
 import net.sourceforge.pmd.RuleViolation;

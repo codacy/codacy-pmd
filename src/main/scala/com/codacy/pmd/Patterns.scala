@@ -1,4 +1,4 @@
-package codacy.pmd
+package com.codacy.pmd
 
 object Patterns {
 

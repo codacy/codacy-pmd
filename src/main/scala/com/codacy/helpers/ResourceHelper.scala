@@ -1,4 +1,4 @@
-package codacy.helpers
+package com.codacy.helpers
 
 import java.io.{File, InputStream}
 import java.net.{URL, URLDecoder}

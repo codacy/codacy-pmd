@@ -1,15 +1,16 @@
-package codacy.pmd
+package com.codacy.pmd
 
 import java.io.{File => JavaFile}
 import java.nio.file.{Files, Path, Paths}
 import java.util.Collections
 
-import codacy.docker.api._
-import codacy.dockerApi.utils.FileHelper
+import com.codacy.plugins.api.{ErrorMessage, Options, Source}
+import com.codacy.plugins.api.results.{Parameter, Pattern, Result, Tool}
+import com.codacy.tools.scala.seed.utils.FileHelper
 import net.sourceforge.pmd
 import net.sourceforge.pmd.lang.Language
 import net.sourceforge.pmd.renderers.Renderer
-import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RuleSets, RulesetsFactoryUtils}
+import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RulesetsFactoryUtils, RuleSets => PMDRuleSets}
 import play.api.libs.json.{JsString, JsValue, Json}
 
 import scala.collection.JavaConversions._
@@ -22,11 +23,13 @@ object PMD extends Tool {
 
   private lazy val patternCompatibility = Map("java_codesize_CyclomaticComplexity" -> "java_metrics_CyclomaticComplexity")
 
-  override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], filesOpt: Option[Set[Source.File]], options: Map[Configuration.Key, Configuration.Value])
-                    (implicit specification: Tool.Specification): Try[List[Result]] = {
+  def apply(source: Source.Directory,
+            configuration: Option[List[Pattern.Definition]],
+            files: Option[Set[Source.File]],
+            options: Map[Options.Key, Options.Value])(implicit specification: Tool.Specification): Try[List[Result]] = {
     val pmdConfig = new PMDConfiguration()
 
-    filesOpt.fold[Unit] {
+    files.fold[Unit] {
       pmdConfig.setInputFilePath(source.path)
     } { files =>
       val filesStr = files.map(_.path).mkString(",")
@@ -43,7 +46,7 @@ object PMD extends Tool {
         }
 
       case None =>
-        FileHelper.findConfigurationFile(configFileNames, new JavaFile(source.path).toPath).foreach { ruleset =>
+        FileHelper.findConfigurationFile(new JavaFile(source.path).toPath, configFileNames).foreach { ruleset =>
           pmdConfig.setRuleSets(ruleset.toString)
         }
     }
@@ -87,7 +90,7 @@ object PMD extends Tool {
     }
   }
 
-  private def getApplicableLanguages(configuration: PMDConfiguration, ruleSets: RuleSets) = {
+  private def getApplicableLanguages(configuration: PMDConfiguration, ruleSets: PMDRuleSets) = {
     val languages = new java.util.HashSet[Language]
     val discoverer = configuration.getLanguageVersionDiscoverer
     import scala.collection.JavaConversions._

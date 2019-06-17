@@ -8,7 +8,7 @@ name := "codacy-pmd"
 
 version := "1.0.0-SNAPSHOT"
 
-val languageVersion = "2.11.11"
+val languageVersion = "2.12.7"
 
 scalaVersion := languageVersion
 
@@ -30,8 +30,8 @@ toolVersionKey := {
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
   Seq(
-    "com.typesafe.play" %% "play-json" % "2.4.8",
-    "com.codacy" %% "codacy-engine-scala-seed" % "2.7.9" withSources(),
+    "com.typesafe.play" %% "play-json" % "2.7.3",
+    "com.codacy" %% "codacy-engine-scala-seed" % "3.0.9" withSources(),
     "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
     "net.sourceforge.pmd" % "pmd-core" % toolVersion withSources(),
     "net.sourceforge.pmd" % "pmd-java" % toolVersion withSources(),
@@ -77,7 +77,7 @@ daemonGroup in Docker := dockerGroup
 
 dockerBaseImage := "openjdk:8-jre-alpine"
 
-mainClass in Compile := Some("codacy.Engine")
+mainClass in Compile := Some("com.codacy.Engine")
 
 dockerEntrypoint := Seq("/sbin/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
 

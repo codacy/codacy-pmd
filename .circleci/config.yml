@@ -70,14 +70,14 @@ jobs:
           command: |
             publish_docker() {
               docker login -u $DOCKER_USER -p $DOCKER_PASS
-              docker tag $CIRCLE_PROJECT_REPONAME codacy/$CIRCLE_PROJECT_REPONAME
-              docker tag $CIRCLE_PROJECT_REPONAME codacy/$CIRCLE_PROJECT_REPONAME:$(cat .version)
-              docker push codacy/$CIRCLE_PROJECT_REPONAME
-              docker push codacy/$CIRCLE_PROJECT_REPONAME:$(cat .version)
+              docker tag $CIRCLE_PROJECT_REPONAME codacy/codacy-pmd
+              docker tag $CIRCLE_PROJECT_REPONAME codacy/codacy-pmd:$(cat .version)
+              docker push codacy/$codacy-pmd
+              docker push codacy/$codacy-pmd:$(cat .version)
             }
 
             case "${CIRCLE_BRANCH}" in
-                master|pmd-legacy) publish_docker;;
+                master) publish_docker;;
             esac
 
 workflows:

@@ -72,8 +72,8 @@ jobs:
               docker login -u $DOCKER_USER -p $DOCKER_PASS
               docker tag $CIRCLE_PROJECT_REPONAME codacy/codacy-pmd
               docker tag $CIRCLE_PROJECT_REPONAME codacy/codacy-pmd:$(cat .version)
-              docker push codacy/$codacy-pmd
-              docker push codacy/$codacy-pmd:$(cat .version)
+              docker push codacy/codacy-pmd
+              docker push codacy/codacy-pmd:$(cat .version)
             }
 
             case "${CIRCLE_BRANCH}" in

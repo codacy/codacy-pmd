@@ -1,7 +1,9 @@
-version: 2
+version: 2.1
+
+orbs:
+  codacy: codacy/base@0.1.0
+
 jobs:
-
-
   checkout_and_version:
     docker:
       - image: codacy/git-version:1.0.8
@@ -88,3 +90,11 @@ workflows:
       - build:
           requires:
             - checkout_and_version
+      - codacy/tag_version:
+          name: tag_version
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master

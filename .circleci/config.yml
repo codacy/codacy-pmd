@@ -17,10 +17,10 @@ workflows:
                  scalafmt::test;
                  test:scalafmt::test;
                  sbt:scalafmt::test;
-                 set name := \"codacy-pmd\";
+                 set name := \"$CIRCLE_PROJECT_REPONAME\";
                  set version in Docker := \"latest\";
                  docker:publishLocal"
-            docker save --output ~/workdir/docker-image.tar codacy-pmd:latest
+            docker save --output ~/workdir/docker-image.tar $CIRCLE_PROJECT_REPONAME:latest
           persist_to_workspace: true
           requires:
             - codacy/checkout_and_version
@@ -34,8 +34,8 @@ workflows:
           cmd: |
             docker load --input ~/workdir/docker-image.tar
             docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker tag codacy-pmd codacy/codacy-pmd:$(cat .version)
-            docker tag codacy-pmd codacy/codacy-pmd:latest
+            docker tag $CIRCLE_PROJECT_REPONAME codacy/codacy-pmd:$(cat .version)
+            docker tag $CIRCLE_PROJECT_REPONAME codacy/codacy-pmd:latest
             docker push codacy/codacy-pmd:$(cat .version)
             docker push codacy/codacy-pmd:latest
           requires:

@@ -1,37 +1,34 @@
 import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
-import scala.util.parsing.json.JSON
-import scala.io.Source
+import sjsonnew._
+import sjsonnew.BasicJsonProtocol._
+import sjsonnew.support.scalajson.unsafe._
 
 organization := "codacy"
 
 name := "codacy-pmd"
 
-version := "1.0.0-SNAPSHOT"
+scalaVersion := "2.12.10"
 
-val languageVersion = "2.12.7"
-
-scalaVersion := languageVersion
-
-resolvers ++= Seq(
-  "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/",
-  "Sonatype OSS Releases" at "https://oss.sonatype.org/content/repositories/releases",
-  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
-)
-lazy val toolVersionKey = SettingKey[String]("The version of the underlying tool retrieved from patterns.json")
+lazy val toolVersionKey = SettingKey[String]("the version of the underlying tool retrieved from patterns.json")
 
 toolVersionKey := {
+  case class Patterns(name: String, version: String)
+  implicit val patternsIso: IsoLList[Patterns] =
+    LList.isoCurried((p: Patterns) => ("name", p.name) :*: ("version", p.version) :*: LNil) {
+      case (_, n) :*: (_, v) :*: LNil => Patterns(n, v)
+    }
+
   val jsonFile = (resourceDirectory in Compile).value / "docs" / "patterns.json"
-  val toolMap = JSON.parseFull(Source.fromFile(jsonFile).getLines().mkString)
-    .getOrElse(throw new Exception("patterns.json is not a valid json"))
-    .asInstanceOf[Map[String, String]]
-  toolMap.getOrElse[String]("version", throw new Exception("Failed to retrieve 'version' from patterns.json"))
+  val json = Parser.parseFromFile(jsonFile)
+  val patterns = json.flatMap(Converter.fromJson[Patterns])
+  patterns.get.version
 }
 
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
   Seq(
-    "com.typesafe.play" %% "play-json" % "2.7.3",
-    "com.codacy" %% "codacy-engine-scala-seed" % "3.0.9" withSources(),
+    "com.typesafe.play" %% "play-json" % "2.7.4",
+    "com.codacy" %% "codacy-engine-scala-seed" % "3.0.59" withSources(),
     "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
     "net.sourceforge.pmd" % "pmd-core" % toolVersion withSources(),
     "net.sourceforge.pmd" % "pmd-java" % toolVersion withSources(),
@@ -45,11 +42,14 @@ libraryDependencies ++= {
   )
 }
 
+scalacOptions --= Seq(
+  "-Ywarn-adapted-args",
+  "-Xlint"
+)
+
 enablePlugins(JavaAppPackaging)
 
 enablePlugins(DockerPlugin)
-
-version in Docker := "1.0.0"
 
 val installAll =
   """apk update && apk add bash curl tini &&
@@ -62,7 +62,7 @@ mappings in Universal ++= {
     val dest = "/docs"
 
     for {
-      path <- src.***.get
+      path <- src.allPaths.get
       if !path.isDirectory
     } yield path -> path.toString.replaceFirst(src.toString, dest)
   }

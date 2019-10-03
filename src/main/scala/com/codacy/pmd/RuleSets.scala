@@ -61,12 +61,14 @@ object RuleSets extends Enumeration {
   def getRuleSet(name: String): Option[RuleSets.Value] = RuleNameToSet.get(name)
 
   def getLevelAndCategory(simpleName: String): Option[(Result.Level.Value, Pattern.Category.Value)] = {
-    RuleNameToSet.get(simpleName)
+    RuleNameToSet
+      .get(simpleName)
       .orElse {
         RuleSets.values.find { v =>
           v.toString.equalsIgnoreCase(simpleName)
         }
-      }.flatMap(RuleSetToLevelAndCategory.get)
+      }
+      .flatMap(RuleSetToLevelAndCategory.get)
   }
 
   private lazy val RuleNameToSet = {
@@ -175,4 +177,3 @@ object RuleSets extends Enumeration {
   }
 
 }
-      

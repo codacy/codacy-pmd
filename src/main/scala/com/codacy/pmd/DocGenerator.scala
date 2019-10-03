@@ -14,7 +14,11 @@ import scala.xml.{Elem, Node, Utility, XML}
 
 object DocGenerator {
 
-  case class Ruleset(name: String, fullName: String, patterns: List[(Pattern.Description, Pattern.Specification, PatternExtendedDescription)])
+  case class Ruleset(
+      name: String,
+      fullName: String,
+      patterns: List[(Pattern.Description, Pattern.Specification, PatternExtendedDescription)]
+  )
 
   case class PatternExtendedDescription(patternId: Pattern.Id, extendedDescription: String)
 
@@ -22,8 +26,12 @@ object DocGenerator {
 
   def main(args: Array[String]): Unit = {
     val version: String =
-      ResourceHelper.getResourceContent("docs/patterns.json").toOption
-        .flatMap { lines => Json.parse(lines.mkString("\n")).as[JsObject].\("version").asOpt[String] }
+      ResourceHelper
+        .getResourceContent("docs/patterns.json")
+        .toOption
+        .flatMap { lines =>
+          Json.parse(lines.mkString("\n")).as[JsObject].\("version").asOpt[String]
+        }
         .getOrElse {
           throw new Exception("No version provided")
         }
@@ -41,23 +49,24 @@ object DocGenerator {
       (rulesetsRoot, _) <- rulesetsRoots
       languageRulesetsPath = s"$rulesetsRoot/$langAlias"
     } yield {
-      ResourceHelper.listResourceDirectory(languageRulesetsPath)
+      ResourceHelper
+        .listResourceDirectory(languageRulesetsPath)
         .map(_.filter(_.endsWith(".xml")))
-        .map {
-          rulesetPaths =>
+        .map { rulesetPaths =>
+          (for {
+            rulesetFilePath <- rulesetPaths
+            rulesetPath = s"$languageRulesetsPath/$rulesetFilePath"
+            rulesetName <- rulesetPath.split("/").lastOption.map(_.stripSuffix(".xml"))
+          } yield {
             (for {
-              rulesetFilePath <- rulesetPaths
-              rulesetPath = s"$languageRulesetsPath/$rulesetFilePath"
-              rulesetName <- rulesetPath.split("/").lastOption.map(_.stripSuffix(".xml"))
+              rulesetContents <- ResourceHelper.getResourceContent(rulesetPath)
+              xml <- Try(XML.loadString(rulesetContents.mkString(Properties.lineSeparator)))
             } yield {
-              (for {
-                rulesetContents <- ResourceHelper.getResourceContent(rulesetPath)
-                xml <- Try(XML.loadString(rulesetContents.mkString(Properties.lineSeparator)))
-              } yield {
-                parseDeprecated(rulesetsRoot, rulesetName, xml)
-              }).getOrElse(Map.empty)
-            }).flatten
-        }.getOrElse(Map.empty)
+              parseDeprecated(rulesetsRoot, rulesetName, xml)
+            }).getOrElse(Map.empty)
+          }).flatten
+        }
+        .getOrElse(Map.empty)
     }).flatMap(identity)(collection.breakOut)
   }
 
@@ -69,36 +78,39 @@ object DocGenerator {
       languageRulesetsPath = s"$rulesetsRoot/$langAlias"
       propertiesFilePath = s"$languageRulesetsPath/$propertiesFile"
     } yield {
-      val markedRulesets = ResourceHelper.getResourceStream(propertiesFilePath).map { propStream =>
-        val prop = new util.Properties()
-        prop.load(propStream)
-        prop.getProperty("rulesets.filenames").split(",").map(_.trim).filter(_.nonEmpty).to[Set]
-      }.getOrElse(Set.empty[String])
+      val markedRulesets = ResourceHelper
+        .getResourceStream(propertiesFilePath)
+        .map { propStream =>
+          val prop = new util.Properties()
+          prop.load(propStream)
+          prop.getProperty("rulesets.filenames").split(",").map(_.trim).filter(_.nonEmpty).to[Set]
+        }
+        .getOrElse(Set.empty[String])
 
-      ResourceHelper.listResourceDirectory(languageRulesetsPath)
+      ResourceHelper
+        .listResourceDirectory(languageRulesetsPath)
         .map(_.filter(_.endsWith(".xml")))
-        .map {
-          rulesetPaths =>
-            val patternsPerRuleset = for {
-              rulesetFilePath <- rulesetPaths
-              rulesetPath = s"$languageRulesetsPath/$rulesetFilePath"
-              rulesetName <- rulesetPath.split("/").lastOption.map(_.stripSuffix(".xml"))
-            } yield {
-              if (!markedRulesets.contains(rulesetPath)) {
-                Console.println(s"${Console.YELLOW} [$language] Ruleset $rulesetName is missing from rulesets.properties")
-              }
-
-              for {
-                rulesetContents <- ResourceHelper.getResourceContent(rulesetPath)
-                xml <- Try(XML.loadString(rulesetContents.mkString(Properties.lineSeparator)))
-                rulesetLongName = xml \@ "name"
-              } yield {
-                val rulesetPatterns = parsePatterns(rulesetsRoot, language, langAlias, rulesetName, xml)
-                Ruleset(rulesetName, rulesetLongName, rulesetPatterns)
-              }
+        .map { rulesetPaths =>
+          val patternsPerRuleset = for {
+            rulesetFilePath <- rulesetPaths
+            rulesetPath = s"$languageRulesetsPath/$rulesetFilePath"
+            rulesetName <- rulesetPath.split("/").lastOption.map(_.stripSuffix(".xml"))
+          } yield {
+            if (!markedRulesets.contains(rulesetPath)) {
+              Console.println(s"${Console.YELLOW} [$language] Ruleset $rulesetName is missing from rulesets.properties")
             }
 
-            patternsPerRuleset.flatMap(_.toOption)
+            for {
+              rulesetContents <- ResourceHelper.getResourceContent(rulesetPath)
+              xml <- Try(XML.loadString(rulesetContents.mkString(Properties.lineSeparator)))
+              rulesetLongName = xml \@ "name"
+            } yield {
+              val rulesetPatterns = parsePatterns(rulesetsRoot, language, langAlias, rulesetName, xml)
+              Ruleset(rulesetName, rulesetLongName, rulesetPatterns)
+            }
+          }
+
+          patternsPerRuleset.flatMap(_.toOption)
         }
     }
     patterns.flatMap(_.toOption).flatten
@@ -107,10 +119,12 @@ object DocGenerator {
   private def writePatterns(version: String, rulesets: Set[DocGenerator.Ruleset]): Unit = {
     val (patternDescriptions, patternSpecifications, extendedDescriptions) = rulesets.flatMap(_.patterns).unzip3
 
-    val sortedPatternSpecifications = ListSet(patternSpecifications.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
-      .map(p => p.copy(parameters = p.parameters.map(pp => ListSet(pp.toSeq.sortBy(_.name.value): _*))))
-    val sortedPatternDescriptions = ListSet(patternDescriptions.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
-      .map(p => p.copy(parameters = p.parameters.map(pp => ListSet(pp.toSeq.sortBy(_.name.value): _*))))
+    val sortedPatternSpecifications =
+      ListSet(patternSpecifications.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
+        .map(p => p.copy(parameters = p.parameters.map(pp => ListSet(pp.toSeq.sortBy(_.name.value): _*))))
+    val sortedPatternDescriptions =
+      ListSet(patternDescriptions.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
+        .map(p => p.copy(parameters = p.parameters.map(pp => ListSet(pp.toSeq.sortBy(_.name.value): _*))))
 
     val spec = Tool.Specification(Tool.Name("pmd"), Some(Tool.Version(version)), sortedPatternSpecifications)
 
@@ -119,28 +133,32 @@ object DocGenerator {
 
     val specialMappings = Map("clone" -> "cloneImplementation")
 
-    val rulesetNamesStr = rulesets.map {
-      case r if specialMappings.contains(r.name) =>
-        s"""  val ${specialMappings.getOrElse(r.name, "")} = Value("${r.name}")"""
-      case r =>
-        val parts = r.name.split("-")
-        val prefix = parts.headOption.getOrElse("")
-        val remaining = parts.tail.map(_.capitalize).mkString
-        s"""  val $prefix$remaining = Value("${r.name}")"""
-    }.mkString(Properties.lineSeparator)
+    val rulesetNamesStr = rulesets
+      .map {
+        case r if specialMappings.contains(r.name) =>
+          s"""  val ${specialMappings.getOrElse(r.name, "")} = Value("${r.name}")"""
+        case r =>
+          val parts = r.name.split("-")
+          val prefix = parts.headOption.getOrElse("")
+          val remaining = parts.tail.map(_.capitalize).mkString
+          s"""  val $prefix$remaining = Value("${r.name}")"""
+      }
+      .mkString(Properties.lineSeparator)
 
-    val rulesetMap = rulesets.map {
-      case r if specialMappings.contains(r.name) =>
-        s"""      "${r.fullName}" -> ${specialMappings.getOrElse(r.name, "")}"""
-      case r =>
-        val parts = r.name.split("-")
-        val prefix = parts.headOption.getOrElse("")
-        val remaining = parts.tail.map(_.capitalize).mkString
-        s"""      "${r.fullName}" -> $prefix$remaining"""
-    }.mkString(s",${Properties.lineSeparator}")
+    val rulesetMap = rulesets
+      .map {
+        case r if specialMappings.contains(r.name) =>
+          s"""      "${r.fullName}" -> ${specialMappings.getOrElse(r.name, "")}"""
+        case r =>
+          val parts = r.name.split("-")
+          val prefix = parts.headOption.getOrElse("")
+          val remaining = parts.tail.map(_.capitalize).mkString
+          s"""      "${r.fullName}" -> $prefix$remaining"""
+      }
+      .mkString(s",${Properties.lineSeparator}")
 
     val rulesetsCodeStrFull =
-     s"""/*
+      s"""/*
         | * AUTOGENERATED: DO NOT CHANGE HERE
         | * Changes should be done on DocGenerator.scala
         | */
@@ -226,9 +244,10 @@ object DocGenerator {
 
     ResourceHelper.writeFile(patternsFile.toPath, jsonSpecifications)
     ResourceHelper.writeFile(descriptionsFile.toPath, jsonDescriptions)
-    extendedDescriptions.collect { case extendedDescription if extendedDescription.extendedDescription.trim.nonEmpty =>
-      val descriptionsFile = new java.io.File(descriptionsRoot, s"${extendedDescription.patternId}.md")
-      ResourceHelper.writeFile(descriptionsFile.toPath, extendedDescription.extendedDescription)
+    extendedDescriptions.collect {
+      case extendedDescription if extendedDescription.extendedDescription.trim.nonEmpty =>
+        val descriptionsFile = new java.io.File(descriptionsRoot, s"${extendedDescription.patternId}.md")
+        ResourceHelper.writeFile(descriptionsFile.toPath, extendedDescription.extendedDescription)
     }
 
     ResourceHelper.writeFile(rulesetsCodeFile.toPath, rulesetsCodeStrFull)
@@ -247,11 +266,16 @@ object DocGenerator {
               s"${category}_${langAlias}_${rulesetFileName.stripSuffix(".xml")}_$ruleName"
             )
         }
-    } yield mapping) (collection.breakOut)
+    } yield mapping)(collection.breakOut)
   }
 
-  private def parsePatterns(rulesetsRoot: String, language: String, langAlias: String, rulesetName: String, xml: Elem
-                           ): List[(Pattern.Description, Pattern.Specification, PatternExtendedDescription)] = {
+  private def parsePatterns(
+      rulesetsRoot: String,
+      language: String,
+      langAlias: String,
+      rulesetName: String,
+      xml: Elem
+  ): List[(Pattern.Description, Pattern.Specification, PatternExtendedDescription)] = {
     (for {
       rule <- xml \\ "rule"
       deprecated = rule \@ "deprecated" if !Try(deprecated.toBoolean).getOrElse(false)
@@ -265,17 +289,28 @@ object DocGenerator {
       val rulesetNameClean = rulesetName.stripSuffix(".xml")
       val patternId = Pattern.Id(s"${rulesetsRoot}_${langAlias}_${rulesetNameClean}_$name")
 
-      val (level, category) = RuleSets.getLevelAndCategory(rulesetNameClean)
+      val (level, category) = RuleSets
+        .getLevelAndCategory(rulesetNameClean)
         .getOrElse((Result.Level.Warn, Pattern.Category.CodeStyle))
 
       val timeToFix = Patterns.timeToFix.get(patternId.value).map(Pattern.TimeToFix.apply)
 
       (
-        Pattern.Description(patternId, Pattern.Title(message), None, timeToFix, Some(parameterDescriptions).filter(_.nonEmpty)),
-        Pattern.Specification(patternId, level, category, Some(parameterSpecifications).filter(_.nonEmpty),
-          Some(com.codacy.plugins.api.languages.Languages.fromName(language).toSet)),
-        PatternExtendedDescription(patternId,
-         s"""Since: PMD $since
+        Pattern.Description(
+          patternId,
+          Pattern.Title(message),
+          None,
+          timeToFix,
+          Some(parameterDescriptions).filter(_.nonEmpty)
+        ),
+        Pattern.Specification(
+          patternId,
+          level,
+          category,
+          Some(parameterSpecifications).filter(_.nonEmpty),
+          Some(com.codacy.plugins.api.languages.Languages.fromName(language).toSet)
+        ),
+        PatternExtendedDescription(patternId, s"""Since: PMD $since
             |
             |${Utility.escape(longDescription.trim)}
             |
@@ -297,7 +332,8 @@ object DocGenerator {
       defaultValueBody = Option(property \ "value")
         .flatMap(_.theSeq.collectFirst { case v if v.text.trim.nonEmpty => v.text.trim })
     } yield {
-      val defaultValue = defaultValueField.orElse(defaultValueBody)
+      val defaultValue = defaultValueField
+        .orElse(defaultValueBody)
         .map(JsString)
         .getOrElse(JsString(""))
 

@@ -24,10 +24,12 @@ object PMD extends Tool {
 
   private lazy val deprecatedReferences: Map[String, String] = DocGenerator.listDeprecatedPatterns
 
-  def apply(source: Source.Directory,
-            configuration: Option[List[Pattern.Definition]],
-            files: Option[Set[Source.File]],
-            options: Map[Options.Key, Options.Value])(implicit specification: Tool.Specification): Try[List[Result]] = {
+  def apply(
+      source: Source.Directory,
+      configuration: Option[List[Pattern.Definition]],
+      files: Option[Set[Source.File]],
+      options: Map[Options.Key, Options.Value]
+  )(implicit specification: Tool.Specification): Try[List[Result]] = {
     val pmdConfig = new PMDConfiguration()
 
     files.fold[Unit] {
@@ -72,13 +74,17 @@ object PMD extends Tool {
         pmd.PMD.processFiles(pmdConfig, ruleSetFactory, files, new RuleContext, renderers)
 
         val ruleViolations = codacyRenderer.getRulesViolations.to[List].flatMap { violation =>
-          patternIdByRuleNameAndRuleSet(violation.getRule.getLanguage.getTerseName, violation.getRule.getName,
-            violation.getRule.getRuleSetName).map {
-            patternId =>
-              Result.Issue(relativizeToolOutputPath(source, violation.getFilename),
-                Result.Message(violation.getDescription),
-                patternId,
-                Source.Line(violation.getBeginLine))
+          patternIdByRuleNameAndRuleSet(
+            violation.getRule.getLanguage.getTerseName,
+            violation.getRule.getName,
+            violation.getRule.getRuleSetName
+          ).map { patternId =>
+            Result.Issue(
+              relativizeToolOutputPath(source, violation.getFilename),
+              Result.Message(violation.getDescription),
+              patternId,
+              Source.Line(violation.getBeginLine)
+            )
           }
         }
 
@@ -107,11 +113,14 @@ object PMD extends Tool {
     languages
   }
 
-  private def patternIdByRuleNameAndRuleSet(langAlias: String, ruleName: String, ruleSet: String)
-                                           (implicit specification: Tool.Specification): Option[Pattern.Id] = {
+  private def patternIdByRuleNameAndRuleSet(langAlias: String, ruleName: String, ruleSet: String)(
+      implicit specification: Tool.Specification
+  ): Option[Pattern.Id] = {
     RuleSets.getRuleSet(ruleSet).flatMap { ruleSet =>
       val patternId = Pattern.Id(s"category_${langAlias}_${ruleSet}_$ruleName")
-      specification.patterns.collectFirst { case patternDef if patternDef.patternId == patternId => patternDef.patternId }
+      specification.patterns.collectFirst {
+        case patternDef if patternDef.patternId == patternId => patternDef.patternId
+      }
     }
   }
 
@@ -123,14 +132,16 @@ object PMD extends Tool {
 
   private def configFile(conf: List[Pattern.Definition])(implicit specification: Tool.Specification): Try[Path] = {
 
-      def prefixPatternId(pattern: Pattern.Definition, prefix: String) = {
-        pattern.patternId.value.split("_") match {
-          case Array(patternCategory, patternName) => Some(s"""${prefix}_java_${patternCategory}_$patternName""")
-          case Array(langAlias, patternCategory, patternName) => Some(s"""${prefix}_${langAlias}_${patternCategory}_$patternName""")
-          case Array(root, langAlias, patternCategory, patternName) => Some(s"""${root}_${langAlias}_${patternCategory}_$patternName""")
-          case _ => None
-        }
+    def prefixPatternId(pattern: Pattern.Definition, prefix: String) = {
+      pattern.patternId.value.split("_") match {
+        case Array(patternCategory, patternName) => Some(s"""${prefix}_java_${patternCategory}_$patternName""")
+        case Array(langAlias, patternCategory, patternName) =>
+          Some(s"""${prefix}_${langAlias}_${patternCategory}_$patternName""")
+        case Array(root, langAlias, patternCategory, patternName) =>
+          Some(s"""${root}_${langAlias}_${patternCategory}_$patternName""")
+        case _ => None
       }
+    }
 
     val updatedRules = conf.flatMap { pattern =>
       prefixPatternId(pattern, "rulesets")
@@ -183,9 +194,10 @@ object PMD extends Tool {
     referenceFromPatternId(patternDef.patternId).map {
       case ruleId if patternDef.parameters.exists(_.nonEmpty) =>
         val xmlProperties = patternDef.parameters
-          // HACK: Codacy converts the version parameter from 2.0 to 2 leading PMD to fail, excluding it for now
+        // HACK: Codacy converts the version parameter from 2.0 to 2 leading PMD to fail, excluding it for now
           .map(_.filter(_.name.value != "version"))
-          .map(_.map(generateParameter)).getOrElse(Set.empty)
+          .map(_.map(generateParameter))
+          .getOrElse(Set.empty)
 
         <rule ref={ruleId}>
           <properties>
@@ -194,7 +206,7 @@ object PMD extends Tool {
         </rule>
 
       case ruleId =>
-          <rule ref={ruleId}/>
+        <rule ref={ruleId}/>
     }
   }
 
@@ -212,7 +224,7 @@ object PMD extends Tool {
         </value>
       </property>
     } else {
-        <property name={parameter.name.value} value={paramValue}/>
+      <property name={parameter.name.value} value={paramValue}/>
     }
   }
 

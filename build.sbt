@@ -53,7 +53,7 @@ val installAll =
     |rm -rf /tmp/* &&
     |rm -rf /var/cache/apk/*""".stripMargin.replaceAll(System.lineSeparator(), " ")
 
-mappings in Universal ++= {
+Universal / mappings ++= {
   (resourceDirectory in Compile) map { (resourceDir: File) =>
     val src = resourceDir / "docs"
     val dest = "/docs"
@@ -64,6 +64,11 @@ mappings in Universal ++= {
     } yield path -> path.toString.replaceFirst(src.toString, dest)
   }
 }.value
+
+Universal / javaOptions ++= Seq(
+  "-XX:+UseG1GC",
+  "-XX:+UseStringDeduplication",
+)
 
 val dockerUser = "docker"
 val dockerGroup = "docker"

@@ -17,10 +17,11 @@ import play.api.libs.json.{JsString, JsValue, Json}
 import scala.collection.JavaConversions._
 import scala.util.{Failure, Properties, Success, Try}
 import scala.xml.{Source => _, _}
+import better.files.File
 
 object PMD extends Tool {
-
-  private lazy val configFileNames = Set("ruleset.xml", "apex-ruleset.xml")
+  println(Runtime.getRuntime().freeMemory())
+  private val configFileNames = Set("ruleset.xml", "apex-ruleset.xml")
 
   private lazy val deprecatedReferences: Map[String, String] = DocGenerator.listDeprecatedPatterns
 
@@ -30,15 +31,32 @@ object PMD extends Tool {
       files: Option[Set[Source.File]],
       options: Map[Options.Key, Options.Value]
   )(implicit specification: Tool.Specification): Try[List[Result]] = {
-    val pmdConfig = new PMDConfiguration()
+    val fileList: List[String] = (files match {
+      case None =>
+        val allFiles = File(source.path).walk().filter(_.isRegularFile)
+        allFiles.map(_.pathAsString)
+      case Some(files) =>
+        files.map(_.path)
+    }).toList
 
-    files.fold[Unit] {
-      pmdConfig.setInputFilePath(source.path)
-    } { files =>
-      val filesStr = files.map(_.path).mkString(",")
-      pmdConfig.setInputPaths(filesStr)
+    fileList.grouped(1).foldLeft[Try[List[Result]]](Success(List.empty)) { (accTry, chunk) =>
+      val pmdConfig = new PMDConfiguration()
+      pmdConfig.setIgnoreIncrementalAnalysis(true)
+      pmdConfig.setInputPaths(chunk.mkString(","))
+      val analyzed = analyseChunk(source, configuration, options, pmdConfig)
+      for {
+        acc <- accTry
+        result <- analyzed
+      } yield acc ++ result
     }
+  }
 
+  private def analyseChunk(
+      source: Source.Directory,
+      configuration: Option[List[Pattern.Definition]],
+      options: Map[Options.Key, Options.Value],
+      pmdConfig: PMDConfiguration
+  )(implicit specification: Tool.Specification) = {
     configuration match {
       case Some(config) =>
         configFile(config) match {
@@ -227,5 +245,4 @@ object PMD extends Tool {
       <property name={parameter.name.value} value={paramValue}/>
     }
   }
-
 }

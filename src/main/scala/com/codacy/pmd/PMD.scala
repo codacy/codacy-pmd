@@ -20,7 +20,8 @@ import scala.xml.{Source => _, _}
 import better.files.File
 
 object PMD extends Tool {
-  println(Runtime.getRuntime().freeMemory())
+  val chunkSize = 40
+
   private val configFileNames = Set("ruleset.xml", "apex-ruleset.xml")
 
   private lazy val deprecatedReferences: Map[String, String] = DocGenerator.listDeprecatedPatterns
@@ -39,7 +40,7 @@ object PMD extends Tool {
         files.map(_.path)
     }).toList
 
-    fileList.grouped(1).foldLeft[Try[List[Result]]](Success(List.empty)) { (accTry, chunk) =>
+    fileList.grouped(chunkSize).foldLeft[Try[List[Result]]](Success(List.empty)) { (accTry, chunk) =>
       val pmdConfig = new PMDConfiguration()
       pmdConfig.setIgnoreIncrementalAnalysis(true)
       pmdConfig.setInputPaths(chunk.mkString(","))

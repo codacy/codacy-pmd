@@ -65,6 +65,13 @@ mappings in Universal ++= {
   }
 }.value
 
+Universal / javaOptions ++= Seq(
+  "-XX:+UseG1GC",
+  "-XX:+UseStringDeduplication",
+  "-XX:MinRAMPercentage=60.0",
+  "-XX:MaxRAMPercentage=90.0"
+)
+
 val dockerUser = "docker"
 val dockerGroup = "docker"
 

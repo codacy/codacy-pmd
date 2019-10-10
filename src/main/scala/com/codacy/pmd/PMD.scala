@@ -32,12 +32,13 @@ object PMD extends Tool {
   )(implicit specification: Tool.Specification): Try[List[Result]] = {
     val pmdConfig = new PMDConfiguration()
 
-    files.fold[Unit] {
-      pmdConfig.setInputFilePath(source.path)
-    } { files =>
-      val filesStr = files.map(_.path).mkString(",")
-      pmdConfig.setInputPaths(filesStr)
+    val filesStr = files match {
+      case None =>
+        source.path
+      case Some(files) =>
+        files.map(_.path).mkString(",")
     }
+    pmdConfig.setInputPaths(filesStr)
 
     configuration match {
       case Some(config) =>

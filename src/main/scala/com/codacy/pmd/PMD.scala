@@ -20,7 +20,7 @@ import scala.xml.{Source => _, _}
 import better.files.File
 
 object PMD extends Tool {
-  val chunkSize = 40
+  final val chunkSize = 40
 
   private val configFileNames = Set("ruleset.xml", "apex-ruleset.xml")
 

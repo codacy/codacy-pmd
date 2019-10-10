@@ -65,7 +65,7 @@ Universal / mappings ++= {
   }
 }.value
 
-Universal / javaOptions ++= Seq("-XX:+UseG1GC", "-XX:+UseStringDeduplication", "-Xmx2G")
+Universal / javaOptions ++= Seq("-XX:+UseG1GC", "-XX:+UseStringDeduplication", "-Xmx2750m")
 
 val dockerUser = "docker"
 val dockerGroup = "docker"

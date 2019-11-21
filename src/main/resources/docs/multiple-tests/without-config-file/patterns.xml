@@ -1,0 +1,6 @@
+<module name="root">
+    <module name="BeforeExecutionExclusionFileFilter">
+        <property name="fileNamePattern" value="ruleset\.xml"/>
+    </module>
+    <module name="category_java_bestpractices_UnusedLocalVariable" />
+</module>

@@ -6,7 +6,7 @@ import java.nio.charset.{CodingErrorAction, StandardCharsets}
 import java.nio.file.{Files, Path, StandardOpenOption}
 import java.util.jar.JarFile
 
-import scala.collection.JavaConversions.enumerationAsScalaIterator
+import scala.jdk.CollectionConverters._
 import scala.io.{Codec, Source}
 import scala.util.{Failure, Properties, Try}
 
@@ -37,18 +37,17 @@ object ResourceHelper {
   }
 
   def listResourceDirectory(path: String): Try[List[String]] = {
-    Try(getClass.getClassLoader.getResources(path)).map(_.toList.flatMap {
+    Try(getClass.getClassLoader.getResources(path)).map(_.asScala.flatMap {
       case directory if directory.getProtocol == "file" =>
         new File(directory.toURI)
           .list()
-          .toList
           .map(_.stripPrefix(File.pathSeparator).stripPrefix(File.separator).trim())
           .filter(_.nonEmpty)
 
       case directory if directory.getProtocol == "jar" =>
         val jarPath = directory.getPath.substring(5, directory.getPath.indexOf("!"))
         val jar = new JarFile(URLDecoder.decode(jarPath, "UTF-8"))
-        val files = enumerationAsScalaIterator(jar.entries).toList
+        val files = jar.entries.asScala
           .collect {
             case file if !file.isDirectory && file.getName.startsWith(path) =>
               file.getName.stripPrefix(path).stripPrefix(File.pathSeparator).stripPrefix(File.separator)
@@ -60,7 +59,7 @@ object ResourceHelper {
 
       case _ =>
         List.empty
-    })
+    }.toList)
   }
 
   private def getResourceContent(url: URL): Try[List[String]] = {

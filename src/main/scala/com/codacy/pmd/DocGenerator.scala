@@ -43,7 +43,7 @@ object DocGenerator {
   }
 
   def listDeprecatedPatterns: Map[String, String] = {
-    (for {
+    val res = for {
       language <- Languages.languages
       langAlias <- Languages.aliasByLang(language)
       (rulesetsRoot, _) <- rulesetsRoots
@@ -67,7 +67,8 @@ object DocGenerator {
           }).flatten
         }
         .getOrElse(Map.empty)
-    }).flatMap(identity)(collection.breakOut)
+    }
+    res.flatMap(identity).toMap
   }
 
   def listPatterns: Set[DocGenerator.Ruleset] = {
@@ -83,7 +84,7 @@ object DocGenerator {
         .map { propStream =>
           val prop = new util.Properties()
           prop.load(propStream)
-          prop.getProperty("rulesets.filenames").split(",").map(_.trim).filter(_.nonEmpty).to[Set]
+          prop.getProperty("rulesets.filenames").split(",").map(_.trim).filter(_.nonEmpty).toSet
         }
         .getOrElse(Set.empty[String])
 
@@ -190,45 +191,45 @@ object DocGenerator {
         |
         |  private lazy val RuleSetToLevelAndCategory = {
         |    Map(
-        |      android -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      braces -> (Result.Level.Info, Pattern.Category.CodeStyle),
-        |      cloneImplementation -> (Result.Level.Warn, Pattern.Category.Compatibility),
-        |      codesize -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      comments -> (Result.Level.Info, Pattern.Category.CodeStyle),
-        |      coupling -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      finalizers -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      imports -> (Result.Level.Info, Pattern.Category.UnusedCode),
-        |      j2ee -> (Result.Level.Warn, Pattern.Category.CodeStyle),
-        |      junit -> (Result.Level.Warn, Pattern.Category.CodeStyle),
-        |      javabeans -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      loggingJakartaCommons -> (Result.Level.Info, Pattern.Category.CodeStyle),
-        |      loggingJava -> (Result.Level.Info, Pattern.Category.CodeStyle),
-        |      strictexception -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      strings -> (Result.Level.Warn, Pattern.Category.Performance),
-        |      unnecessary -> (Result.Level.Warn, Pattern.Category.Performance),
-        |      empty -> (Result.Level.Info, Pattern.Category.CodeStyle),
-        |      design -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      controversial -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      optimizations -> (Result.Level.Warn, Pattern.Category.Performance),
-        |      sunsecure -> (Result.Level.Err, Pattern.Category.ErrorProne),
-        |      migrating -> (Result.Level.Info, Pattern.Category.Compatibility),
-        |      naming -> (Result.Level.Info, Pattern.Category.CodeStyle),
-        |      basic -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      unusedcode -> (Result.Level.Warn, Pattern.Category.UnusedCode),
-        |      strictsyntax -> (Result.Level.Warn, Pattern.Category.CodeStyle),
-        |      dates -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      TomKytesDespair -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      basicJsf -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      xpath -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      performance -> (Result.Level.Warn, Pattern.Category.Performance),
-        |      security -> (Result.Level.Err, Pattern.Category.Security),
-        |      apexunit -> (Result.Level.Warn, Pattern.Category.CodeStyle),
-        |      complexity -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      multithreading -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      bestpractices -> (Result.Level.Warn, Pattern.Category.CodeStyle),
-        |      documentation -> (Result.Level.Info, Pattern.Category.CodeStyle),
-        |      errorprone -> (Result.Level.Warn, Pattern.Category.ErrorProne),
-        |      codestyle -> (Result.Level.Info, Pattern.Category.CodeStyle)
+        |      android -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      braces -> ((Result.Level.Info, Pattern.Category.CodeStyle)),
+        |      cloneImplementation -> ((Result.Level.Warn, Pattern.Category.Compatibility)),
+        |      codesize -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      comments -> ((Result.Level.Info, Pattern.Category.CodeStyle)),
+        |      coupling -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      finalizers -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      imports -> ((Result.Level.Info, Pattern.Category.UnusedCode)),
+        |      j2ee -> ((Result.Level.Warn, Pattern.Category.CodeStyle)),
+        |      junit -> ((Result.Level.Warn, Pattern.Category.CodeStyle)),
+        |      javabeans -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      loggingJakartaCommons -> ((Result.Level.Info, Pattern.Category.CodeStyle)),
+        |      loggingJava -> ((Result.Level.Info, Pattern.Category.CodeStyle)),
+        |      strictexception -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      strings -> ((Result.Level.Warn, Pattern.Category.Performance)),
+        |      unnecessary -> ((Result.Level.Warn, Pattern.Category.Performance)),
+        |      empty -> ((Result.Level.Info, Pattern.Category.CodeStyle)),
+        |      design -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      controversial -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      optimizations -> ((Result.Level.Warn, Pattern.Category.Performance)),
+        |      sunsecure -> ((Result.Level.Err, Pattern.Category.ErrorProne)),
+        |      migrating -> ((Result.Level.Info, Pattern.Category.Compatibility)),
+        |      naming -> ((Result.Level.Info, Pattern.Category.CodeStyle)),
+        |      basic -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      unusedcode -> ((Result.Level.Warn, Pattern.Category.UnusedCode)),
+        |      strictsyntax -> ((Result.Level.Warn, Pattern.Category.CodeStyle)),
+        |      dates -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      TomKytesDespair -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      basicJsf -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      xpath -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      performance -> ((Result.Level.Warn, Pattern.Category.Performance)),
+        |      security -> ((Result.Level.Err, Pattern.Category.Security)),
+        |      apexunit -> ((Result.Level.Warn, Pattern.Category.CodeStyle)),
+        |      complexity -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      multithreading -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      bestpractices -> ((Result.Level.Warn, Pattern.Category.CodeStyle)),
+        |      documentation -> ((Result.Level.Info, Pattern.Category.CodeStyle)),
+        |      errorprone -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
+        |      codestyle -> ((Result.Level.Info, Pattern.Category.CodeStyle))
         |    )
         |  }
         |
@@ -254,7 +255,7 @@ object DocGenerator {
   }
 
   private def parseDeprecated(rulesetsRoot: String, rulesetName: String, xml: Elem): Map[String, String] = {
-    (for {
+    val res = for {
       rule <- xml \\ "rule"
       deprecated = rule \@ "deprecated" if Try(deprecated.toBoolean).getOrElse(false)
       ref = rule \@ "ref" if ref.trim.nonEmpty
@@ -266,7 +267,8 @@ object DocGenerator {
               s"${category}_${langAlias}_${rulesetFileName.stripSuffix(".xml")}_$ruleName"
             )
         }
-    } yield mapping)(collection.breakOut)
+    } yield mapping
+    res.toMap
   }
 
   private def parsePatterns(
@@ -285,7 +287,7 @@ object DocGenerator {
       longDescription = (rule \ "description").text
       example = (rule \ "example").text
     } yield {
-      val (parameterDescriptions, parameterSpecifications) = parseParameters(rule).to[Set].unzip
+      val (parameterDescriptions, parameterSpecifications) = parseParameters(rule).to(Set).unzip
       val rulesetNameClean = rulesetName.stripSuffix(".xml")
       val patternId = Pattern.Id(s"${rulesetsRoot}_${langAlias}_${rulesetNameClean}_$name")
 
@@ -319,7 +321,7 @@ object DocGenerator {
             |${example.trim}
             |```${Properties.lineSeparator}""".stripMargin)
       )
-    }).to[List]
+    }).to(List)
   }
 
   private def parseParameters(rule: Node): List[(Parameter.Description, Parameter.Specification)] = {
@@ -341,7 +343,7 @@ object DocGenerator {
         Parameter.Description(Parameter.Name(name), Parameter.DescriptionText(description)),
         Parameter.Specification(Parameter.Name(name), defaultValue)
       )
-    }).to[List]
+    }).to(List)
   }
 
 }

@@ -7,7 +7,7 @@ organization := "codacy"
 
 name := "codacy-pmd"
 
-scalaVersion := "2.12.10"
+scalaVersion := "2.13.1"
 
 lazy val toolVersionKey = SettingKey[String]("the version of the underlying tool retrieved from patterns.json")
 
@@ -28,8 +28,8 @@ libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
   Seq(
     "com.typesafe.play" %% "play-json" % "2.7.4",
-    "com.codacy" %% "codacy-engine-scala-seed" % "3.0.59" withSources (),
-    "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
+    "com.codacy" %% "codacy-engine-scala-seed" % "3.1.0" withSources (),
+    "org.scala-lang.modules" %% "scala-xml" % "1.2.0",
     "net.sourceforge.pmd" % "pmd-core" % toolVersion withSources (),
     "net.sourceforge.pmd" % "pmd-java" % toolVersion withSources (),
     "net.sourceforge.pmd" % "pmd-jsp" % toolVersion withSources (),
@@ -41,8 +41,6 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources ()
   )
 }
-
-scalacOptions --= Seq("-Ywarn-adapted-args", "-Xlint")
 
 enablePlugins(JavaAppPackaging)
 

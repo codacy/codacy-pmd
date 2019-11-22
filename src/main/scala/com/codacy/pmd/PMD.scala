@@ -14,7 +14,7 @@ import net.sourceforge.pmd.util.ResourceLoader
 import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RuleSets => PMDRuleSets, RulesetsFactoryUtils}
 import play.api.libs.json.{JsString, JsValue, Json}
 
-import scala.collection.JavaConversions._
+import scala.jdk.CollectionConverters._
 import scala.util.{Failure, Properties, Success, Try}
 import scala.xml.{Source => _, _}
 
@@ -74,7 +74,7 @@ object PMD extends Tool {
 
         pmd.PMD.processFiles(pmdConfig, ruleSetFactory, files, new RuleContext, renderers)
 
-        val ruleViolations = codacyRenderer.getRulesViolations.to[List].flatMap { violation =>
+        val ruleViolations = codacyRenderer.getRulesViolations.asScala.view.flatMap { violation =>
           patternIdByRuleNameAndRuleSet(
             violation.getRule.getLanguage.getTerseName,
             violation.getRule.getName,
@@ -89,11 +89,11 @@ object PMD extends Tool {
           }
         }
 
-        val errors = codacyRenderer.getErrors.to[List].map { error =>
+        val errors = codacyRenderer.getErrors.asScala.view.map { error =>
           Result.FileError(Source.File(error.getFile), Some(ErrorMessage(error.getMsg)))
         }
 
-        ruleViolations ++ errors
+        (ruleViolations ++ errors).to(List)
       }
     }
   }
@@ -101,8 +101,7 @@ object PMD extends Tool {
   private def getApplicableLanguages(configuration: PMDConfiguration, ruleSets: PMDRuleSets) = {
     val languages = new java.util.HashSet[Language]
     val discoverer = configuration.getLanguageVersionDiscoverer
-    import scala.collection.JavaConversions._
-    for (rule <- ruleSets.getAllRules) {
+    for (rule <- ruleSets.getAllRules.asScala) {
       val language = rule.getLanguage
       if (!languages.contains(language)) {
         val version = discoverer.getDefaultLanguageVersion(language)

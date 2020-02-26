@@ -323,9 +323,9 @@ object DocGenerator {
         case id if id.toUpperCase.contains("CSRF") => Some(Pattern.Subcategory.CSRF)
         case id if id.contains("XSS") => Some(Pattern.Subcategory.XSS)
         case "VfUnescapeEl" => Some(Pattern.Subcategory.XSS)
-        case "IframeMissingSrcAttribute" => Some(Pattern.Subcategory.UnexpectedBehaviour) // ???
+        case "IframeMissingSrcAttribute" => Some(Pattern.Subcategory.UnexpectedBehaviour)
         case "NoUnsanitizedJSPExpression" => Some(Pattern.Subcategory.XSS)
-        case "ApexCRUDViolation" => Some(Pattern.Subcategory.UnexpectedBehaviour) // ???
+        case "ApexCRUDViolation" => Some(Pattern.Subcategory.Auth)
         case "ApexDangerousMethods" => Some(Pattern.Subcategory.InsecureModulesLibraries)
         case "ApexInsecureEndpoint" => Some(Pattern.Subcategory.Routes)
         case "ApexOpenRedirect" => Some(Pattern.Subcategory.Routes)

@@ -681,7 +681,7 @@
     "description" : "xpath"
   } ]
 }, {
-  "patternId" : "category_java_errorprone_InvalidSlf4jMessageFormat",
+  "patternId" : "category_java_errorprone_InvalidLogMessageFormat",
   "title" : "Invalid message format"
 }, {
   "patternId" : "category_java_errorprone_InstantiationToGetClass",
@@ -956,6 +956,9 @@
   "patternId" : "category_java_errorprone_AvoidLiteralsInIfCondition",
   "title" : "Avoid using Literals in Conditional Statements",
   "parameters" : [ {
+    "name" : "ignoreExpressions",
+    "description" : "If true, only literals in simple if conditions are considered. Otherwise literals in expressions are checked, too."
+  }, {
     "name" : "ignoreMagicNumbers",
     "description" : "Comma-separated list of magic numbers, that should be ignored"
   }, {
@@ -2006,9 +2009,6 @@
   "patternId" : "category_apex_security_ApexDangerousMethods",
   "title" : "Calling potentially dangerous method"
 }, {
-  "patternId" : "category_apex_security_ApexCSRF",
-  "title" : "Avoid making DML operations in Apex class constructor/init method"
-}, {
   "patternId" : "category_apex_security_ApexCRUDViolation",
   "title" : "Validate CRUD permission before SOQL/DML operation"
 }, {
@@ -2074,6 +2074,9 @@
     "name" : "xpath",
     "description" : "xpath"
   } ]
+}, {
+  "patternId" : "category_apex_errorprone_ApexCSRF",
+  "title" : "Avoid making DML operations in Apex class constructor or initializers"
 }, {
   "patternId" : "category_apex_documentation_ApexDoc",
   "title" : "ApexDoc comment is missing or incorrect"

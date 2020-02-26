@@ -10,7 +10,6 @@ import com.codacy.tools.scala.seed.utils.FileHelper
 import net.sourceforge.pmd
 import net.sourceforge.pmd.lang.Language
 import net.sourceforge.pmd.renderers.Renderer
-import net.sourceforge.pmd.util.ResourceLoader
 import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RuleSets => PMDRuleSets, RulesetsFactoryUtils}
 import play.api.libs.json.{JsString, JsValue, Json}
 
@@ -56,7 +55,7 @@ object PMD extends Tool {
     }
 
     // Load the RuleSets
-    val ruleSetFactory = RulesetsFactoryUtils.getRulesetFactory(pmdConfig, new ResourceLoader())
+    val ruleSetFactory = RulesetsFactoryUtils.createFactory(pmdConfig)
 
     val ruleSetsOpt = Option(RulesetsFactoryUtils.getRuleSets(pmdConfig.getRuleSets, ruleSetFactory))
 

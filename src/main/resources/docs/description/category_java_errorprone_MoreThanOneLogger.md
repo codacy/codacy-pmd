@@ -1,6 +1,7 @@
 Since: PMD 2.0
 
-Normally only one logger is used in each class.
+Normally only one logger is used in each class. This rule supports slf4j, log4j, Java Util Logging and
+log4j2 (since 6.19.0).
 
 Example(s):
 ```

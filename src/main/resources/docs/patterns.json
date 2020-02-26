@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.18.0",
+  "version" : "6.21.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -177,6 +177,11 @@
     "category" : "CodeStyle",
     "languages" : [ "Apex" ]
   }, {
+    "patternId" : "category_apex_errorprone_ApexCSRF",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "Apex" ]
+  }, {
     "patternId" : "category_apex_errorprone_AvoidDirectAccessTriggerMap",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -264,56 +269,61 @@
     "patternId" : "category_apex_security_ApexBadCrypto",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "Cryptography",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexCRUDViolation",
     "level" : "Error",
     "category" : "Security",
-    "languages" : [ "Apex" ]
-  }, {
-    "patternId" : "category_apex_security_ApexCSRF",
-    "level" : "Error",
-    "category" : "Security",
+    "subcategory" : "Auth",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexDangerousMethods",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "InsecureModulesLibraries",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexInsecureEndpoint",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "Routes",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexOpenRedirect",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "Routes",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexSOQLInjection",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "SQLInjection",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexSharingViolations",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "InsecureModulesLibraries",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexSuggestUsingNamedCred",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "Auth",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexXSSFromEscapeFalse",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "XSS",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexXSSFromURLParam",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "XSS",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_ecmascript_bestpractices_AvoidWithStatement",
@@ -617,7 +627,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceBodyDeclaration[MethodDeclaration/MethodDeclarator[@Image='suite']]\n[MethodDeclaration/ResultType/Type/ReferenceType/ClassOrInterfaceType[pmd-java:typeIs('junit.framework.Test')]]\n[not(MethodDeclaration/Block//ClassOrInterfaceType[pmd-java:typeIs('junit.framework.JUnit4TestAdapter')])]"
+      "default" : "//ClassOrInterfaceBodyDeclaration\n[MethodDeclaration[@Name='suite']/ResultType/Type/ReferenceType/ClassOrInterfaceType[pmd-java:typeIs('junit.framework.Test')]]\n[not(MethodDeclaration/Block//ClassOrInterfaceType[pmd-java:typeIs('junit.framework.JUnit4TestAdapter')])]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -626,7 +636,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceBodyDeclaration\n    [MethodDeclaration/MethodDeclarator[@Image='tearDown']]\n    [count(Annotation//Name[\n           pmd-java:typeIs('org.junit.After')\n        or pmd-java:typeIs('org.junit.jupiter.api.AfterEach')\n        or pmd-java:typeIs('org.junit.jupiter.api.AfterAll')\n        or pmd-java:typeIs('org.testng.annotations.AfterMethod')])=0]"
+      "default" : "//ClassOrInterfaceBodyDeclaration\n    [MethodDeclaration[@Name='tearDown']]\n    [count(Annotation//Name[\n           pmd-java:typeIs('org.junit.After')\n        or pmd-java:typeIs('org.junit.jupiter.api.AfterEach')\n        or pmd-java:typeIs('org.junit.jupiter.api.AfterAll')\n        or pmd-java:typeIs('org.testng.annotations.AfterMethod')])=0]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -635,7 +645,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceBodyDeclaration\n    [MethodDeclaration/MethodDeclarator[@Image='setUp']]\n    [count(Annotation//Name[\n           pmd-java:typeIs('org.junit.Before')\n        or pmd-java:typeIs('org.junit.jupiter.api.BeforeEach')\n        or pmd-java:typeIs('org.junit.jupiter.api.BeforeAll')\n        or pmd-java:typeIs('org.testng.annotations.BeforeMethod')])=0]"
+      "default" : "//ClassOrInterfaceBodyDeclaration\n    [MethodDeclaration[@Name='setUp']]\n    [count(Annotation//Name[\n           pmd-java:typeIs('org.junit.Before')\n        or pmd-java:typeIs('org.junit.jupiter.api.BeforeEach')\n        or pmd-java:typeIs('org.junit.jupiter.api.BeforeAll')\n        or pmd-java:typeIs('org.testng.annotations.BeforeMethod')])=0]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -647,7 +657,7 @@
       "default" : "Test"
     }, {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration[\n       matches(@Image, $testClassPattern)\n        or ExtendsList/ClassOrInterfaceType[pmd-java:typeIs('junit.framework.TestCase')]]\n\n    /ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration[MethodDeclaration[@Public=true()]/MethodDeclarator[starts-with(@Image, 'test')]]\n    [not(Annotation//Name[\n        pmd-java:typeIs('org.junit.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.Test') or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestFactory') or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n        or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')\n    ])]"
+      "default" : "//ClassOrInterfaceDeclaration[\n       matches(@SimpleName, $testClassPattern)\n        or ExtendsList/ClassOrInterfaceType[pmd-java:typeIs('junit.framework.TestCase')]]\n\n    /ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration[MethodDeclaration[@Public=true() and starts-with(@Name, 'test')]]\n    [not(Annotation//Name[\n        pmd-java:typeIs('org.junit.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.Test') or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestFactory') or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n        or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')\n    ])]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -664,7 +674,7 @@
       "default" : "1"
     }, {
       "name" : "xpath",
-      "default" : "//MethodDeclarator[@Image[matches(.,'^test')] or ../../Annotation/MarkerAnnotation/Name[\n           pmd-java:typeIs('org.junit.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestFactory')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n        or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')\n        or pmd-java:typeIs('org.testng.annotations.Test')\n    ]]\n    [count(..//PrimaryPrefix/Name[@Image[matches(.,'^assert')]]) > $maximumAsserts]"
+      "default" : "//MethodDeclaration[@Name[matches(.,'^test')] or ../Annotation/MarkerAnnotation/Name[\n           pmd-java:typeIs('org.junit.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestFactory')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n        or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')\n        or pmd-java:typeIs('org.testng.annotations.Test')\n    ]]\n    [count(.//PrimaryPrefix/Name[@Image[matches(.,'^assert')]]) > $maximumAsserts]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -856,7 +866,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//FormalParameters/FormalParameter\n    [position()=last()]\n    [VariableDeclaratorId/@ArrayType=true()]\n    [@Varargs=false()]\n    [not (./Type[@ArrayType=true()]/ReferenceType[PrimitiveType[@Image='byte']])]\n    [not (./Type/ReferenceType[ClassOrInterfaceType[@Image='Byte']])]\n    [not (./Type/PrimitiveType[@Image='byte'])]\n    [not (ancestor::MethodDeclaration/preceding-sibling::Annotation/*/Name[@Image='Override'])]\n    [not(\n        ancestor::MethodDeclaration\n            [@Public=true() and @Static=true()]\n            [child::ResultType[@Void=true()]] and\n        ancestor::MethodDeclarator[@Image='main'] and\n        ..[@ParameterCount=1] and\n        ./Type/ReferenceType[ClassOrInterfaceType[@Image='String']]\n    )]"
+      "default" : "//FormalParameters/FormalParameter\n    [position()=last()]\n    [VariableDeclaratorId/@ArrayType=true()]\n    [@Varargs=false()]\n    [not (./Type[@ArrayType=true()]/ReferenceType[PrimitiveType[@Image='byte']])]\n    [not (./Type/ReferenceType[ClassOrInterfaceType[@Image='Byte']])]\n    [not (./Type/PrimitiveType[@Image='byte'])]\n    [not (ancestor::MethodDeclaration/preceding-sibling::Annotation/*/Name[@Image='Override'])]\n    [not(\n         ancestor::MethodDeclaration\n            [    @Public=true()\n             and @Static=true()\n             and child::ResultType[@Void=true()]\n             and @Name = 'main'\n             and @Arity = 1\n            ]\n         (: Type of the formal parameter here. :)\n         and pmd-java:typeIs('java.lang.String[]')\n    )]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -893,7 +903,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration[@Final='true' and not(ExtendsList)]\n/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n/MethodDeclaration[@Protected='true'][MethodDeclarator/@Image != 'finalize']"
+      "default" : "//ClassOrInterfaceDeclaration[@Final='true' and not(ExtendsList)]\n/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration\n/MethodDeclaration[@Protected='true' and @Name != 'finalize']"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -914,7 +924,7 @@
       "default" : "false"
     }, {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[\nMethodDeclarator[count(FormalParameters/FormalParameter) = 0 or $checkParameterizedMethods = 'true']\n                [starts-with(@Image, 'get')]\nand\nResultType/Type/PrimitiveType[@Image = 'boolean']\nand not(../Annotation//Name[@Image = 'Override'])\n]"
+      "default" : "//MethodDeclaration\n    [starts-with(@Name, 'get')]\n    [@Arity = 0 or $checkParameterizedMethods = 'true']\n    [\n        ResultType/Type/PrimitiveType[@Image = 'boolean']\n        and not(../Annotation//Name[@Image = 'Override'])\n    ]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1057,7 +1067,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalHome')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'LocalHome')\n    )\n]"
+      "default" : "//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalHome')])\n    )\n    and\n    not\n    (\n        ends-with(@SimpleName,'LocalHome')\n    )\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1066,7 +1076,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalObject')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Local')\n    )\n]"
+      "default" : "//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBLocalObject')])\n    )\n    and\n    not\n    (\n        ends-with(@SimpleName,'Local')\n    )\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1097,7 +1107,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//TypeDeclaration/ClassOrInterfaceDeclaration\n[\n    (\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'SessionBean')])\n        or\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'MessageDrivenBean')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Bean')\n    )\n]"
+      "default" : "//TypeDeclaration/ClassOrInterfaceDeclaration\n[\n    (\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'SessionBean')])\n        or\n        (./ImplementsList/ClassOrInterfaceType[ends-with(@Image,'MessageDrivenBean')])\n    )\n    and\n    not\n    (\n        ends-with(@SimpleName,'Bean')\n    )\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1144,7 +1154,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBObject')])\n    )\n    and\n    (\n        ends-with(@Image,'Session')\n        or\n        ends-with(@Image,'EJB')\n        or\n        ends-with(@Image,'Bean')\n    )\n]"
+      "default" : "//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBObject')])\n    )\n    and\n    (\n        ends-with(@SimpleName,'Session')\n        or\n        ends-with(@SimpleName,'EJB')\n        or\n        ends-with(@SimpleName,'Bean')\n    )\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1153,7 +1163,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBHome')])\n    )\n    and\n    not\n    (\n        ends-with(@Image,'Home')\n    )\n]"
+      "default" : "//ClassOrInterfaceDeclaration\n[\n    (\n        (./ExtendsList/ClassOrInterfaceType[ends-with(@Image,'EJBHome')])\n    )\n    and\n    not\n    (\n        ends-with(@SimpleName,'Home')\n    )\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1165,7 +1175,7 @@
       "default" : "5"
     }, {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration[string-length(@Image) < $minimum]"
+      "default" : "//ClassOrInterfaceDeclaration[string-length(@SimpleName) < $minimum]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1177,7 +1187,7 @@
       "default" : "3"
     }, {
       "name" : "xpath",
-      "default" : "//MethodDeclarator[string-length(@Image) < $minimum]"
+      "default" : "//MethodDeclaration[string-length(@Name) < $minimum]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1279,7 +1289,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//PrimaryExpression\n[PrimaryPrefix/Name[@Image]]\n[PrimarySuffix[@Arguments='false' and @ArrayDereference = 'false']]\n[not(PrimarySuffix/MemberSelector)]\n[ancestor::ClassOrInterfaceBodyDeclaration[1][@AnonymousInnerClass='false']]\n/PrimaryPrefix/Name[@Image = ancestor::ClassOrInterfaceDeclaration[1]/@Image]"
+      "default" : "//PrimaryExpression\n[PrimaryPrefix/Name[@Image]]\n[PrimarySuffix[@Arguments='false' and @ArrayDereference = 'false']]\n[not(PrimarySuffix/MemberSelector)]\n[ancestor::ClassOrInterfaceBodyDeclaration[1][@AnonymousInnerClass='false']]\n/PrimaryPrefix/Name[@Image = ancestor::ClassOrInterfaceDeclaration[1]/@SimpleName]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1540,7 +1550,7 @@
       "default" : "10"
     }, {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration/ClassOrInterfaceBody\n     [\n      count(./ClassOrInterfaceBodyDeclaration/MethodDeclaration/MethodDeclarator[\n         not (\n                starts-with(@Image,'get')\n                or\n                starts-with(@Image,'set')\n                or\n                starts-with(@Image,'is')\n            )\n      ]) > $maxmethods\n   ]"
+      "default" : "//ClassOrInterfaceDeclaration/ClassOrInterfaceBody\n     [\n      count(./ClassOrInterfaceBodyDeclaration/MethodDeclaration[\n         not (\n                starts-with(@Name,'get')\n                or\n                starts-with(@Name,'set')\n                or\n                starts-with(@Name,'is')\n            )\n      ]) > $maxmethods\n   ]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1697,11 +1707,14 @@
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ {
+      "name" : "ignoreExpressions",
+      "default" : "true"
+    }, {
       "name" : "ignoreMagicNumbers",
       "default" : "-1,0"
     }, {
       "name" : "xpath",
-      "default" : "//IfStatement/Expression/*/PrimaryExpression/PrimaryPrefix/Literal\n[not(NullLiteral)]\n[not(BooleanLiteral)]\n[empty(index-of(tokenize($ignoreMagicNumbers, '\\s*,\\s*'), @Image))]"
+      "default" : "(: simple case - no deep expressions :)\n//IfStatement[$ignoreExpressions = true()]/Expression/*/PrimaryExpression/PrimaryPrefix/Literal\n    [not(NullLiteral)]\n    [not(BooleanLiteral)]\n    [empty(index-of(tokenize($ignoreMagicNumbers, '\\s*,\\s*'), @Image))]\n|\n(: consider also deeper expressions :)\n//IfStatement[$ignoreExpressions = false()]/Expression//*[local-name() != 'UnaryExpression' or @Operator != '-']/PrimaryExpression/PrimaryPrefix/Literal\n    [not(NullLiteral)]\n    [not(BooleanLiteral)]\n    [empty(index-of(tokenize($ignoreMagicNumbers, '\\s*,\\s*'), @Image))]\n|\n(: consider negative literals :)\n//IfStatement[$ignoreExpressions = false()]/Expression//UnaryExpression[@Operator = '-']/PrimaryExpression/PrimaryPrefix/Literal\n    [not(NullLiteral)]\n    [not(BooleanLiteral)]\n    [empty(index-of(tokenize($ignoreMagicNumbers, '\\s*,\\s*'), concat('-', @Image)))]\n|\n(: consider multiple literals in expressions :)\n//IfStatement[$ignoreExpressions = false()]/Expression[count(*/PrimaryExpression/PrimaryPrefix/Literal\n    [not(NullLiteral)]\n    [not(BooleanLiteral)]) > 1]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1748,7 +1761,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[MethodDeclarator[\n  @Image='onCreate' or\n  @Image='onConfigurationChanged' or\n  @Image='onPostCreate' or\n  @Image='onPostResume' or\n  @Image='onRestart' or\n  @Image='onRestoreInstanceState' or\n  @Image='onResume' or\n  @Image='onStart'\n  ]]\n    /Block[not(\n      (BlockStatement[1]/Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/MethodDeclarator/@Image]))]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  pmd-java:typeIs('android.app.Activity') or\n  pmd-java:typeIs('android.app.Application') or\n  pmd-java:typeIs('android.app.Service')\n]]]"
+      "default" : "//MethodDeclaration[\n  @Name='onCreate' or\n  @Name='onConfigurationChanged' or\n  @Name='onPostCreate' or\n  @Name='onPostResume' or\n  @Name='onRestart' or\n  @Name='onRestoreInstanceState' or\n  @Name='onResume' or\n  @Name='onStart'\n  ]\n    /Block[not(\n      (BlockStatement[1]/Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/@Name]))]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  pmd-java:typeIs('android.app.Activity') or\n  pmd-java:typeIs('android.app.Application') or\n  pmd-java:typeIs('android.app.Service')\n]]]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1757,7 +1770,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[MethodDeclarator[\n  @Image='finish' or\n  @Image='onDestroy' or\n  @Image='onPause' or\n  @Image='onSaveInstanceState' or\n  @Image='onStop' or\n  @Image='onTerminate'\n  ]]\n   /Block/BlockStatement[last()]\n    [not(Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/MethodDeclarator/@Image])]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  pmd-java:typeIs('android.app.Activity') or\n  pmd-java:typeIs('android.app.Application') or\n  pmd-java:typeIs('android.app.Service')\n]]]"
+      "default" : "//MethodDeclaration[\n  @Name='finish' or\n  @Name='onDestroy' or\n  @Name='onPause' or\n  @Name='onSaveInstanceState' or\n  @Name='onStop' or\n  @Name='onTerminate'\n  ]\n   /Block/BlockStatement[last()]\n    [not(Statement/StatementExpression/PrimaryExpression[./PrimaryPrefix[@SuperModifier='true']]/PrimarySuffix[@Image= ancestor::MethodDeclaration/@Name])]\n[ancestor::ClassOrInterfaceDeclaration[ExtendsList/ClassOrInterfaceType[\n  pmd-java:typeIs('android.app.Activity') or\n  pmd-java:typeIs('android.app.Application') or\n  pmd-java:typeIs('android.app.Service')\n]]]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1780,7 +1793,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[@Public='false']\n  [MethodDeclarator/@Image = 'clone']\n  [MethodDeclarator/FormalParameters/@ParameterCount = 0]"
+      "default" : "//MethodDeclaration[@Public='false']\n  [@Name = 'clone']\n  [@Arity = 0]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1794,7 +1807,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration\n[\nMethodDeclarator/@Image = 'clone'\nand MethodDeclarator/FormalParameters/@ParameterCount = 0\nand not (ResultType//ClassOrInterfaceType/@Image = ancestor::ClassOrInterfaceDeclaration[1]/@Image)\n]"
+      "default" : "//MethodDeclaration\n[\n@Name = 'clone'\nand @Arity = 0\nand not (ResultType//ClassOrInterfaceType/@Image = ancestor::ClassOrInterfaceDeclaration[1]/@SimpleName)\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1803,7 +1816,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration\n[\nMethodDeclarator/@Image = 'clone'\nand count(MethodDeclarator/FormalParameters/*) = 0\nand count(NameList/Name[contains\n(@Image,'CloneNotSupportedException')]) = 0\n]\n[\n../../../../ClassOrInterfaceDeclaration[@Final = 'false']\n]"
+      "default" : "//MethodDeclaration\n[\n@Name = 'clone'\nand @Arity = 0\nand count(NameList/Name[contains\n(@Image,'CloneNotSupportedException')]) = 0\n]\n[\n../../../../ClassOrInterfaceDeclaration[@Final = 'false']\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1915,7 +1928,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[MethodDeclarator[@Image='finalize'][not(FormalParameters/*)]]\n  /Block[count(*)=0]"
+      "default" : "//MethodDeclaration[@Name='finalize'][@Arity = 0]\n  /Block[count(*)=0]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2014,7 +2027,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[MethodDeclarator[@Image='finalize'][not(FormalParameters/*)]]\n   /Block\n      /BlockStatement[last()]\n      [not(Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]\n      [not(Statement/TryStatement/FinallyStatement\n       /Block/BlockStatement/Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]"
+      "default" : "//MethodDeclaration[@Name='finalize'][@Arity = 0]\n   /Block\n      /BlockStatement[last()]\n      [not(Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]\n      [not(Statement/TryStatement/FinallyStatement\n       /Block/BlockStatement/Statement/StatementExpression/PrimaryExpression\n            [./PrimaryPrefix[@SuperModifier='true']]\n            [./PrimarySuffix[@Image='finalize']]\n          )\n      ]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2023,7 +2036,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[MethodDeclarator[@Image=\"finalize\"][not(FormalParameters/*)]]\n   /Block[count(BlockStatement)=1]\n     /BlockStatement[\n       Statement/StatementExpression/PrimaryExpression\n       [./PrimaryPrefix[@SuperModifier='true']]\n       [./PrimarySuffix[@Image='finalize']]\n     ]"
+      "default" : "//MethodDeclaration[@Name='finalize'][@Arity = 0]\n   /Block[count(BlockStatement)=1]\n     /BlockStatement[\n       Statement/StatementExpression/PrimaryExpression\n       [./PrimaryPrefix[@SuperModifier='true']]\n       [./PrimarySuffix[@Image='finalize']]\n     ]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2032,7 +2045,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration\n /MethodDeclarator[@Image='finalize'][FormalParameters[count(*)>0]]"
+      "default" : "//MethodDeclaration[@Name='finalize'][@Arity > 0]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2041,7 +2054,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[@Protected=\"false\"]\n  /MethodDeclarator[@Image=\"finalize\"]\n  [not(FormalParameters/*)]"
+      "default" : "//MethodDeclaration[@Protected=\"false\"][@Name='finalize'][@Arity = 0]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2064,7 +2077,7 @@
     } ],
     "languages" : [ "Java" ]
   }, {
-    "patternId" : "category_java_errorprone_InvalidSlf4jMessageFormat",
+    "patternId" : "category_java_errorprone_InvalidLogMessageFormat",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "Java" ]
@@ -2074,7 +2087,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclarator[(not(@Image = 'setUp')\n and translate(@Image, 'SETuP', 'setUp') = 'setUp')\n or (not(@Image = 'tearDown')\n and translate(@Image, 'TEARdOWN', 'tearDown') = 'tearDown')]\n [FormalParameters[count(*) = 0]]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeIs('junit.framework.TestCase')]\n    or //MarkerAnnotation/Name[\n        pmd-java:typeIs('org.junit.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.Test') or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestFactory') or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n        or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')\n    ]\n]]"
+      "default" : "//MethodDeclaration[(not(@Name = 'setUp')\n and translate(@Name, 'SETuP', 'setUp') = 'setUp')\n or (not(@Name = 'tearDown')\n and translate(@Name, 'TEARdOWN', 'tearDown') = 'tearDown')]\n [@Arity = 0]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeIs('junit.framework.TestCase')]\n    or //MarkerAnnotation/Name[\n        pmd-java:typeIs('org.junit.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.Test') or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestFactory') or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n        or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')\n    ]\n]]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2083,7 +2096,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[not(@Static='true') or not(@Public='true')]\n[MethodDeclarator/@Image='suite']\n[MethodDeclarator/FormalParameters/@ParameterCount=0]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeIs('junit.framework.TestCase')]\n    or //MarkerAnnotation/Name[\n        pmd-java:typeIs('org.junit.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.Test') or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestFactory') or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n        or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')\n    ]\n]]"
+      "default" : "//MethodDeclaration[not(@Static='true') or not(@Public='true')]\n[@Name='suite']\n[@Arity = 0]\n[ancestor::ClassOrInterfaceDeclaration[//ClassOrInterfaceType[pmd-java:typeIs('junit.framework.TestCase')]\n    or //MarkerAnnotation/Name[\n        pmd-java:typeIs('org.junit.Test')\n        or pmd-java:typeIs('org.junit.jupiter.api.Test') or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n        or pmd-java:typeIs('org.junit.jupiter.api.TestFactory') or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n        or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')\n    ]\n]]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2136,7 +2149,7 @@
       "default" : "org.springframework.beans.factory.annotation.Autowired, javax.inject.Inject"
     }, {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration[@Nested=false()]\n[\n  (\n    (: at least one constructor :)\n    ./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration\n    and\n    (: only private constructors :)\n    count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration) = count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Private=true()])\n    and\n    (: all constructors must not be annotated :)\n    (every $x in $annotations satisfies\n      not(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration/\n            ../Annotation/MarkerAnnotation/Name[pmd-java:typeIs($x)]))\n  )\n  and\n  not(.//MethodDeclaration[@Static=true()])\n  and\n  not(.//FieldDeclaration[@Private=false()][@Static=true()])\n  and\n  not(.//ClassOrInterfaceDeclaration[@Nested=true()]\n           [@Public=true()]\n           [@Static=true()]\n           [not(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration) or ./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Public=true()]]\n           [./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/MethodDeclaration\n                [@Public=true()]\n                [./ResultType/Type/ReferenceType/ClassOrInterfaceType\n                    [@Image = //ClassOrInterfaceDeclaration[@Nested=false()]/@Image]\n                ]\n            ]\n        )\n]"
+      "default" : "//ClassOrInterfaceDeclaration[@Nested=false()]\n[\n  (\n    (: at least one constructor :)\n    ./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration\n    and\n    (: only private constructors :)\n    count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration) = count(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Private=true()])\n    and\n    (: all constructors must not be annotated :)\n    (every $x in $annotations satisfies\n      not(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration/\n            ../Annotation/MarkerAnnotation/Name[pmd-java:typeIs($x)]))\n  )\n  and\n  (: no static methods :)\n  not(.//MethodDeclaration[@Static=true()])\n  and\n  (: no (public, package-private, protected) static fields :)\n  not(.//FieldDeclaration[@Private=false()][@Static=true()])\n  and\n  (: no nested classes, that are public and static, and have no constructors at all or a public constructor :)\n  (: and have a method returning the outer class type :)\n  (: or the inner class extends the outer class :)\n  not(.//ClassOrInterfaceDeclaration[@Nested=true()]\n           [@Public=true()]\n           [@Static=true()]\n           [not(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration)\n               or ./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/ConstructorDeclaration[@Public=true()]]\n           [(./ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/MethodDeclaration\n                [@Public=true()]\n                [./ResultType/Type/ReferenceType/ClassOrInterfaceType\n                    [@Image = //ClassOrInterfaceDeclaration[@Nested=false()]/@SimpleName]\n                ]\n            ) or (\n                ./ExtendsList/ClassOrInterfaceType[@Image = //ClassOrInterfaceDeclaration[@Nested=false()]/@SimpleName]\n            )]\n        )\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2178,7 +2191,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclarator\n[@Image = 'clone']\n[count(FormalParameters/*) = 0]\n[count(../Block//*[\n    (self::AllocationExpression) and\n    (./ClassOrInterfaceType/@Image = ancestor::\nClassOrInterfaceDeclaration[1]/@Image)\n  ])> 0\n]"
+      "default" : "//MethodDeclaration\n[@Name = 'clone']\n[@Arity = 0]\n[count(./Block//*[\n    (self::AllocationExpression) and\n    (./ClassOrInterfaceType/@Image = ancestor::\nClassOrInterfaceDeclaration[1]/@SimpleName)\n  ])> 0\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2196,7 +2209,7 @@
       "default" : "LOG"
     }, {
       "name" : "xpath",
-      "default" : "//FieldDeclaration\n[.//ClassOrInterfaceType[pmd-java:typeIs($loggerClass)]]\n[\n    (: check modifiers :)\n    (@Private = false() or @Final = false())\n    (: check logger name :)\n    or (@Static and .//VariableDeclaratorId[@Image != $staticLoggerName])\n    or (@Static = false() and .//VariableDeclaratorId[@Image != $loggerName])\n\n    (: check logger argument type matches class or enum name :)\n    or .//ArgumentList//ClassOrInterfaceType[@Image != ancestor::ClassOrInterfaceDeclaration/@Image]\n    or .//ArgumentList//ClassOrInterfaceType[@Image != ancestor::EnumDeclaration/@Image]\n]\n[not(\n     (: special case - final logger initialized inside constructor :)\n     count(.//VariableInitializer)=0\n     and @Static = false()\n     and\n     ancestor::ClassOrInterfaceBody//ConstructorDeclaration//StatementExpression\n        [PrimaryExpression[PrimaryPrefix[@ThisModifier]]/PrimarySuffix[@Image=$loggerName]]\n        [AssignmentOperator[@Image = '=']]\n        [Expression/PrimaryExpression/PrimaryPrefix/Name[@Image = ancestor::ConstructorDeclaration//FormalParameter/VariableDeclaratorId/@Image]]\n        [count(.//AllocationExpression)=0]\n  )\n]"
+      "default" : "//FieldDeclaration\n[.//ClassOrInterfaceType[pmd-java:typeIs($loggerClass)]]\n[\n    (: check modifiers :)\n    (@Private = false() or @Final = false())\n    (: check logger name :)\n    or (@Static and .//VariableDeclaratorId[@Image != $staticLoggerName])\n    or (@Static = false() and .//VariableDeclaratorId[@Image != $loggerName])\n\n    (: check logger argument type matches class or enum name :)\n    or .//ArgumentList//ClassOrInterfaceType[@Image != ancestor::ClassOrInterfaceDeclaration/@SimpleName]\n    or .//ArgumentList//ClassOrInterfaceType[@Image != ancestor::EnumDeclaration/@SimpleName]\n]\n[not(\n     (: special case - final logger initialized inside constructor :)\n     count(.//VariableInitializer)=0\n     and @Static = false()\n     and\n     ancestor::ClassOrInterfaceBody//ConstructorDeclaration//StatementExpression\n        [PrimaryExpression[PrimaryPrefix[@ThisModifier]]/PrimarySuffix[@Image=$loggerName]]\n        [AssignmentOperator[@Image = '=']]\n        [Expression/PrimaryExpression/PrimaryPrefix/Name[@Image = ancestor::ConstructorDeclaration//FormalParameter/VariableDeclaratorId/@Image]]\n        [count(.//AllocationExpression)=0]\n  )\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2260,7 +2273,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclarator[@Image = 'equals']\n[   \n    (count(FormalParameters/*) = 1\n    and not (FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object'])\n    or not (../ResultType/Type/PrimitiveType[@Image = 'boolean'])\n    )  or  (\n    count(FormalParameters/*) = 2\n    and ../ResultType/Type/PrimitiveType[@Image = 'boolean']\n    and FormalParameters//ClassOrInterfaceType[@Image = 'Object' or @Image = 'java.lang.Object']\n    and not(../../Annotation/MarkerAnnotation/Name[@Image='Override'])\n    )\n]\n| //MethodDeclarator[@Image = 'equal']\n[\n    count(FormalParameters/*) = 1\n    and FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object']\n]"
+      "default" : "//MethodDeclaration[@Name = 'equals']\n[   \n    (@Arity = 1\n    and not (MethodDeclarator/FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object'])\n    or not (ResultType/Type/PrimitiveType[@Image = 'boolean'])\n    )  or  (\n    @Arity = 2\n    and ResultType/Type/PrimitiveType[@Image = 'boolean']\n    and MethodDeclarator/FormalParameters//ClassOrInterfaceType[@Image = 'Object' or @Image = 'java.lang.Object']\n    and not(../Annotation/MarkerAnnotation/Name[@Image='Override'])\n    )\n]\n| //MethodDeclaration[@Name = 'equal']\n[\n    @Arity = 1\n    and MethodDeclarator/FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object']\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2389,7 +2402,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceType[@Image = 'Thread' or @Image = 'Runnable']"
+      "default" : "//ClassOrInterfaceType[pmd-java:typeIs('java.lang.Thread') or pmd-java:typeIs('java.util.concurrent.ExecutorService')]\n|\n//StatementExpression/PrimaryExpression/PrimaryPrefix/Name[pmd-java:typeIs('java.util.concurrent.Executors') or pmd-java:typeIs('java.util.concurrent.ExecutorService')]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2607,7 +2620,7 @@
     "category" : "Performance",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//CompilationUnit[count(ImportDeclaration) = 0 or count(ImportDeclaration/Name[@Image='java.util.Vector']) > 0]\n  //AllocationExpression/ClassOrInterfaceType\n    [@Image='Vector' or @Image='java.util.Vector']"
+      "default" : "//CompilationUnit[count(ImportDeclaration) = 0 or count(ImportDeclaration[@ImportedName='java.util.Vector']) > 0]\n  //AllocationExpression/ClassOrInterfaceType\n    [@Image='Vector' or @Image='java.util.Vector']"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2643,11 +2656,13 @@
     "patternId" : "category_java_security_HardCodedCryptoKey",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "Cryptography",
     "languages" : [ "Java" ]
   }, {
     "patternId" : "category_java_security_InsecureCryptoIv",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "Cryptography",
     "languages" : [ "Java" ]
   }, {
     "patternId" : "category_jsp_bestpractices_DontNestJsfInJstlIteration",
@@ -2735,6 +2750,7 @@
     "patternId" : "category_jsp_security_IframeMissingSrcAttribute",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "UnexpectedBehaviour",
     "parameters" : [ {
       "name" : "xpath",
       "default" : "//Element[upper-case(@Name)=\"IFRAME\"][count(Attribute[upper-case(@Name)=\"SRC\" ]) = 0]"
@@ -2744,6 +2760,7 @@
     "patternId" : "category_jsp_security_NoUnsanitizedJSPExpression",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "XSS",
     "languages" : [ "JSP" ]
   }, {
     "patternId" : "category_plsql_bestpractices_TomKytesDespair",
@@ -2915,11 +2932,13 @@
     "patternId" : "category_vf_security_VfCsrf",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "CSRF",
     "languages" : [ "VisualForce" ]
   }, {
     "patternId" : "category_vf_security_VfUnescapeEl",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "XSS",
     "languages" : [ "VisualForce" ]
   }, {
     "patternId" : "category_vm_bestpractices_AvoidReassigningParameters",

@@ -1,7 +1,5 @@
 import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
-import sjsonnew._
 import sjsonnew.BasicJsonProtocol._
-import sjsonnew.support.scalajson.unsafe._
 
 organization := "codacy"
 
@@ -11,24 +9,13 @@ scalaVersion := "2.13.1"
 
 lazy val toolVersionKey = SettingKey[String]("the version of the underlying tool retrieved from patterns.json")
 
-toolVersionKey := {
-  case class Patterns(name: String, version: String)
-  implicit val patternsIso: IsoLList[Patterns] =
-    LList.isoCurried((p: Patterns) => ("name", p.name) :*: ("version", p.version) :*: LNil) {
-      case (_, n) :*: (_, v) :*: LNil => Patterns(n, v)
-    }
-
-  val jsonFile = (resourceDirectory in Compile).value / "docs" / "patterns.json"
-  val json = Parser.parseFromFile(jsonFile)
-  val patterns = json.flatMap(Converter.fromJson[Patterns])
-  patterns.get.version
-}
+toolVersionKey := "6.21.0"
 
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
   Seq(
     "com.typesafe.play" %% "play-json" % "2.7.4",
-    "com.codacy" %% "codacy-engine-scala-seed" % "3.1.0" withSources (),
+    "com.codacy" %% "codacy-engine-scala-seed" % "4.0.0" withSources (),
     "org.scala-lang.modules" %% "scala-xml" % "1.2.0",
     "net.sourceforge.pmd" % "pmd-core" % toolVersion withSources (),
     "net.sourceforge.pmd" % "pmd-java" % toolVersion withSources (),

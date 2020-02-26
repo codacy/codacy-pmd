@@ -6,7 +6,7 @@ import com.codacy.plugins.api.Implicits._
 import com.codacy.helpers.ResourceHelper
 import com.codacy.plugins.api.results.{Parameter, Pattern, Result, Tool}
 
-import play.api.libs.json.{JsObject, JsString, Json}
+import play.api.libs.json.{JsString, Json}
 
 import scala.collection.immutable.ListSet
 import scala.util.{Failure, Properties, Success, Try}
@@ -25,16 +25,7 @@ object DocGenerator {
   private val rulesetsRoots = List(("rulesets", "rulesets.properties"), ("category", "categories.properties"))
 
   def main(args: Array[String]): Unit = {
-    val version: String =
-      ResourceHelper
-        .getResourceContent("docs/patterns.json")
-        .toOption
-        .flatMap { lines =>
-          Json.parse(lines.mkString("\n")).as[JsObject].\("version").asOpt[String]
-        }
-        .getOrElse {
-          throw new Exception("No version provided")
-        }
+    val version: String = net.sourceforge.pmd.PMDVersion.VERSION
 
     Try(listPatterns) match {
       case Success(rulesets) => writePatterns(version, rulesets)
@@ -68,7 +59,7 @@ object DocGenerator {
         }
         .getOrElse(Map.empty)
     }
-    res.flatMap(identity).toMap
+    res.flatten.toMap
   }
 
   def listPatterns: Set[DocGenerator.Ruleset] = {
@@ -309,6 +300,7 @@ object DocGenerator {
           patternId,
           level,
           category,
+          getSecurityCategory(name, category),
           Some(parameterSpecifications).filter(_.nonEmpty),
           Some(com.codacy.plugins.api.languages.Languages.fromName(language).toSet)
         ),
@@ -322,6 +314,28 @@ object DocGenerator {
             |```${Properties.lineSeparator}""".stripMargin)
       )
     }).to(List)
+  }
+
+  private def getSecurityCategory(patternId: String, category: Pattern.Category) = {
+    if (category == Pattern.Category.Security)
+      patternId match {
+        case id if id.contains("Crypto") => Some(Pattern.Subcategory.Cryptography)
+        case id if id.toUpperCase.contains("CSRF") => Some(Pattern.Subcategory.CSRF)
+        case id if id.contains("XSS") => Some(Pattern.Subcategory.XSS)
+        case "VfUnescapeEl" => Some(Pattern.Subcategory.XSS)
+        case "IframeMissingSrcAttribute" => Some(Pattern.Subcategory.UnexpectedBehaviour)
+        case "NoUnsanitizedJSPExpression" => Some(Pattern.Subcategory.XSS)
+        case "ApexCRUDViolation" => Some(Pattern.Subcategory.Auth)
+        case "ApexDangerousMethods" => Some(Pattern.Subcategory.InsecureModulesLibraries)
+        case "ApexInsecureEndpoint" => Some(Pattern.Subcategory.Routes)
+        case "ApexOpenRedirect" => Some(Pattern.Subcategory.Routes)
+        case "ApexSharingViolations" => Some(Pattern.Subcategory.InsecureModulesLibraries)
+        case "ApexSOQLInjection" => Some(Pattern.Subcategory.SQLInjection)
+        case "ApexSuggestUsingNamedCred" => Some(Pattern.Subcategory.Auth)
+        case _ => None
+      } else {
+      None
+    }
   }
 
   private def parseParameters(rule: Node): List[(Parameter.Description, Parameter.Specification)] = {

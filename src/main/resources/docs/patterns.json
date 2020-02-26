@@ -275,7 +275,7 @@
     "patternId" : "category_apex_security_ApexCRUDViolation",
     "level" : "Error",
     "category" : "Security",
-    "subcategory" : "UnexpectedBehaviour",
+    "subcategory" : "Auth",
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_security_ApexDangerousMethods",

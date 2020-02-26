@@ -333,8 +333,7 @@ object DocGenerator {
         case "ApexSOQLInjection" => Some(Pattern.Subcategory.SQLInjection)
         case "ApexSuggestUsingNamedCred" => Some(Pattern.Subcategory.Auth)
         case _ => None
-      }
-    else {
+      } else {
       None
     }
   }

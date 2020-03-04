@@ -1476,7 +1476,7 @@
 }, {
   "patternId" : "category_java_design_AvoidCatchingGenericException",
   "title" : "Avoid Catching Generic Exception",
-  "description" : "Avoid catching generic exceptions.",
+  "description" : "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"

@@ -319,7 +319,7 @@ object DocGenerator {
 
   private def cleanDescription(description: String) =
     description
-      .replaceAll(" such as.+", ".")
+      .replaceAll(" such as ''.+", ".")
       .replaceAll(""" \(.+ lines found\)""", "")
 
   private def splitPatternId(patternId: String) =

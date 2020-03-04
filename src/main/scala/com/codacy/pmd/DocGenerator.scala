@@ -291,8 +291,8 @@ object DocGenerator {
       (
         Pattern.Description(
           patternId,
-          Pattern.Title(message),
-          None,
+          Pattern.Title(splitPatternId(name)),
+          Some(Pattern.DescriptionText(message)),
           timeToFix,
           Some(parameterDescriptions).filter(_.nonEmpty)
         ),
@@ -315,6 +315,24 @@ object DocGenerator {
       )
     }).to(List)
   }
+
+  private def splitPatternId(patternId: String) =
+    patternId
+      .split("(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])")
+      .mkString(" ")
+      .replace("J Unit", "JUnit")
+      .replace("Java Script", "JavaScript")
+      .replace("N Path", "NPath")
+      .replace("JUnit4Test", "JUnit4 Test")
+      .replace("Vf", "VF")
+      .replace("El", "EL")
+      .replace("Csrf", "CSRF")
+      .replace("Ncss", "NCSS")
+      .replace("String Value Of", "StringValueOf")
+      .replace("Jsp", "JSP")
+      .replace("Jsf", "JSF")
+      .replace("Array List", "ArrayList")
+      .replace("Html", "HTML")
 
   private def getSecurityCategory(patternId: String, category: Pattern.Category) = {
     if (category == Pattern.Category.Security)

@@ -322,7 +322,6 @@ object DocGenerator {
       .replaceAll(" such as.+", ".")
       .replaceAll(""" \(.+ lines found\)""", "")
 
-
   private def splitPatternId(patternId: String) =
     patternId
       .split("(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])")

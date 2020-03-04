@@ -64,11 +64,11 @@
 }, {
   "patternId" : "category_vm_bestpractices_UnusedMacroParameter",
   "title" : "Unused Macro Parameter",
-  "description" : "Avoid unused macro parameters such as ''{0}''"
+  "description" : "Avoid unused macro parameters."
 }, {
   "patternId" : "category_vm_bestpractices_AvoidReassigningParameters",
   "title" : "Avoid Reassigning Parameters",
-  "description" : "Avoid reassigning macro parameters such as ''{0}''"
+  "description" : "Avoid reassigning macro parameters."
 }, {
   "patternId" : "category_vf_security_VfUnescapeEl",
   "title" : "VF Unescape EL",
@@ -150,7 +150,7 @@
 }, {
   "patternId" : "category_plsql_design_ExcessiveTypeLength",
   "title" : "Excessive Type Length",
-  "description" : "Avoid really long Object Type specifications ({0} lines found)."
+  "description" : "Avoid really long Object Type specifications."
 }, {
   "patternId" : "category_plsql_design_ExcessiveParameterList",
   "title" : "Excessive Parameter List",
@@ -158,19 +158,19 @@
 }, {
   "patternId" : "category_plsql_design_ExcessivePackageSpecificationLength",
   "title" : "Excessive Package Specification Length",
-  "description" : "Avoid really long Package Specifications ({0} lines found)."
+  "description" : "Avoid really long Package Specifications."
 }, {
   "patternId" : "category_plsql_design_ExcessivePackageBodyLength",
   "title" : "Excessive Package Body Length",
-  "description" : "Avoid really long Object Type and Package bodies ({0} lines found)."
+  "description" : "Avoid really long Object Type and Package bodies."
 }, {
   "patternId" : "category_plsql_design_ExcessiveObjectLength",
   "title" : "Excessive Object Length",
-  "description" : "Avoid really long Oracle object specifications and bodies ({0} lines found)."
+  "description" : "Avoid really long Oracle object specifications and bodies."
 }, {
   "patternId" : "category_plsql_design_ExcessiveMethodLength",
   "title" : "Excessive Method Length",
-  "description" : "Avoid really long methods ({0} lines found)."
+  "description" : "Avoid really long methods."
 }, {
   "patternId" : "category_plsql_design_CyclomaticComplexity",
   "title" : "Cyclomatic Complexity",
@@ -271,7 +271,7 @@
 }, {
   "patternId" : "category_jsp_codestyle_DuplicateJspImports",
   "title" : "Duplicate JSP Imports",
-  "description" : "Avoid duplicate imports such as ''{0}''"
+  "description" : "Avoid duplicate imports."
 }, {
   "patternId" : "category_jsp_bestpractices_NoJspForward",
   "title" : "No JSP Forward",
@@ -1476,7 +1476,7 @@
 }, {
   "patternId" : "category_java_design_AvoidCatchingGenericException",
   "title" : "Avoid Catching Generic Exception",
-  "description" : "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block",
+  "description" : "Avoid catching generic exceptions.",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -1746,7 +1746,7 @@
 }, {
   "patternId" : "category_java_codestyle_DuplicateImports",
   "title" : "Duplicate Imports",
-  "description" : "Avoid duplicate imports such as ''{0}''"
+  "description" : "Avoid duplicate imports."
 }, {
   "patternId" : "category_java_codestyle_DontImportJavaLang",
   "title" : "Dont Import Java Lang",
@@ -1917,23 +1917,23 @@
 }, {
   "patternId" : "category_java_bestpractices_UnusedPrivateMethod",
   "title" : "Unused Private Method",
-  "description" : "Avoid unused private methods such as ''{0}''."
+  "description" : "Avoid unused private methods."
 }, {
   "patternId" : "category_java_bestpractices_UnusedPrivateField",
   "title" : "Unused Private Field",
-  "description" : "Avoid unused private fields such as ''{0}''."
+  "description" : "Avoid unused private fields."
 }, {
   "patternId" : "category_java_bestpractices_UnusedLocalVariable",
   "title" : "Unused Local Variable",
-  "description" : "Avoid unused local variables such as ''{0}''."
+  "description" : "Avoid unused local variables."
 }, {
   "patternId" : "category_java_bestpractices_UnusedImports",
   "title" : "Unused Imports",
-  "description" : "Avoid unused imports such as ''{0}''"
+  "description" : "Avoid unused imports."
 }, {
   "patternId" : "category_java_bestpractices_UnusedFormalParameter",
   "title" : "Unused Formal Parameter",
-  "description" : "Avoid unused {0} parameters such as ''{1}''."
+  "description" : "Avoid unused {0} parameters."
 }, {
   "patternId" : "category_java_bestpractices_SystemPrintln",
   "title" : "System Println",
@@ -2140,7 +2140,7 @@
 }, {
   "patternId" : "category_java_bestpractices_AvoidReassigningParameters",
   "title" : "Avoid Reassigning Parameters",
-  "description" : "Avoid reassigning parameters such as ''{0}''"
+  "description" : "Avoid reassigning parameters."
 }, {
   "patternId" : "category_java_bestpractices_AvoidReassigningLoopVariables",
   "title" : "Avoid Reassigning Loop Variables",

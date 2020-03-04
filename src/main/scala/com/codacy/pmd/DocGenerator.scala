@@ -190,6 +190,7 @@ object DocGenerator {
         |      coupling -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
         |      finalizers -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
         |      imports -> ((Result.Level.Info, Pattern.Category.UnusedCode)),
+        |      imports -> ((Result.Level.Info, Pattern.Category.UnusedCode)),
         |      j2ee -> ((Result.Level.Warn, Pattern.Category.CodeStyle)),
         |      junit -> ((Result.Level.Warn, Pattern.Category.CodeStyle)),
         |      javabeans -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
@@ -292,7 +293,7 @@ object DocGenerator {
         Pattern.Description(
           patternId,
           Pattern.Title(splitPatternId(name)),
-          Some(Pattern.DescriptionText(message)),
+          Some(Pattern.DescriptionText(cleanDescription(message))),
           timeToFix,
           Some(parameterDescriptions).filter(_.nonEmpty)
         ),
@@ -315,6 +316,12 @@ object DocGenerator {
       )
     }).to(List)
   }
+
+  private def cleanDescription(description: String) =
+    description
+      .replaceAll(" such as.+", ".")
+      .replaceAll(""" \(.+ lines found\)""", "")
+
 
   private def splitPatternId(patternId: String) =
     patternId

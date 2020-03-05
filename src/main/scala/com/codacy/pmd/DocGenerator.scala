@@ -190,7 +190,6 @@ object DocGenerator {
         |      coupling -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
         |      finalizers -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),
         |      imports -> ((Result.Level.Info, Pattern.Category.UnusedCode)),
-        |      imports -> ((Result.Level.Info, Pattern.Category.UnusedCode)),
         |      j2ee -> ((Result.Level.Warn, Pattern.Category.CodeStyle)),
         |      junit -> ((Result.Level.Warn, Pattern.Category.CodeStyle)),
         |      javabeans -> ((Result.Level.Warn, Pattern.Category.ErrorProne)),

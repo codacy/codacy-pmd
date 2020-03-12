@@ -1,4 +1,4 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/d0f04e048bba4a01a7ef0166bf5b8d32)](https://www.codacy.com/app/Codacy/codacy-pmdjava)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d0f04e048bba4a01a7ef0166bf5b8d32)](https://www.codacy.com/gh/codacy/codacy-pmdjava?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-pmdjava&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://circleci.com/gh/codacy/codacy-pmdjava.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/codacy/codacy-pmdjava)
 
 # Codacy PMDJava

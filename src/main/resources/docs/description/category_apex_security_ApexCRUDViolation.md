@@ -1,7 +1,7 @@
 Since: PMD 5.5.3
 
 The rule validates you are checking for access permissions before a SOQL/SOSL/DML operation.
-Since Apex runs in system mode not having proper permissions checks results in escalation of 
+Since Apex runs in system mode not having proper permissions checks results in escalation of
 privilege and may produce runtime errors. This check forces you to handle such scenarios.
 
 Example(s):

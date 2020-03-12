@@ -1,6 +1,6 @@
 Since: PMD 1.04
 
-This rule counts the number of unique attributes, local variables, and return types within an object. 
+This rule counts the number of unique attributes, local variables, and return types within an object.
 A number higher than the specified threshold can indicate a high degree of coupling.
 
 Example(s):

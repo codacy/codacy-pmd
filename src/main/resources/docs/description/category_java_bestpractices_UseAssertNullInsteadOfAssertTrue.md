@@ -1,6 +1,6 @@
 Since: PMD 3.5
 
-This rule detects JUnit assertions in object references equality. These assertions should be made by 
+This rule detects JUnit assertions in object references equality. These assertions should be made by
 more specific methods, like assertNull, assertNotNull.
 
 Example(s):

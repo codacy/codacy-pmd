@@ -1,13 +1,13 @@
 Since: PMD 5.1
 
-Complexity directly affects maintenance costs is determined by the number of decision points in a method 
-plus one for the method entry.  The decision points include 'if', 'while', 'for', and 'case labels' calls.  
+Complexity directly affects maintenance costs is determined by the number of decision points in a method
+plus one for the method entry.  The decision points include 'if', 'while', 'for', and 'case labels' calls.
 Generally, numbers ranging from 1-4 denote low complexity, 5-7 denote moderate complexity, 8-10 denote
 high complexity, and 11+ is very high complexity.
 
 Example(s):
 ```
--- Cyclomatic Complexity of 25 
+-- Cyclomatic Complexity of 25
 CREATE OR REPLACE PACKAGE BODY pkg_pmd_working_sequence  AS
 1 PROCEDURE ty_logger  IS BEGIN
 2        IF true

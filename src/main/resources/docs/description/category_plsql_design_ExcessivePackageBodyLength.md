@@ -1,6 +1,6 @@
 Since: PMD 5.1
 
-Excessive class file lengths are usually indications that the class may be burdened with excessive 
+Excessive class file lengths are usually indications that the class may be burdened with excessive
 responsibilities that could be provided by external classes or functions. In breaking these methods
 apart the code becomes more managable and ripe for reuse.
 

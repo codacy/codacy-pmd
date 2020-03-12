@@ -8,7 +8,7 @@ new StringBuffer()      //  16
 new StringBuffer(6)     //  6
 new StringBuffer(&quot;hello world&quot;)  // 11 + 16 = 27
 new StringBuffer('A')   //  chr(A) = 65
-new StringBuffer(&quot;A&quot;)   //  1 + 16 = 17 
+new StringBuffer(&quot;A&quot;)   //  1 + 16 = 17
 
 new StringBuilder()     //  16
 new StringBuilder(6)    //  6

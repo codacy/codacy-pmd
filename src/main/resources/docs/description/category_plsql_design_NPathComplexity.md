@@ -1,7 +1,7 @@
 Since: PMD 5.1
 
 The NPath complexity of a method is the number of acyclic execution paths through that method.
-A threshold of 200 is generally considered the point where measures should be taken to reduce 
+A threshold of 200 is generally considered the point where measures should be taken to reduce
 complexity and increase readability.
 
 Example(s):

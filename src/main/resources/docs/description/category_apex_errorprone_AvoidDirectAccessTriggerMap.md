@@ -6,8 +6,8 @@ Example(s):
 ```
 trigger AccountTrigger on Account (before insert, before update) {
    Account a = Trigger.new[0]; //Bad: Accessing the trigger array directly is not recommended.
-   
-   foreach ( Account a : Trigger.new ){   
+
+   for ( Account a : Trigger.new ){
         //Good: Iterate through the trigger.new array instead.
    }
 }

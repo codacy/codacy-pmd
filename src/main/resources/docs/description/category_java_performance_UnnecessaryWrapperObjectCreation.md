@@ -1,7 +1,7 @@
 Since: PMD 3.8
 
 Most wrapper classes provide static conversion methods that avoid the need to create intermediate objects
-just to create the primitive forms. Using these avoids the cost of creating objects that also need to be 
+just to create the primitive forms. Using these avoids the cost of creating objects that also need to be
 garbage-collected later.
 
 Example(s):

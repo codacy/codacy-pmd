@@ -11,7 +11,7 @@ Configurable naming conventions for type declarations. This rule reports
 Example(s):
 ```
 // This is Pascal case, the recommended naming convention in Java
-// Note that the default values of this rule don't allow underscores 
+// Note that the default values of this rule don't allow underscores
 // or accented characters in type names
 public class FooBar {}
 

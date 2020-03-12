@@ -1,7 +1,7 @@
 Since: PMD 1.04
 
-A high number of imports can indicate a high degree of coupling within an object. This rule 
-counts the number of unique imports and reports a violation if the count is above the 
+A high number of imports can indicate a high degree of coupling within an object. This rule
+counts the number of unique imports and reports a violation if the count is above the
 user-specified threshold.
 
 Example(s):

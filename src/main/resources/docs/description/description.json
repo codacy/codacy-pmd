@@ -774,7 +774,7 @@
 }, {
   "patternId" : "category_java_errorprone_MisplacedNullCheck",
   "title" : "Misplaced Null Check",
-  "description" : "The null check here is misplaced; if the variable is null there will be a NullPointerException",
+  "description" : "The null check here is misplaced; if the variable ''{0}'' is null there will be a NullPointerException",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -2390,6 +2390,14 @@
   "title" : "Avoid Dml Statements In Loops",
   "description" : "Avoid DML statements inside loops"
 }, {
+  "patternId" : "category_apex_errorprone_TestMethodsMustBeInTestClasses",
+  "title" : "Test Methods Must Be In Test Classes",
+  "description" : "Test methods must be in test classes",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "category_apex_errorprone_MethodWithSameNameAsEnclosingClass",
   "title" : "Method With Same Name As Enclosing Class",
   "description" : "Classes should not have non-constructor methods with the same name as the class"
@@ -2493,6 +2501,10 @@
   "patternId" : "category_apex_design_CyclomaticComplexity",
   "title" : "Cyclomatic Complexity",
   "description" : "The {0} ''{1}'' has a{2} cyclomatic complexity of {3}."
+}, {
+  "patternId" : "category_apex_design_CognitiveComplexity",
+  "title" : "Cognitive Complexity",
+  "description" : "The {0} ''{1}'' has a{2} cognitive complexity of {3}."
 }, {
   "patternId" : "category_apex_design_AvoidDeeplyNestedIfStmts",
   "title" : "Avoid Deeply Nested If Stmts",

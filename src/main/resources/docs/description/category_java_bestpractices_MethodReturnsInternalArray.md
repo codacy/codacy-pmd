@@ -1,6 +1,6 @@
 Since: PMD 2.2
 
-Exposing internal arrays to the caller violates object encapsulation since elements can be 
+Exposing internal arrays to the caller violates object encapsulation since elements can be
 removed or replaced outside of the object that owns it. It is safer to return a copy of the array.
 
 Example(s):

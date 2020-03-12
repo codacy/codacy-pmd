@@ -1,6 +1,6 @@
 Since: PMD 2.0
 
-JUnit tests should include at least one assertion.  This makes the tests more robust, and using assert 
+JUnit tests should include at least one assertion.  This makes the tests more robust, and using assert
 with messages provide the developer a clearer idea of what the test does.
 
 Example(s):

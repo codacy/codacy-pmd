@@ -30,7 +30,7 @@ public class Foo {
         // a constructor call, not a method call.
         D d = new D();
         // this method call is ok, because we have create the new instance of D locally.
-        d.doSomethingElse(); 
+        d.doSomethingElse();
     }
 }
 ```

@@ -9,7 +9,7 @@ scalaVersion := "2.13.1"
 
 lazy val toolVersionKey = SettingKey[String]("the version of the underlying tool retrieved from patterns.json")
 
-toolVersionKey := "6.21.0"
+toolVersionKey := "6.22.0"
 
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value

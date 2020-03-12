@@ -1,7 +1,7 @@
 Since: PMD 0.6
 
 When methods are excessively long this usually indicates that the method is doing more than its
-name/signature might suggest. They also become challenging for others to digest since excessive 
+name/signature might suggest. They also become challenging for others to digest since excessive
 scrolling causes readers to lose focus.
 Try to reduce the method length by creating helper methods and removing any copy/pasted code.
 

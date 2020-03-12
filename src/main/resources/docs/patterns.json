@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.21.0",
+  "version" : "6.22.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -127,6 +127,11 @@
     "category" : "ErrorProne",
     "languages" : [ "Apex" ]
   }, {
+    "patternId" : "category_apex_design_CognitiveComplexity",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "languages" : [ "Apex" ]
+  }, {
     "patternId" : "category_apex_design_CyclomaticComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -249,6 +254,15 @@
     "patternId" : "category_apex_errorprone_MethodWithSameNameAsEnclosingClass",
     "level" : "Warning",
     "category" : "ErrorProne",
+    "languages" : [ "Apex" ]
+  }, {
+    "patternId" : "category_apex_errorprone_TestMethodsMustBeInTestClasses",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//UserClass[\n      not(./ModifierNode/Annotation[lower-case(@Image) = 'istest']) and\n      (\n        (./Method/ModifierNode/Annotation[lower-case(@Image) = 'istest']) or\n        (./Method/ModifierNode[@Test = true()])\n      )\n    ]"
+    } ],
     "languages" : [ "Apex" ]
   }, {
     "patternId" : "category_apex_performance_AvoidDmlStatementsInLoops",
@@ -1048,7 +1062,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//TypeDeclaration/ClassOrInterfaceDeclaration/TypeParameters/TypeParameter[\n  string-length(@Image) > 1 \n  or\n  string:upper-case(@Image) != @Image\n]"
+      "default" : "//TypeDeclaration/ClassOrInterfaceDeclaration/TypeParameters/TypeParameter[\n  string-length(@Image) > 1\n  or\n  string:upper-case(@Image) != @Image\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1845,7 +1859,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceBodyDeclaration\n[../ClassOrInterfaceBodyDeclaration/Annotation/*/Name\n        [pmd-java:typeIs('org.junit.Test')\n         or pmd-java:typeIs('org.junit.jupiter.api.Test')\n         or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n         or pmd-java:typeIs('org.junit.jupiter.api.TestFactory')\n         or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n         or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')]\n]\n[not(Annotation)]\n[MethodDeclaration[(@Public = true() or @PackagePrivate = true()) and @Static = false() and\n        ResultType[@Void = true()] and\n        MethodDeclarator/FormalParameters[@ParameterCount = 0]\n    ]\n]"
+      "default" : "//ClassOrInterfaceBodyDeclaration\n[../ClassOrInterfaceBodyDeclaration/Annotation/*/Name\n        [pmd-java:typeIs('org.junit.Test')\n         or pmd-java:typeIs('org.junit.jupiter.api.Test')\n         or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n         or pmd-java:typeIs('org.junit.jupiter.api.TestFactory')\n         or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n         or pmd-java:typeIs('org.junit.jupiter.params.ParameterizedTest')]\n]\n[not(Annotation)]\n[MethodDeclaration[(@Public = true() or @PackagePrivate = true()) and @Static = false() and\n        ResultType[@Void = true()] and\n        MethodDeclarator/FormalParameters[@Size = 0]\n    ]\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2119,7 +2133,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//Expression\n    /*[self::ConditionalOrExpression or self::ConditionalAndExpression]\n    /descendant::PrimaryExpression/PrimaryPrefix\n    /Name[starts-with(@Image,\n        concat(ancestor::PrimaryExpression/following-sibling::EqualityExpression\n            [./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n            /PrimaryExpression/PrimaryPrefix\n            /Name[count(../../PrimarySuffix)=0]/@Image,\".\")\n        )\n     ]\n     [count(ancestor::ConditionalAndExpression/EqualityExpression\n            [@Image='!=']\n            [./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n            [starts-with(following-sibling::*/PrimaryExpression/PrimaryPrefix/Name/@Image,\n                concat(./PrimaryExpression/PrimaryPrefix/Name/@Image, '.'))]\n      ) = 0\n     ]"
+      "default" : "//ConditionalAndExpression\n  /EqualityExpression\n    [@Image = '!=']\n    (: one side is null :)\n    [PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n    (: other side checks for the variable used somewhere in the first child of conditional and expression :)\n    [some $var in preceding-sibling::PrimaryExpression//Name\n      [not(ancestor::ConditionalOrExpression/EqualityExpression[@Image = '=='])]\n      /@Image\n      satisfies starts-with($var, concat(PrimaryExpression/PrimaryPrefix/Name/@Image, '.'))]\n  /PrimaryExpression/PrimaryPrefix/Name\n|\n//ConditionalOrExpression\n  /EqualityExpression\n    [@Image = '==']\n    (: one side is null :)\n    [PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]\n    (: other side checks for the variable used somewhere in the first child of conditional or expression :)\n    [some $var in preceding-sibling::PrimaryExpression//Name\n      [not(ancestor::ConditionalAndExpression/EqualityExpression[@Image = '!='])]\n      /@Image\n      satisfies starts-with($var, concat(PrimaryExpression/PrimaryPrefix/Name/@Image, '.'))]\n  /PrimaryExpression/PrimaryPrefix/Name"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2236,7 +2250,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//AllocationExpression\n [ClassOrInterfaceType[@Image='SimpleDateFormat']]\n [Arguments[@ArgumentCount=1]]"
+      "default" : "//AllocationExpression\n [ClassOrInterfaceType[@Image='SimpleDateFormat']]\n [Arguments[@Size=1]]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2273,7 +2287,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//MethodDeclaration[@Name = 'equals']\n[   \n    (@Arity = 1\n    and not (MethodDeclarator/FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object'])\n    or not (ResultType/Type/PrimitiveType[@Image = 'boolean'])\n    )  or  (\n    @Arity = 2\n    and ResultType/Type/PrimitiveType[@Image = 'boolean']\n    and MethodDeclarator/FormalParameters//ClassOrInterfaceType[@Image = 'Object' or @Image = 'java.lang.Object']\n    and not(../Annotation/MarkerAnnotation/Name[@Image='Override'])\n    )\n]\n| //MethodDeclaration[@Name = 'equal']\n[\n    @Arity = 1\n    and MethodDeclarator/FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object']\n]"
+      "default" : "//MethodDeclaration[@Name = 'equals']\n[\n    (@Arity = 1\n    and not (MethodDeclarator/FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object'])\n    or not (ResultType/Type/PrimitiveType[@Image = 'boolean'])\n    )  or  (\n    @Arity = 2\n    and ResultType/Type/PrimitiveType[@Image = 'boolean']\n    and MethodDeclarator/FormalParameters//ClassOrInterfaceType[@Image = 'Object' or @Image = 'java.lang.Object']\n    and not(../Annotation/MarkerAnnotation/Name[@Image='Override'])\n    )\n]\n| //MethodDeclaration[@Name = 'equal']\n[\n    @Arity = 1\n    and MethodDeclarator/FormalParameters/FormalParameter/Type/ReferenceType/ClassOrInterfaceType\n        [@Image = 'Object' or @Image = 'java.lang.Object']\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2334,7 +2348,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//CatchStatement/Block/BlockStatement/Statement/StatementExpression\n/PrimaryExpression[PrimaryPrefix/Name[starts-with(@Image,\nconcat(ancestor::ClassOrInterfaceDeclaration/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration\n[Type//ClassOrInterfaceType[@Image='Log']]\n/VariableDeclarator/VariableDeclaratorId/@Image, '.'))]]\n[PrimarySuffix/Arguments[@ArgumentCount='1']]\n[PrimarySuffix/Arguments//Name/@Image = ancestor::CatchStatement/FormalParameter/VariableDeclaratorId/@Image]"
+      "default" : "//CatchStatement/Block/BlockStatement/Statement/StatementExpression\n/PrimaryExpression[PrimaryPrefix/Name[starts-with(@Image,\nconcat(ancestor::ClassOrInterfaceDeclaration/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration\n[Type//ClassOrInterfaceType[@Image='Log']]\n/VariableDeclarator/VariableDeclaratorId/@Image, '.'))]]\n[PrimarySuffix/Arguments[@Size='1']]\n[PrimarySuffix/Arguments//Name/@Image = ancestor::CatchStatement/FormalParameter/VariableDeclaratorId/@Image]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2352,7 +2366,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//PrimaryExpression\n[\nPrimaryPrefix\n[Name[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@ArgumentCount=0]]\n\nor\n\nPrimarySuffix\n[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@ArgumentCount=0]]\n]\n[not(PrimaryPrefix/Name[ends-with(@Image, 'toHexString')])]"
+      "default" : "//PrimaryExpression\n[\nPrimaryPrefix\n[Name[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@Size=0]]\n\nor\n\nPrimarySuffix\n[ends-with(@Image, 'toLowerCase') or ends-with(@Image, 'toUpperCase')]\n[following-sibling::PrimarySuffix[position() = 1]/Arguments[@Size=0]]\n]\n[not(PrimaryPrefix/Name[ends-with(@Image, 'toHexString')])]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2444,7 +2458,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//StatementExpression/PrimaryExpression\n[PrimarySuffix/Arguments[@ArgumentCount = '0']]\n[\n    PrimaryPrefix[\n        ./Name[@Image='notify' or ends-with(@Image,'.notify')]\n        or ../PrimarySuffix/@Image='notify'\n        or (./AllocationExpression and ../PrimarySuffix[@Image='notify'])\n    ]\n]"
+      "default" : "//StatementExpression/PrimaryExpression\n[PrimarySuffix/Arguments[@Size = '0']]\n[\n    PrimaryPrefix[\n        ./Name[@Image='notify' or ends-with(@Image,'.notify')]\n        or ../PrimarySuffix/@Image='notify'\n        or (./AllocationExpression and ../PrimarySuffix[@Image='notify'])\n    ]\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2629,7 +2643,7 @@
     "category" : "Performance",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//Statement[\n    (ForStatement) and (ForStatement//VariableInitializer//Literal[@IntLiteral='true' and @Image='0']) and (count(.//IfStatement)=0)\n   ]\n   //StatementExpression[\n    PrimaryExpression/PrimaryPrefix/Name[\n     substring-before(@Image,'.add') = ancestor::MethodDeclaration//LocalVariableDeclaration[\n      ./Type//ClassOrInterfaceType[\n       @Image = 'Collection' or \n       @Image = 'List' or @Image='ArrayList'\n      ]\n     ]\n     /VariableDeclarator/VariableDeclaratorId[\n      count(..//AllocationExpression/ClassOrInterfaceType[\n       @Image=\"ArrayList\"\n      ]\n      )=1\n     ]/@Image\n    ]\n   and\n   PrimaryExpression/PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Name\n   [\n     @Image = ancestor::MethodDeclaration[1]//LocalVariableDeclaration/VariableDeclarator/VariableDeclaratorId[@ArrayType=\"true\"]/@Image\n     or\n     @Image = ancestor::MethodDeclaration[1]//FormalParameter/VariableDeclaratorId/@Image\n   ]\n   /../..[count(.//PrimarySuffix)\n   =1]/PrimarySuffix/Expression/PrimaryExpression/PrimaryPrefix\n   /Name\n   ]"
+      "default" : "//Statement[\n    (ForStatement) and (ForStatement//VariableInitializer//Literal[@IntLiteral='true' and @Image='0']) and (count(.//IfStatement)=0)\n   ]\n   //StatementExpression[\n    PrimaryExpression/PrimaryPrefix/Name[\n     substring-before(@Image,'.add') = ancestor::MethodDeclaration//LocalVariableDeclaration[\n      ./Type//ClassOrInterfaceType[\n       @Image = 'Collection' or\n       @Image = 'List' or @Image='ArrayList'\n      ]\n     ]\n     /VariableDeclarator/VariableDeclaratorId[\n      count(..//AllocationExpression/ClassOrInterfaceType[\n       @Image=\"ArrayList\"\n      ]\n      )=1\n     ]/@Image\n    ]\n   and\n   PrimaryExpression/PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Name\n   [\n     @Image = ancestor::MethodDeclaration[1]//LocalVariableDeclaration/VariableDeclarator/VariableDeclaratorId[@ArrayType=\"true\"]/@Image\n     or\n     @Image = ancestor::MethodDeclaration[1]//FormalParameter/VariableDeclaratorId/@Image\n   ]\n   /../..[count(.//PrimarySuffix)\n   =1]/PrimarySuffix/Expression/PrimaryExpression/PrimaryPrefix\n   /Name\n   ]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2743,7 +2757,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//CompilationUnit/Content[\nnot(Element[@Name=\"meta\"][\n   Attribute[@Name=\"content\"]/AttributeValue[contains(lower-case(@Image),\"charset=utf-8\")]\n]) \nand \n    not(JspDirective[@Name='page']/JspDirectiveAttribute[@Name='contentType'][contains(lower-case(@Value),\"charset=utf-8\")])\n]"
+      "default" : "//CompilationUnit/Content[\nnot(Element[@Name=\"meta\"][\n   Attribute[@Name=\"content\"]/AttributeValue[contains(lower-case(@Image),\"charset=utf-8\")]\n])\nand\n    not(JspDirective[@Name='page']/JspDirectiveAttribute[@Name='contentType'][contains(lower-case(@Value),\"charset=utf-8\")])\n]"
     } ],
     "languages" : [ "JSP" ]
   }, {
@@ -2877,7 +2891,7 @@
       "default" : "1"
     }, {
       "name" : "xpath",
-      "default" : "//node()\n     [ (\n        local-name(.) = 'PackageSpecification'\n        or\n        local-name(.) = 'TypeSpecification'\n       )\n       and \n      (\n      count(/descendant::ProgramUnit[\n                                         not (\n                                                starts-with(@Name,'get')\n                                                or\n                                                starts-with(@Name,'set')\n                                                or\n                                                starts-with(@Name,'is')\n                                            )\n                                       ]\n           )\n      +\n      count(/descendant::TypeMethod[\n                                         not (\n                                                starts-with(@Name,'get')\n                                                or\n                                                starts-with(@Name,'set')\n                                                or\n                                                starts-with(@Name,'is')\n                                            )\n                                       ]\n           )\n      ) > $maxmethods\n     ]"
+      "default" : "//node()\n     [ (\n        local-name(.) = 'PackageSpecification'\n        or\n        local-name(.) = 'TypeSpecification'\n       )\n       and\n      (\n      count(/descendant::ProgramUnit[\n                                         not (\n                                                starts-with(@Name,'get')\n                                                or\n                                                starts-with(@Name,'set')\n                                                or\n                                                starts-with(@Name,'is')\n                                            )\n                                       ]\n           )\n      +\n      count(/descendant::TypeMethod[\n                                         not (\n                                                starts-with(@Name,'get')\n                                                or\n                                                starts-with(@Name,'set')\n                                                or\n                                                starts-with(@Name,'is')\n                                            )\n                                       ]\n           )\n      ) > $maxmethods\n     ]"
     } ],
     "languages" : [ "PLSQL" ]
   }, {
@@ -3020,7 +3034,7 @@
       "default" : "false"
     }, {
       "name" : "xpath",
-      "default" : "//node()[\n  contains(@select,'preceeding::')\n  or\n  contains(@select,'following::')\n  or\n  contains(@select,'descendant::')\n  or \n  contains(@select,'descendant-self::')\n  or (\n    ($checkSelfDescendantAbreviation = 'true' )\n    and\n    contains(@select,'//')\n    )\n]"
+      "default" : "//node()[\n  contains(@select,'preceeding::')\n  or\n  contains(@select,'following::')\n  or\n  contains(@select,'descendant::')\n  or\n  contains(@select,'descendant-self::')\n  or (\n    ($checkSelfDescendantAbreviation = 'true' )\n    and\n    contains(@select,'//')\n    )\n]"
     } ],
     "languages" : [ "XML" ]
   } ]

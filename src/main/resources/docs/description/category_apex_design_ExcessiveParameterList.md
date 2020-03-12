@@ -9,7 +9,7 @@ Example(s):
 public void addPerson(int birthYear, int birthMonth, int birthDate, int height, int weight, int ssn) {
     // ...
 }
-// preferred approach 
+// preferred approach
 public void addPerson(Date birthdate, BodyMeasurements measurements, int ssn) {
     // ...
 }

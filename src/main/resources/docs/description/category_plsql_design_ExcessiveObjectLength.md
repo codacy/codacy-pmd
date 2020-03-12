@@ -1,6 +1,6 @@
 Since: PMD 5.1
 
-Excessive object line lengths are usually indications that the object may be burdened with excessive 
+Excessive object line lengths are usually indications that the object may be burdened with excessive
 responsibilities that could be provided by other objects. In breaking these methods
 apart the code becomes more managable and ripe for reuse.
 

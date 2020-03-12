@@ -5,7 +5,7 @@ Denotes whether javadoc (formal) comments are required (or unwanted) for specifi
 Example(s):
 ```
 /**
-* 
+*
 *
 * @author Jon Doe
 */

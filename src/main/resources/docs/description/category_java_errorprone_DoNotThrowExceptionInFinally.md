@@ -1,6 +1,6 @@
 Since: PMD 4.2
 
-Throwing exceptions within a 'finally' block is confusing since they may mask other exceptions 
+Throwing exceptions within a 'finally' block is confusing since they may mask other exceptions
 or code defects.
 Note: This is a PMD implementation of the Lint4j rule &quot;A throw in a finally block&quot;
 

@@ -25,7 +25,9 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd-vm" % toolVersion withSources (),
     "net.sourceforge.pmd" % "pmd-xml" % toolVersion withSources (),
     "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion withSources (),
-    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources ()
+    "net.sourceforge.pmd" % "pmd-apex" % toolVersion withSources (),
+    // Workaround for https://github.com/pmd/pmd/issues/2081
+    "org.mozilla" % "rhino" % "1.7.8" force ()
   )
 }
 

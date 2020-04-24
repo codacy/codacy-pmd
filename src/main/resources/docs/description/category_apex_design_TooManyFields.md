@@ -8,11 +8,11 @@ Example(s):
 ```
 public class Person {
     // too many separate fields
-    int birthYear;
-    int birthMonth;
-    int birthDate;
-    float height;
-    float weight;
+    Integer birthYear;
+    Integer birthMonth;
+    Integer birthDate;
+    Double height;
+    Double weight;
 }
 
 public class Person {

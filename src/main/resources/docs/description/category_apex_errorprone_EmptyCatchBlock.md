@@ -7,11 +7,11 @@ or reported.
 Example(s):
 ```
 public void doSomething() {
-  ...
-  try {
-    insert accounts;
-  } catch (DmlException dmle) {
-    // not good
-  }
+    ...
+    try {
+        insert accounts;
+    } catch (DmlException dmle) {
+        // not good
+    }
 }
 ```

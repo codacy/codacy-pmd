@@ -28,7 +28,10 @@ public class Foo {
         if (a.Phone == null) {                          // +1
             a.Phone = phone;
             update a;
+            return true;
         }
+
+        return false;
     }
 
     // Has a cognitive complexity of 5

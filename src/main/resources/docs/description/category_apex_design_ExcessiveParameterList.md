@@ -6,7 +6,7 @@ same datatype. These situations usually denote the need for new objects to wrap 
 Example(s):
 ```
 // too many arguments liable to be mixed up
-public void addPerson(int birthYear, int birthMonth, int birthDate, int height, int weight, int ssn) {
+public void addPerson(Integer birthYear, Integer birthMonth, Integer birthDate, Integer height, Integer weight, Integer ssn) {
     // ...
 }
 // preferred approach

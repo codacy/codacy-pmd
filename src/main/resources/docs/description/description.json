@@ -711,11 +711,7 @@
 }, {
   "patternId" : "category_java_errorprone_ProperCloneImplementation",
   "title" : "Proper Clone Implementation",
-  "description" : "Object clone() should be implemented with super.clone()",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Object clone() should be implemented with super.clone()"
 }, {
   "patternId" : "category_java_errorprone_OverrideBothEqualsAndHashcode",
   "title" : "Override Both Equals And Hashcode",
@@ -794,19 +790,11 @@
 }, {
   "patternId" : "category_java_errorprone_JUnitStaticSuite",
   "title" : "JUnit Static Suite",
-  "description" : "You have a suite() method that is not both public and static, so JUnit won't call it to get your TestSuite.  Is that what you wanted to do?",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "You have a suite() method that is not both public and static, so JUnit won't call it to get your TestSuite.  Is that what you wanted to do?"
 }, {
   "patternId" : "category_java_errorprone_JUnitSpelling",
   "title" : "JUnit Spelling",
-  "description" : "You may have misspelled a JUnit framework method (setUp or tearDown)",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "You may have misspelled a JUnit framework method (setUp or tearDown)"
 }, {
   "patternId" : "category_java_errorprone_InvalidLogMessageFormat",
   "title" : "Invalid Log Message Format",
@@ -1981,19 +1969,11 @@
 }, {
   "patternId" : "category_java_bestpractices_PositionLiteralsFirstInComparisons",
   "title" : "Position Literals First In Comparisons",
-  "description" : "Position literals first in String comparisons",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Position literals first in String comparisons"
 }, {
   "patternId" : "category_java_bestpractices_PositionLiteralsFirstInCaseInsensitiveComparisons",
   "title" : "Position Literals First In Case Insensitive Comparisons",
-  "description" : "Position literals first in String comparisons for EqualsIgnoreCase",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Position literals first in String comparisons for EqualsIgnoreCase"
 }, {
   "patternId" : "category_java_bestpractices_OneDeclarationPerLine",
   "title" : "One Declaration Per Line",
@@ -2176,11 +2156,7 @@
 }, {
   "patternId" : "category_java_bestpractices_AbstractClassWithoutAbstractMethod",
   "title" : "Abstract Class Without Abstract Method",
-  "description" : "This abstract class does not have any abstract methods",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "This abstract class does not have any abstract methods"
 }, {
   "patternId" : "category_ecmascript_errorprone_InnaccurateNumericLiteral",
   "title" : "Innaccurate Numeric Literal",
@@ -2573,9 +2549,17 @@
   "title" : "Field Naming Conventions",
   "description" : "The {0} name ''{1}'' doesn''t match ''{2}''"
 }, {
+  "patternId" : "category_apex_codestyle_FieldDeclarationsShouldBeAtStart",
+  "title" : "Field Declarations Should Be At Start",
+  "description" : "Field declaration for ''{0}'' should be before method declarations in its class"
+}, {
   "patternId" : "category_apex_codestyle_ClassNamingConventions",
   "title" : "Class Naming Conventions",
   "description" : "The {0} name ''{1}'' doesn''t match ''{2}''"
+}, {
+  "patternId" : "category_apex_bestpractices_UnusedLocalVariable",
+  "title" : "Unused Local Variable",
+  "description" : "Variable ''{0}'' defined but not used"
 }, {
   "patternId" : "category_apex_bestpractices_DebugsShouldUseLoggingLevel",
   "title" : "Debugs Should Use Logging Level",

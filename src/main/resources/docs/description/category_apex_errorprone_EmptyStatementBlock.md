@@ -6,9 +6,9 @@ Example(s):
 ```
 public class Foo {
 
-   private int _bar;
+   private Integer _bar;
 
-   public void setBar(int bar) {
+   public void setBar(Integer bar) {
         // empty
    }
 

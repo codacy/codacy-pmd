@@ -17,7 +17,7 @@ public class Foo {
 public class Foo {
     public void bar() {
         try {
-            int x=2;
+            Integer x=2;
         } finally {
             // empty!
         }

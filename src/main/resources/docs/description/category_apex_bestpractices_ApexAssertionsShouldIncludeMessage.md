@@ -8,7 +8,7 @@ Example(s):
 ```
 @isTest
 public class Foo {
-     @isTest
+    @isTest
     static void methodATest() {
         System.assertNotEquals('123', o.StageName); // not good
         System.assertEquals('123', o.StageName, 'Opportunity stageName is wrong.'); // good

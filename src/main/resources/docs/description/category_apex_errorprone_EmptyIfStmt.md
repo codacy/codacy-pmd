@@ -5,10 +5,10 @@ Empty If Statement finds instances where a condition is checked but nothing is d
 Example(s):
 ```
 public class Foo {
-  public void bar(Integer x) {
-    if (x == 0) {
-      // empty!
+    public void bar(Integer x) {
+        if (x == 0) {
+            // empty!
+        }
     }
-  }
 }
 ```

@@ -13,6 +13,8 @@ object Languages {
     "visualforce" -> Set("vf")
   )
 
+  val invalidExtensions = Set(".jsx", ".jsm", ".vue")
+
   def languages: Set[String] = languagesAlias.keySet
 
   def aliasByLang(name: String): Set[String] = languagesAlias.getOrElse(name.toLowerCase(), Set(name.toLowerCase()))

@@ -4,13 +4,13 @@ import java.io.{File => JavaFile}
 import java.nio.file.{Files, Path, Paths}
 import java.util.Collections
 
-import com.codacy.plugins.api.{ErrorMessage, Options, Source}
 import com.codacy.plugins.api.results.{Parameter, Pattern, Result, Tool}
+import com.codacy.plugins.api.{ErrorMessage, Options, Source}
 import com.codacy.tools.scala.seed.utils.FileHelper
 import net.sourceforge.pmd
 import net.sourceforge.pmd.lang.Language
 import net.sourceforge.pmd.renderers.Renderer
-import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RuleSets => PMDRuleSets, RulesetsFactoryUtils}
+import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RulesetsFactoryUtils, RuleSets => PMDRuleSets}
 import play.api.libs.json.{JsString, JsValue, Json}
 
 import scala.jdk.CollectionConverters._
@@ -35,7 +35,10 @@ object PMD extends Tool {
       case None =>
         source.path
       case Some(files) =>
-        files.map(_.path).mkString(",")
+        files
+          .map(_.path)
+          .filter(filename => !Languages.invalidExtensions.exists(filename.endsWith))
+          .mkString(",")
     }
     pmdConfig.setInputPaths(filesStr)
 

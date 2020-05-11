@@ -40,7 +40,10 @@ object PMD extends Tool {
           .filter(filename => !Languages.invalidExtensions.exists(filename.endsWith))
           .mkString(",")
     }
-    pmdConfig.setInputPaths(filesStr)
+
+    if (filesStr.nonEmpty) {
+      pmdConfig.setInputPaths(filesStr)
+    }
 
     configuration match {
       case Some(config) =>

@@ -329,6 +329,14 @@
   "title" : "Use Index Of Char",
   "description" : "String.indexOf(char) is faster than String.indexOf(String)."
 }, {
+  "patternId" : "category_java_performance_UseIOStreamsWithApacheCommonsFileItem",
+  "title" : "Use IO Streams With Apache Commons File Item",
+  "description" : "Avoid memory intensive FileItem.get() or FileItem.getString()",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
   "patternId" : "category_java_performance_UseArraysAsList",
   "title" : "Use Arrays As List",
   "description" : "Use asList instead of tight loops",
@@ -463,6 +471,14 @@
   "patternId" : "category_java_performance_AvoidFileStream",
   "title" : "Avoid File Stream",
   "description" : "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+  "parameters" : [ {
+    "name" : "xpath",
+    "description" : "xpath"
+  } ]
+}, {
+  "patternId" : "category_java_performance_AvoidCalendarDateCreation",
+  "title" : "Avoid Calendar Date Creation",
+  "description" : "A Calendar is used to create a Date or DateTime, this is expensive.",
   "parameters" : [ {
     "name" : "xpath",
     "description" : "xpath"
@@ -1324,7 +1340,7 @@
 }, {
   "patternId" : "category_java_design_NPathComplexity",
   "title" : "NPath Complexity",
-  "description" : "The {0} ''{1}'' has an NPath complexity of {2}"
+  "description" : "The {0} ''{1}'' has an NPath complexity of {2}, current threshold is {3}"
 }, {
   "patternId" : "category_java_design_LoosePackageCoupling",
   "title" : "Loose Package Coupling",
@@ -1517,6 +1533,9 @@
   "title" : "Use Diamond Operator",
   "description" : "Explicit type arguments can be replaced by Diamond Operator",
   "parameters" : [ {
+    "name" : "java7Compatibility",
+    "description" : "If disabled, the rule shows also violations that are applicable for java8+"
+  }, {
     "name" : "xpath",
     "description" : "xpath"
   } ]
@@ -1540,6 +1559,10 @@
   "patternId" : "category_java_codestyle_UnnecessaryConstructor",
   "title" : "Unnecessary Constructor",
   "description" : "Avoid unnecessary constructors - the compiler will generate these for you"
+}, {
+  "patternId" : "category_java_codestyle_UnnecessaryCast",
+  "title" : "Unnecessary Cast",
+  "description" : "Avoid unnecessary casts"
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryAnnotationValueElement",
   "title" : "Unnecessary Annotation Value ELement",
@@ -1967,14 +1990,6 @@
   "title" : "Preserve Stack Trace",
   "description" : "New exception is thrown in catch block, original stack trace may be lost"
 }, {
-  "patternId" : "category_java_bestpractices_PositionLiteralsFirstInComparisons",
-  "title" : "Position Literals First In Comparisons",
-  "description" : "Position literals first in String comparisons"
-}, {
-  "patternId" : "category_java_bestpractices_PositionLiteralsFirstInCaseInsensitiveComparisons",
-  "title" : "Position Literals First In Case Insensitive Comparisons",
-  "description" : "Position literals first in String comparisons for EqualsIgnoreCase"
-}, {
   "patternId" : "category_java_bestpractices_OneDeclarationPerLine",
   "title" : "One Declaration Per Line",
   "description" : "Use one line for each declaration, it enhances code readability.",
@@ -1997,6 +2012,10 @@
   "patternId" : "category_java_bestpractices_LooseCoupling",
   "title" : "Loose Coupling",
   "description" : "Avoid using implementation types like ''{0}''; use the interface instead"
+}, {
+  "patternId" : "category_java_bestpractices_LiteralsFirstInComparisons",
+  "title" : "Literals First In Comparisons",
+  "description" : "Position literals first in String comparisons"
 }, {
   "patternId" : "category_java_bestpractices_JUnitUseExpected",
   "title" : "JUnit Use Expected",

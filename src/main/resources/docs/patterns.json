@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.23.0",
+  "version" : "6.25.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -557,7 +557,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//PrimaryExpression\n [PrimaryPrefix/Name[contains(@Image,'printStackTrace')]]\n [PrimarySuffix[not(boolean(Arguments/ArgumentList/Expression))]]"
+      "default" : "//PrimaryExpression[\n   ( PrimaryPrefix[Name[contains(@Image,'printStackTrace')]]\n   | PrimarySuffix[@Image='printStackTrace']\n   )/following-sibling::*[1][self::PrimarySuffix/Arguments[@Size=0]]\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -708,6 +708,11 @@
     "category" : "CodeStyle",
     "languages" : [ "Java" ]
   }, {
+    "patternId" : "category_java_bestpractices_LiteralsFirstInComparisons",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "languages" : [ "Java" ]
+  }, {
     "patternId" : "category_java_bestpractices_LooseCoupling",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -733,16 +738,6 @@
       "name" : "xpath",
       "default" : "//LocalVariableDeclaration\n   [not(parent::ForInit)]\n   [count(VariableDeclarator) > 1]\n   [$strictMode or count(distinct-values(VariableDeclarator/@BeginLine)) != count(VariableDeclarator)]\n|\n//FieldDeclaration\n   [count(VariableDeclarator) > 1]\n   [$strictMode or count(distinct-values(VariableDeclarator/@BeginLine)) != count(VariableDeclarator)]"
     } ],
-    "languages" : [ "Java" ]
-  }, {
-    "patternId" : "category_java_bestpractices_PositionLiteralsFirstInCaseInsensitiveComparisons",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "languages" : [ "Java" ]
-  }, {
-    "patternId" : "category_java_bestpractices_PositionLiteralsFirstInComparisons",
-    "level" : "Warning",
-    "category" : "CodeStyle",
     "languages" : [ "Java" ]
   }, {
     "patternId" : "category_java_bestpractices_PreserveStackTrace",
@@ -999,7 +994,7 @@
     "category" : "CodeStyle",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//ClassOrInterfaceDeclaration[@Interface= false()]\n/ClassOrInterfaceBody\n/ClassOrInterfaceBodyDeclaration\n[not(Annotation//Name[ends-with(@Image, 'VisibleForTesting')])]\n[\nFieldDeclaration[@PackagePrivate= true()]\nor MethodDeclaration[@PackagePrivate= true()]\n]"
+      "default" : "//ClassOrInterfaceDeclaration[@Interface= false()]\n/ClassOrInterfaceBody\n/ClassOrInterfaceBodyDeclaration\n[not(Annotation//Name[\n    pmd-java:typeIs('org.junit.jupiter.api.Test')\n    or pmd-java:typeIs('org.junit.jupiter.api.RepeatedTest')\n    or pmd-java:typeIs('org.junit.jupiter.api.ParameterizedTest')\n    or pmd-java:typeIs('org.junit.jupiter.api.TestFactory')\n    or pmd-java:typeIs('org.junit.jupiter.api.TestTemplate')\n    or pmd-java:typeIs('org.junit.jupiter.api.BeforeAll')\n    or pmd-java:typeIs('org.junit.jupiter.api.AfterAll')\n    or pmd-java:typeIs('org.junit.jupiter.api.BeforeEach')\n    or pmd-java:typeIs('org.junit.jupiter.api.AfterEach')\n    or ends-with(@Image, 'VisibleForTesting')])]\n[\nFieldDeclaration[@PackagePrivate= true()]\nor MethodDeclaration[@PackagePrivate= true()]\n]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -1232,6 +1227,11 @@
     "category" : "CodeStyle",
     "languages" : [ "Java" ]
   }, {
+    "patternId" : "category_java_codestyle_UnnecessaryCast",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "languages" : [ "Java" ]
+  }, {
     "patternId" : "category_java_codestyle_UnnecessaryConstructor",
     "level" : "Info",
     "category" : "CodeStyle",
@@ -1261,8 +1261,11 @@
     "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
+      "name" : "java7Compatibility",
+      "default" : "false"
+    }, {
       "name" : "xpath",
-      "default" : "(\n//VariableInitializer[preceding-sibling::VariableDeclaratorId[1]/@TypeInferred=false()]\n|\n//StatementExpression[AssignmentOperator and PrimaryExpression/PrimaryPrefix[not(Expression)]]\n)\n/Expression/PrimaryExpression[not(PrimarySuffix) and not(ancestor::ArgumentList)]\n/PrimaryPrefix\n/AllocationExpression\n    [@AnonymousClass=false()]\n    [ClassOrInterfaceType/TypeArguments[@Diamond=false() and not(TypeArgument//TypeArguments)]]\n    [not(ArrayDimsAndInits)]"
+      "default" : "(\n//VariableInitializer[preceding-sibling::VariableDeclaratorId[1]/@TypeInferred=false()]\n|\n//StatementExpression[AssignmentOperator and PrimaryExpression/PrimaryPrefix[not(Expression)]]\n)\n/(Expression | Expression[$java7Compatibility = false()]/ConditionalExpression | Expression[$java7Compatibility = false()]/ConditionalExpression/Expression)\n/PrimaryExpression[not(PrimarySuffix) and not(ancestor::ArgumentList)]\n/PrimaryPrefix\n/AllocationExpression\n    [@AnonymousClass=false()]\n    [ClassOrInterfaceType/TypeArguments[@Diamond=false() and not($java7Compatibility = true() and .//TypeArgument[@Wildcard=true()])]]\n    [not(ArrayDimsAndInits)]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2361,7 +2364,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "xpath",
-      "default" : "//PrimarySuffix[@Image='getClassLoader']"
+      "default" : "//PrimarySuffix[@Image='getClassLoader'] | //PrimaryPrefix[ends-with(Name/@Image, '.getClassLoader')]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2468,6 +2471,15 @@
     "parameters" : [ {
       "name" : "xpath",
       "default" : "//Statement[(ForStatement or WhileStatement) and\ncount(*//AssignmentOperator[@Image = '='])=1\nand\n*/Statement\n[\n./Block/BlockStatement/Statement/StatementExpression/PrimaryExpression\n/PrimaryPrefix/Name/../../PrimarySuffix/Expression\n[(PrimaryExpression or AdditiveExpression) and count\n(.//PrimaryPrefix/Name)=1]//PrimaryPrefix/Name/@Image\nand\n./Block/BlockStatement/Statement/StatementExpression/Expression/PrimaryExpression\n/PrimaryPrefix/Name/../../PrimarySuffix[count\n(..//PrimarySuffix)=1]/Expression[(PrimaryExpression\nor AdditiveExpression) and count(.//PrimaryPrefix/Name)=1]\n//PrimaryPrefix/Name/@Image\n]]"
+    } ],
+    "languages" : [ "Java" ]
+  }, {
+    "patternId" : "category_java_performance_AvoidCalendarDateCreation",
+    "level" : "Warning",
+    "category" : "Performance",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//PrimaryPrefix[Name[ends-with(@Image, 'Calendar.getInstance')]] [count(../PrimarySuffix) > 2 and ../PrimarySuffix[last()-1][@Image = 'getTime' or @Image='getTimeInMillis']]\n|\n//MethodDeclaration[not(MethodDeclarator/FormalParameters//ClassOrInterfaceType[pmd-java:typeIs('java.util.Calendar')])]\n  /Block/BlockStatement//PrimaryExpression\n  /PrimaryPrefix/Name\n    [pmd-java:typeIs('java.util.Calendar')]\n    [every $var in @Image satisfies (\n       (ends-with($var, '.getTime') or ends-with($var, '.getTimeInMillis'))\n       and\n       (: ignore if .set* or .add* or .clear is called on the variable :)\n       not(ancestor::Block/BlockStatement//Name[\n          starts-with(@Image, concat((tokenize($var, '\\.'), $var)[1], '.set'))\n          or\n          starts-with(@Image, concat((tokenize($var, '\\.'), $var)[1], '.add'))\n          or\n          starts-with(@Image, concat((tokenize($var, '\\.'), $var)[1], '.clear'))\n       ])\n    )]\n|\n//ClassOrInterfaceType[pmd-java:typeIs('org.joda.time.DateTime') or pmd-java:typeIs('org.joda.time.LocalDateTime')][../Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Name[ends-with(@Image, 'Calendar.getInstance')]]"
     } ],
     "languages" : [ "Java" ]
   }, {
@@ -2630,6 +2642,15 @@
     "parameters" : [ {
       "name" : "xpath",
       "default" : "//Statement[\n    (ForStatement) and (ForStatement//VariableInitializer//Literal[@IntLiteral= true() and @Image='0']) and (not(.//IfStatement))\n   ]\n   //StatementExpression[\n    PrimaryExpression/PrimaryPrefix/Name[\n     substring-before(@Image,'.add') = ancestor::MethodDeclaration//LocalVariableDeclaration[\n      ./Type//ClassOrInterfaceType[\n       @Image = 'Collection' or\n       @Image = 'List' or @Image='ArrayList'\n      ]\n     ]\n     /VariableDeclarator/VariableDeclaratorId[\n      count(..//AllocationExpression/ClassOrInterfaceType[\n       @Image=\"ArrayList\"\n      ]\n      )=1\n     ]/@Name\n    ]\n   and\n   PrimaryExpression/PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Name\n   [\n     @Image = ancestor::MethodDeclaration[1]//LocalVariableDeclaration/VariableDeclarator/VariableDeclaratorId[@ArrayType=true()]/@Name\n     or\n     @Image = ancestor::MethodDeclaration[1]//FormalParameter/VariableDeclaratorId/@Name\n   ]\n   /../..[count(.//PrimarySuffix)\n   =1]/PrimarySuffix/Expression/PrimaryExpression/PrimaryPrefix\n   /Name\n   ]"
+    } ],
+    "languages" : [ "Java" ]
+  }, {
+    "patternId" : "category_java_performance_UseIOStreamsWithApacheCommonsFileItem",
+    "level" : "Warning",
+    "category" : "Performance",
+    "parameters" : [ {
+      "name" : "xpath",
+      "default" : "//PrimaryPrefix/Name\n[ends-with(@Image, '.get') or ends-with(@Image, '.getString')]\n[\n    starts-with(@Image, concat(\n        ancestor::MethodDeclaration//FormalParameter/Type/ReferenceType/ClassOrInterfaceType[pmd-java:typeIs('org.apache.commons.fileupload.FileItem')]/../../..//VariableDeclaratorId/@Name,\n        '.')\n    ) or\n    starts-with(@Image, concat(\n        ancestor::MethodDeclaration//LocalVariableDeclaration/Type/ReferenceType/ClassOrInterfaceType[pmd-java:typeIs('org.apache.commons.fileupload.FileItem')]/../../..//VariableDeclaratorId/@Name,\n        '.')\n    ) or\n    starts-with(@Image, concat(\n        ancestor::ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration/Type/ReferenceType/ClassOrInterfaceType[pmd-java:typeIs('org.apache.commons.fileupload.FileItem')]/../../..//VariableDeclaratorId/@Name,\n        '.')\n    )\n]"
     } ],
     "languages" : [ "Java" ]
   }, {

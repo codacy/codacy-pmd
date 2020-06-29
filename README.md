@@ -35,7 +35,7 @@ docker run --user=docker --rm=true -v <PATH-TO-CODE>:/src -v <PATH-TO>/ruleset.x
 
 2. Run the DocGenerator
 ```sh
-sbt "run-main codacy.pmd.DocGenerator"
+sbt "runMain com.codacy.pmd.DocGenerator"
 ```
 
 ## Docs

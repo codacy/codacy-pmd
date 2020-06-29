@@ -5,11 +5,11 @@ organization := "codacy"
 
 name := "codacy-pmd"
 
-scalaVersion := "2.13.1"
+scalaVersion := "2.13.3"
 
 lazy val toolVersionKey = SettingKey[String]("the version of the underlying tool retrieved from patterns.json")
 
-toolVersionKey := "6.23.0"
+toolVersionKey := "6.25.0"
 
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
@@ -84,3 +84,5 @@ dockerCommands := dockerCommands.value.flatMap {
     )
   case other => List(other)
 }
+
+scalacOptions -= "-Xfatal-warnings"

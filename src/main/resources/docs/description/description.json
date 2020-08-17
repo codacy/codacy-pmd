@@ -5,26 +5,15 @@
   "parameters" : [ {
     "name" : "checkSelfDescendantAbreviation",
     "description" : "descendant::self abreviation, '//', will also trigger this rule."
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_xsl_codestyle_UseConcatOnce",
   "title" : "Use Concat Once",
-  "description" : "The xpath concat() function accepts as many arguments as required, you may be able to factorize this expression",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The xpath concat() function accepts as many arguments as required, you may be able to factorize this expression"
 }, {
   "patternId" : "category_xml_errorprone_MistypedCDATASection",
   "title" : "Mistyped CDATA Section",
-  "description" : "Potentially mistyped CDATA section with extra [ at beginning or ] at the end.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Potentially mistyped CDATA section with extra [ at beginning or ] at the end."
 }, {
   "patternId" : "category_vm_errorprone_EmptyIfStmt",
   "title" : "Empty If Stmt",
@@ -36,11 +25,7 @@
 }, {
   "patternId" : "category_vm_design_NoInlineStyles",
   "title" : "No Inline Styles",
-  "description" : "Avoid inline styles",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid inline styles"
 }, {
   "patternId" : "category_vm_design_NoInlineJavaScript",
   "title" : "No Inline JavaScript",
@@ -80,11 +65,7 @@
 }, {
   "patternId" : "category_pom_errorprone_ProjectVersionAsDependencyVersion",
   "title" : "Project Version As Dependency Version",
-  "description" : "Do not use project.version to express a dependency version.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not use project.version to express a dependency version."
 }, {
   "patternId" : "category_pom_errorprone_InvalidDependencyTypes",
   "title" : "Invalid Dependency Types",
@@ -92,34 +73,19 @@
   "parameters" : [ {
     "name" : "validTypes",
     "description" : "Set of valid types."
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_plsql_errorprone_TO_TIMESTAMPWithoutDateFormat",
   "title" : "TO_TIMESTAMP Without Date Format",
-  "description" : "TO_TIMESTAMP without date format",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "TO_TIMESTAMP without date format"
 }, {
   "patternId" : "category_plsql_errorprone_TO_DATE_TO_CHAR",
   "title" : "TO_DATE_TO_CHAR",
-  "description" : "TO_DATE(TO_CHAR(variable)) instead of TRUNC(variable)",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "TO_DATE(TO_CHAR(variable)) instead of TRUNC(variable)"
 }, {
   "patternId" : "category_plsql_errorprone_TO_DATEWithoutDateFormat",
   "title" : "TO_DATE Without Date Format",
-  "description" : "TO_DATE without date format",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "TO_DATE without date format"
 }, {
   "patternId" : "category_plsql_design_TooManyMethods",
   "title" : "Too Many Methods",
@@ -127,9 +93,6 @@
   "parameters" : [ {
     "name" : "maxmethods",
     "description" : "The method count reporting threshold"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_plsql_design_TooManyFields",
@@ -178,11 +141,7 @@
 }, {
   "patternId" : "category_plsql_codestyle_MisplacedPragma",
   "title" : "Misplaced Pragma",
-  "description" : "Pragma should be used only inside the declaration block before 'BEGIN'.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Pragma should be used only inside the declaration block before 'BEGIN'."
 }, {
   "patternId" : "category_plsql_codestyle_LineLength",
   "title" : "Line Length",
@@ -200,9 +159,6 @@
   }, {
     "name" : "indexPattern",
     "description" : "The pattern used for the index loop variable"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_plsql_codestyle_CodeFormat",
@@ -215,11 +171,7 @@
 }, {
   "patternId" : "category_plsql_bestpractices_TomKytesDespair",
   "title" : "Tom Kytes Despair",
-  "description" : "WHEN OTHERS THEN NULL - when you do this, Tom Kyte cries",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "WHEN OTHERS THEN NULL - when you do this, Tom Kyte cries"
 }, {
   "patternId" : "category_jsp_security_NoUnsanitizedJSPExpression",
   "title" : "No Unsanitized JSP Expression",
@@ -227,35 +179,19 @@
 }, {
   "patternId" : "category_jsp_security_IframeMissingSrcAttribute",
   "title" : "Iframe Missing Src Attribute",
-  "description" : "IFrames must have a src attribute.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "IFrames must have a src attribute."
 }, {
   "patternId" : "category_jsp_errorprone_JspEncoding",
   "title" : "JSP Encoding",
-  "description" : "JSP file should use UTF-8 encoding",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "JSP file should use UTF-8 encoding"
 }, {
   "patternId" : "category_jsp_design_NoScriptlets",
   "title" : "No Scriptlets",
-  "description" : "Avoid having scriptlets inside a JSP file.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid having scriptlets inside a JSP file."
 }, {
   "patternId" : "category_jsp_design_NoLongScripts",
   "title" : "No Long Scripts",
-  "description" : "Avoid having long scripts (e.g. Javascript) inside a JSP file.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid having long scripts (e.g. Javascript) inside a JSP file."
 }, {
   "patternId" : "category_jsp_design_NoInlineStyleInformation",
   "title" : "No Inline Style Information",
@@ -263,11 +199,7 @@
 }, {
   "patternId" : "category_jsp_design_NoInlineScript",
   "title" : "No Inline Script",
-  "description" : "Avoiding inlining HTML script content",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoiding inlining HTML script content"
 }, {
   "patternId" : "category_jsp_codestyle_DuplicateJspImports",
   "title" : "Duplicate JSP Imports",
@@ -275,35 +207,19 @@
 }, {
   "patternId" : "category_jsp_bestpractices_NoJspForward",
   "title" : "No JSP Forward",
-  "description" : "Do not do a forward from within a JSP file.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not do a forward from within a JSP file."
 }, {
   "patternId" : "category_jsp_bestpractices_NoHtmlComments",
   "title" : "No HTML Comments",
-  "description" : "Use JSP comments instead of HTML comments",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use JSP comments instead of HTML comments"
 }, {
   "patternId" : "category_jsp_bestpractices_NoClassAttribute",
   "title" : "No Class Attribute",
-  "description" : "Do not use an attribute called 'class'.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not use an attribute called 'class'."
 }, {
   "patternId" : "category_jsp_bestpractices_DontNestJsfInJstlIteration",
   "title" : "Dont Nest JSF In Jstl Iteration",
-  "description" : "Do not nest JSF component custom actions inside a custom action that iterates over its body.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not nest JSF component custom actions inside a custom action that iterates over its body."
 }, {
   "patternId" : "category_java_security_InsecureCryptoIv",
   "title" : "Insecure Crypto Iv",
@@ -331,27 +247,15 @@
 }, {
   "patternId" : "category_java_performance_UseIOStreamsWithApacheCommonsFileItem",
   "title" : "Use IO Streams With Apache Commons File Item",
-  "description" : "Avoid memory intensive FileItem.get() or FileItem.getString()",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid memory intensive FileItem.get() or FileItem.getString()"
 }, {
   "patternId" : "category_java_performance_UseArraysAsList",
   "title" : "Use Arrays As List",
-  "description" : "Use asList instead of tight loops",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use asList instead of tight loops"
 }, {
   "patternId" : "category_java_performance_UseArrayListInsteadOfVector",
   "title" : "Use ArrayList Instead Of Vector",
-  "description" : "Use ArrayList instead of Vector",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use ArrayList instead of Vector"
 }, {
   "patternId" : "category_java_performance_UnnecessaryWrapperObjectCreation",
   "title" : "Unnecessary Wrapper Object Creation",
@@ -363,9 +267,6 @@
   "parameters" : [ {
     "name" : "minimumNumberCaseForASwitch",
     "description" : "Minimum number of branches for a switch"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_performance_StringToString",
@@ -378,19 +279,11 @@
 }, {
   "patternId" : "category_java_performance_SimplifyStartsWith",
   "title" : "Simplify Starts With",
-  "description" : "This call to String.startsWith can be rewritten using String.charAt(0)",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "This call to String.startsWith can be rewritten using String.charAt(0)"
 }, {
   "patternId" : "category_java_performance_ShortInstantiation",
   "title" : "Short Instantiation",
-  "description" : "Avoid instantiating Short objects. Call Short.valueOf() instead",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid instantiating Short objects. Call Short.valueOf() instead"
 }, {
   "patternId" : "category_java_performance_RedundantFieldInitializer",
   "title" : "Redundant Field Initializer",
@@ -398,27 +291,15 @@
 }, {
   "patternId" : "category_java_performance_OptimizableToArrayCall",
   "title" : "Optimizable To Array Call",
-  "description" : "This call to Collection.toArray() may be optimizable",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "This call to Collection.toArray() may be optimizable"
 }, {
   "patternId" : "category_java_performance_LongInstantiation",
   "title" : "Long Instantiation",
-  "description" : "Avoid instantiating Long objects.Call Long.valueOf() instead",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid instantiating Long objects.Call Long.valueOf() instead"
 }, {
   "patternId" : "category_java_performance_IntegerInstantiation",
   "title" : "Integer Instantiation",
-  "description" : "Avoid instantiating Integer objects. Call Integer.valueOf() instead.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid instantiating Integer objects. Call Integer.valueOf() instead."
 }, {
   "patternId" : "category_java_performance_InsufficientStringBufferDeclaration",
   "title" : "Insufficient String Buffer Declaration",
@@ -442,11 +323,7 @@
 }, {
   "patternId" : "category_java_performance_ByteInstantiation",
   "title" : "Byte Instantiation",
-  "description" : "Avoid instantiating Byte objects. Call Byte.valueOf() instead",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid instantiating Byte objects. Call Byte.valueOf() instead"
 }, {
   "patternId" : "category_java_performance_BooleanInstantiation",
   "title" : "Boolean Instantiation",
@@ -458,11 +335,7 @@
 }, {
   "patternId" : "category_java_performance_AvoidUsingShortType",
   "title" : "Avoid Using Short Type",
-  "description" : "Do not use the short type",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not use the short type"
 }, {
   "patternId" : "category_java_performance_AvoidInstantiatingObjectsInLoops",
   "title" : "Avoid Instantiating Objects In Loops",
@@ -470,27 +343,15 @@
 }, {
   "patternId" : "category_java_performance_AvoidFileStream",
   "title" : "Avoid File Stream",
-  "description" : "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter"
 }, {
   "patternId" : "category_java_performance_AvoidCalendarDateCreation",
   "title" : "Avoid Calendar Date Creation",
-  "description" : "A Calendar is used to create a Date or DateTime, this is expensive.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "A Calendar is used to create a Date or DateTime, this is expensive."
 }, {
   "patternId" : "category_java_performance_AvoidArrayLoops",
   "title" : "Avoid Array Loops",
-  "description" : "System.arraycopy is more efficient",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "System.arraycopy is more efficient"
 }, {
   "patternId" : "category_java_performance_AppendCharacterWithChar",
   "title" : "Append Character With Char",
@@ -498,27 +359,15 @@
 }, {
   "patternId" : "category_java_performance_AddEmptyString",
   "title" : "Add Empty String",
-  "description" : "Do not add empty strings",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not add empty strings"
 }, {
   "patternId" : "category_java_multithreading_UseNotifyAllInsteadOfNotify",
   "title" : "Use Notify All Instead Of Notify",
-  "description" : "Call Thread.notifyAll() rather than Thread.notify()",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Call Thread.notifyAll() rather than Thread.notify()"
 }, {
   "patternId" : "category_java_multithreading_UseConcurrentHashMap",
   "title" : "Use Concurrent Hash Map",
-  "description" : "If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation"
 }, {
   "patternId" : "category_java_multithreading_UnsynchronizedStaticFormatter",
   "title" : "Unsynchronized Static Formatter",
@@ -534,43 +383,23 @@
 }, {
   "patternId" : "category_java_multithreading_DontCallThreadRun",
   "title" : "Dont Call Thread Run",
-  "description" : "Don't call Thread.run() explicitly, use Thread.start()",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Don't call Thread.run() explicitly, use Thread.start()"
 }, {
   "patternId" : "category_java_multithreading_DoNotUseThreads",
   "title" : "Do Not Use Threads",
-  "description" : "To be compliant to J2EE, a webapp should not use any thread.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "To be compliant to J2EE, a webapp should not use any thread."
 }, {
   "patternId" : "category_java_multithreading_AvoidUsingVolatile",
   "title" : "Avoid Using Volatile",
-  "description" : "Use of modifier volatile is not recommended.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use of modifier volatile is not recommended."
 }, {
   "patternId" : "category_java_multithreading_AvoidThreadGroup",
   "title" : "Avoid Thread Group",
-  "description" : "Avoid using java.lang.ThreadGroup; it is not thread safe",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using java.lang.ThreadGroup; it is not thread safe"
 }, {
   "patternId" : "category_java_multithreading_AvoidSynchronizedAtMethodLevel",
   "title" : "Avoid Synchronized At Method Level",
-  "description" : "Use block level rather than method level synchronization",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use block level rather than method level synchronization"
 }, {
   "patternId" : "category_java_errorprone_UselessOperationOnImmutable",
   "title" : "Useless Operation On Immutable",
@@ -578,43 +407,23 @@
 }, {
   "patternId" : "category_java_errorprone_UseProperClassLoader",
   "title" : "Use Proper Class Loader",
-  "description" : "In J2EE, getClassLoader() might not work as expected.  Use Thread.currentThread().getContextClassLoader() instead.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "In J2EE, getClassLoader() might not work as expected.  Use Thread.currentThread().getContextClassLoader() instead."
 }, {
   "patternId" : "category_java_errorprone_UseLocaleWithCaseConversions",
   "title" : "Use Locale With Case Conversions",
-  "description" : "When doing a String.toLowerCase()/toUpperCase() call, use a Locale",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "When doing a String.toLowerCase()/toUpperCase() call, use a Locale"
 }, {
   "patternId" : "category_java_errorprone_UseEqualsToCompareStrings",
   "title" : "Use Equals To Compare Strings",
-  "description" : "Use equals() to compare strings instead of ''=='' or ''!=''",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use equals() to compare strings instead of ''=='' or ''!=''"
 }, {
   "patternId" : "category_java_errorprone_UseCorrectExceptionLogging",
   "title" : "Use Correct Exception Logging",
-  "description" : "Use the correct logging statement for logging exceptions",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use the correct logging statement for logging exceptions"
 }, {
   "patternId" : "category_java_errorprone_UnusedNullCheckInEquals",
   "title" : "Unused Null Check In Equals",
-  "description" : "Invoke equals() on the object you''ve already ensured is not null",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Invoke equals() on the object you''ve already ensured is not null"
 }, {
   "patternId" : "category_java_errorprone_UnnecessaryConversionTemporary",
   "title" : "Unnecessary Conversion Temporary",
@@ -626,19 +435,11 @@
 }, {
   "patternId" : "category_java_errorprone_UnnecessaryBooleanAssertion",
   "title" : "Unnecessary Boolean Assertion",
-  "description" : "assertTrue(true) or similar statements are unnecessary",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "assertTrue(true) or similar statements are unnecessary"
 }, {
   "patternId" : "category_java_errorprone_UnconditionalIfStatement",
   "title" : "Unconditional If Statement",
-  "description" : "Do not use 'if' statements that are always true or always false",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not use 'if' statements that are always true or always false"
 }, {
   "patternId" : "category_java_errorprone_TestClassWithoutTestCases",
   "title" : "Test Class Without Test Cases",
@@ -654,27 +455,15 @@
 }, {
   "patternId" : "category_java_errorprone_SuspiciousEqualsMethodName",
   "title" : "Suspicious Equals Method Name",
-  "description" : "The method name and parameter number are suspiciously close to equals(Object)",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The method name and parameter number are suspiciously close to equals(Object)"
 }, {
   "patternId" : "category_java_errorprone_StringBufferInstantiationWithChar",
   "title" : "String Buffer Instantiation With Char",
-  "description" : "Do not instantiate a StringBuffer or StringBuilder with a char",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not instantiate a StringBuffer or StringBuilder with a char"
 }, {
   "patternId" : "category_java_errorprone_StaticEJBFieldShouldBeFinal",
   "title" : "Static EJB Field Should Be Final",
-  "description" : "EJB's shouldn't have non-final static fields",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "EJB's shouldn't have non-final static fields"
 }, {
   "patternId" : "category_java_errorprone_SingletonClassReturningNewInstance",
   "title" : "Singleton Class Returning New Instance",
@@ -686,27 +475,15 @@
 }, {
   "patternId" : "category_java_errorprone_SimpleDateFormatNeedsLocale",
   "title" : "Simple Date Format Needs Locale",
-  "description" : "When instantiating a SimpleDateFormat object, specify a Locale",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "When instantiating a SimpleDateFormat object, specify a Locale"
 }, {
   "patternId" : "category_java_errorprone_ReturnFromFinallyBlock",
   "title" : "Return From Finally Block",
-  "description" : "Avoid returning from a finally block",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid returning from a finally block"
 }, {
   "patternId" : "category_java_errorprone_ReturnEmptyArrayRatherThanNull",
   "title" : "Return Empty Array Rather Than Null",
-  "description" : "Return an empty array rather than 'null'.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Return an empty array rather than 'null'."
 }, {
   "patternId" : "category_java_errorprone_ProperLogger",
   "title" : "Proper Logger",
@@ -720,9 +497,6 @@
   }, {
     "name" : "staticLoggerName",
     "description" : "Name of the static Logger variable"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_errorprone_ProperCloneImplementation",
@@ -739,19 +513,11 @@
 }, {
   "patternId" : "category_java_errorprone_NonStaticInitializer",
   "title" : "Non Static Initializer",
-  "description" : "Non-static initializers are confusing",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Non-static initializers are confusing"
 }, {
   "patternId" : "category_java_errorprone_NonCaseLabelInSwitchStatement",
   "title" : "Non Case Label In Switch Statement",
-  "description" : "A non-case label was present in a switch statement",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "A non-case label was present in a switch statement"
 }, {
   "patternId" : "category_java_errorprone_MoreThanOneLogger",
   "title" : "More Than One Logger",
@@ -763,34 +529,19 @@
   "parameters" : [ {
     "name" : "annotations",
     "description" : "If a constructor is annotated with one of these annotations, then the class is ignored."
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_errorprone_MissingSerialVersionUID",
   "title" : "Missing Serial Version UID",
-  "description" : "Classes implementing Serializable should set a serialVersionUID",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Classes implementing Serializable should set a serialVersionUID"
 }, {
   "patternId" : "category_java_errorprone_MissingBreakInSwitch",
   "title" : "Missing Break In Switch",
-  "description" : "A switch statement does not contain a break",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "A switch statement does not contain a break"
 }, {
   "patternId" : "category_java_errorprone_MisplacedNullCheck",
   "title" : "Misplaced Null Check",
-  "description" : "The null check here is misplaced; if the variable ''{0}'' is null there will be a NullPointerException",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The null check here is misplaced; if the variable ''{0}'' is null there will be a NullPointerException"
 }, {
   "patternId" : "category_java_errorprone_MethodWithSameNameAsEnclosingClass",
   "title" : "Method With Same Name As Enclosing Class",
@@ -798,11 +549,7 @@
 }, {
   "patternId" : "category_java_errorprone_JumbledIncrementer",
   "title" : "Jumbled Incrementer",
-  "description" : "Avoid modifying an outer loop incrementer in an inner loop for update expression",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid modifying an outer loop incrementer in an inner loop for update expression"
 }, {
   "patternId" : "category_java_errorprone_JUnitStaticSuite",
   "title" : "JUnit Static Suite",
@@ -818,11 +565,7 @@
 }, {
   "patternId" : "category_java_errorprone_InstantiationToGetClass",
   "title" : "Instantiation To Get Class",
-  "description" : "Avoid instantiating an object just to call getClass() on it; use the .class public member instead",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid instantiating an object just to call getClass() on it; use the .class public member instead"
 }, {
   "patternId" : "category_java_errorprone_ImportFromSamePackage",
   "title" : "Import From Same Package",
@@ -834,123 +577,63 @@
 }, {
   "patternId" : "category_java_errorprone_FinalizeShouldBeProtected",
   "title" : "Finalize Should Be Protected",
-  "description" : "If you override finalize(), make it protected",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "If you override finalize(), make it protected"
 }, {
   "patternId" : "category_java_errorprone_FinalizeOverloaded",
   "title" : "Finalize Overloaded",
-  "description" : "Finalize methods should not be overloaded",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Finalize methods should not be overloaded"
 }, {
   "patternId" : "category_java_errorprone_FinalizeOnlyCallsSuperFinalize",
   "title" : "Finalize Only Calls Super Finalize",
-  "description" : "Finalize should do something besides just calling super.finalize()",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Finalize should do something besides just calling super.finalize()"
 }, {
   "patternId" : "category_java_errorprone_FinalizeDoesNotCallSuperFinalize",
   "title" : "Finalize Does Not Call Super Finalize",
-  "description" : "Last statement in finalize method should be a call to super.finalize()",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Last statement in finalize method should be a call to super.finalize()"
 }, {
   "patternId" : "category_java_errorprone_EqualsNull",
   "title" : "Equals Null",
-  "description" : "Avoid using equals() to compare against null",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using equals() to compare against null"
 }, {
   "patternId" : "category_java_errorprone_EmptyWhileStmt",
   "title" : "Empty While Stmt",
-  "description" : "Avoid empty 'while' statements",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty 'while' statements"
 }, {
   "patternId" : "category_java_errorprone_EmptyTryBlock",
   "title" : "Empty Try Block",
-  "description" : "Avoid empty try blocks",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty try blocks"
 }, {
   "patternId" : "category_java_errorprone_EmptySynchronizedBlock",
   "title" : "Empty Synchronized Block",
-  "description" : "Avoid empty synchronized blocks",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty synchronized blocks"
 }, {
   "patternId" : "category_java_errorprone_EmptySwitchStatements",
   "title" : "Empty Switch Statements",
-  "description" : "Avoid empty switch statements",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty switch statements"
 }, {
   "patternId" : "category_java_errorprone_EmptyStatementNotInLoop",
   "title" : "Empty Statement Not In Loop",
-  "description" : "An empty statement (semicolon) not part of a loop",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "An empty statement (semicolon) not part of a loop"
 }, {
   "patternId" : "category_java_errorprone_EmptyStatementBlock",
   "title" : "Empty Statement Block",
-  "description" : "Avoid empty block statements.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty block statements."
 }, {
   "patternId" : "category_java_errorprone_EmptyInitializer",
   "title" : "Empty Initializer",
-  "description" : "Empty initializer was found",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Empty initializer was found"
 }, {
   "patternId" : "category_java_errorprone_EmptyIfStmt",
   "title" : "Empty If Stmt",
-  "description" : "Avoid empty 'if' statements",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty 'if' statements"
 }, {
   "patternId" : "category_java_errorprone_EmptyFinallyBlock",
   "title" : "Empty Finally Block",
-  "description" : "Avoid empty finally blocks",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty finally blocks"
 }, {
   "patternId" : "category_java_errorprone_EmptyFinalizer",
   "title" : "Empty Finalizer",
-  "description" : "Avoid empty finalize methods",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty finalize methods"
 }, {
   "patternId" : "category_java_errorprone_EmptyCatchBlock",
   "title" : "Empty Catch Block",
@@ -961,18 +644,11 @@
   }, {
     "name" : "allowExceptionNameRegex",
     "description" : "Empty blocks catching exceptions with names matching this regular expression will be skipped"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_errorprone_DontUseFloatTypeForLoopIndices",
   "title" : "Dont Use Float Type For Loop Indices",
-  "description" : "Don't use floating point for loop indices. If you must use floating point, use double.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Don't use floating point for loop indices. If you must use floating point, use double."
 }, {
   "patternId" : "category_java_errorprone_DontImportSun",
   "title" : "Dont Import Sun",
@@ -980,51 +656,27 @@
 }, {
   "patternId" : "category_java_errorprone_DoNotThrowExceptionInFinally",
   "title" : "Do Not Throw Exception In Finally",
-  "description" : "A throw statement in a finally block makes the control flow hard to understand.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "A throw statement in a finally block makes the control flow hard to understand."
 }, {
   "patternId" : "category_java_errorprone_DoNotHardCodeSDCard",
   "title" : "Do Not Hard Code SD Card",
-  "description" : "Do not hardcode /sdcard.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not hardcode /sdcard."
 }, {
   "patternId" : "category_java_errorprone_DoNotExtendJavaLangThrowable",
   "title" : "Do Not Extend Java Lang Throwable",
-  "description" : "Exceptions should not extend java.lang.Throwable",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Exceptions should not extend java.lang.Throwable"
 }, {
   "patternId" : "category_java_errorprone_DoNotCallSystemExit",
   "title" : "Do Not Call System Exit",
-  "description" : "System.exit() should not be used in J2EE/JEE apps",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "System.exit() should not be used in J2EE/JEE apps"
 }, {
   "patternId" : "category_java_errorprone_DoNotCallGarbageCollectionExplicitly",
   "title" : "Do Not Call Garbage Collection Explicitly",
-  "description" : "Do not explicitly trigger a garbage collection.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Do not explicitly trigger a garbage collection."
 }, {
   "patternId" : "category_java_errorprone_DetachedTestCase",
   "title" : "Detached Test Case",
-  "description" : "Probable detached JUnit test case.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Probable detached JUnit test case."
 }, {
   "patternId" : "category_java_errorprone_DataflowAnomalyAnalysis",
   "title" : "Dataflow Anomaly Analysis",
@@ -1044,19 +696,11 @@
 }, {
   "patternId" : "category_java_errorprone_CloneThrowsCloneNotSupportedException",
   "title" : "Clone Throws Clone Not Supported Exception",
-  "description" : "clone() method should throw CloneNotSupportedException",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "clone() method should throw CloneNotSupportedException"
 }, {
   "patternId" : "category_java_errorprone_CloneMethodReturnTypeMustMatchClassName",
   "title" : "Clone Method Return Type Must Match Class Name",
-  "description" : "The return type of the clone() method must be the class name when implements Cloneable",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The return type of the clone() method must be the class name when implements Cloneable"
 }, {
   "patternId" : "category_java_errorprone_CloneMethodMustImplementCloneable",
   "title" : "Clone Method Must Implement Cloneable",
@@ -1064,19 +708,11 @@
 }, {
   "patternId" : "category_java_errorprone_CloneMethodMustBePublic",
   "title" : "Clone Method Must Be Public",
-  "description" : "clone() method must be public if the class implements Cloneable",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "clone() method must be public if the class implements Cloneable"
 }, {
   "patternId" : "category_java_errorprone_ClassCastExceptionWithToArray",
   "title" : "Class Cast Exception With To Array",
-  "description" : "This usage of the Collection.toArray() method will throw a ClassCastException.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "This usage of the Collection.toArray() method will throw a ClassCastException."
 }, {
   "patternId" : "category_java_errorprone_CheckSkipResult",
   "title" : "Check Skip Result",
@@ -1084,19 +720,11 @@
 }, {
   "patternId" : "category_java_errorprone_CallSuperLast",
   "title" : "Call Super Last",
-  "description" : "super should be called at the end of the method",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "super should be called at the end of the method"
 }, {
   "patternId" : "category_java_errorprone_CallSuperFirst",
   "title" : "Call Super First",
-  "description" : "super should be called at the start of the method",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "super should be called at the start of the method"
 }, {
   "patternId" : "category_java_errorprone_BrokenNullCheck",
   "title" : "Broken Null Check",
@@ -1108,11 +736,7 @@
 }, {
   "patternId" : "category_java_errorprone_BadComparison",
   "title" : "Bad Comparison",
-  "description" : "Avoid equality comparisons with Double.NaN",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid equality comparisons with Double.NaN"
 }, {
   "patternId" : "category_java_errorprone_AvoidUsingOctalValues",
   "title" : "Avoid Using Octal Values",
@@ -1124,11 +748,7 @@
 }, {
   "patternId" : "category_java_errorprone_AvoidLosingExceptionInformation",
   "title" : "Avoid Losing Exception Information",
-  "description" : "Avoid statements in a catch block that invoke accessors on the exception without using the information",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid statements in a catch block that invoke accessors on the exception without using the information"
 }, {
   "patternId" : "category_java_errorprone_AvoidLiteralsInIfCondition",
   "title" : "Avoid Literals In If Condition",
@@ -1139,18 +759,11 @@
   }, {
     "name" : "ignoreMagicNumbers",
     "description" : "Comma-separated list of magic numbers, that should be ignored"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_errorprone_AvoidInstanceofChecksInCatchClause",
   "title" : "Avoid Instanceof Checks In Catch Clause",
-  "description" : "An instanceof check is being performed on the caught exception.  Create a separate catch clause for this exception type.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "An instanceof check is being performed on the caught exception.  Create a separate catch clause for this exception type."
 }, {
   "patternId" : "category_java_errorprone_AvoidFieldNameMatchingTypeName",
   "title" : "Avoid Field Name Matching Type Name",
@@ -1162,11 +775,7 @@
 }, {
   "patternId" : "category_java_errorprone_AvoidEnumAsIdentifier",
   "title" : "Avoid Enum As Identifier",
-  "description" : "Avoid using enum as an identifier; it's a reserved word in JDK 1.5",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using enum as an identifier; it's a reserved word in JDK 1.5"
 }, {
   "patternId" : "category_java_errorprone_AvoidDuplicateLiterals",
   "title" : "Avoid Duplicate Literals",
@@ -1174,11 +783,7 @@
 }, {
   "patternId" : "category_java_errorprone_AvoidDecimalLiteralsInBigDecimalConstructor",
   "title" : "Avoid Decimal Literals In Big Decimal Constructor",
-  "description" : "Avoid creating BigDecimal with a decimal (float/double) literal. Use a String literal",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid creating BigDecimal with a decimal (float/double) literal. Use a String literal"
 }, {
   "patternId" : "category_java_errorprone_AvoidCatchingThrowable",
   "title" : "Avoid Catching Throwable",
@@ -1186,11 +791,7 @@
 }, {
   "patternId" : "category_java_errorprone_AvoidCatchingNPE",
   "title" : "Avoid Catching NPE",
-  "description" : "Avoid catching NullPointerException; consider removing the cause of the NPE.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid catching NullPointerException; consider removing the cause of the NPE."
 }, {
   "patternId" : "category_java_errorprone_AvoidCallingFinalize",
   "title" : "Avoid Calling Finalize",
@@ -1202,19 +803,11 @@
 }, {
   "patternId" : "category_java_errorprone_AvoidAssertAsIdentifier",
   "title" : "Avoid Assert As Identifier",
-  "description" : "Avoid using assert as an identifier; it became a reserved word in JDK 1.4",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using assert as an identifier; it became a reserved word in JDK 1.4"
 }, {
   "patternId" : "category_java_errorprone_AvoidAccessibilityAlteration",
   "title" : "Avoid Accessibility Alteration",
-  "description" : "You should not modify visibility of class or methods using getDeclaredConstructors(), getDeclaredConstructor(Class[]), setAccessible() or PrivilegedAction.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "You should not modify visibility of class or methods using getDeclaredConstructors(), getDeclaredConstructor(Class[]), setAccessible() or PrivilegedAction."
 }, {
   "patternId" : "category_java_errorprone_AssignmentToNonFinalStatic",
   "title" : "Assignment To Non Final Static",
@@ -1226,11 +819,7 @@
 }, {
   "patternId" : "category_java_documentation_UncommentedEmptyMethodBody",
   "title" : "Uncommented Empty Method Body",
-  "description" : "Document empty method body",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Document empty method body"
 }, {
   "patternId" : "category_java_documentation_UncommentedEmptyConstructor",
   "title" : "Uncommented Empty Constructor",
@@ -1238,9 +827,6 @@
   "parameters" : [ {
     "name" : "ignoreExplicitConstructorInvocation",
     "description" : "Ignore explicit constructor invocation when deciding whether constructor is empty or not"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_documentation_CommentSize",
@@ -1265,11 +851,7 @@
 }, {
   "patternId" : "category_java_design_UseObjectForClearerAPI",
   "title" : "Use Object For Clearer API",
-  "description" : "Rather than using a lot of String arguments, consider using a container object for those values.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Rather than using a lot of String arguments, consider using a container object for those values."
 }, {
   "patternId" : "category_java_design_TooManyMethods",
   "title" : "Too Many Methods",
@@ -1277,9 +859,6 @@
   "parameters" : [ {
     "name" : "maxmethods",
     "description" : "The method count reporting threshold"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_design_TooManyFields",
@@ -1296,11 +875,7 @@
 }, {
   "patternId" : "category_java_design_SimplifyConditional",
   "title" : "Simplify Conditional",
-  "description" : "No need to check for null before an instanceof",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "No need to check for null before an instanceof"
 }, {
   "patternId" : "category_java_design_SimplifyBooleanReturns",
   "title" : "Simplify Boolean Returns",
@@ -1308,27 +883,15 @@
 }, {
   "patternId" : "category_java_design_SimplifyBooleanExpressions",
   "title" : "Simplify Boolean Expressions",
-  "description" : "Avoid unnecessary comparisons in boolean expressions",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid unnecessary comparisons in boolean expressions"
 }, {
   "patternId" : "category_java_design_SimplifyBooleanAssertion",
   "title" : "Simplify Boolean Assertion",
-  "description" : "assertTrue(!expr) can be replaced by assertFalse(expr)",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "assertTrue(!expr) can be replaced by assertFalse(expr)"
 }, {
   "patternId" : "category_java_design_SimplifiedTernary",
   "title" : "Simplified Ternary",
-  "description" : "Ternary operators that can be simplified with || or &&",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Ternary operators that can be simplified with || or &&"
 }, {
   "patternId" : "category_java_design_SignatureDeclareThrowsException",
   "title" : "Signature Declare Throws Exception",
@@ -1348,11 +911,7 @@
 }, {
   "patternId" : "category_java_design_LogicInversion",
   "title" : "Logic Inversion",
-  "description" : "Use opposite operator instead of the logic complement operator.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use opposite operator instead of the logic complement operator."
 }, {
   "patternId" : "category_java_design_LawOfDemeter",
   "title" : "Law Of Demeter",
@@ -1368,11 +927,7 @@
 }, {
   "patternId" : "category_java_design_FinalFieldCouldBeStatic",
   "title" : "Final Field Could Be Static",
-  "description" : "This final field could be made static",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "This final field could be made static"
 }, {
   "patternId" : "category_java_design_ExcessivePublicCount",
   "title" : "Excessive Public Count",
@@ -1400,11 +955,7 @@
 }, {
   "patternId" : "category_java_design_DoNotExtendJavaLangError",
   "title" : "Do Not Extend Java Lang Error",
-  "description" : "Exceptions should not extend java.lang.Error",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Exceptions should not extend java.lang.Error"
 }, {
   "patternId" : "category_java_design_DataClass",
   "title" : "Data Class",
@@ -1420,59 +971,31 @@
 }, {
   "patternId" : "category_java_design_CollapsibleIfStatements",
   "title" : "Collapsible If Statements",
-  "description" : "These nested if statements could be combined",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "These nested if statements could be combined"
 }, {
   "patternId" : "category_java_design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
   "title" : "Class With Only Private Constructors Should Be Final",
-  "description" : "A class which only has private constructors should be final",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "A class which only has private constructors should be final"
 }, {
   "patternId" : "category_java_design_AvoidUncheckedExceptionsInSignatures",
   "title" : "Avoid Unchecked Exceptions In Signatures",
-  "description" : "A method or constructor should not explicitly declare unchecked exceptions in its ''throws'' clause",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "A method or constructor should not explicitly declare unchecked exceptions in its ''throws'' clause"
 }, {
   "patternId" : "category_java_design_AvoidThrowingRawExceptionTypes",
   "title" : "Avoid Throwing Raw Exception Types",
-  "description" : "Avoid throwing raw exception types.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid throwing raw exception types."
 }, {
   "patternId" : "category_java_design_AvoidThrowingNullPointerException",
   "title" : "Avoid Throwing Null Pointer Exception",
-  "description" : "Avoid throwing null pointer exceptions.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid throwing null pointer exceptions."
 }, {
   "patternId" : "category_java_design_AvoidThrowingNewInstanceOfSameException",
   "title" : "Avoid Throwing New Instance Of Same Exception",
-  "description" : "A catch statement that catches an exception only to wrap it in a new instance of the same type of exception and throw it should be avoided",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "A catch statement that catches an exception only to wrap it in a new instance of the same type of exception and throw it should be avoided"
 }, {
   "patternId" : "category_java_design_AvoidRethrowingException",
   "title" : "Avoid Rethrowing Exception",
-  "description" : "A catch statement that catches an exception only to rethrow it should be avoided.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "A catch statement that catches an exception only to rethrow it should be avoided."
 }, {
   "patternId" : "category_java_design_AvoidDeeplyNestedIfStmts",
   "title" : "Avoid Deeply Nested If Stmts",
@@ -1480,35 +1003,19 @@
 }, {
   "patternId" : "category_java_design_AvoidCatchingGenericException",
   "title" : "Avoid Catching Generic Exception",
-  "description" : "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block"
 }, {
   "patternId" : "category_java_design_AbstractClassWithoutAnyMethod",
   "title" : "Abstract Class Without Any Method",
-  "description" : "No abstract method which means that the keyword is most likely used to prevent instantiation. Use a private or protected constructor instead.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "No abstract method which means that the keyword is most likely used to prevent instantiation. Use a private or protected constructor instead."
 }, {
   "patternId" : "category_java_codestyle_UselessQualifiedThis",
   "title" : "Useless Qualified This",
-  "description" : "Useless qualified this usage in the same class.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Useless qualified this usage in the same class."
 }, {
   "patternId" : "category_java_codestyle_UselessParentheses",
   "title" : "Useless Parentheses",
-  "description" : "Useless parentheses.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Useless parentheses."
 }, {
   "patternId" : "category_java_codestyle_UseUnderscoresInNumericLiterals",
   "title" : "Use Underscores In Numeric Literals",
@@ -1516,18 +1023,11 @@
   "parameters" : [ {
     "name" : "acceptableDecimalLength",
     "description" : "Length under which literals in base 10 are not required to have underscores"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_codestyle_UseShortArrayInitializer",
   "title" : "Use Short Array Initializer",
-  "description" : "Array initialization can be written shorter",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Array initialization can be written shorter"
 }, {
   "patternId" : "category_java_codestyle_UseDiamondOperator",
   "title" : "Use Diamond Operator",
@@ -1535,9 +1035,6 @@
   "parameters" : [ {
     "name" : "java7Compatibility",
     "description" : "If disabled, the rule shows also violations that are applicable for java8+"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryReturn",
@@ -1574,9 +1071,6 @@
   "parameters" : [ {
     "name" : "maximumStaticImports",
     "description" : "All static imports can be disallowed by setting this to 0"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_codestyle_ShortVariable",
@@ -1585,9 +1079,6 @@
   "parameters" : [ {
     "name" : "minimum",
     "description" : "Number of characters that are required as a minimum for a variable name."
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_codestyle_ShortMethodName",
@@ -1596,9 +1087,6 @@
   "parameters" : [ {
     "name" : "minimum",
     "description" : "Number of characters that are required as a minimum for a method name."
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_codestyle_ShortClassName",
@@ -1607,26 +1095,15 @@
   "parameters" : [ {
     "name" : "minimum",
     "description" : "Number of characters that are required as a minimum for a class name."
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_codestyle_RemoteSessionInterfaceNamingConvention",
   "title" : "Remote Session Interface Naming Convention",
-  "description" : "Remote Home interface of a Session EJB should be suffixed by 'Home'",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Remote Home interface of a Session EJB should be suffixed by 'Home'"
 }, {
   "patternId" : "category_java_codestyle_RemoteInterfaceNamingConvention",
   "title" : "Remote Interface Naming Convention",
-  "description" : "Remote Interface of a Session EJB should NOT be suffixed",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Remote Interface of a Session EJB should NOT be suffixed"
 }, {
   "patternId" : "category_java_codestyle_PrematureDeclaration",
   "title" : "Premature Declaration",
@@ -1634,11 +1111,7 @@
 }, {
   "patternId" : "category_java_codestyle_PackageCase",
   "title" : "Package Case",
-  "description" : "Package name contains upper case characters",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Package name contains upper case characters"
 }, {
   "patternId" : "category_java_codestyle_OnlyOneReturn",
   "title" : "Only One Return",
@@ -1646,11 +1119,7 @@
 }, {
   "patternId" : "category_java_codestyle_NoPackage",
   "title" : "No Package",
-  "description" : "All classes, interfaces, enums and annotations must belong to a named package",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "All classes, interfaces, enums and annotations must belong to a named package"
 }, {
   "patternId" : "category_java_codestyle_MethodNamingConventions",
   "title" : "Method Naming Conventions",
@@ -1662,11 +1131,7 @@
 }, {
   "patternId" : "category_java_codestyle_MDBAndSessionBeanNamingConvention",
   "title" : "MDB And Session Bean Naming Convention",
-  "description" : "SessionBean or MessageBean should be suffixed by Bean",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "SessionBean or MessageBean should be suffixed by Bean"
 }, {
   "patternId" : "category_java_codestyle_LongVariable",
   "title" : "Long Variable",
@@ -1674,9 +1139,6 @@
   "parameters" : [ {
     "name" : "minimum",
     "description" : "The variable length reporting threshold"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_codestyle_LocalVariableNamingConventions",
@@ -1689,19 +1151,11 @@
 }, {
   "patternId" : "category_java_codestyle_LocalInterfaceSessionNamingConvention",
   "title" : "Local Interface Session Naming Convention",
-  "description" : "The Local Interface of a Session EJB should be suffixed by 'Local'",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The Local Interface of a Session EJB should be suffixed by 'Local'"
 }, {
   "patternId" : "category_java_codestyle_LocalHomeNamingConvention",
   "title" : "Local Home Naming Convention",
-  "description" : "The Local Home interface of a Session EJB should be suffixed by 'LocalHome'",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The Local Home interface of a Session EJB should be suffixed by 'LocalHome'"
 }, {
   "patternId" : "category_java_codestyle_LinguisticNaming",
   "title" : "Linguistic Naming",
@@ -1713,11 +1167,7 @@
 }, {
   "patternId" : "category_java_codestyle_GenericsNaming",
   "title" : "Generics Naming",
-  "description" : "Generics names should be a one letter long and upper case.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Generics names should be a one letter long and upper case."
 }, {
   "patternId" : "category_java_codestyle_FormalParameterNamingConventions",
   "title" : "Formal Parameter Naming Conventions",
@@ -1725,11 +1175,7 @@
 }, {
   "patternId" : "category_java_codestyle_ForLoopShouldBeWhileLoop",
   "title" : "For Loop Should Be While Loop",
-  "description" : "This for loop could be simplified to a while loop",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "This for loop could be simplified to a while loop"
 }, {
   "patternId" : "category_java_codestyle_FieldNamingConventions",
   "title" : "Field Naming Conventions",
@@ -1741,19 +1187,11 @@
 }, {
   "patternId" : "category_java_codestyle_ExtendsObject",
   "title" : "Extends Object",
-  "description" : "No need to explicitly extend Object.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "No need to explicitly extend Object."
 }, {
   "patternId" : "category_java_codestyle_EmptyMethodInAbstractClassShouldBeAbstract",
   "title" : "Empty Method In Abstract Class Should Be Abstract",
-  "description" : "An empty method in an abstract class should be abstract instead",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "An empty method in an abstract class should be abstract instead"
 }, {
   "patternId" : "category_java_codestyle_DuplicateImports",
   "title" : "Duplicate Imports",
@@ -1765,11 +1203,7 @@
 }, {
   "patternId" : "category_java_codestyle_DefaultPackage",
   "title" : "Default Package",
-  "description" : "Use explicit scoping instead of the default package private level",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use explicit scoping instead of the default package private level"
 }, {
   "patternId" : "category_java_codestyle_ControlStatementBraces",
   "title" : "Control Statement Braces",
@@ -1795,9 +1229,6 @@
   }, {
     "name" : "checkWhileStmt",
     "description" : "Require that 'while' loops use braces"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_codestyle_ConfusingTernary",
@@ -1814,11 +1245,7 @@
 }, {
   "patternId" : "category_java_codestyle_CallSuperInConstructor",
   "title" : "Call Super In Constructor",
-  "description" : "It is a good practice to call super() in a constructor",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "It is a good practice to call super() in a constructor"
 }, {
   "patternId" : "category_java_codestyle_BooleanGetMethodName",
   "title" : "Boolean Get Method Name",
@@ -1826,34 +1253,19 @@
   "parameters" : [ {
     "name" : "checkParameterizedMethods",
     "description" : "Check parameterized methods"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_codestyle_AvoidUsingNativeCode",
   "title" : "Avoid Using Native Code",
-  "description" : "The use of native code is not recommended.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The use of native code is not recommended."
 }, {
   "patternId" : "category_java_codestyle_AvoidProtectedMethodInFinalClassNotExtending",
   "title" : "Avoid Protected Method In Final Class Not Extending",
-  "description" : "Avoid protected methods in a final class that doesn't extend anything other than Object.  Change to private or package access.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid protected methods in a final class that doesn't extend anything other than Object.  Change to private or package access."
 }, {
   "patternId" : "category_java_codestyle_AvoidProtectedFieldInFinalClass",
   "title" : "Avoid Protected Field In Final Class",
-  "description" : "Avoid protected fields in a final class.  Change to private or package access.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid protected fields in a final class.  Change to private or package access."
 }, {
   "patternId" : "category_java_codestyle_AvoidDollarSigns",
   "title" : "Avoid Dollar Signs",
@@ -1865,19 +1277,11 @@
 }, {
   "patternId" : "category_java_bestpractices_WhileLoopWithLiteralBoolean",
   "title" : "While Loop With Literal Boolean",
-  "description" : "The loop can be simplified.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The loop can be simplified."
 }, {
   "patternId" : "category_java_bestpractices_UseVarargs",
   "title" : "Use Varargs",
-  "description" : "Consider using varargs for methods or constructors which take an array the last parameter.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Consider using varargs for methods or constructors which take an array the last parameter."
 }, {
   "patternId" : "category_java_bestpractices_UseTryWithResources",
   "title" : "Use Try With Resources",
@@ -1885,9 +1289,6 @@
   "parameters" : [ {
     "name" : "closeMethods",
     "description" : "Method names in finally block, which trigger this rule"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_bestpractices_UseCollectionIsEmpty",
@@ -1896,35 +1297,19 @@
 }, {
   "patternId" : "category_java_bestpractices_UseAssertTrueInsteadOfAssertEquals",
   "title" : "Use Assert True Instead Of Assert Equals",
-  "description" : "Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x) or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x) or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x)."
 }, {
   "patternId" : "category_java_bestpractices_UseAssertSameInsteadOfAssertTrue",
   "title" : "Use Assert Same Instead Of Assert True",
-  "description" : "Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)"
 }, {
   "patternId" : "category_java_bestpractices_UseAssertNullInsteadOfAssertTrue",
   "title" : "Use Assert Null Instead Of Assert True",
-  "description" : "Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)"
 }, {
   "patternId" : "category_java_bestpractices_UseAssertEqualsInsteadOfAssertTrue",
   "title" : "Use Assert Equals Instead Of Assert True",
-  "description" : "Use assertEquals(x, y) instead of assertTrue(x.equals(y))",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use assertEquals(x, y) instead of assertTrue(x.equals(y))"
 }, {
   "patternId" : "category_java_bestpractices_UnusedPrivateMethod",
   "title" : "Unused Private Method",
@@ -1948,43 +1333,23 @@
 }, {
   "patternId" : "category_java_bestpractices_SystemPrintln",
   "title" : "System Println",
-  "description" : "{0} is used",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "{0} is used"
 }, {
   "patternId" : "category_java_bestpractices_SwitchStmtsShouldHaveDefault",
   "title" : "Switch Stmts Should Have Default",
-  "description" : "Switch statements should have a default label",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Switch statements should have a default label"
 }, {
   "patternId" : "category_java_bestpractices_ReplaceVectorWithList",
   "title" : "Replace Vector With List",
-  "description" : "Consider replacing this Vector with the newer java.util.List",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Consider replacing this Vector with the newer java.util.List"
 }, {
   "patternId" : "category_java_bestpractices_ReplaceHashtableWithMap",
   "title" : "Replace Hashtable With Map",
-  "description" : "Consider replacing this Hashtable with the newer java.util.Map",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Consider replacing this Hashtable with the newer java.util.Map"
 }, {
   "patternId" : "category_java_bestpractices_ReplaceEnumerationWithIterator",
   "title" : "Replace Enumeration With Iterator",
-  "description" : "Consider replacing this Enumeration with the newer java.util.Iterator",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Consider replacing this Enumeration with the newer java.util.Iterator"
 }, {
   "patternId" : "category_java_bestpractices_PreserveStackTrace",
   "title" : "Preserve Stack Trace",
@@ -1996,9 +1361,6 @@
   "parameters" : [ {
     "name" : "strictMode",
     "description" : "If true, mark combined declaration even if the declarations are on separate lines."
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_bestpractices_MissingOverride",
@@ -2031,9 +1393,6 @@
   "parameters" : [ {
     "name" : "maximumAsserts",
     "description" : "Maximum number of Asserts in a test method"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_bestpractices_JUnitAssertionsShouldIncludeMessage",
@@ -2046,34 +1405,19 @@
   "parameters" : [ {
     "name" : "testClassPattern",
     "description" : "The regex pattern used to identify test classes"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_bestpractices_JUnit4TestShouldUseBeforeAnnotation",
   "title" : "JUnit4 Test Should Use Before Annotation",
-  "description" : "JUnit 4 tests that set up tests should use the @Before annotation, JUnit5 tests should use @BeforeEach or @BeforeAll",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "JUnit 4 tests that set up tests should use the @Before annotation, JUnit5 tests should use @BeforeEach or @BeforeAll"
 }, {
   "patternId" : "category_java_bestpractices_JUnit4TestShouldUseAfterAnnotation",
   "title" : "JUnit4 Test Should Use After Annotation",
-  "description" : "JUnit 4 tests that clean up tests should use the @After annotation, JUnit5 tests should use @AfterEach or @AfterAll",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "JUnit 4 tests that clean up tests should use the @After annotation, JUnit5 tests should use @AfterEach or @AfterAll"
 }, {
   "patternId" : "category_java_bestpractices_JUnit4SuitesShouldUseSuiteAnnotation",
   "title" : "JUnit4Suites Should Use Suite Annotation",
-  "description" : "JUnit 4 indicates test suites via annotations, not the suite method.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "JUnit 4 indicates test suites via annotations, not the suite method."
 }, {
   "patternId" : "category_java_bestpractices_GuardLogStatement",
   "title" : "Guard Log Statement",
@@ -2085,9 +1429,6 @@
   "parameters" : [ {
     "name" : "maximumVariables",
     "description" : "A regular for statement will have 1 control variable"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_bestpractices_ForLoopCanBeForeach",
@@ -2096,19 +1437,11 @@
 }, {
   "patternId" : "category_java_bestpractices_DoubleBraceInitialization",
   "title" : "Double Brace Initialization",
-  "description" : "Double-brace initialization should be avoided",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Double-brace initialization should be avoided"
 }, {
   "patternId" : "category_java_bestpractices_DefaultLabelNotLastInSwitchStmt",
   "title" : "Default Label Not Last In Switch Stmt",
-  "description" : "The default label should be the last label in a switch statement",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The default label should be the last label in a switch statement"
 }, {
   "patternId" : "category_java_bestpractices_ConstantsInInterface",
   "title" : "Constants In Interface",
@@ -2116,9 +1449,6 @@
   "parameters" : [ {
     "name" : "ignoreIfHasMethods",
     "description" : "Whether to ignore constants in interfaces if the interface defines any methods"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_java_bestpractices_CheckResultSet",
@@ -2131,11 +1461,7 @@
 }, {
   "patternId" : "category_java_bestpractices_AvoidStringBufferField",
   "title" : "Avoid String Buffer Field",
-  "description" : "StringBuffers can grow quite a lot, and so may become a source of memory leak (if the owning class has a long life time).",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "StringBuffers can grow quite a lot, and so may become a source of memory leak (if the owning class has a long life time)."
 }, {
   "patternId" : "category_java_bestpractices_AvoidReassigningParameters",
   "title" : "Avoid Reassigning Parameters",
@@ -2147,19 +1473,11 @@
 }, {
   "patternId" : "category_java_bestpractices_AvoidPrintStackTrace",
   "title" : "Avoid Print Stack Trace",
-  "description" : "Avoid printStackTrace(); use a logger call instead.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid printStackTrace(); use a logger call instead."
 }, {
   "patternId" : "category_java_bestpractices_AvoidMessageDigestField",
   "title" : "Avoid Message Digest Field",
-  "description" : "You shouldn't declare field of MessageDigest type, because unsynchronized access could cause problems",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "You shouldn't declare field of MessageDigest type, because unsynchronized access could cause problems"
 }, {
   "patternId" : "category_java_bestpractices_ArrayIsStoredDirectly",
   "title" : "Array Is Stored Directly",
@@ -2179,19 +1497,11 @@
 }, {
   "patternId" : "category_ecmascript_errorprone_InnaccurateNumericLiteral",
   "title" : "Innaccurate Numeric Literal",
-  "description" : "The numeric literal ''{0}'' will have at different value at runtime.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The numeric literal ''{0}'' will have at different value at runtime."
 }, {
   "patternId" : "category_ecmascript_errorprone_EqualComparison",
   "title" : "Equal Comparison",
-  "description" : "Use '==='/'!==' to compare with true/false or Numbers",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Use '==='/'!==' to compare with true/false or Numbers"
 }, {
   "patternId" : "category_ecmascript_errorprone_AvoidTrailingComma",
   "title" : "Avoid Trailing Comma",
@@ -2202,74 +1512,39 @@
   }, {
     "name" : "allowObjectLiteral",
     "description" : "Allow a trailing comma within an object literal"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_ecmascript_codestyle_WhileLoopsMustUseBraces",
   "title" : "While Loops Must Use Braces",
-  "description" : "Avoid using 'while' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using 'while' statements without curly braces"
 }, {
   "patternId" : "category_ecmascript_codestyle_UnreachableCode",
   "title" : "Unreachable Code",
-  "description" : "A ''return'', ''break'', ''continue'', or ''throw'' statement should be the last in a block.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "A ''return'', ''break'', ''continue'', or ''throw'' statement should be the last in a block."
 }, {
   "patternId" : "category_ecmascript_codestyle_UnnecessaryParentheses",
   "title" : "Unnecessary Parentheses",
-  "description" : "Unnecessary parentheses.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Unnecessary parentheses."
 }, {
   "patternId" : "category_ecmascript_codestyle_UnnecessaryBlock",
   "title" : "Unnecessary Block",
-  "description" : "Unnecessary block.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Unnecessary block."
 }, {
   "patternId" : "category_ecmascript_codestyle_NoElseReturn",
   "title" : "No ELse Return",
-  "description" : "The else block is unnecessary",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The else block is unnecessary"
 }, {
   "patternId" : "category_ecmascript_codestyle_IfStmtsMustUseBraces",
   "title" : "If Stmts Must Use Braces",
-  "description" : "Avoid using if statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using if statements without curly braces"
 }, {
   "patternId" : "category_ecmascript_codestyle_IfElseStmtsMustUseBraces",
   "title" : "If ELse Stmts Must Use Braces",
-  "description" : "Avoid using 'if...else' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using 'if...else' statements without curly braces"
 }, {
   "patternId" : "category_ecmascript_codestyle_ForLoopsMustUseBraces",
   "title" : "For Loops Must Use Braces",
-  "description" : "Avoid using 'for' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using 'for' statements without curly braces"
 }, {
   "patternId" : "category_ecmascript_codestyle_AssignmentInOperand",
   "title" : "Assignment In Operand",
@@ -2292,34 +1567,19 @@
   }, {
     "name" : "allowWhile",
     "description" : "Allow assignment within the conditional expression of a while statement"
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_ecmascript_bestpractices_UseBaseWithParseInt",
   "title" : "Use Base With Parse Int",
-  "description" : "Always provide a base when using parseInt() functions",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Always provide a base when using parseInt() functions"
 }, {
   "patternId" : "category_ecmascript_bestpractices_ScopeForInVariable",
   "title" : "Scope For In Variable",
-  "description" : "The for-in loop variable ''{0}'' should be explicitly scoped with 'var' to avoid pollution.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "The for-in loop variable ''{0}'' should be explicitly scoped with 'var' to avoid pollution."
 }, {
   "patternId" : "category_ecmascript_bestpractices_GlobalVariable",
   "title" : "Global Variable",
-  "description" : "Avoid using global variables",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using global variables"
 }, {
   "patternId" : "category_ecmascript_bestpractices_ConsistentReturn",
   "title" : "Consistent Return",
@@ -2327,11 +1587,7 @@
 }, {
   "patternId" : "category_ecmascript_bestpractices_AvoidWithStatement",
   "title" : "Avoid With Statement",
-  "description" : "Avoid using with - it's bad news",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using with - it's bad news"
 }, {
   "patternId" : "category_apex_security_ApexXSSFromURLParam",
   "title" : "Apex XSS From URL Param",
@@ -2387,11 +1643,7 @@
 }, {
   "patternId" : "category_apex_errorprone_TestMethodsMustBeInTestClasses",
   "title" : "Test Methods Must Be In Test Classes",
-  "description" : "Test methods must be in test classes",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Test methods must be in test classes"
 }, {
   "patternId" : "category_apex_errorprone_MethodWithSameNameAsEnclosingClass",
   "title" : "Method With Same Name As Enclosing Class",
@@ -2399,43 +1651,23 @@
 }, {
   "patternId" : "category_apex_errorprone_EmptyWhileStmt",
   "title" : "Empty While Stmt",
-  "description" : "Avoid empty 'while' statements",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty 'while' statements"
 }, {
   "patternId" : "category_apex_errorprone_EmptyTryOrFinallyBlock",
   "title" : "Empty Try Or Finally Block",
-  "description" : "Avoid empty try or finally blocks",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty try or finally blocks"
 }, {
   "patternId" : "category_apex_errorprone_EmptyStatementBlock",
   "title" : "Empty Statement Block",
-  "description" : "Avoid empty block statements.",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty block statements."
 }, {
   "patternId" : "category_apex_errorprone_EmptyIfStmt",
   "title" : "Empty If Stmt",
-  "description" : "Avoid empty 'if' statements",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty 'if' statements"
 }, {
   "patternId" : "category_apex_errorprone_EmptyCatchBlock",
   "title" : "Empty Catch Block",
-  "description" : "Avoid empty catch blocks",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid empty catch blocks"
 }, {
   "patternId" : "category_apex_errorprone_AvoidNonExistentAnnotations",
   "title" : "Avoid Non Existent Annotations",
@@ -2447,11 +1679,7 @@
 }, {
   "patternId" : "category_apex_errorprone_AvoidDirectAccessTriggerMap",
   "title" : "Avoid Direct Access Trigger Map",
-  "description" : "Avoid directly accessing Trigger.old and Trigger.new",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid directly accessing Trigger.old and Trigger.new"
 }, {
   "patternId" : "category_apex_errorprone_ApexCSRF",
   "title" : "Apex CSRF",
@@ -2507,11 +1735,7 @@
 }, {
   "patternId" : "category_apex_codestyle_WhileLoopsMustUseBraces",
   "title" : "While Loops Must Use Braces",
-  "description" : "Avoid using 'while' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using 'while' statements without curly braces"
 }, {
   "patternId" : "category_apex_codestyle_PropertyNamingConventions",
   "title" : "Property Naming Conventions",
@@ -2523,9 +1747,6 @@
   "parameters" : [ {
     "name" : "strictMode",
     "description" : "If true, mark combined declaration even if the declarations are on separate lines."
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_apex_codestyle_MethodNamingConventions",
@@ -2538,19 +1759,11 @@
 }, {
   "patternId" : "category_apex_codestyle_IfStmtsMustUseBraces",
   "title" : "If Stmts Must Use Braces",
-  "description" : "Avoid using if statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using if statements without curly braces"
 }, {
   "patternId" : "category_apex_codestyle_IfElseStmtsMustUseBraces",
   "title" : "If ELse Stmts Must Use Braces",
-  "description" : "Avoid using 'if...else' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using 'if...else' statements without curly braces"
 }, {
   "patternId" : "category_apex_codestyle_FormalParameterNamingConventions",
   "title" : "Formal Parameter Naming Conventions",
@@ -2558,11 +1771,7 @@
 }, {
   "patternId" : "category_apex_codestyle_ForLoopsMustUseBraces",
   "title" : "For Loops Must Use Braces",
-  "description" : "Avoid using 'for' statements without curly braces",
-  "parameters" : [ {
-    "name" : "xpath",
-    "description" : "xpath"
-  } ]
+  "description" : "Avoid using 'for' statements without curly braces"
 }, {
   "patternId" : "category_apex_codestyle_FieldNamingConventions",
   "title" : "Field Naming Conventions",
@@ -2586,9 +1795,6 @@
   "parameters" : [ {
     "name" : "strictMode",
     "description" : "If true, mark statements that use the DEBUG enum of LoggingLevel."
-  }, {
-    "name" : "xpath",
-    "description" : "xpath"
   } ]
 }, {
   "patternId" : "category_apex_bestpractices_AvoidLogicInTrigger",

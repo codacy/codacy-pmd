@@ -365,7 +365,8 @@ object DocGenerator {
     (for {
       property <- rule \\ "property"
       // HACK: Codacy converts the version parameter from 2.0 to 2 leading PMD to fail, excluding it for now
-      name = property \@ "name" if name != "version" && name.trim.nonEmpty
+      name = (property \@ "name").trim
+      if name.nonEmpty && name != "version" && name != "xpath"
       description = Option(property \@ "description").filter(_.trim.nonEmpty).getOrElse(name)
       defaultValueField = Option(property \@ "value").filter(_.trim.nonEmpty).map(_.trim)
       defaultValueBody = Option(property \ "value")

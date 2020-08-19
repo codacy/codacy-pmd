@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.25.0",
+  "version" : "6.26.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -607,6 +607,11 @@
     "languages" : [ "Java" ]
   }, {
     "patternId" : "category_java_bestpractices_SystemPrintln",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "languages" : [ "Java" ]
+  }, {
+    "patternId" : "category_java_bestpractices_UnusedAssignment",
     "level" : "Warning",
     "category" : "CodeStyle",
     "languages" : [ "Java" ]

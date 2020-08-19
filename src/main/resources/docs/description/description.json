@@ -1331,6 +1331,10 @@
   "title" : "Unused Formal Parameter",
   "description" : "Avoid unused {0} parameters."
 }, {
+  "patternId" : "category_java_bestpractices_UnusedAssignment",
+  "title" : "Unused Assignment",
+  "description" : "The value assigned to this variable is never used or always overwritten"
+}, {
   "patternId" : "category_java_bestpractices_SystemPrintln",
   "title" : "System Println",
   "description" : "{0} is used"

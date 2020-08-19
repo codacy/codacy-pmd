@@ -9,7 +9,7 @@ Example(s):
   ...
   <dependency>
     ...
-    <version>6.25.0</version>
+    <version>6.26.0</version>
   </dependency>
 </project>
 ```

@@ -1,9 +1,9 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d0f04e048bba4a01a7ef0166bf5b8d32)](https://www.codacy.com/gh/codacy/codacy-pmdjava?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-pmdjava&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://circleci.com/gh/codacy/codacy-pmdjava.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/codacy/codacy-pmdjava)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d0f04e048bba4a01a7ef0166bf5b8d32)](https://www.codacy.com/gh/codacy/codacy-pmd?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-pmd&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://circleci.com/gh/codacy/codacy-pmd.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/codacy/codacy-pmd)
 
-# Codacy PMDJava
+# Codacy PMD
 
-This is the docker engine we use at Codacy to have [PMDJava](https://pmd.github.io/) support.
+This is the docker engine we use at Codacy to have [pmd](https://pmd.github.io/) support.
 You can also create a docker to integrate the tool and language of your choice!
 Check the **Docs** section for more information.
 

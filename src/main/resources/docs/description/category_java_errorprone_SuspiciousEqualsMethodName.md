@@ -1,7 +1,11 @@
 Since: PMD 2.0
 
-The method name and parameter number are suspiciously close to equals(Object), which can denote an
-intention to override the equals(Object) method.
+The method name and parameter number are suspiciously close to `Object.equals`, which can denote an
+intention to override it. However, the method does not override `Object.equals`, but overloads it instead.
+Overloading `Object.equals` method is confusing for other programmers, error-prone and hard to maintain,
+especially when using inheritance, because `@Override` annotations used in subclasses can provide a false
+sense of security. For more information on `Object.equals` method, see Effective Java, 3rd Edition,
+Item 10: Obey the general contract when overriding equals.
 
 Example(s):
 ```

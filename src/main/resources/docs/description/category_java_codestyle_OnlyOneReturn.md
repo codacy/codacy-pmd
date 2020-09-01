@@ -5,7 +5,7 @@ A method should have only one exit point, and that should be the last statement 
 Example(s):
 ```
 public class OneReturnOnly1 {
-  public void foo(int x) {
+  public String foo(int x) {
     if (x > 0) {
       return "hey";   // first exit
     }

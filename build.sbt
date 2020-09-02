@@ -9,7 +9,7 @@ scalaVersion := "2.13.3"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
 
-toolVersionKey := "6.26.0"
+toolVersionKey := "6.27.0"
 
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value

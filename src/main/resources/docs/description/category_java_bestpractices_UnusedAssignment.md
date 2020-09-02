@@ -17,6 +17,16 @@ Reports assignments to variables that are never used before the variable is over
             `reportUnusedVariables`. Variables whose name starts with `ignored` are filtered out, as
             is standard practice for exceptions.
 
+            Limitations:
+            * The rule currently cannot know which method calls throw exceptions, or which exceptions they throw.
+            In the body of a try block, every method or constructor call is assumed to throw.  This may cause false-negatives.
+            The only other language construct that is assumed to throw is the `throw` statement, in particular,
+            things like `assert` statements, or NullPointerExceptions on dereference are ignored.
+            * The rule cannot resolve assignments across constructors, when they're called with the special
+            `this(...)` syntax. This may cause false-negatives.
+
+            Both of those limitations may be partly relaxed in PMD 7.
+
 Example(s):
 ```
 class A {

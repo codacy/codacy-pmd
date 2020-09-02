@@ -678,10 +678,6 @@
   "title" : "Detached Test Case",
   "description" : "Probable detached JUnit test case."
 }, {
-  "patternId" : "category_java_errorprone_DataflowAnomalyAnalysis",
-  "title" : "Dataflow Anomaly Analysis",
-  "description" : "Found ''{0}''-anomaly for variable ''{1}'' (lines ''{2}''-''{3}'')."
-}, {
   "patternId" : "category_java_errorprone_ConstructorCallsOverridableMethod",
   "title" : "Constructor Calls Overridable Method",
   "description" : "Overridable {0} called during object construction"
@@ -1474,6 +1470,10 @@
   "patternId" : "category_java_bestpractices_AvoidReassigningLoopVariables",
   "title" : "Avoid Reassigning Loop Variables",
   "description" : "Avoid reassigning the loop control variable ''{0}''"
+}, {
+  "patternId" : "category_java_bestpractices_AvoidReassigningCatchVariables",
+  "title" : "Avoid Reassigning Catch Variables",
+  "description" : "Avoid reassigning caught exception ''{0}''"
 }, {
   "patternId" : "category_java_bestpractices_AvoidPrintStackTrace",
   "title" : "Avoid Print Stack Trace",

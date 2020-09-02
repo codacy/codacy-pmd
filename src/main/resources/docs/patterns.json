@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.26.0",
+  "version" : "6.27.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -437,6 +437,11 @@
     "languages" : [ "Java" ]
   }, {
     "patternId" : "category_java_bestpractices_AvoidPrintStackTrace",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "languages" : [ "Java" ]
+  }, {
+    "patternId" : "category_java_bestpractices_AvoidReassigningCatchVariables",
     "level" : "Warning",
     "category" : "CodeStyle",
     "languages" : [ "Java" ]
@@ -1405,11 +1410,6 @@
     "languages" : [ "Java" ]
   }, {
     "patternId" : "category_java_errorprone_ConstructorCallsOverridableMethod",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "languages" : [ "Java" ]
-  }, {
-    "patternId" : "category_java_errorprone_DataflowAnomalyAnalysis",
     "level" : "Warning",
     "category" : "ErrorProne",
     "languages" : [ "Java" ]

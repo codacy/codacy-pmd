@@ -197,12 +197,11 @@ object PMD extends Tool {
 
   private[this] def generateRule(patternDef: Pattern.Definition): Option[Elem] = {
     referenceFromPatternId(patternDef.patternId).map {
-      case ruleId if patternDef.parameters.exists(_.nonEmpty) =>
+      case ruleId if patternDef.parameters.nonEmpty =>
         val xmlProperties = patternDef.parameters
         // HACK: Codacy converts the version parameter from 2.0 to 2 leading PMD to fail, excluding it for now
-          .map(_.filter(_.name.value != "version"))
-          .map(_.map(generateParameter))
-          .getOrElse(Set.empty)
+          .filter(_.name.value != "version")
+          .map(generateParameter)
 
         <rule ref={ruleId}>
           <properties>

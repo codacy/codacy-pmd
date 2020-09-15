@@ -113,10 +113,10 @@ object DocGenerator {
 
     val sortedPatternSpecifications =
       ListSet(patternSpecifications.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
-        .map(p => p.copy(parameters = p.parameters.map(pp => ListSet(pp.toSeq.sortBy(_.name.value): _*))))
+        .map(p => p.copy(parameters = ListSet(p.parameters.toSeq.sortBy(_.name.value): _*)))
     val sortedPatternDescriptions =
       ListSet(patternDescriptions.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
-        .map(p => p.copy(parameters = p.parameters.map(pp => ListSet(pp.toSeq.sortBy(_.name.value): _*))))
+        .map(p => p.copy(parameters = ListSet(p.parameters.toSeq.sortBy(_.name.value): _*)))
 
     val spec = Tool.Specification(Tool.Name("pmd"), Some(Tool.Version(version)), sortedPatternSpecifications)
 
@@ -294,15 +294,16 @@ object DocGenerator {
           Pattern.Title(splitPatternId(name)),
           Some(Pattern.DescriptionText(cleanDescription(message))),
           timeToFix,
-          Some(parameterDescriptions).filter(_.nonEmpty)
+          parameterDescriptions
         ),
         Pattern.Specification(
           patternId,
           level,
           category,
           getSecurityCategory(name, category),
-          Some(parameterSpecifications).filter(_.nonEmpty),
-          Some(com.codacy.plugins.api.languages.Languages.fromName(language).toSet)
+          parameterSpecifications,
+          com.codacy.plugins.api.languages.Languages.fromName(language).toSet,
+          enabled = DefaultPatterns.list.contains(patternId.value)
         ),
         PatternExtendedDescription(patternId, s"""Since: PMD $since
             |

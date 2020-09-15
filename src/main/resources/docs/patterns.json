@@ -5,32 +5,44 @@
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_bestpractices_ApexUnitTestClassShouldHaveAsserts",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_bestpractices_ApexUnitTestMethodShouldHaveIsTestAnnotation",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_bestpractices_ApexUnitTestShouldNotUseSeeAllDataTrue",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_bestpractices_AvoidGlobalModifier",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_bestpractices_AvoidLogicInTrigger",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_bestpractices_DebugsShouldUseLoggingLevel",
     "level" : "Warning",
@@ -39,57 +51,78 @@
       "name" : "strictMode",
       "default" : "false"
     } ],
-    "languages" : [ "Apex" ]
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_bestpractices_UnusedLocalVariable",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_ClassNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_FieldDeclarationsShouldBeAtStart",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_FieldNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_ForLoopsMustUseBraces",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_FormalParameterNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_IfElseStmtsMustUseBraces",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_IfStmtsMustUseBraces",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_LocalVariableNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_MethodNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_OneDeclarationPerLine",
     "level" : "Info",
@@ -98,232 +131,319 @@
       "name" : "strictMode",
       "default" : "false"
     } ],
-    "languages" : [ "Apex" ]
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_PropertyNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_codestyle_WhileLoopsMustUseBraces",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_design_AvoidDeeplyNestedIfStmts",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_design_CognitiveComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_design_CyclomaticComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_design_ExcessiveClassLength",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_design_ExcessiveParameterList",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_design_ExcessivePublicCount",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_design_NcssConstructorCount",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_design_NcssMethodCount",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_design_NcssTypeCount",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_design_StdCyclomaticComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_design_TooManyFields",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_documentation_ApexDoc",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_ApexCSRF",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_AvoidDirectAccessTriggerMap",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_AvoidHardcodingId",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_AvoidNonExistentAnnotations",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_EmptyCatchBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_EmptyIfStmt",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_EmptyStatementBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_EmptyTryOrFinallyBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_EmptyWhileStmt",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_MethodWithSameNameAsEnclosingClass",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_errorprone_TestMethodsMustBeInTestClasses",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_performance_AvoidDmlStatementsInLoops",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_performance_AvoidSoqlInLoops",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_performance_AvoidSoslInLoops",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
   }, {
     "patternId" : "category_apex_security_ApexBadCrypto",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "Cryptography",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_security_ApexCRUDViolation",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "Auth",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_security_ApexDangerousMethods",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "InsecureModulesLibraries",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_security_ApexInsecureEndpoint",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "Routes",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_security_ApexOpenRedirect",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "Routes",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_security_ApexSOQLInjection",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "SQLInjection",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_security_ApexSharingViolations",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "InsecureModulesLibraries",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_security_ApexSuggestUsingNamedCred",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "Auth",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_security_ApexXSSFromEscapeFalse",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "XSS",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_apex_security_ApexXSSFromURLParam",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "XSS",
-    "languages" : [ "Apex" ]
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : true
   }, {
     "patternId" : "category_ecmascript_bestpractices_AvoidWithStatement",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : true
   }, {
     "patternId" : "category_ecmascript_bestpractices_ConsistentReturn",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : true
   }, {
     "patternId" : "category_ecmascript_bestpractices_GlobalVariable",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_bestpractices_ScopeForInVariable",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_bestpractices_UseBaseWithParseInt",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : true
   }, {
     "patternId" : "category_ecmascript_codestyle_AssignmentInOperand",
     "level" : "Info",
@@ -347,47 +467,64 @@
       "name" : "allowWhile",
       "default" : "false"
     } ],
-    "languages" : [ "Javascript" ]
+    "languages" : [ "Javascript" ],
+    "enabled" : true
   }, {
     "patternId" : "category_ecmascript_codestyle_ForLoopsMustUseBraces",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_codestyle_IfElseStmtsMustUseBraces",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_codestyle_IfStmtsMustUseBraces",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_codestyle_NoElseReturn",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_codestyle_UnnecessaryBlock",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : true
   }, {
     "patternId" : "category_ecmascript_codestyle_UnnecessaryParentheses",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_codestyle_UnreachableCode",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_codestyle_WhileLoopsMustUseBraces",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_errorprone_AvoidTrailingComma",
     "level" : "Warning",
@@ -399,77 +536,106 @@
       "name" : "allowObjectLiteral",
       "default" : "false"
     } ],
-    "languages" : [ "Javascript" ]
+    "languages" : [ "Javascript" ],
+    "enabled" : false
   }, {
     "patternId" : "category_ecmascript_errorprone_EqualComparison",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : true
   }, {
     "patternId" : "category_ecmascript_errorprone_InnaccurateNumericLiteral",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Javascript" ]
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_AbstractClassWithoutAbstractMethod",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_AccessorClassGeneration",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_AccessorMethodGeneration",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_ArrayIsStoredDirectly",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_AvoidMessageDigestField",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_AvoidPrintStackTrace",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_AvoidReassigningCatchVariables",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_AvoidReassigningLoopVariables",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_AvoidReassigningParameters",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_AvoidStringBufferField",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_AvoidUsingHardCodedIP",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_CheckResultSet",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_ConstantsInInterface",
     "level" : "Warning",
@@ -478,22 +644,29 @@
       "name" : "ignoreIfHasMethods",
       "default" : "true"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_DefaultLabelNotLastInSwitchStmt",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_DoubleBraceInitialization",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_ForLoopCanBeForeach",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_ForLoopVariableCount",
     "level" : "Warning",
@@ -502,27 +675,36 @@
       "name" : "maximumVariables",
       "default" : "1"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_GuardLogStatement",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_JUnit4SuitesShouldUseSuiteAnnotation",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_JUnit4TestShouldUseAfterAnnotation",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_JUnit4TestShouldUseBeforeAnnotation",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_JUnit4TestShouldUseTestAnnotation",
     "level" : "Warning",
@@ -531,12 +713,15 @@
       "name" : "testClassPattern",
       "default" : "Test"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_JUnitAssertionsShouldIncludeMessage",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_JUnitTestContainsTooManyAsserts",
     "level" : "Warning",
@@ -545,37 +730,50 @@
       "name" : "maximumAsserts",
       "default" : "1"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_JUnitTestsShouldIncludeAssert",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_JUnitUseExpected",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_LiteralsFirstInComparisons",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_LooseCoupling",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_MethodReturnsInternalArray",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_MissingOverride",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_OneDeclarationPerLine",
     "level" : "Warning",
@@ -584,92 +782,127 @@
       "name" : "strictMode",
       "default" : "false"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_PreserveStackTrace",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_ReplaceEnumerationWithIterator",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_ReplaceHashtableWithMap",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_ReplaceVectorWithList",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_SwitchStmtsShouldHaveDefault",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_SystemPrintln",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_UnusedAssignment",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_UnusedFormalParameter",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_UnusedImports",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_UnusedLocalVariable",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_UnusedPrivateField",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_UnusedPrivateMethod",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_bestpractices_UseAssertEqualsInsteadOfAssertTrue",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_UseAssertNullInsteadOfAssertTrue",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_UseAssertSameInsteadOfAssertTrue",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_UseAssertTrueInsteadOfAssertEquals",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_UseCollectionIsEmpty",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_UseTryWithResources",
     "level" : "Warning",
@@ -678,42 +911,57 @@
       "name" : "closeMethods",
       "default" : "close,closeQuietly"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_UseVarargs",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_WhileLoopWithLiteralBoolean",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_AtLeastOneConstructor",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_AvoidDollarSigns",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_AvoidProtectedFieldInFinalClass",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_AvoidProtectedMethodInFinalClassNotExtending",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_AvoidUsingNativeCode",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_BooleanGetMethodName",
     "level" : "Info",
@@ -722,27 +970,36 @@
       "name" : "checkParameterizedMethods",
       "default" : "false"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_CallSuperInConstructor",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_ClassNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_CommentDefaultAccessModifier",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_ConfusingTernary",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_ControlStatementBraces",
     "level" : "Info",
@@ -769,87 +1026,120 @@
       "name" : "checkWhileStmt",
       "default" : "true"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_DefaultPackage",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_DontImportJavaLang",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_DuplicateImports",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_EmptyMethodInAbstractClassShouldBeAbstract",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_ExtendsObject",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_FieldDeclarationsShouldBeAtStartOfClass",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_FieldNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_ForLoopShouldBeWhileLoop",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_FormalParameterNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_GenericsNaming",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_IdenticalCatchBranches",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_LinguisticNaming",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_LocalHomeNamingConvention",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_LocalInterfaceSessionNamingConvention",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_LocalVariableCouldBeFinal",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_LocalVariableNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_LongVariable",
     "level" : "Info",
@@ -858,52 +1148,71 @@
       "name" : "minimum",
       "default" : "17"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_MDBAndSessionBeanNamingConvention",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_MethodArgumentCouldBeFinal",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_MethodNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_NoPackage",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_OnlyOneReturn",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_PackageCase",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_PrematureDeclaration",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_RemoteInterfaceNamingConvention",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_RemoteSessionInterfaceNamingConvention",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_ShortClassName",
     "level" : "Info",
@@ -912,7 +1221,8 @@
       "name" : "minimum",
       "default" : "5"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_ShortMethodName",
     "level" : "Info",
@@ -921,7 +1231,8 @@
       "name" : "minimum",
       "default" : "3"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_ShortVariable",
     "level" : "Info",
@@ -930,7 +1241,8 @@
       "name" : "minimum",
       "default" : "3"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_TooManyStaticImports",
     "level" : "Info",
@@ -939,42 +1251,57 @@
       "name" : "maximumStaticImports",
       "default" : "4"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UnnecessaryAnnotationValueElement",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UnnecessaryCast",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UnnecessaryConstructor",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_UnnecessaryFullyQualifiedName",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_UnnecessaryLocalBeforeReturn",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UnnecessaryModifier",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UnnecessaryReturn",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_UseDiamondOperator",
     "level" : "Info",
@@ -983,12 +1310,15 @@
       "name" : "java7Compatibility",
       "default" : "false"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UseShortArrayInitializer",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UseUnderscoresInNumericLiterals",
     "level" : "Info",
@@ -997,202 +1327,281 @@
       "name" : "acceptableDecimalLength",
       "default" : "4"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UselessParentheses",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UselessQualifiedThis",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_AbstractClassWithoutAnyMethod",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_AvoidCatchingGenericException",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_AvoidDeeplyNestedIfStmts",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_AvoidRethrowingException",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_AvoidThrowingNewInstanceOfSameException",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_AvoidThrowingNullPointerException",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_AvoidThrowingRawExceptionTypes",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_AvoidUncheckedExceptionsInSignatures",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_CollapsibleIfStatements",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_CouplingBetweenObjects",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_CyclomaticComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_DataClass",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_DoNotExtendJavaLangError",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_ExceptionAsFlowControl",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_ExcessiveClassLength",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_ExcessiveImports",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_ExcessiveMethodLength",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_ExcessiveParameterList",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_ExcessivePublicCount",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_FinalFieldCouldBeStatic",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_GodClass",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_ImmutableField",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_LawOfDemeter",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_LogicInversion",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_LoosePackageCoupling",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_NPathComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_NcssCount",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_SignatureDeclareThrowsException",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_SimplifiedTernary",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_SimplifyBooleanAssertion",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_SimplifyBooleanExpressions",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_SimplifyBooleanReturns",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_SimplifyConditional",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_SingularField",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_design_SwitchDensity",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_TooManyFields",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_TooManyMethods",
     "level" : "Warning",
@@ -1201,37 +1610,50 @@
       "name" : "maxmethods",
       "default" : "10"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_UseObjectForClearerAPI",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_UseUtilityClass",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_design_UselessOverridingMethod",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_documentation_CommentContent",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_documentation_CommentRequired",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_documentation_CommentSize",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_documentation_UncommentedEmptyConstructor",
     "level" : "Info",
@@ -1240,82 +1662,113 @@
       "name" : "ignoreExplicitConstructorInvocation",
       "default" : "false"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_documentation_UncommentedEmptyMethodBody",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_AssignmentInOperand",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AssignmentToNonFinalStatic",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_AvoidAccessibilityAlteration",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_AvoidAssertAsIdentifier",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AvoidBranchingStatementAsLastInLoop",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_AvoidCallingFinalize",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_AvoidCatchingNPE",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AvoidCatchingThrowable",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AvoidDecimalLiteralsInBigDecimalConstructor",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_AvoidDuplicateLiterals",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AvoidEnumAsIdentifier",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AvoidFieldNameMatchingMethodName",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AvoidFieldNameMatchingTypeName",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AvoidInstanceofChecksInCatchClause",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_AvoidLiteralsInIfCondition",
     "level" : "Warning",
@@ -1327,132 +1780,183 @@
       "name" : "ignoreMagicNumbers",
       "default" : "-1,0"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AvoidLosingExceptionInformation",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_AvoidMultipleUnaryOperators",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_AvoidUsingOctalValues",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_BadComparison",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_BeanMembersShouldSerialize",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_BrokenNullCheck",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_CallSuperFirst",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_CallSuperLast",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_CheckSkipResult",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_ClassCastExceptionWithToArray",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_CloneMethodMustBePublic",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_CloneMethodMustImplementCloneable",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_CloneMethodReturnTypeMustMatchClassName",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_CloneThrowsCloneNotSupportedException",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_CloseResource",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_CompareObjectsWithEquals",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_ConstructorCallsOverridableMethod",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_DetachedTestCase",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_DoNotCallGarbageCollectionExplicitly",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_DoNotCallSystemExit",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_DoNotExtendJavaLangThrowable",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_DoNotHardCodeSDCard",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_DoNotThrowExceptionInFinally",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_DontImportSun",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_DontUseFloatTypeForLoopIndices",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptyCatchBlock",
     "level" : "Warning",
@@ -1464,137 +1968,190 @@
       "name" : "allowExceptionNameRegex",
       "default" : "^(ignored|expected)$"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_EmptyFinalizer",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptyFinallyBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptyIfStmt",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptyInitializer",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptyStatementBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptyStatementNotInLoop",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptySwitchStatements",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptySynchronizedBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptyTryBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_EmptyWhileStmt",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_EqualsNull",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_FinalizeDoesNotCallSuperFinalize",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_FinalizeOnlyCallsSuperFinalize",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_FinalizeOverloaded",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_FinalizeShouldBeProtected",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_IdempotentOperations",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_ImportFromSamePackage",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_InstantiationToGetClass",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_InvalidLogMessageFormat",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_JUnitSpelling",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_JUnitStaticSuite",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_JumbledIncrementer",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_MethodWithSameNameAsEnclosingClass",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_MisplacedNullCheck",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_MissingBreakInSwitch",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_MissingSerialVersionUID",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_MissingStaticMethodInNonInstantiatableClass",
     "level" : "Warning",
@@ -1603,37 +2160,50 @@
       "name" : "annotations",
       "default" : "org.springframework.beans.factory.annotation.Autowired, javax.inject.Inject"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_MoreThanOneLogger",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_NonCaseLabelInSwitchStatement",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_NonStaticInitializer",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_NullAssignment",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_OverrideBothEqualsAndHashcode",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_ProperCloneImplementation",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_ProperLogger",
     "level" : "Warning",
@@ -1648,277 +2218,386 @@
       "name" : "staticLoggerName",
       "default" : "LOG"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_ReturnEmptyArrayRatherThanNull",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_ReturnFromFinallyBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_SimpleDateFormatNeedsLocale",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_SingleMethodSingleton",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_SingletonClassReturningNewInstance",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_StaticEJBFieldShouldBeFinal",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_StringBufferInstantiationWithChar",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_SuspiciousEqualsMethodName",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_SuspiciousHashcodeMethodName",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_SuspiciousOctalEscape",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_TestClassWithoutTestCases",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_UnconditionalIfStatement",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_UnnecessaryBooleanAssertion",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_UnnecessaryCaseChange",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_UnnecessaryConversionTemporary",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_UnusedNullCheckInEquals",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_UseCorrectExceptionLogging",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_UseEqualsToCompareStrings",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_UseLocaleWithCaseConversions",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_UseProperClassLoader",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_UselessOperationOnImmutable",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_multithreading_AvoidSynchronizedAtMethodLevel",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_multithreading_AvoidThreadGroup",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_multithreading_AvoidUsingVolatile",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_multithreading_DoNotUseThreads",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_multithreading_DontCallThreadRun",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_multithreading_DoubleCheckedLocking",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_multithreading_NonThreadSafeSingleton",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_multithreading_UnsynchronizedStaticFormatter",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_multithreading_UseConcurrentHashMap",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_multithreading_UseNotifyAllInsteadOfNotify",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_AddEmptyString",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_AppendCharacterWithChar",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_AvoidArrayLoops",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_AvoidCalendarDateCreation",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_AvoidFileStream",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_AvoidInstantiatingObjectsInLoops",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_AvoidUsingShortType",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_BigIntegerInstantiation",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_BooleanInstantiation",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_performance_ByteInstantiation",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_ConsecutiveAppendsShouldReuse",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_ConsecutiveLiteralAppends",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_InefficientEmptyStringCheck",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_InefficientStringBuffering",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_InsufficientStringBufferDeclaration",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_IntegerInstantiation",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_LongInstantiation",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_OptimizableToArrayCall",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_RedundantFieldInitializer",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_ShortInstantiation",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_SimplifyStartsWith",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_StringInstantiation",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_performance_StringToString",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_performance_TooFewBranchesForASwitchStatement",
     "level" : "Warning",
@@ -1927,136 +2606,187 @@
       "name" : "minimumNumberCaseForASwitch",
       "default" : "3"
     } ],
-    "languages" : [ "Java" ]
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_UnnecessaryWrapperObjectCreation",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_UseArrayListInsteadOfVector",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_UseArraysAsList",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_UseIOStreamsWithApacheCommonsFileItem",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_UseIndexOfChar",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_UseStringBufferForStringAppends",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_performance_UseStringBufferLength",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : true
   }, {
     "patternId" : "category_java_performance_UselessStringValueOf",
     "level" : "Warning",
     "category" : "Performance",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_security_HardCodedCryptoKey",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "Cryptography",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_security_InsecureCryptoIv",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "Cryptography",
-    "languages" : [ "Java" ]
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_jsp_bestpractices_DontNestJsfInJstlIteration",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_bestpractices_NoClassAttribute",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_bestpractices_NoHtmlComments",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_bestpractices_NoJspForward",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_codestyle_DuplicateJspImports",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_design_NoInlineScript",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_design_NoInlineStyleInformation",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_design_NoLongScripts",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_design_NoScriptlets",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_errorprone_JspEncoding",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_security_IframeMissingSrcAttribute",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "UnexpectedBehaviour",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_jsp_security_NoUnsanitizedJSPExpression",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "XSS",
-    "languages" : [ "JSP" ]
+    "parameters" : [ ],
+    "languages" : [ "JSP" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_bestpractices_TomKytesDespair",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_codestyle_AvoidTabCharacter",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : false
   }, {
     "patternId" : "category_plsql_codestyle_CodeFormat",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : false
   }, {
     "patternId" : "category_plsql_codestyle_ForLoopNaming",
     "level" : "Info",
@@ -2071,72 +2801,99 @@
       "name" : "indexPattern",
       "default" : "[a-zA-Z_0-9]{5,}"
     } ],
-    "languages" : [ "PLSQL" ]
+    "languages" : [ "PLSQL" ],
+    "enabled" : false
   }, {
     "patternId" : "category_plsql_codestyle_LineLength",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : false
   }, {
     "patternId" : "category_plsql_codestyle_MisplacedPragma",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_design_CyclomaticComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : false
   }, {
     "patternId" : "category_plsql_design_ExcessiveMethodLength",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_design_ExcessiveObjectLength",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_design_ExcessivePackageBodyLength",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_design_ExcessivePackageSpecificationLength",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_design_ExcessiveParameterList",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_design_ExcessiveTypeLength",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_design_NPathComplexity",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : false
   }, {
     "patternId" : "category_plsql_design_NcssMethodCount",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : false
   }, {
     "patternId" : "category_plsql_design_NcssObjectCount",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : false
   }, {
     "patternId" : "category_plsql_design_TooManyFields",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : false
   }, {
     "patternId" : "category_plsql_design_TooManyMethods",
     "level" : "Warning",
@@ -2145,22 +2902,29 @@
       "name" : "maxmethods",
       "default" : "1"
     } ],
-    "languages" : [ "PLSQL" ]
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_errorprone_TO_DATEWithoutDateFormat",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_errorprone_TO_DATE_TO_CHAR",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_plsql_errorprone_TO_TIMESTAMPWithoutDateFormat",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "PLSQL" ]
+    "parameters" : [ ],
+    "languages" : [ "PLSQL" ],
+    "enabled" : true
   }, {
     "patternId" : "category_pom_errorprone_InvalidDependencyTypes",
     "level" : "Warning",
@@ -2169,44 +2933,59 @@
       "name" : "validTypes",
       "default" : "pom,jar,maven-plugin,ejb,war,ear,rar,par"
     } ],
-    "languages" : [ "XML" ]
+    "languages" : [ "XML" ],
+    "enabled" : true
   }, {
     "patternId" : "category_pom_errorprone_ProjectVersionAsDependencyVersion",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "XML" ]
+    "parameters" : [ ],
+    "languages" : [ "XML" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vf_security_VfCsrf",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "CSRF",
-    "languages" : [ "VisualForce" ]
+    "parameters" : [ ],
+    "languages" : [ "VisualForce" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vf_security_VfUnescapeEl",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "XSS",
-    "languages" : [ "VisualForce" ]
+    "parameters" : [ ],
+    "languages" : [ "VisualForce" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vm_bestpractices_AvoidReassigningParameters",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Velocity" ]
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vm_bestpractices_UnusedMacroParameter",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "languages" : [ "Velocity" ]
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vm_design_AvoidDeeplyNestedIfStmts",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Velocity" ]
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vm_design_CollapsibleIfStatements",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Velocity" ]
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vm_design_ExcessiveTemplateLength",
     "level" : "Warning",
@@ -2215,37 +2994,50 @@
       "name" : "minimum",
       "default" : "1000"
     } ],
-    "languages" : [ "Velocity" ]
+    "languages" : [ "Velocity" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vm_design_NoInlineJavaScript",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Velocity" ]
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vm_design_NoInlineStyles",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Velocity" ]
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vm_errorprone_EmptyForeachStmt",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Velocity" ]
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
   }, {
     "patternId" : "category_vm_errorprone_EmptyIfStmt",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "Velocity" ]
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
   }, {
     "patternId" : "category_xml_errorprone_MistypedCDATASection",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "languages" : [ "XML" ]
+    "parameters" : [ ],
+    "languages" : [ "XML" ],
+    "enabled" : true
   }, {
     "patternId" : "category_xsl_codestyle_UseConcatOnce",
     "level" : "Info",
     "category" : "CodeStyle",
-    "languages" : [ "XML" ]
+    "parameters" : [ ],
+    "languages" : [ "XML" ],
+    "enabled" : true
   }, {
     "patternId" : "category_xsl_performance_AvoidAxisNavigation",
     "level" : "Warning",
@@ -2254,6 +3046,7 @@
       "name" : "checkSelfDescendantAbreviation",
       "default" : "false"
     } ],
-    "languages" : [ "XML" ]
+    "languages" : [ "XML" ],
+    "enabled" : true
   } ]
 }

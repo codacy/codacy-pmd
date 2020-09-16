@@ -209,8 +209,15 @@ object DocGenerator {
       val timeToFix = Patterns.timeToFix.get(patternId.value).map(Pattern.TimeToFix.apply)
 
       (
-        Pattern.Description(patternId, Pattern.Title(message), None, timeToFix, Some(parameterDescriptions).filter(_.nonEmpty)),
-        Pattern.Specification(patternId, level, category, Some(parameterSpecifications).filter(_.nonEmpty), Some(com.codacy.plugins.api.languages.Languages.fromName(language).toSet)),
+        Pattern.Description(patternId, Pattern.Title(message), None, timeToFix, parameterDescriptions),
+        Pattern.Specification(
+          patternId,
+          level,
+          category,
+          subcategory = None,
+          parameterSpecifications,
+          com.codacy.plugins.api.languages.Languages.fromName(language).toSet,
+          DefaultPatterns.patterns.contains(patternId.value)),
         PatternExtendedDescription(patternId,
          s"""Since: PMD $since
             |

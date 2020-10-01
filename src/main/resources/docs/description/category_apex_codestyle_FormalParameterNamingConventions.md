@@ -2,8 +2,7 @@ Since: PMD 6.15.0
 
 Configurable naming conventions for formal parameters of methods.
             This rule reports formal parameters which do not match the regex that applies to their
-            specific kind (e.g. method parameter, or final method parameter). Each regex can be
-            configured through properties.
+            specific kind (e.g. method parameter, or final method parameter). Each regex can be configured on the PMD configuration file.
 
             By default this rule uses the standard Apex naming convention (Camel case).
 

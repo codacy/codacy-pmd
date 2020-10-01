@@ -2,8 +2,7 @@ Since: PMD 6.6.0
 
 Configurable naming conventions for local variable declarations and other locally-scoped
             variables. This rule reports variable declarations which do not match the regex that applies to their
-            specific kind (e.g. final variable, or catch-clause parameter). Each regex can be configured through
-            properties.
+            specific kind (e.g. final variable, or catch-clause parameter). Each regex can be configured on the PMD configuration file.
 
             By default this rule uses the standard Java naming convention (Camel case).
 

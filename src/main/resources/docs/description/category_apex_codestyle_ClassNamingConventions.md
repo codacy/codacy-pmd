@@ -2,8 +2,7 @@ Since: PMD 5.5.0
 
 Configurable naming conventions for type declarations. This rule reports
             type declarations which do not match the regex that applies to their
-            specific kind (e.g. enum or interface). Each regex can be configured through
-            properties.
+            specific kind (e.g. enum or interface). Each regex can be configured on the PMD configuration file.
 
             By default this rule uses the standard Apex naming convention (Pascal case).
 

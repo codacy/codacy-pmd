@@ -2,7 +2,7 @@ Since: PMD 6.7.0
 
 Configurable naming conventions for field declarations. This rule reports variable declarations
             which do not match the regex that applies to their specific kind ---e.g. constants (static final),
-            enum constant, final field. Each regex can be configured through properties.
+            enum constant, final field. Each regex can be configured on the PMD configuration file.
 
             By default this rule uses the standard Java naming convention (Camel case), and uses the ALL_UPPER
             convention for constants and enum constants.

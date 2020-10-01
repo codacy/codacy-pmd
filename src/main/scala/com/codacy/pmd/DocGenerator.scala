@@ -288,6 +288,13 @@ object DocGenerator {
 
       val timeToFix = Patterns.timeToFix.get(patternId.value).map(Pattern.TimeToFix.apply)
 
+      // Added in the context of this issue: https://codacy.atlassian.net/browse/CY-2948
+      val longDescriptionWithoutUnsupportedInfo = longDescription.trim
+        .replaceAll(
+          "Each[\\s\\n]+regex[\\s\\n]+can[\\s\\n]+be[\\s\\n]+configured[\\s\\n]+through[\\s\\n]+properties.",
+          "Each regex can be configured on the PMD configuration file."
+        )
+
       (
         Pattern.Description(
           patternId,
@@ -307,7 +314,7 @@ object DocGenerator {
         ),
         PatternExtendedDescription(patternId, s"""Since: PMD $since
             |
-            |${Utility.escape(longDescription.trim)}
+            |${Utility.escape(longDescriptionWithoutUnsupportedInfo)}
             |
             |Example(s):
             |```

@@ -13,6 +13,7 @@ import scala.util.{Failure, Properties, Success, Try}
 import scala.xml.{Elem, Node, Utility, XML}
 
 object DocGenerator {
+  val version: String = net.sourceforge.pmd.PMDVersion.VERSION
 
   case class Ruleset(
       name: String,
@@ -25,7 +26,6 @@ object DocGenerator {
   private val rulesetsRoots = List(("rulesets", "rulesets.properties"), ("category", "categories.properties"))
 
   def main(args: Array[String]): Unit = {
-    val version: String = net.sourceforge.pmd.PMDVersion.VERSION
 
     Try(listPatterns) match {
       case Success(rulesets) => writePatterns(version, rulesets)
@@ -288,11 +288,15 @@ object DocGenerator {
 
       val timeToFix = Patterns.timeToFix.get(patternId.value).map(Pattern.TimeToFix.apply)
 
+      val replacement =
+        s"""Each regex can be configured on the PMD configuration file.
+           |Check the [PMD documentation](https://pmd.github.io/pmd-${version}/pmd_rules_${langAlias}_${rulesetNameClean}.html#${name.toLowerCase}) for more information.""".stripMargin
+
       // Added in the context of this issue: https://codacy.atlassian.net/browse/CY-2948
       val longDescriptionWithoutUnsupportedInfo = longDescription.trim
         .replaceAll(
           "Each[\\s\\n]+regex[\\s\\n]+can[\\s\\n]+be[\\s\\n]+configured[\\s\\n]+through[\\s\\n]+properties.",
-          "Each regex can be configured on the PMD configuration file."
+          replacement
         )
 
       (

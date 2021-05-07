@@ -14,7 +14,7 @@ Reports assignments to variables that are never used before the variable is over
             The rule subsumes {% rule &quot;UnusedLocalVariable&quot; %}, and {% rule &quot;UnusedFormalParameter&quot; %}.
             Those violations are filtered
             out by default, in case you already have enabled those rules, but may be enabled with the property
-            `reportUnusedVariables`. Variables whose name starts with `ignored` are filtered out, as
+            `reportUnusedVariables`. Variables whose name starts with `ignored` or `unused` are filtered out, as
             is standard practice for exceptions.
 
             Limitations:

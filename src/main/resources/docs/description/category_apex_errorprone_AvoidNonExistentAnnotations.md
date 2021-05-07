@@ -8,8 +8,8 @@ Apex supported non existent annotations for legacy reasons.
 Example(s):
 ```
 @NonExistentAnnotation public class ClassWithNonexistentAnnotation {
-	@NonExistentAnnotation public void methodWithNonExistentAnnotation() {
-		// ...
-	}
+    @NonExistentAnnotation public void methodWithNonExistentAnnotation() {
+        // ...
+    }
 }
 ```

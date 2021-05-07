@@ -1,6 +1,6 @@
 Since: PMD 5.5.4
 
-When accessing a private field / method from another class, the Java compiler will generate a accessor methods
+When accessing private fields / methods from another class, the Java compiler will generate accessor methods
 with package-private visibility. This adds overhead, and to the dex method count on Android. This situation can
 be avoided by changing the visibility of the field / method from private to package-private.
 

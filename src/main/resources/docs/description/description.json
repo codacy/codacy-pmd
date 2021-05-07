@@ -70,6 +70,11 @@
   "description" : "Avoid unescaped user controlled content in EL",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_vf_security_VfHtmlStyleTagXss",
+  "title" : "VF HTML Style Tag Xss",
+  "description" : "Use correct encoding for expressions within Style tag",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_vf_security_VfCsrf",
   "title" : "VF CSRF",
   "description" : "Avoid calling VF action upon page load",
@@ -333,11 +338,6 @@
   "description" : "Avoid instantiating String objects; this is usually unnecessary.",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_performance_SimplifyStartsWith",
-  "title" : "Simplify Starts With",
-  "description" : "This call to String.startsWith can be rewritten using String.charAt(0)",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_performance_ShortInstantiation",
   "title" : "Short Instantiation",
   "description" : "Avoid instantiating Short objects. Call Short.valueOf() instead",
@@ -401,11 +401,6 @@
   "patternId" : "category_java_performance_BigIntegerInstantiation",
   "title" : "Big Integer Instantiation",
   "description" : "Don't create instances of already existing BigInteger and BigDecimal (ZERO, ONE, TEN)",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_performance_AvoidUsingShortType",
-  "title" : "Avoid Using Short Type",
-  "description" : "Do not use the short type",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_performance_AvoidInstantiatingObjectsInLoops",
@@ -801,6 +796,11 @@
   "description" : "A throw statement in a finally block makes the control flow hard to understand.",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_java_errorprone_DoNotTerminateVM",
+  "title" : "Do Not Terminate VM",
+  "description" : "System.exit() should not be used in J2EE/JEE apps",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_errorprone_DoNotHardCodeSDCard",
   "title" : "Do Not Hard Code SD Card",
   "description" : "Do not hardcode /sdcard.",
@@ -809,11 +809,6 @@
   "patternId" : "category_java_errorprone_DoNotExtendJavaLangThrowable",
   "title" : "Do Not Extend Java Lang Throwable",
   "description" : "Exceptions should not extend java.lang.Throwable",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_DoNotCallSystemExit",
-  "title" : "Do Not Call System Exit",
-  "description" : "System.exit() should not be used in J2EE/JEE apps",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_DoNotCallGarbageCollectionExplicitly",
@@ -1970,24 +1965,19 @@
   "description" : "Apex classes should use random IV/key",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_apex_performance_AvoidSoslInLoops",
-  "title" : "Avoid Sosl In Loops",
-  "description" : "Avoid Sosl queries inside loops",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_apex_performance_AvoidSoqlInLoops",
-  "title" : "Avoid Soql In Loops",
-  "description" : "Avoid Soql queries inside loops",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_apex_performance_AvoidDmlStatementsInLoops",
-  "title" : "Avoid Dml Statements In Loops",
-  "description" : "Avoid DML statements inside loops",
+  "patternId" : "category_apex_performance_OperationWithLimitsInLoop",
+  "title" : "Operation With Limits In Loop",
+  "description" : "Avoid operations in loops that may hit governor limits",
   "parameters" : [ ]
 }, {
   "patternId" : "category_apex_errorprone_TestMethodsMustBeInTestClasses",
   "title" : "Test Methods Must Be In Test Classes",
   "description" : "Test methods must be in test classes",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_apex_errorprone_OverrideBothEqualsAndHashcode",
+  "title" : "Override Both Equals And Hashcode",
+  "description" : "Ensure you override both equals() and hashCode()",
   "parameters" : [ ]
 }, {
   "patternId" : "category_apex_errorprone_MethodWithSameNameAsEnclosingClass",

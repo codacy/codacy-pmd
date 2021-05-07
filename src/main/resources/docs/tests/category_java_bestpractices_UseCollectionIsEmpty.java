@@ -1,4 +1,5 @@
 //#Patterns: category_java_bestpractices_UseCollectionIsEmpty
+import java.util.List;
 
 public class Foo {
 	void good() {

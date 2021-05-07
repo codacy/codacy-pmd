@@ -8,7 +8,7 @@ Example(s):
 ```
 import blah.blah.Baz;
 import blah.blah.Bif;
-// 18 others from the same package elided
+// 28 others from the same package elided
 public class Foo {
     public void doWork() {}
 }

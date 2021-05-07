@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.28.0",
+  "version" : "6.33.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -302,6 +302,13 @@
     "languages" : [ "Apex" ],
     "enabled" : false
   }, {
+    "patternId" : "category_apex_errorprone_OverrideBothEqualsAndHashcode",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
+  }, {
     "patternId" : "category_apex_errorprone_TestMethodsMustBeInTestClasses",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -309,21 +316,7 @@
     "languages" : [ "Apex" ],
     "enabled" : false
   }, {
-    "patternId" : "category_apex_performance_AvoidDmlStatementsInLoops",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
-    "languages" : [ "Apex" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_apex_performance_AvoidSoqlInLoops",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
-    "languages" : [ "Apex" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_apex_performance_AvoidSoslInLoops",
+    "patternId" : "category_apex_performance_OperationWithLimitsInLoop",
     "level" : "Warning",
     "category" : "Performance",
     "parameters" : [ ],
@@ -1916,13 +1909,6 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
-    "patternId" : "category_java_errorprone_DoNotCallSystemExit",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
     "patternId" : "category_java_errorprone_DoNotExtendJavaLangThrowable",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -1936,6 +1922,13 @@
     "parameters" : [ ],
     "languages" : [ "Java" ],
     "enabled" : true
+  }, {
+    "patternId" : "category_java_errorprone_DoNotTerminateVM",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_DoNotThrowExceptionInFinally",
     "level" : "Warning",
@@ -2158,7 +2151,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "annotations",
-      "default" : "org.springframework.beans.factory.annotation.Autowired, javax.inject.Inject"
+      "default" : "org.springframework.beans.factory.annotation.Autowired,javax.inject.Inject"
     } ],
     "languages" : [ "Java" ],
     "enabled" : true
@@ -2480,13 +2473,6 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
-    "patternId" : "category_java_performance_AvoidUsingShortType",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
     "patternId" : "category_java_performance_BigIntegerInstantiation",
     "level" : "Warning",
     "category" : "Performance",
@@ -2572,13 +2558,6 @@
     "enabled" : false
   }, {
     "patternId" : "category_java_performance_ShortInstantiation",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
-    "patternId" : "category_java_performance_SimplifyStartsWith",
     "level" : "Warning",
     "category" : "Performance",
     "parameters" : [ ],
@@ -2950,6 +2929,13 @@
     "parameters" : [ ],
     "languages" : [ "VisualForce" ],
     "enabled" : true
+  }, {
+    "patternId" : "category_vf_security_VfHtmlStyleTagXss",
+    "level" : "Error",
+    "category" : "Security",
+    "parameters" : [ ],
+    "languages" : [ "VisualForce" ],
+    "enabled" : false
   }, {
     "patternId" : "category_vf_security_VfUnescapeEl",
     "level" : "Error",

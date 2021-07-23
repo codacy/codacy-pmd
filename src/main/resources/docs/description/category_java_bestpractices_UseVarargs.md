@@ -1,8 +1,10 @@
 Since: PMD 5.0
 
-Java 5 introduced the varargs parameter declaration for methods and constructors.  This syntactic
+Java 5 introduced the varargs parameter declaration for methods and constructors. This syntactic
 sugar provides flexibility for users of these methods and constructors, allowing them to avoid
 having to deal with the creation of an array.
+
+Byte arrays in any method and String arrays in `public static void main(String[])` methods are ignored.
 
 Example(s):
 ```

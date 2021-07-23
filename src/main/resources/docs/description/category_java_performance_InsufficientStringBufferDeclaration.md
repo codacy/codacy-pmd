@@ -8,9 +8,9 @@ is assumed if the length of the constructor can not be determined.
 
 Example(s):
 ```
-StringBuffer bad = new StringBuffer();
+StringBuilder bad = new StringBuilder();
 bad.append("This is a long string that will exceed the default 16 characters");
 
-StringBuffer good = new StringBuffer(41);
+StringBuilder good = new StringBuilder(41);
 good.append("This is a long string, which is pre-sized");
 ```

@@ -365,7 +365,7 @@
 }, {
   "patternId" : "category_java_performance_InsufficientStringBufferDeclaration",
   "title" : "Insufficient String Buffer Declaration",
-  "description" : "StringBuffer constructor is initialized with size {0}, but has at least {1} characters appended.",
+  "description" : "{0} has been initialized with size {1}, but has at least {2} characters appended.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_performance_InefficientStringBuffering",
@@ -685,11 +685,6 @@
   "description" : "Avoid instantiating an object just to call getClass() on it; use the .class public member instead",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_errorprone_ImportFromSamePackage",
-  "title" : "Import From Same Package",
-  "description" : "No need to import a type that lives in the same package",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_errorprone_IdempotentOperations",
   "title" : "Idempotent Operations",
   "description" : "Avoid idempotent operations (like assigning a variable to itself).",
@@ -826,19 +821,22 @@
   "description" : "Overridable {0} called during object construction",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_java_errorprone_ComparisonWithNaN",
+  "title" : "Comparison With Na N",
+  "description" : "Comparisons with NaN always return false",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_errorprone_CompareObjectsWithEquals",
   "title" : "Compare Objects With Equals",
   "description" : "Use equals() to compare object references.",
-  "parameters" : [ ]
+  "parameters" : [ {
+    "name" : "typesThatCompareByReference",
+    "description" : "List of canonical type names for which reference comparison is allowed."
+  } ]
 }, {
   "patternId" : "category_java_errorprone_CloseResource",
   "title" : "Close Resource",
   "description" : "Ensure that resources like this {0} object are closed after use",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_CloneThrowsCloneNotSupportedException",
-  "title" : "Clone Throws Clone Not Supported Exception",
-  "description" : "clone() method should throw CloneNotSupportedException",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_CloneMethodReturnTypeMustMatchClassName",
@@ -884,11 +882,6 @@
   "patternId" : "category_java_errorprone_BeanMembersShouldSerialize",
   "title" : "Bean Members Should Serialize",
   "description" : "Found non-transient, non-static member. Please mark as transient or provide accessors.",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_BadComparison",
-  "title" : "Bad Comparison",
-  "description" : "Avoid equality comparisons with Double.NaN",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_AvoidUsingOctalValues",
@@ -1093,6 +1086,11 @@
   "description" : "The {0} ''{1}'' has an NPath complexity of {2}, current threshold is {3}",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_java_design_MutableStaticState",
+  "title" : "Mutable Static State",
+  "description" : "Do not use non-final non-private static fields",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_design_LoosePackageCoupling",
   "title" : "Loose Package Coupling",
   "description" : "Use of ''{0}'' outside of package hierarchy ''{1}'' is not recommended; use recommended classes instead",
@@ -1176,6 +1174,11 @@
   "patternId" : "category_java_design_CollapsibleIfStatements",
   "title" : "Collapsible If Statements",
   "description" : "These nested if statements could be combined",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_java_design_CognitiveComplexity",
+  "title" : "Cognitive Complexity",
+  "description" : "The {0} ''{1}'' has a cognitive complexity of {2}, current threshold is {3}",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
@@ -1267,6 +1270,11 @@
   "patternId" : "category_java_codestyle_UnnecessaryLocalBeforeReturn",
   "title" : "Unnecessary Local Before Return",
   "description" : "Consider simply returning the value vs storing it in local variable ''{0}''",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_java_codestyle_UnnecessaryImport",
+  "title" : "Unnecessary Import",
+  "description" : "Unnecessary import ''{0}''",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryFullyQualifiedName",
@@ -1439,21 +1447,6 @@
   "description" : "An empty method in an abstract class should be abstract instead",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_codestyle_DuplicateImports",
-  "title" : "Duplicate Imports",
-  "description" : "Avoid duplicate imports.",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_codestyle_DontImportJavaLang",
-  "title" : "Dont Import Java Lang",
-  "description" : "Avoid importing anything from the package 'java.lang'",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_codestyle_DefaultPackage",
-  "title" : "Default Package",
-  "description" : "Use explicit scoping instead of the default package private level",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_codestyle_ControlStatementBraces",
   "title" : "Control Statement Braces",
   "description" : "This statement should have braces",
@@ -1551,6 +1544,11 @@
     "description" : "Method names in finally block, which trigger this rule"
   } ]
 }, {
+  "patternId" : "category_java_bestpractices_UseStandardCharsets",
+  "title" : "Use Standard Charsets",
+  "description" : "Please use StandardCharsets constants",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_bestpractices_UseCollectionIsEmpty",
   "title" : "Use Collection Is Empty",
   "description" : "Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()",
@@ -1591,11 +1589,6 @@
   "description" : "Avoid unused local variables.",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_bestpractices_UnusedImports",
-  "title" : "Unused Imports",
-  "description" : "Avoid unused imports.",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_bestpractices_UnusedFormalParameter",
   "title" : "Unused Formal Parameter",
   "description" : "Avoid unused {0} parameters.",
@@ -1613,7 +1606,7 @@
 }, {
   "patternId" : "category_java_bestpractices_SwitchStmtsShouldHaveDefault",
   "title" : "Switch Stmts Should Have Default",
-  "description" : "Switch statements should have a default label",
+  "description" : "Switch statements should be exhaustive, add a default case (or missing enum branches)",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_bestpractices_ReplaceVectorWithList",
@@ -1685,6 +1678,11 @@
   "patternId" : "category_java_bestpractices_JUnitAssertionsShouldIncludeMessage",
   "title" : "JUnit Assertions Should Include Message",
   "description" : "JUnit assertions should include a message",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_java_bestpractices_JUnit5TestShouldBePackagePrivate",
+  "title" : "JUnit5Test Should Be Package Private",
+  "description" : "JUnit 5 tests should be package-private.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_bestpractices_JUnit4TestShouldUseTestAnnotation",
@@ -1970,6 +1968,11 @@
   "description" : "Avoid operations in loops that may hit governor limits",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_apex_performance_AvoidDebugStatements",
+  "title" : "Avoid Debug Statements",
+  "description" : "Avoid debug statements since they impact on performance",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_apex_errorprone_TestMethodsMustBeInTestClasses",
   "title" : "Test Methods Must Be In Test Classes",
   "description" : "Test methods must be in test classes",
@@ -1983,6 +1986,11 @@
   "patternId" : "category_apex_errorprone_MethodWithSameNameAsEnclosingClass",
   "title" : "Method With Same Name As Enclosing Class",
   "description" : "Classes should not have non-constructor methods with the same name as the class",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_apex_errorprone_InaccessibleAuraEnabledGetter",
+  "title" : "Inaccessible Aura Enabled Getter",
+  "description" : "AuraEnabled getter must be public or global if is referenced in Lightning components",
   "parameters" : [ ]
 }, {
   "patternId" : "category_apex_errorprone_EmptyWhileStmt",
@@ -2082,7 +2090,7 @@
 }, {
   "patternId" : "category_apex_design_CognitiveComplexity",
   "title" : "Cognitive Complexity",
-  "description" : "The {0} ''{1}'' has a{2} cognitive complexity of {3}.",
+  "description" : "The {0} ''{1}'' has a{2} cognitive complexity of {3}, current threshold is {4}",
   "parameters" : [ ]
 }, {
   "patternId" : "category_apex_design_AvoidDeeplyNestedIfStmts",

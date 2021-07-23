@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.33.0",
+  "version" : "6.36.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -295,6 +295,13 @@
     "languages" : [ "Apex" ],
     "enabled" : false
   }, {
+    "patternId" : "category_apex_errorprone_InaccessibleAuraEnabledGetter",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
+  }, {
     "patternId" : "category_apex_errorprone_MethodWithSameNameAsEnclosingClass",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -312,6 +319,13 @@
     "patternId" : "category_apex_errorprone_TestMethodsMustBeInTestClasses",
     "level" : "Warning",
     "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_apex_performance_AvoidDebugStatements",
+    "level" : "Warning",
+    "category" : "Performance",
     "parameters" : [ ],
     "languages" : [ "Apex" ],
     "enabled" : false
@@ -709,6 +723,13 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
+    "patternId" : "category_java_bestpractices_JUnit5TestShouldBePackagePrivate",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
     "patternId" : "category_java_bestpractices_JUnitAssertionsShouldIncludeMessage",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -834,13 +855,6 @@
     "languages" : [ "Java" ],
     "enabled" : true
   }, {
-    "patternId" : "category_java_bestpractices_UnusedImports",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
     "patternId" : "category_java_bestpractices_UnusedLocalVariable",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -891,6 +905,13 @@
     "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_UseCollectionIsEmpty",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_java_bestpractices_UseStandardCharsets",
     "level" : "Warning",
     "category" : "CodeStyle",
     "parameters" : [ ],
@@ -1019,27 +1040,6 @@
       "name" : "checkWhileStmt",
       "default" : "true"
     } ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
-    "patternId" : "category_java_codestyle_DefaultPackage",
-    "level" : "Info",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_codestyle_DontImportJavaLang",
-    "level" : "Info",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_codestyle_DuplicateImports",
-    "level" : "Info",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
@@ -1275,6 +1275,13 @@
     "languages" : [ "Java" ],
     "enabled" : true
   }, {
+    "patternId" : "category_java_codestyle_UnnecessaryImport",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
     "patternId" : "category_java_codestyle_UnnecessaryLocalBeforeReturn",
     "level" : "Info",
     "category" : "CodeStyle",
@@ -1400,6 +1407,13 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
+    "patternId" : "category_java_design_CognitiveComplexity",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
     "patternId" : "category_java_design_CollapsibleIfStatements",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -1513,6 +1527,13 @@
     "enabled" : true
   }, {
     "patternId" : "category_java_design_LoosePackageCoupling",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_java_design_MutableStaticState",
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ ],
@@ -1797,13 +1818,6 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
-    "patternId" : "category_java_errorprone_BadComparison",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
     "patternId" : "category_java_errorprone_BeanMembersShouldSerialize",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -1867,13 +1881,6 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
-    "patternId" : "category_java_errorprone_CloneThrowsCloneNotSupportedException",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
     "patternId" : "category_java_errorprone_CloseResource",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -1884,9 +1891,19 @@
     "patternId" : "category_java_errorprone_CompareObjectsWithEquals",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "parameters" : [ ],
+    "parameters" : [ {
+      "name" : "typesThatCompareByReference",
+      "default" : "java.lang.Enum,java.lang.Class"
+    } ],
     "languages" : [ "Java" ],
     "enabled" : true
+  }, {
+    "patternId" : "category_java_errorprone_ComparisonWithNaN",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_ConstructorCallsOverridableMethod",
     "level" : "Warning",
@@ -2070,13 +2087,6 @@
     "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_IdempotentOperations",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
-    "patternId" : "category_java_errorprone_ImportFromSamePackage",
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ ],

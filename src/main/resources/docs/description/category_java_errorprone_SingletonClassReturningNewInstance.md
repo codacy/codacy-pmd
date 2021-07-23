@@ -1,8 +1,8 @@
 Since: PMD 5.4
 
-Some classes contain overloaded getInstance. The problem with overloaded getInstance methods
-is that the instance created using the overloaded method is not cached and so,
-for each call and new objects will be created for every invocation.
+A singleton class should only ever have one instance. Failure to check
+            whether an instance has already been created may result in multiple
+            instances being created.
 
 Example(s):
 ```
@@ -10,7 +10,7 @@ class Singleton {
     private static Singleton instance = null;
     public static Singleton getInstance() {
         synchronized(Singleton.class) {
-            return new Singleton();
+            return new Singleton(); // this should be assigned to the field
         }
     }
 }

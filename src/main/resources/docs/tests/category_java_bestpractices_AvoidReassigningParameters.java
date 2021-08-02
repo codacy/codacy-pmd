@@ -1,8 +1,8 @@
 //#Patterns: category_java_bestpractices_AvoidReassigningParameters
 
 public class Foo {
-//#Warn: category_java_bestpractices_AvoidReassigningParameters
   private void foo(String bar) {
+    //#Warn: category_java_bestpractices_AvoidReassigningParameters
     bar = "something else";
   }
 

@@ -9,7 +9,7 @@ complexity. Nested control flows can make a method more difficult to understand,
 control flow leading to an increase in cognitive complexity.
 
 Information about Cognitive complexity can be found in the original paper here:
-https://www.sonarsource.com/docs/CognitiveComplexity.pdf
+&lt;https://www.sonarsource.com/docs/CognitiveComplexity.pdf&gt;
 
 By default, this rule reports methods with a complexity of 15 or more. Reported methods should be broken down into less
 complex components.
@@ -34,15 +34,15 @@ public class Foo {
         return false;
     }
 
-    // Has a cognitive complexity of 5
+    // Has a cognitive complexity of 4
     public void updateContacts(List<Contact> contacts) {
         List<Contact> contactsToUpdate = new List<Contact>();
 
         for (Contact contact : contacts) {                           // +1
-            if (contact.Department == 'Finance') {                   // +2
+            if (contact.Department == 'Finance') {                   // +2 (nesting = 1)
                 contact.Title = 'Finance Specialist';
                 contactsToUpdate.add(contact);
-            } else if (contact.Department == 'Sales') {              // +2
+            } else if (contact.Department == 'Sales') {              // +1
                 contact.Title = 'Sales Specialist';
                 contactsToUpdate.add(contact);
             }

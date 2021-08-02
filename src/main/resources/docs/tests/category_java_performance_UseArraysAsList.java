@@ -1,16 +1,16 @@
 //#Patterns: category_java_performance_UseArraysAsList
+import java.util.ArrayList;
+import java.util.List;
 
-public class Foo {
-
-    public void bar(int[] ints) {
-        List l = new ArrayList(10);
-        for (int i = 0; i < 100; i++) {
+public class Test {
+    public void foo(Integer[] ints) {
+        List<Integer> l= new ArrayList<>(100);
+        for (int i=0; i< 100; i++) {
             //#Warn: category_java_performance_UseArraysAsList
             l.add(ints[i]);
         }
-
-        List o = Arrays.asList(ints);
+        for (int i=0; i< 100; i++) {
+            l.add(a[i].toString()); // won't trigger the rule
+        }
     }
-
 }
-

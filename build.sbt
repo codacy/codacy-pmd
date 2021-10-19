@@ -66,7 +66,7 @@ daemonUser in Docker := dockerUser
 
 daemonGroup in Docker := dockerGroup
 
-dockerBaseImage := "openjdk:8-jre-alpine"
+dockerBaseImage := "amazoncorretto:8-alpine3.14-jre"
 
 mainClass in Compile := Some("com.codacy.Engine")
 

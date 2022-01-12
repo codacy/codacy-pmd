@@ -52,11 +52,6 @@ enablePlugins(DockerPlugin)
 
 version in Docker := "1.0"
 
-val installAll =
-  """apk update && apk add bash curl &&
-    |rm -rf /tmp/* &&
-    |rm -rf /var/cache/apk/*""".stripMargin.replaceAll(System.lineSeparator(), " ")
-
 mappings in Universal <++= (resourceDirectory in Compile) map { (resourceDir: File) =>
   val src = resourceDir / "docs"
   val dest = "/docs"
@@ -74,7 +69,7 @@ daemonUser in Docker := dockerUser
 
 daemonGroup in Docker := dockerGroup
 
-dockerBaseImage := "develar/java"
+dockerBaseImage := "eclipse-temurin:8u312-b07-jre"
 
 mainClass in Compile := Some("com.codacy.Engine")
 
@@ -82,8 +77,7 @@ dockerEntrypoint := Seq("/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
 
 dockerCommands := dockerCommands.value.flatMap {
     case cmd@Cmd("WORKDIR", _) => List(
-      Cmd("WORKDIR", "/src"),
-      Cmd("RUN", installAll)
+      Cmd("WORKDIR", "/src")
     )
     case cmd@(Cmd("USER", _)) => List(
       Cmd("ENV", "TINI_VERSION v0.16.1"),
@@ -92,7 +86,7 @@ dockerCommands := dockerCommands.value.flatMap {
       cmd
     )
     case cmd@(Cmd("ADD", _)) => List(
-      Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
+      Cmd("RUN", s"useradd -u 2004 $dockerUser"),
       cmd,
       Cmd("RUN", "mv /opt/docker/docs /docs"),
       ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*),

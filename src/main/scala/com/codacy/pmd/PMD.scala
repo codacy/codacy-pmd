@@ -41,19 +41,19 @@ object PMD extends Tool {
           .mkString(",")
     }
 
-    // files could be empty when given explicitly by configuration a set of empty files to run.
+    // Files could be empty when given explicitly by configuration a set of empty files to run.
     // Confirm what happens in this case / what is the else that is missing from this flow (?)
     if (filesStr.nonEmpty) {
       pmdConfig.setInputPaths(filesStr)
     }
 
-    // side effectful code to make a pmdConfig with rules which at the start is null:
+    // Side effectful code to make a pmdConfig with rules which at the start is null:
     configuration match {
       case Some(config) =>
-        // if given patterns are empty this is empty, we generete a xml with some xml headers,
-        // but rules obviously are none. Don't know if it works or fails, should be tested....
-        // This should probably be protected as well since the code inside RulesetsFactoryUtils.getRuleSets checks is rules
-        // are != 0...
+        // If given patterns are empty, we generete a xml with some xml headers,
+        // but rules obviously are none. Don't know if or how it fails, needs testing here.
+        // Probably we want to protected here since the code inside
+        // RulesetsFactoryUtils.getRuleSets checks if rules are != 0...
         configFile(config) match {
           case Success(ruleset) =>
             pmdConfig.setRuleSets(ruleset.toString)
@@ -62,7 +62,7 @@ object PMD extends Tool {
         }
 
       case None =>
-        // if an explicit list of pattern was not provided, we try to look for the
+        // If an explicit list of pattern was not provided, we try to look for the
         // configuration file of the tool in the folder.
         // When we can't find a configuration file we generate a default
         // configuration that we defined as acceptable.
@@ -78,8 +78,8 @@ object PMD extends Tool {
           }
     }
 
-    // check we defined the rules to run, if not this is null, we should terminate since this is an error.
-    // Forcing a RETURN. This should only happen we we failed to generate a temporary configuration file.
+    // Check that we defined the rules to run, if not getRuleSets is null, we should terminate since this is an error.
+    // Forcing a RETURN. This should only happen when we failed to generate a temporary configuration file.
     if (pmdConfig.getRuleSets == null) {
       return Failure(new Exception("No rulesets were configured to initialize PMD tool"))
     }

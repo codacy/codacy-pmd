@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  codacy: codacy/base@6.1.4
-  codacy_plugins_test: codacy/plugins-test@1.0.1
+  codacy: codacy/base@7.0.0
+  codacy_plugins_test: codacy/plugins-test@1.1.1
 
 workflows:
   version: 2
@@ -14,11 +14,11 @@ workflows:
           name: publish_docker_local
           cmd: |
             sbt "runMain com.codacy.pmd.DocGenerator"
-            sbt "scalafmt::test;
-                 test:scalafmt::test;
-                 sbt:scalafmt::test;
-                 set version in Docker := \"latest\";
-                 docker:publishLocal"
+            sbt "scalafmt / test;
+                 Test / scalafmt / test;
+                 Sbt / scalafmt / test;
+                 set Docker / version := \"latest\";
+                 Docker / publishLocal;"
             docker save --output docker-image.tar $CIRCLE_PROJECT_REPONAME:latest
           persist_to_workspace: true
           requires:

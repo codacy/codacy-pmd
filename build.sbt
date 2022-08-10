@@ -2,17 +2,15 @@ import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
 import sjsonnew.BasicJsonProtocol._
 
 organization := "codacy"
-
 name := "codacy-pmd"
-
-scalaVersion := "2.13.3"
+scalaVersion := "2.13.8"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
-
 toolVersionKey := "6.36.0"
 
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
+
   Seq(
     "com.typesafe.play" %% "play-json" % "2.7.4",
     "com.codacy" %% "codacy-engine-scala-seed" % "5.0.1",
@@ -32,7 +30,6 @@ libraryDependencies ++= {
 }
 
 enablePlugins(JavaAppPackaging)
-
 enablePlugins(DockerPlugin)
 
 val installAll =
@@ -40,8 +37,8 @@ val installAll =
     |rm -rf /tmp/* &&
     |rm -rf /var/cache/apk/*""".stripMargin.replaceAll(System.lineSeparator(), " ")
 
-mappings in Universal ++= {
-  (resourceDirectory in Compile) map { (resourceDir: File) =>
+Universal / mappings ++= {
+  (Compile / resourceDirectory) map { (resourceDir: File) =>
     val src = resourceDir / "docs"
     val dest = "/docs"
 
@@ -62,16 +59,11 @@ Universal / javaOptions ++= Seq(
 val dockerUser = "docker"
 val dockerGroup = "docker"
 
-daemonUser in Docker := dockerUser
-
-daemonGroup in Docker := dockerGroup
-
+Docker / daemonUser := dockerUser
+Docker / daemonGroup := dockerGroup
 dockerBaseImage := "amazoncorretto:8-alpine3.14-jre"
-
-mainClass in Compile := Some("com.codacy.Engine")
-
+Compile / mainClass := Some("com.codacy.Engine")
 dockerEntrypoint := Seq("/sbin/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
-
 dockerCommands := dockerCommands.value.flatMap {
   case cmd @ Cmd("WORKDIR", _) => List(Cmd("WORKDIR", "/src"), Cmd("RUN", installAll))
   case cmd @ (Cmd("ADD", _)) =>

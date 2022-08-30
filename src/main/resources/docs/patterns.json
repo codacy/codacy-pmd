@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.36.0",
+  "version" : "6.48.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -128,6 +128,9 @@
     "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ {
+      "name" : "reportInForLoopInitializer",
+      "default" : "true"
+    }, {
       "name" : "strictMode",
       "default" : "false"
     } ],
@@ -263,7 +266,13 @@
     "patternId" : "category_apex_errorprone_EmptyCatchBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "parameters" : [ ],
+    "parameters" : [ {
+      "name" : "allowCommentedBlocks",
+      "default" : "false"
+    }, {
+      "name" : "allowExceptionNameRegex",
+      "default" : "^(ignored|expected)$"
+    } ],
     "languages" : [ "Apex" ],
     "enabled" : false
   }, {
@@ -277,7 +286,13 @@
     "patternId" : "category_apex_errorprone_EmptyStatementBlock",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "parameters" : [ ],
+    "parameters" : [ {
+      "name" : "reportEmptyPrivateNoArgConstructor",
+      "default" : "true"
+    }, {
+      "name" : "reportEmptyVirtualMethod",
+      "default" : "true"
+    } ],
     "languages" : [ "Apex" ],
     "enabled" : false
   }, {
@@ -327,6 +342,16 @@
     "level" : "Warning",
     "category" : "Performance",
     "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_apex_performance_EagerlyLoadedDescribeSObjectResult",
+    "level" : "Warning",
+    "category" : "Performance",
+    "parameters" : [ {
+      "name" : "noDefault",
+      "default" : "false"
+    } ],
     "languages" : [ "Apex" ],
     "enabled" : false
   }, {
@@ -806,6 +831,13 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
+    "patternId" : "category_java_bestpractices_PrimitiveWrapperInstantiation",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
     "patternId" : "category_java_bestpractices_ReplaceEnumerationWithIterator",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -821,6 +853,13 @@
     "enabled" : false
   }, {
     "patternId" : "category_java_bestpractices_ReplaceVectorWithList",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_java_bestpractices_SimplifiableTestAssertion",
     "level" : "Warning",
     "category" : "CodeStyle",
     "parameters" : [ ],
@@ -876,34 +915,6 @@
     "languages" : [ "Java" ],
     "enabled" : true
   }, {
-    "patternId" : "category_java_bestpractices_UseAssertEqualsInsteadOfAssertTrue",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
-    "patternId" : "category_java_bestpractices_UseAssertNullInsteadOfAssertTrue",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
-    "patternId" : "category_java_bestpractices_UseAssertSameInsteadOfAssertTrue",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
-    "patternId" : "category_java_bestpractices_UseAssertTrueInsteadOfAssertEquals",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
     "patternId" : "category_java_bestpractices_UseCollectionIsEmpty",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -921,10 +932,7 @@
     "patternId" : "category_java_bestpractices_UseTryWithResources",
     "level" : "Warning",
     "category" : "CodeStyle",
-    "parameters" : [ {
-      "name" : "closeMethods",
-      "default" : "close,closeQuietly"
-    } ],
+    "parameters" : [ ],
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
@@ -1043,6 +1051,13 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
+    "patternId" : "category_java_codestyle_EmptyControlStatement",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
     "patternId" : "category_java_codestyle_EmptyMethodInAbstractClassShouldBeAbstract",
     "level" : "Info",
     "category" : "CodeStyle",
@@ -1065,6 +1080,13 @@
     "enabled" : true
   }, {
     "patternId" : "category_java_codestyle_FieldNamingConventions",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_java_codestyle_FinalParameterInAbstractMethod",
     "level" : "Info",
     "category" : "CodeStyle",
     "parameters" : [ ],
@@ -1302,6 +1324,13 @@
     "parameters" : [ ],
     "languages" : [ "Java" ],
     "enabled" : true
+  }, {
+    "patternId" : "category_java_codestyle_UnnecessarySemicolon",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_codestyle_UseDiamondOperator",
     "level" : "Info",
@@ -1567,13 +1596,6 @@
     "parameters" : [ ],
     "languages" : [ "Java" ],
     "enabled" : false
-  }, {
-    "patternId" : "category_java_design_SimplifyBooleanAssertion",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
   }, {
     "patternId" : "category_java_design_SimplifyBooleanExpressions",
     "level" : "Warning",
@@ -1988,68 +2010,12 @@
     "languages" : [ "Java" ],
     "enabled" : true
   }, {
-    "patternId" : "category_java_errorprone_EmptyFinallyBlock",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_errorprone_EmptyIfStmt",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_errorprone_EmptyInitializer",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_errorprone_EmptyStatementBlock",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
     "patternId" : "category_java_errorprone_EmptyStatementNotInLoop",
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ ],
     "languages" : [ "Java" ],
     "enabled" : true
-  }, {
-    "patternId" : "category_java_errorprone_EmptySwitchStatements",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_errorprone_EmptySynchronizedBlock",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_errorprone_EmptyTryBlock",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_errorprone_EmptyWhileStmt",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_EqualsNull",
     "level" : "Warning",
@@ -2087,6 +2053,13 @@
     "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_IdempotentOperations",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_java_errorprone_ImplicitSwitchFallThrough",
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ ],
@@ -2136,13 +2109,6 @@
     "enabled" : true
   }, {
     "patternId" : "category_java_errorprone_MisplacedNullCheck",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_errorprone_MissingBreakInSwitch",
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ ],
@@ -2224,7 +2190,7 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
-    "patternId" : "category_java_errorprone_ReturnEmptyArrayRatherThanNull",
+    "patternId" : "category_java_errorprone_ReturnEmptyCollectionRatherThanNull",
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ ],
@@ -2490,20 +2456,6 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
-    "patternId" : "category_java_performance_BooleanInstantiation",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_java_performance_ByteInstantiation",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
     "patternId" : "category_java_performance_ConsecutiveAppendsShouldReuse",
     "level" : "Warning",
     "category" : "Performance",
@@ -2539,20 +2491,6 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
-    "patternId" : "category_java_performance_IntegerInstantiation",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
-    "patternId" : "category_java_performance_LongInstantiation",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
     "patternId" : "category_java_performance_OptimizableToArrayCall",
     "level" : "Warning",
     "category" : "Performance",
@@ -2561,13 +2499,6 @@
     "enabled" : false
   }, {
     "patternId" : "category_java_performance_RedundantFieldInitializer",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
-    "patternId" : "category_java_performance_ShortInstantiation",
     "level" : "Warning",
     "category" : "Performance",
     "parameters" : [ ],
@@ -2595,13 +2526,6 @@
       "name" : "minimumNumberCaseForASwitch",
       "default" : "3"
     } ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
-    "patternId" : "category_java_performance_UnnecessaryWrapperObjectCreation",
-    "level" : "Warning",
-    "category" : "Performance",
-    "parameters" : [ ],
     "languages" : [ "Java" ],
     "enabled" : false
   }, {

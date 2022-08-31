@@ -6,30 +6,24 @@ name := "codacy-pmd"
 
 scalaVersion := "2.13.8"
 
-lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
+val pmdVersion = "6.48.0"
 
-toolVersionKey := "6.44.0"
-
-libraryDependencies ++= {
-  val toolVersion = toolVersionKey.value
-
-  Seq(
-    "com.typesafe.play" %% "play-json" % "2.7.4",
-    "com.codacy" %% "codacy-engine-scala-seed" % "5.0.3",
-    "org.scala-lang.modules" %% "scala-xml" % "1.2.0",
-    "net.sourceforge.pmd" % "pmd-core" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-java" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-jsp" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-javascript" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-plsql" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-vm" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-xml" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-apex" % toolVersion,
-    // Workaround for https://github.com/pmd/pmd/issues/2081
-    "org.mozilla" % "rhino" % "1.7.8" force ()
-  )
-}
+libraryDependencies ++= Seq(
+  "com.typesafe.play" %% "play-json" % "2.7.4",
+  "com.codacy" %% "codacy-engine-scala-seed" % "5.0.3",
+  "org.scala-lang.modules" %% "scala-xml" % "1.2.0",
+  "net.sourceforge.pmd" % "pmd-core" % pmdVersion,
+  "net.sourceforge.pmd" % "pmd-java" % pmdVersion,
+  "net.sourceforge.pmd" % "pmd-jsp" % pmdVersion,
+  "net.sourceforge.pmd" % "pmd-javascript" % pmdVersion,
+  "net.sourceforge.pmd" % "pmd-plsql" % pmdVersion,
+  "net.sourceforge.pmd" % "pmd-vm" % pmdVersion,
+  "net.sourceforge.pmd" % "pmd-xml" % pmdVersion,
+  "net.sourceforge.pmd" % "pmd-visualforce" % pmdVersion,
+  "net.sourceforge.pmd" % "pmd-apex" % pmdVersion,
+  // Workaround for https://github.com/pmd/pmd/issues/2081
+  "org.mozilla" % "rhino" % "1.7.8" force ()
+)
 
 enablePlugins(JavaAppPackaging)
 enablePlugins(DockerPlugin)

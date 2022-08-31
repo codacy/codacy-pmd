@@ -315,11 +315,6 @@
   "description" : "Use ArrayList instead of Vector",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_performance_UnnecessaryWrapperObjectCreation",
-  "title" : "Unnecessary Wrapper Object Creation",
-  "description" : "Unnecessary wrapper object creation",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_performance_TooFewBranchesForASwitchStatement",
   "title" : "Too Few Branches For A Switch Statement",
   "description" : "A switch with less than three branches is inefficient, use a 'if statement' instead.",
@@ -338,11 +333,6 @@
   "description" : "Avoid instantiating String objects; this is usually unnecessary.",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_performance_ShortInstantiation",
-  "title" : "Short Instantiation",
-  "description" : "Avoid instantiating Short objects. Call Short.valueOf() instead",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_performance_RedundantFieldInitializer",
   "title" : "Redundant Field Initializer",
   "description" : "Avoid using redundant field initializer for ''${variableName}''",
@@ -351,16 +341,6 @@
   "patternId" : "category_java_performance_OptimizableToArrayCall",
   "title" : "Optimizable To Array Call",
   "description" : "This call to Collection.toArray() may be optimizable",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_performance_LongInstantiation",
-  "title" : "Long Instantiation",
-  "description" : "Avoid instantiating Long objects.Call Long.valueOf() instead",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_performance_IntegerInstantiation",
-  "title" : "Integer Instantiation",
-  "description" : "Avoid instantiating Integer objects. Call Integer.valueOf() instead.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_performance_InsufficientStringBufferDeclaration",
@@ -386,16 +366,6 @@
   "patternId" : "category_java_performance_ConsecutiveAppendsShouldReuse",
   "title" : "Consecutive Appends Should Reuse",
   "description" : "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_performance_ByteInstantiation",
-  "title" : "Byte Instantiation",
-  "description" : "Avoid instantiating Byte objects. Call Byte.valueOf() instead",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_performance_BooleanInstantiation",
-  "title" : "Boolean Instantiation",
-  "description" : "Avoid instantiating Boolean objects; reference Boolean.TRUE or Boolean.FALSE or call Boolean.valueOf() instead.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_performance_BigIntegerInstantiation",
@@ -583,9 +553,9 @@
   "description" : "Avoid returning from a finally block",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_errorprone_ReturnEmptyArrayRatherThanNull",
-  "title" : "Return Empty Array Rather Than Null",
-  "description" : "Return an empty array rather than 'null'.",
+  "patternId" : "category_java_errorprone_ReturnEmptyCollectionRatherThanNull",
+  "title" : "Return Empty Collection Rather Than Null",
+  "description" : "Return an empty collection rather than 'null'.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_ProperLogger",
@@ -645,11 +615,6 @@
   "description" : "Classes implementing Serializable should set a serialVersionUID",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_errorprone_MissingBreakInSwitch",
-  "title" : "Missing Break In Switch",
-  "description" : "A switch statement does not contain a break",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_errorprone_MisplacedNullCheck",
   "title" : "Misplaced Null Check",
   "description" : "The null check here is misplaced; if the variable ''{0}'' is null there will be a NullPointerException",
@@ -685,6 +650,11 @@
   "description" : "Avoid instantiating an object just to call getClass() on it; use the .class public member instead",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_java_errorprone_ImplicitSwitchFallThrough",
+  "title" : "Implicit Switch Fall Through",
+  "description" : "A switch statement does not contain a break",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_errorprone_IdempotentOperations",
   "title" : "Idempotent Operations",
   "description" : "Avoid idempotent operations (like assigning a variable to itself).",
@@ -715,49 +685,9 @@
   "description" : "Avoid using equals() to compare against null",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_errorprone_EmptyWhileStmt",
-  "title" : "Empty While Stmt",
-  "description" : "Avoid empty 'while' statements",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_EmptyTryBlock",
-  "title" : "Empty Try Block",
-  "description" : "Avoid empty try blocks",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_EmptySynchronizedBlock",
-  "title" : "Empty Synchronized Block",
-  "description" : "Avoid empty synchronized blocks",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_EmptySwitchStatements",
-  "title" : "Empty Switch Statements",
-  "description" : "Avoid empty switch statements",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_errorprone_EmptyStatementNotInLoop",
   "title" : "Empty Statement Not In Loop",
   "description" : "An empty statement (semicolon) not part of a loop",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_EmptyStatementBlock",
-  "title" : "Empty Statement Block",
-  "description" : "Avoid empty block statements.",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_EmptyInitializer",
-  "title" : "Empty Initializer",
-  "description" : "Empty initializer was found",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_EmptyIfStmt",
-  "title" : "Empty If Stmt",
-  "description" : "Avoid empty 'if' statements",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_EmptyFinallyBlock",
-  "title" : "Empty Finally Block",
-  "description" : "Avoid empty finally blocks",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_EmptyFinalizer",
@@ -967,7 +897,7 @@
 }, {
   "patternId" : "category_java_errorprone_AvoidAccessibilityAlteration",
   "title" : "Avoid Accessibility Alteration",
-  "description" : "You should not modify visibility of class or methods using getDeclaredConstructors(), getDeclaredConstructor(Class[]), setAccessible() or PrivilegedAction.",
+  "description" : "You should not modify visibility of constructors, methods or fields using setAccessible()",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_AssignmentToNonFinalStatic",
@@ -1059,11 +989,6 @@
   "patternId" : "category_java_design_SimplifyBooleanExpressions",
   "title" : "Simplify Boolean Expressions",
   "description" : "Avoid unnecessary comparisons in boolean expressions",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_design_SimplifyBooleanAssertion",
-  "title" : "Simplify Boolean Assertion",
-  "description" : "assertTrue(!expr) can be replaced by assertFalse(expr)",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_SimplifiedTernary",
@@ -1257,6 +1182,11 @@
     "description" : "If disabled, the rule shows also violations that are applicable for java8+"
   } ]
 }, {
+  "patternId" : "category_java_codestyle_UnnecessarySemicolon",
+  "title" : "Unnecessary Semicolon",
+  "description" : "Unnecessary semicolon",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_codestyle_UnnecessaryReturn",
   "title" : "Unnecessary Return",
   "description" : "Avoid unnecessary return statements",
@@ -1427,6 +1357,11 @@
   "description" : "This for loop could be simplified to a while loop",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_java_codestyle_FinalParameterInAbstractMethod",
+  "title" : "Final Parameter In Abstract Method",
+  "description" : "Final parameter in abstract method",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_codestyle_FieldNamingConventions",
   "title" : "Field Naming Conventions",
   "description" : "The {0} name ''{1}'' doesn''t match ''{2}''",
@@ -1445,6 +1380,11 @@
   "patternId" : "category_java_codestyle_EmptyMethodInAbstractClassShouldBeAbstract",
   "title" : "Empty Method In Abstract Class Should Be Abstract",
   "description" : "An empty method in an abstract class should be abstract instead",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_java_codestyle_EmptyControlStatement",
+  "title" : "Empty Control Statement",
+  "description" : "This control statement has an empty branch",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_codestyle_ControlStatementBraces",
@@ -1539,10 +1479,7 @@
   "patternId" : "category_java_bestpractices_UseTryWithResources",
   "title" : "Use Try With Resources",
   "description" : "Consider using a try-with-resources statement instead of explicitly closing the resource",
-  "parameters" : [ {
-    "name" : "closeMethods",
-    "description" : "Method names in finally block, which trigger this rule"
-  } ]
+  "parameters" : [ ]
 }, {
   "patternId" : "category_java_bestpractices_UseStandardCharsets",
   "title" : "Use Standard Charsets",
@@ -1552,26 +1489,6 @@
   "patternId" : "category_java_bestpractices_UseCollectionIsEmpty",
   "title" : "Use Collection Is Empty",
   "description" : "Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_bestpractices_UseAssertTrueInsteadOfAssertEquals",
-  "title" : "Use Assert True Instead Of Assert Equals",
-  "description" : "Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x) or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_bestpractices_UseAssertSameInsteadOfAssertTrue",
-  "title" : "Use Assert Same Instead Of Assert True",
-  "description" : "Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_bestpractices_UseAssertNullInsteadOfAssertTrue",
-  "title" : "Use Assert Null Instead Of Assert True",
-  "description" : "Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_bestpractices_UseAssertEqualsInsteadOfAssertTrue",
-  "title" : "Use Assert Equals Instead Of Assert True",
-  "description" : "Use assertEquals(x, y) instead of assertTrue(x.equals(y))",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_bestpractices_UnusedPrivateMethod",
@@ -1609,6 +1526,11 @@
   "description" : "Switch statements should be exhaustive, add a default case (or missing enum branches)",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_java_bestpractices_SimplifiableTestAssertion",
+  "title" : "Simplifiable Test Assertion",
+  "description" : "Assertion may be simplified using {0}",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_bestpractices_ReplaceVectorWithList",
   "title" : "Replace Vector With List",
   "description" : "Consider replacing this Vector with the newer java.util.List",
@@ -1622,6 +1544,11 @@
   "patternId" : "category_java_bestpractices_ReplaceEnumerationWithIterator",
   "title" : "Replace Enumeration With Iterator",
   "description" : "Consider replacing this Enumeration with the newer java.util.Iterator",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_java_bestpractices_PrimitiveWrapperInstantiation",
+  "title" : "Primitive Wrapper Instantiation",
+  "description" : "Do not use `new {0}(...)`, prefer `{0}.valueOf(...)`",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_bestpractices_PreserveStackTrace",
@@ -1968,6 +1895,14 @@
   "description" : "Avoid operations in loops that may hit governor limits",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_apex_performance_EagerlyLoadedDescribeSObjectResult",
+  "title" : "Eagerly Loaded Describe S Object Result",
+  "description" : "DescribeSObjectResult could be being loaded eagerly with all child relationships.",
+  "parameters" : [ {
+    "name" : "noDefault",
+    "description" : "Do not allow SObjectDescribeOptions.DEFAULT option to ensure consistent results no matter where getDescribe is called"
+  } ]
+}, {
   "patternId" : "category_apex_performance_AvoidDebugStatements",
   "title" : "Avoid Debug Statements",
   "description" : "Avoid debug statements since they impact on performance",
@@ -2006,7 +1941,13 @@
   "patternId" : "category_apex_errorprone_EmptyStatementBlock",
   "title" : "Empty Statement Block",
   "description" : "Avoid empty block statements.",
-  "parameters" : [ ]
+  "parameters" : [ {
+    "name" : "reportEmptyPrivateNoArgConstructor",
+    "description" : "If false, empty private no-arg constructors are not flagged. This supports a common idiom used by singleton pattern implementations, utility classes, etc."
+  }, {
+    "name" : "reportEmptyVirtualMethod",
+    "description" : "If false, empty virtual methods are not flagged. This supports abstract base classes with default no-op implementations."
+  } ]
 }, {
   "patternId" : "category_apex_errorprone_EmptyIfStmt",
   "title" : "Empty If Stmt",
@@ -2016,7 +1957,13 @@
   "patternId" : "category_apex_errorprone_EmptyCatchBlock",
   "title" : "Empty Catch Block",
   "description" : "Avoid empty catch blocks",
-  "parameters" : [ ]
+  "parameters" : [ {
+    "name" : "allowCommentedBlocks",
+    "description" : "Empty blocks containing comments will be skipped"
+  }, {
+    "name" : "allowExceptionNameRegex",
+    "description" : "Empty blocks catching exceptions with names matching this regular expression will be skipped"
+  } ]
 }, {
   "patternId" : "category_apex_errorprone_AvoidNonExistentAnnotations",
   "title" : "Avoid Non Existent Annotations",
@@ -2112,6 +2059,9 @@
   "title" : "One Declaration Per Line",
   "description" : "Use one statement for each line, it enhances code readability.",
   "parameters" : [ {
+    "name" : "reportInForLoopInitializer",
+    "description" : "If false, multiple declarations in a for loop initializer are not flagged."
+  }, {
     "name" : "strictMode",
     "description" : "If true, mark combined declaration even if the declarations are on separate lines."
   } ]

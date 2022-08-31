@@ -26,4 +26,10 @@ public class Bar {
         FOO;
     }
 }
+public class FooClass {
+    static record BarRecord() {}     // static ignored
+}
+public interface FooInterface {
+    static record BarRecord() {}     // static ignored
+}
 ```

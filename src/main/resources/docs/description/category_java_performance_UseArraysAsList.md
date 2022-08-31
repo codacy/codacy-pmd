@@ -14,12 +14,14 @@ Example(s):
 public class Test {
     public void foo(Integer[] ints) {
         // could just use Arrays.asList(ints)
-        List<Integer> l= new ArrayList<>(100);
-        for (int i=0; i< 100; i++) {
+        List<Integer> l = new ArrayList<>(100);
+        for (int i = 0; i < ints.length; i++) {
             l.add(ints[i]);
         }
-        for (int i=0; i< 100; i++) {
-            l.add(a[i].toString()); // won't trigger the rule
+
+        List<Integer> anotherList = new ArrayList<>();
+        for (int i = 0; i < ints.length; i++) {
+            anotherList.add(ints[i].toString()); // won't trigger the rule
         }
     }
 }

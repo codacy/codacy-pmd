@@ -16,6 +16,8 @@ public class Example {
     while (false) { } // disallowed
     do { } while (true); // disallowed
     do { } while (false); // disallowed
+    do { } while (false | false); // disallowed
+    do { } while (false || false); // disallowed
   }
 }
 ```

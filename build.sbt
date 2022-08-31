@@ -20,9 +20,7 @@ libraryDependencies ++= Seq(
   "net.sourceforge.pmd" % "pmd-vm" % pmdVersion,
   "net.sourceforge.pmd" % "pmd-xml" % pmdVersion,
   "net.sourceforge.pmd" % "pmd-visualforce" % pmdVersion,
-  "net.sourceforge.pmd" % "pmd-apex" % pmdVersion,
-  // Workaround for https://github.com/pmd/pmd/issues/2081
-  "org.mozilla" % "rhino" % "1.7.8" force ()
+  "net.sourceforge.pmd" % "pmd-apex" % pmdVersion
 )
 
 enablePlugins(JavaAppPackaging)

@@ -3,12 +3,11 @@ Since: PMD 5.4.0
 Look for ternary operators with the form `condition ? literalBoolean : foo`
 or `condition ? foo : literalBoolean`.
 
-These expressions can be simplified respectively to
-`condition || foo`  when the literalBoolean is true
-`!condition &amp;&amp; foo` when the literalBoolean is false
-or
-`!condition || foo` when the literalBoolean is true
-`condition &amp;&amp; foo`  when the literalBoolean is false
+These expressions can be simplified as follows:
+* `condition ? true : expr` simplifies to `condition || expr`
+* `condition ? false : expr` simplifies to `!condition &amp;&amp; expr`
+* `condition ? expr : true` simplifies to `!condition || expr`
+* `condition ? expr : false` simplifies to `condition &amp;&amp; expr`
 
 Example(s):
 ```
@@ -27,6 +26,10 @@ public class Foo {
 
     public void test4() {
         final boolean otherValue = condition ? something() : false; // can be as simple as condition && something();
+    }
+
+    public boolean test5() {
+        return condition ? true : false; // can be as simple as return condition;
     }
 }
 ```

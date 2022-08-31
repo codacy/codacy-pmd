@@ -1,8 +1,13 @@
-//#Patterns: category_java_errorprone_MissingBreakInSwitch
-public class Foo {
+Since: PMD 3.0
 
+Switch statements without break or return statements for each case option
+may indicate problematic behaviour. Empty cases are ignored as these indicate an intentional fall-through.
+
+This rule has been renamed from &quot;MissingBreakInSwitch&quot; with PMD 6.37.0.
+
+Example(s):
+```
 public void bar(int status) {
-//#Warn: category_java_errorprone_MissingBreakInSwitch
     switch(status) {
       case CANCELLED:
         doCancelled();
@@ -19,4 +24,4 @@ public void bar(int status) {
         break;
     }
 }
-}
+```

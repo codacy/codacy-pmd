@@ -1,8 +1,8 @@
 Since: PMD 4.2
 
 Switch statements are intended to be used to support complex branching behaviour. Using a switch for only a few
-cases is ill-advised, since switches are not as easy to understand as if-then statements. In these cases use the
-if-then statement to increase code readability.
+cases is ill-advised, since switches are not as easy to understand as if-else statements. In these cases use the
+if-else statement to increase code readability.
 
 Example(s):
 ```

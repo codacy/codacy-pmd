@@ -505,7 +505,7 @@
 }, {
   "patternId" : "category_java_errorprone_TestClassWithoutTestCases",
   "title" : "Test Class Without Test Cases",
-  "description" : "This class name ends with 'Test' but contains no test cases",
+  "description" : "The class ''{0}'' might be a test class, but it contains no test cases.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_SuspiciousOctalEscape",
@@ -748,7 +748,7 @@
 }, {
   "patternId" : "category_java_errorprone_ConstructorCallsOverridableMethod",
   "title" : "Constructor Calls Overridable Method",
-  "description" : "Overridable {0} called during object construction",
+  "description" : "Overridable {0} called during object construction{1}",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_ComparisonWithNaN",
@@ -2142,6 +2142,11 @@
   "patternId" : "category_apex_bestpractices_ApexUnitTestMethodShouldHaveIsTestAnnotation",
   "title" : "Apex Unit Test Method Should Have Is Test Annotation",
   "description" : "Apex test methods should have @isTest annotation.",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_apex_bestpractices_ApexUnitTestClassShouldHaveRunAs",
+  "title" : "Apex Unit Test Class Should Have Run As",
+  "description" : "Apex unit test classes should have at least one System.runAs() call",
   "parameters" : [ ]
 }, {
   "patternId" : "category_apex_bestpractices_ApexUnitTestClassShouldHaveAsserts",

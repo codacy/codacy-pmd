@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.48.0",
+  "version" : "6.51.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -10,6 +10,13 @@
     "enabled" : false
   }, {
     "patternId" : "category_apex_bestpractices_ApexUnitTestClassShouldHaveAsserts",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Apex" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_apex_bestpractices_ApexUnitTestClassShouldHaveRunAs",
     "level" : "Warning",
     "category" : "CodeStyle",
     "parameters" : [ ],

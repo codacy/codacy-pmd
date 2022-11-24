@@ -1,6 +1,6 @@
 Since: PMD 4.2.6
 
-Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block.
 
 Example(s):
 ```

@@ -6,7 +6,7 @@ name := "codacy-pmd"
 scalaVersion := "2.13.8"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
-toolVersionKey := "6.48.0"
+toolVersionKey := "6.51.0"
 
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value

@@ -1,9 +1,10 @@
 Since: PMD 5.4.0
 
 To avoid mistakes if we want that an Annotation, Class, Enum, Method, Constructor or Field have a default access modifier
-we must add a comment at the beginning of it's declaration.
-By default the comment must be `/* default */` or `/* package */`, if you want another, you have to provide a regular expression.
-This rule ignores by default all cases that have a @VisibleForTesting annotation. Use the
+we must add a comment at the beginning of its declaration.
+By default, the comment must be `/* default */` or `/* package */`, if you want another, you have to provide a regular expression.
+
+This rule ignores by default all cases that have a `@VisibleForTesting` annotation or any JUnit5 annotation. Use the
 property &quot;ignoredAnnotations&quot; to customize the recognized annotations.
 
 Example(s):

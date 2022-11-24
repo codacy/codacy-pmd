@@ -3,7 +3,7 @@ Since: PMD 1.2
 Configurable naming conventions for type declarations. This rule reports
             type declarations which do not match the regex that applies to their
             specific kind (e.g. enum or interface). Each regex can be configured on the PMD configuration file.
-Check the [PMD documentation](https://pmd.github.io/pmd-6.48.0/pmd_rules_java_codestyle.html#classnamingconventions) for more information.
+Check the [PMD documentation](https://pmd.github.io/pmd-6.51.0/pmd_rules_java_codestyle.html#classnamingconventions) for more information.
 
             By default this rule uses the standard Java naming convention (Pascal case).
             

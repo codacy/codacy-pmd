@@ -1,7 +1,7 @@
 Since: PMD 4.1
 
 A class with only private constructors should be final, unless the private constructor
-is invoked by a inner class.
+is invoked by an inner class.
 
 Example(s):
 ```

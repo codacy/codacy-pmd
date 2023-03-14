@@ -3,9 +3,9 @@ Since: PMD 1.2
 Configurable naming conventions for type declarations. This rule reports
             type declarations which do not match the regex that applies to their
             specific kind (e.g. enum or interface). Each regex can be configured on the PMD configuration file.
-Check the [PMD documentation](https://pmd.github.io/pmd-6.51.0/pmd_rules_java_codestyle.html#classnamingconventions) for more information.
+Check the [PMD documentation](https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#classnamingconventions) for more information.
 
-            By default this rule uses the standard Java naming convention (Pascal case).
+            By default, this rule uses the standard Java naming convention (Pascal case).
             
             The rule can detect utility classes and enforce a different naming convention
             on those. E.g. setting the property `utilityClassPattern` to
@@ -15,6 +15,10 @@ Check the [PMD documentation](https://pmd.github.io/pmd-6.51.0/pmd_rules_java_co
             For this rule, a utility class is defined as: a concrete class that does not
             inherit from a super class or implement any interface and only has static fields
             or methods.
+
+            This rule detects test classes using the following convention: Test classes are top-level classes, that
+            either inherit from JUnit 3 TestCase or have at least one method annotated with the Test annotations from
+            JUnit4/5 or TestNG.
 
 Example(s):
 ```

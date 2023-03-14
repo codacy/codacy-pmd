@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "6.51.0",
+  "version" : "6.55.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -1492,26 +1492,12 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
-    "patternId" : "category_java_design_ExcessiveClassLength",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
     "patternId" : "category_java_design_ExcessiveImports",
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ ],
     "languages" : [ "Java" ],
     "enabled" : false
-  }, {
-    "patternId" : "category_java_design_ExcessiveMethodLength",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
   }, {
     "patternId" : "category_java_design_ExcessiveParameterList",
     "level" : "Warning",
@@ -1542,6 +1528,13 @@
     "enabled" : false
   }, {
     "patternId" : "category_java_design_ImmutableField",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_java_design_InvalidJavaBean",
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ ],
@@ -1847,13 +1840,6 @@
     "languages" : [ "Java" ],
     "enabled" : false
   }, {
-    "patternId" : "category_java_errorprone_BeanMembersShouldSerialize",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : false
-  }, {
     "patternId" : "category_java_errorprone_BrokenNullCheck",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -2017,13 +2003,6 @@
     "languages" : [ "Java" ],
     "enabled" : true
   }, {
-    "patternId" : "category_java_errorprone_EmptyStatementNotInLoop",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Java" ],
-    "enabled" : true
-  }, {
     "patternId" : "category_java_errorprone_EqualsNull",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -2152,6 +2131,13 @@
     "parameters" : [ ],
     "languages" : [ "Java" ],
     "enabled" : true
+  }, {
+    "patternId" : "category_java_errorprone_NonSerializableClass",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   }, {
     "patternId" : "category_java_errorprone_NonStaticInitializer",
     "level" : "Warning",

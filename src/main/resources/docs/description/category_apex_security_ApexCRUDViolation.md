@@ -1,8 +1,12 @@
 Since: PMD 5.5.3
 
 The rule validates you are checking for access permissions before a SOQL/SOSL/DML operation.
-Since Apex runs in system mode not having proper permissions checks results in escalation of
+Since Apex runs by default in system mode not having proper permissions checks results in escalation of
 privilege and may produce runtime errors. This check forces you to handle such scenarios.
+
+Since Winter '23 (API Version 56) you can enforce user mode for database operations by using
+`WITH USER_MODE` in SOQL. This makes Apex to respect Field-level security (FLS) and object
+permissions of the running user. When using user mode, no violation is reported by this rule.
 
 By default, the rule allows access checks can be performed using system Apex provisions such as
 `DescribeSObjectResult.isAccessible/Createable/etc.`, the SOQL `WITH SECURITY_ENFORCED` clause,

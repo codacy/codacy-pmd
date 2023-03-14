@@ -3,7 +3,7 @@ Since: PMD 3.0
 Switch statements without break or return statements for each case option
 may indicate problematic behaviour. Empty cases are ignored as these indicate an intentional fall-through.
 
-This rule has been renamed from &quot;MissingBreakInSwitch&quot; with PMD 6.37.0.
+This rule has been renamed from &quot;MissingBreakInSwitch&quot; in PMD 6.37.0.
 
 Example(s):
 ```

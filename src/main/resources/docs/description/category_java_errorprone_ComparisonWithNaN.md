@@ -10,7 +10,7 @@ Reports comparisons with double and float `NaN` (Not-a-Number) values.
             Finally, comparisons like `someDouble &lt;= Double.NaN` are nonsensical
             and will always evaluate to false.
             
-            This rule has been renamed from &quot;BadComparison&quot; with PMD 6.36.0.
+            This rule has been renamed from &quot;BadComparison&quot; in PMD 6.36.0.
 
 Example(s):
 ```

@@ -5,6 +5,8 @@ Check for messages in slf4j and log4j2 (since 6.19.0) loggers with non matching 
 Since 6.32.0 in addition to parameterized message placeholders (`{}`) also format specifiers of string formatted
 messages are supported (`%s`).
 
+This rule has been renamed from &quot;InvalidSlf4jMessageFormat&quot; in PMD 6.19.0.
+
 Example(s):
 ```
 LOGGER.error("forget the arg {}");

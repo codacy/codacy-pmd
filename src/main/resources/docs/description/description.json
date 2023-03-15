@@ -592,6 +592,11 @@
   "description" : "Non-static initializers are confusing",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_java_errorprone_NonSerializableClass",
+  "title" : "Non Serializable Class",
+  "description" : "The field ''{0}'' of serializable class ''{1}'' is of non-serializable type ''{2}''.",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_errorprone_NonCaseLabelInSwitchStatement",
   "title" : "Non Case Label In Switch Statement",
   "description" : "A non-case label was present in a switch statement",
@@ -683,11 +688,6 @@
   "patternId" : "category_java_errorprone_EqualsNull",
   "title" : "Equals Null",
   "description" : "Avoid using equals() to compare against null",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_EmptyStatementNotInLoop",
-  "title" : "Empty Statement Not In Loop",
-  "description" : "An empty statement (semicolon) not part of a loop",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_EmptyFinalizer",
@@ -807,11 +807,6 @@
   "patternId" : "category_java_errorprone_BrokenNullCheck",
   "title" : "Broken Null Check",
   "description" : "Method call on object which may be null",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_errorprone_BeanMembersShouldSerialize",
-  "title" : "Bean Members Should Serialize",
-  "description" : "Found non-transient, non-static member. Please mark as transient or provide accessors.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_AvoidUsingOctalValues",
@@ -1031,6 +1026,11 @@
   "description" : "Potential violation of Law of Demeter",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_java_design_InvalidJavaBean",
+  "title" : "Invalid Java Bean",
+  "description" : "The bean ''{0}'' is missing a getter for property ''{1}''.",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_design_ImmutableField",
   "title" : "Immutable Field",
   "description" : "Private field ''{0}'' could be made final; it is only initialized in the declaration or constructor.",
@@ -1056,19 +1056,9 @@
   "description" : "Avoid long parameter lists.",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_design_ExcessiveMethodLength",
-  "title" : "Excessive Method Length",
-  "description" : "Avoid really long methods.",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_design_ExcessiveImports",
   "title" : "Excessive Imports",
   "description" : "A high number of imports can indicate a high degree of coupling within an object.",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_design_ExcessiveClassLength",
-  "title" : "Excessive Class Length",
-  "description" : "Avoid really long classes.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_ExceptionAsFlowControl",
@@ -1882,7 +1872,7 @@
 }, {
   "patternId" : "category_apex_security_ApexCRUDViolation",
   "title" : "Apex CRUD Violation",
-  "description" : "Validate CRUD permission before SOQL/DML operation",
+  "description" : "Validate CRUD permission before SOQL/DML operation or enforce user mode",
   "parameters" : [ ]
 }, {
   "patternId" : "category_apex_security_ApexBadCrypto",

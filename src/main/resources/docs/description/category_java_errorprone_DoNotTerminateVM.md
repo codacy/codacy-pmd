@@ -6,7 +6,7 @@ running on the same application server.
 
 This rule also checks for the equivalent calls `Runtime.getRuntime().exit()` and `Runtime.getRuntime().halt()`.
 
-This rule was called *DoNotCallSystemExit* until PMD 6.29.0.
+This rule has been renamed from &quot;DoNotCallSystemExit&quot; in PMD 6.29.0.
 
 Example(s):
 ```

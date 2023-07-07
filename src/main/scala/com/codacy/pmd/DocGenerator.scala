@@ -367,7 +367,7 @@ object DocGenerator {
         case "ApexSharingViolations" => Some(Pattern.Subcategory.InsecureModulesLibraries)
         case "ApexSOQLInjection" => Some(Pattern.Subcategory.SQLInjection)
         case "ApexSuggestUsingNamedCred" => Some(Pattern.Subcategory.Auth)
-        case "GROOVY_SHELL" => Some(Pattern.Subcategory.CommandInjection)
+        case "VfHtmlStyleTagXss" => Some(Pattern.Subcategory.XSS)
         case _ => None
       } else {
       None

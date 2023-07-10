@@ -12,7 +12,7 @@ import scala.util.{Failure, Properties, Try}
 
 object ResourceHelper {
 
-  implicit val codec = Codec("UTF-8")
+  implicit val codec: Codec = Codec.UTF8
   codec.onMalformedInput(CodingErrorAction.REPLACE)
   codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
 

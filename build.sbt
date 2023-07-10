@@ -3,7 +3,7 @@ import sjsonnew.BasicJsonProtocol._
 
 organization := "codacy"
 name := "codacy-pmd"
-scalaVersion := "2.13.8"
+scalaVersion := "2.13.11"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
 toolVersionKey := "6.55.0"
@@ -49,12 +49,7 @@ Universal / mappings ++= {
   }
 }.value
 
-Universal / javaOptions ++= Seq(
-  "-XX:+UseG1GC",
-  "-XX:+UseStringDeduplication",
-  "-XX:MinRAMPercentage=60.0",
-  "-XX:MaxRAMPercentage=90.0"
-)
+Universal / javaOptions ++= Seq("-XX:MaxRAMPercentage=90.0")
 
 val dockerUser = "docker"
 val dockerGroup = "docker"

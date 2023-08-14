@@ -279,14 +279,14 @@ object DocGenerator {
       longDescription = (rule \ "description").text
       example = (rule \ "example").text
     } yield {
-      val (parameterDescriptions, parameterSpecifications) =
-        if (name == "ClassNamingConventions") {
-          parametersClassNamingConventions().to(Set).unzip
-        } else if (name == "MethodNamingConventions") {
-          parametersMethodNamingConventions().to(Set).unzip
-        } else {
-          parseParameters(rule).to(Set).unzip
-        }
+      val parameters = name match {
+        case "ClassNamingConventions" => parametersClassNamingConventions()
+        case "MethodNamingConventions" => parametersMethodNamingConventions()
+        case _ => parseParameters(rule)
+      }
+
+      val (parameterDescriptions, parameterSpecifications) = parameters.to(Set).unzip
+
       val rulesetNameClean = rulesetName.stripSuffix(".xml")
       val patternId = Pattern.Id(s"${rulesetsRoot}_${langAlias}_${rulesetNameClean}_$name")
 
@@ -404,7 +404,6 @@ object DocGenerator {
     }).to(List)
   }
 
-
   private def parametersClassNamingConventions(): List[(Parameter.Description, Parameter.Specification)] = {
 
     val rawData: List[(String, String, String)] = List(
@@ -417,15 +416,15 @@ object DocGenerator {
       ("testClassPattern", "Regex which applies to test class names", "^Test.*$|^[A-Z][a-zA-Z0-9]*Test(s|Case)?$")
     )
 
-    val parametersList: List[(Parameter.Description, Parameter.Specification)] = rawData.map { case (name, description, defaultValue) =>
-      (
-        Parameter.Description(Parameter.Name(name), Parameter.DescriptionText(description)),
-        Parameter.Specification(Parameter.Name(name), Parameter.Value(defaultValue))
-      )
+    val parametersList: List[(Parameter.Description, Parameter.Specification)] = rawData.map {
+      case (name, description, defaultValue) =>
+        (
+          Parameter.Description(Parameter.Name(name), Parameter.DescriptionText(description)),
+          Parameter.Specification(Parameter.Name(name), Parameter.Value(defaultValue))
+        )
     }
     parametersList
   }
-
 
   private def parametersMethodNamingConventions(): List[(Parameter.Description, Parameter.Specification)] = {
 
@@ -438,11 +437,12 @@ object DocGenerator {
       ("junit5TestPattern", "Regex which applies to JUnit 5 test method names", "[A-Z][a-zA-Z0-9]*")
     )
 
-    val parametersList: List[(Parameter.Description, Parameter.Specification)] = rawData.map { case (name, description, defaultValue) =>
-      (
-        Parameter.Description(Parameter.Name(name), Parameter.DescriptionText(description)),
-        Parameter.Specification(Parameter.Name(name), Parameter.Value(defaultValue))
-      )
+    val parametersList: List[(Parameter.Description, Parameter.Specification)] = rawData.map {
+      case (name, description, defaultValue) =>
+        (
+          Parameter.Description(Parameter.Name(name), Parameter.DescriptionText(description)),
+          Parameter.Specification(Parameter.Name(name), Parameter.Value(defaultValue))
+        )
     }
     parametersList
   }

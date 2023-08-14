@@ -1012,7 +1012,28 @@
     "patternId" : "category_java_codestyle_ClassNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "parameters" : [ ],
+    "parameters" : [ {
+      "name" : "abstractClassPattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    }, {
+      "name" : "annotationPattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    }, {
+      "name" : "classPattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    }, {
+      "name" : "enumPattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    }, {
+      "name" : "interfacePattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    }, {
+      "name" : "testClassPattern",
+      "default" : "^Test.*$|^[A-Z][a-zA-Z0-9]*Test(s|Case)?$"
+    }, {
+      "name" : "utilityClassPattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    } ],
     "languages" : [ "Java" ],
     "enabled" : true
   }, {
@@ -1190,7 +1211,25 @@
     "patternId" : "category_java_codestyle_MethodNamingConventions",
     "level" : "Info",
     "category" : "CodeStyle",
-    "parameters" : [ ],
+    "parameters" : [ {
+      "name" : "junit3TestPattern",
+      "default" : "test[A-Z0-9][a-zA-Z0-9]*"
+    }, {
+      "name" : "junit4TestPattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    }, {
+      "name" : "junit5TestPattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    }, {
+      "name" : "methodPattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    }, {
+      "name" : "nativePattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    }, {
+      "name" : "staticPattern",
+      "default" : "[A-Z][a-zA-Z0-9]*"
+    } ],
     "languages" : [ "Java" ],
     "enabled" : true
   }, {

@@ -1282,7 +1282,25 @@
   "patternId" : "category_java_codestyle_MethodNamingConventions",
   "title" : "Method Naming Conventions",
   "description" : "The {0} name ''{1}'' doesn''t match ''{2}''",
-  "parameters" : [ ]
+  "parameters" : [ {
+    "name" : "junit3TestPattern",
+    "description" : "Regex which applies to JUnit 3 test method names"
+  }, {
+    "name" : "junit4TestPattern",
+    "description" : "Regex which applies to JUnit 4 test method names"
+  }, {
+    "name" : "junit5TestPattern",
+    "description" : "Regex which applies to JUnit 5 test method names"
+  }, {
+    "name" : "methodPattern",
+    "description" : "Regex which applies to instance method names"
+  }, {
+    "name" : "nativePattern",
+    "description" : "Regex which applies to native method names"
+  }, {
+    "name" : "staticPattern",
+    "description" : "Regex which applies to static method names"
+  } ]
 }, {
   "patternId" : "category_java_codestyle_MethodArgumentCouldBeFinal",
   "title" : "Method Argument Could Be Final",
@@ -1416,7 +1434,28 @@
   "patternId" : "category_java_codestyle_ClassNamingConventions",
   "title" : "Class Naming Conventions",
   "description" : "The {0} name ''{1}'' doesn''t match ''{2}''",
-  "parameters" : [ ]
+  "parameters" : [ {
+    "name" : "abstractClassPattern",
+    "description" : "Regex which applies to abstract class names"
+  }, {
+    "name" : "annotationPattern",
+    "description" : "Regex which applies to annotation names"
+  }, {
+    "name" : "classPattern",
+    "description" : "Regex which applies to concrete class names"
+  }, {
+    "name" : "enumPattern",
+    "description" : "Regex which applies to enum names"
+  }, {
+    "name" : "interfacePattern",
+    "description" : "Regex which applies to interface names"
+  }, {
+    "name" : "testClassPattern",
+    "description" : "Regex which applies to test class names"
+  }, {
+    "name" : "utilityClassPattern",
+    "description" : "Regex which applies to utility class names"
+  } ]
 }, {
   "patternId" : "category_java_codestyle_CallSuperInConstructor",
   "title" : "Call Super In Constructor",

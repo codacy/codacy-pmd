@@ -279,9 +279,9 @@ object DocGenerator {
       longDescription = (rule \ "description").text
       example = (rule \ "example").text
     } yield {
-      val parameters = name match {
-        case "ClassNamingConventions" => parametersClassNamingConventions()
-        case "MethodNamingConventions" => parametersMethodNamingConventions()
+      val parameters = (name, langAlias) match {
+        case ("ClassNamingConventions", "java") => parametersClassNamingConventions()
+        case ("MethodNamingConventions", "java") => parametersMethodNamingConventions()
         case _ => parseParameters(rule)
       }
 

@@ -408,12 +408,20 @@ object DocGenerator {
 
     val rawData: List[(String, String, String)] = List(
       ("classPattern", "classPattern: Regex which applies to concrete class names", "[A-Z][a-zA-Z0-9]*"),
-      ("abstractClassPattern", "abstractClassPattern: Regex which applies to abstract class names", "[A-Z][a-zA-Z0-9]*"),
+      (
+        "abstractClassPattern",
+        "abstractClassPattern: Regex which applies to abstract class names",
+        "[A-Z][a-zA-Z0-9]*"
+      ),
       ("interfacePattern", "interfacePattern: Regex which applies to interface names", "[A-Z][a-zA-Z0-9]*"),
       ("enumPattern", "enumPattern: Regex which applies to enum names", "[A-Z][a-zA-Z0-9]*"),
       ("annotationPattern", "annotationPattern: Regex which applies to annotation names", "[A-Z][a-zA-Z0-9]*"),
       ("utilityClassPattern", "utilityClassPattern: Regex which applies to utility class names", "[A-Z][a-zA-Z0-9]*"),
-      ("testClassPattern", "testClassPattern: Regex which applies to test class names", "^Test.*$|^[A-Z][a-zA-Z0-9]*Test(s|Case)?$")
+      (
+        "testClassPattern",
+        "testClassPattern: Regex which applies to test class names",
+        "^Test.*$|^[A-Z][a-zA-Z0-9]*Test(s|Case)?$"
+      )
     )
 
     val parametersList: List[(Parameter.Description, Parameter.Specification)] = rawData.map {
@@ -432,7 +440,11 @@ object DocGenerator {
       ("methodPattern", "methodPattern: Regex which applies to instance method names", "[a-z][a-zA-Z0-9]*"),
       ("staticPattern", "staticPattern: Regex which applies to static method names", "[a-z][a-zA-Z0-9]*"),
       ("nativePattern", "nativePattern: Regex which applies to native method names", "[a-z][a-zA-Z0-9]*"),
-      ("junit3TestPattern", "junit3TestPattern: Regex which applies to JUnit 3 test method names", "test[A-Z0-9][a-zA-Z0-9]*"),
+      (
+        "junit3TestPattern",
+        "junit3TestPattern: Regex which applies to JUnit 3 test method names",
+        "test[A-Z0-9][a-zA-Z0-9]*"
+      ),
       ("junit4TestPattern", "junit4TestPattern: Regex which applies to JUnit 4 test method names", "[a-z][a-zA-Z0-9]*"),
       ("junit5TestPattern", "junit5TestPattern: Regex which applies to JUnit 5 test method names", "[a-z][a-zA-Z0-9]*")
     )

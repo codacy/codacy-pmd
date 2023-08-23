@@ -1284,22 +1284,22 @@
   "description" : "The {0} name ''{1}'' doesn''t match ''{2}''",
   "parameters" : [ {
     "name" : "junit3TestPattern",
-    "description" : "Regex which applies to JUnit 3 test method names"
+    "description" : "junit3TestPattern: Regex which applies to JUnit 3 test method names"
   }, {
     "name" : "junit4TestPattern",
-    "description" : "Regex which applies to JUnit 4 test method names"
+    "description" : "junit4TestPattern: Regex which applies to JUnit 4 test method names"
   }, {
     "name" : "junit5TestPattern",
-    "description" : "Regex which applies to JUnit 5 test method names"
+    "description" : "junit5TestPattern: Regex which applies to JUnit 5 test method names"
   }, {
     "name" : "methodPattern",
-    "description" : "Regex which applies to instance method names"
+    "description" : "methodPattern: Regex which applies to instance method names"
   }, {
     "name" : "nativePattern",
-    "description" : "Regex which applies to native method names"
+    "description" : "nativePattern: Regex which applies to native method names"
   }, {
     "name" : "staticPattern",
-    "description" : "Regex which applies to static method names"
+    "description" : "staticPattern: Regex which applies to static method names"
   } ]
 }, {
   "patternId" : "category_java_codestyle_MethodArgumentCouldBeFinal",
@@ -1436,25 +1436,25 @@
   "description" : "The {0} name ''{1}'' doesn''t match ''{2}''",
   "parameters" : [ {
     "name" : "abstractClassPattern",
-    "description" : "Regex which applies to abstract class names"
+    "description" : "abstractClassPattern: Regex which applies to abstract class names"
   }, {
     "name" : "annotationPattern",
-    "description" : "Regex which applies to annotation names"
+    "description" : "annotationPattern: Regex which applies to annotation names"
   }, {
     "name" : "classPattern",
-    "description" : "Regex which applies to concrete class names"
+    "description" : "classPattern: Regex which applies to concrete class names"
   }, {
     "name" : "enumPattern",
-    "description" : "Regex which applies to enum names"
+    "description" : "enumPattern: Regex which applies to enum names"
   }, {
     "name" : "interfacePattern",
-    "description" : "Regex which applies to interface names"
+    "description" : "interfacePattern: Regex which applies to interface names"
   }, {
     "name" : "testClassPattern",
-    "description" : "Regex which applies to test class names"
+    "description" : "testClassPattern: Regex which applies to test class names"
   }, {
     "name" : "utilityClassPattern",
-    "description" : "Regex which applies to utility class names"
+    "description" : "utilityClassPattern: Regex which applies to utility class names"
   } ]
 }, {
   "patternId" : "category_java_codestyle_CallSuperInConstructor",

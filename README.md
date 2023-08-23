@@ -47,7 +47,6 @@ sbt "runMain com.codacy.pmd.DocGenerator"
 ## Test
 
 We use the [codacy-plugins-test](https://github.com/codacy/codacy-plugins-test) to test our external tools integration.
-
 You can follow the instructions there to make sure your tool is working as expected.
 
 ## What is Codacy?

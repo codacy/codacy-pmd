@@ -1216,19 +1216,19 @@
       "default" : "test[A-Z0-9][a-zA-Z0-9]*"
     }, {
       "name" : "junit4TestPattern",
-      "default" : "[A-Z][a-zA-Z0-9]*"
+      "default" : "[a-z][a-zA-Z0-9]*"
     }, {
       "name" : "junit5TestPattern",
-      "default" : "[A-Z][a-zA-Z0-9]*"
+      "default" : "[a-z][a-zA-Z0-9]*"
     }, {
       "name" : "methodPattern",
-      "default" : "[A-Z][a-zA-Z0-9]*"
+      "default" : "[a-z][a-zA-Z0-9]*"
     }, {
       "name" : "nativePattern",
-      "default" : "[A-Z][a-zA-Z0-9]*"
+      "default" : "[a-z][a-zA-Z0-9]*"
     }, {
       "name" : "staticPattern",
-      "default" : "[A-Z][a-zA-Z0-9]*"
+      "default" : "[a-z][a-zA-Z0-9]*"
     } ],
     "languages" : [ "Java" ],
     "enabled" : true

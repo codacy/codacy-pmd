@@ -30,6 +30,7 @@ object PMD extends Tool {
       options: Map[Options.Key, Options.Value]
   )(implicit specification: Tool.Specification): Try[List[Result]] = {
     val pmdConfig = new PMDConfiguration()
+    pmdConfig.setIgnoreIncrementalAnalysis(true)
 
     val filesStr = files match {
       case None =>

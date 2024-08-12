@@ -1,10 +1,10 @@
 Since: PMD 6.25.0
 
-Problem: Use of [FileItem.get()](https://commons.apache.org/proper/commons-fileupload/apidocs/org/apache/commons/fileupload/FileItem.html#get--)
-and [FileItem.getString()](https://commons.apache.org/proper/commons-fileupload/apidocs/org/apache/commons/fileupload/FileItem.html#getString--)
+Problem: Use of [FileItem.get()](https://javadoc.io/static/commons-fileupload/commons-fileupload/1.5/org/apache/commons/fileupload/FileItem.html#get--)
+and [FileItem.getString()](https://javadoc.io/static/commons-fileupload/commons-fileupload/1.5/org/apache/commons/fileupload/FileItem.html#getString--)
 could exhaust memory since they load the entire file into memory.
 
-Solution: Use [FileItem.getInputStream()](https://commons.apache.org/proper/commons-fileupload/apidocs/org/apache/commons/fileupload/FileItem.html#getInputStream--)
+Solution: Use [FileItem.getInputStream()](https://javadoc.io/static/commons-fileupload/commons-fileupload/1.5/org/apache/commons/fileupload/FileItem.html#getInputStream--)
 and buffering.
 
 Example(s):

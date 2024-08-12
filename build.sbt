@@ -6,7 +6,7 @@ name := "codacy-pmd"
 scalaVersion := "2.13.11"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
-toolVersionKey := "6.55.0"
+toolVersionKey := "7.4.0"
 
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
@@ -20,7 +20,7 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd-jsp" % toolVersion,
     "net.sourceforge.pmd" % "pmd-javascript" % toolVersion,
     "net.sourceforge.pmd" % "pmd-plsql" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-vm" % toolVersion,
+    // "net.sourceforge.pmd" % "pmd-vm" % toolVersion, No official support yet only rc
     "net.sourceforge.pmd" % "pmd-xml" % toolVersion,
     "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion,
     "net.sourceforge.pmd" % "pmd-apex" % toolVersion,

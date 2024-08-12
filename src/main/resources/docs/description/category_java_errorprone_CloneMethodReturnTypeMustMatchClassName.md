@@ -1,9 +1,9 @@
 Since: PMD 5.4.0
 
-If a class implements cloneable the return type of the method clone() must be the class name. That way, the caller
+If a class implements `Cloneable` the return type of the method `clone()` must be the class name. That way, the caller
 of the clone method doesn't need to cast the returned clone to the correct type.
 
-Note: This is only possible with Java 1.5 or higher.
+Note: Such a covariant return type is only possible with Java 1.5 or higher.
 
 Example(s):
 ```

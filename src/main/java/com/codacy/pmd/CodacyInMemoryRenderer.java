@@ -1,7 +1,8 @@
 package com.codacy.pmd;
 
-import net.sourceforge.pmd.Report;
-import net.sourceforge.pmd.RuleViolation;
+import net.sourceforge.pmd.reporting.Report.ProcessingError;
+import net.sourceforge.pmd.reporting.RuleViolation;
+import net.sourceforge.pmd.reporting.Report.SuppressedViolation;
 import net.sourceforge.pmd.renderers.AbstractIncrementingRenderer;
 
 import java.io.IOException;
@@ -17,12 +18,12 @@ public class CodacyInMemoryRenderer extends AbstractIncrementingRenderer {
 
     private static final String NAME = "codacy";
 
-    private List<RuleViolation> ruleViolations = new LinkedList<>();
+    private List<RuleViolation> ruleViolations = new LinkedList<RuleViolation>();
 
     public CodacyInMemoryRenderer() {
         super(NAME, "Codacy In Memory.");
         // Using a stub writer since we are saving the violations in memory
-        writer = new Writer() {
+        Writer writer = new Writer() {
             @Override
             public void write(char[] cbuf, int off, int len) throws IOException {
                 // Ignore
@@ -40,11 +41,11 @@ public class CodacyInMemoryRenderer extends AbstractIncrementingRenderer {
         };
     }
 
-    public List<Report.ProcessingError> getErrors() {
+    public List<ProcessingError> getErrors() {
         return errors;
     }
 
-    public List<Report.SuppressedViolation> getSuppressedViolations() {
+    public List<SuppressedViolation> getSuppressedViolations() {
         return suppressed;
     }
 

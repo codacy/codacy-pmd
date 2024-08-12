@@ -2,8 +2,8 @@ Since: PMD 6.0.0
 
 This rule uses the NCSS (Non-Commenting Source Statements) metric to determine the number of lines
 of code in a class, method or constructor. NCSS ignores comments, blank lines, and only counts actual
-statements. For more details on the calculation, see the documentation of
-the [NCSS metric](pmd_java_metrics_index.html#non-commenting-source-statements-ncss).
+statements. For more details on the calculation, see the documentation
+{% jdoc java::lang.java.metrics.JavaMetrics#NCSS %}.
 
 Example(s):
 ```

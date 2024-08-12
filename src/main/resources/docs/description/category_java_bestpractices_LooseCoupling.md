@@ -1,8 +1,11 @@
 Since: PMD 0.7
 
-The use of implementation types (i.e., HashSet) as object references limits your ability to use alternate
-implementations in the future as requirements change. Whenever available, referencing objects
-by their interface types (i.e, Set) provides much more flexibility.
+Excessive coupling to implementation types (e.g., `HashSet`) limits your ability to use alternate
+implementations in the future as requirements change. Whenever available, declare variables
+and parameters using a more general type (e.g, `Set`).
+
+This rule reports uses of concrete collection types. User-defined types that should be treated
+the same as interfaces can be configured with the property `allowedTypes`.
 
 Example(s):
 ```

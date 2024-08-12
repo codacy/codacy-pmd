@@ -1,6 +1,7 @@
 Since: PMD 1.5
 
-Non-constructor methods should not have the same name as the enclosing class.
+A method should not have the same name as its containing class.
+This would be confusing as it would look like a constructor.
 
 Example(s):
 ```

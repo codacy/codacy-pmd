@@ -1,6 +1,7 @@
 Since: PMD 3.5
 
-After checking an object reference for null, you should invoke equals() on that object rather than passing it to another object's equals() method.
+After checking an object reference for null, you should invoke equals() on that object rather than passing
+it to another object's equals() method.
 
 Example(s):
 ```

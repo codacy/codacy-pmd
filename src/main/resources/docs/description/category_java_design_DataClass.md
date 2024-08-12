@@ -13,6 +13,18 @@ most cases, that means moving the operations defined on the data back into the c
 In some other cases it may make sense to remove entirely the class and move the data
 into the former client classes.
 
+The rule uses metrics to implement its detection strategy. The violation message
+gives information about the values of these metrics:
+* WMC: a class complexity measure for a class, see {% jdoc java::lang.java.metrics.JavaMetrics#WEIGHED_METHOD_COUNT %}
+* WOC: a 'non-triviality' measure for a class, see {% jdoc java::lang.java.metrics.JavaMetrics#WEIGHT_OF_CLASS %}
+* NOPA: number of public attributes, see {% jdoc java::lang.java.metrics.JavaMetrics#NUMBER_OF_PUBLIC_FIELDS %}
+* NOAM: number of public accessor methods, see {% jdoc java::lang.java.metrics.JavaMetrics#NUMBER_OF_ACCESSORS %}
+
+The rule identifies a god class by looking for classes which have all of the following properties:
+* High NOPA + NOAM
+* Low WOC
+* Low WMC
+
 Example(s):
 ```
 public class DataClass {

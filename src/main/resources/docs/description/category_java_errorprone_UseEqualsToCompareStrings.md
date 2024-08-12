@@ -1,7 +1,9 @@
 Since: PMD 4.1
 
-Using '==' or '!=' to compare strings only works if intern version is used on both sides.
-Use the equals() method instead.
+Using '==' or '!=' to compare strings is only reliable if the interned string (`String#intern()`)
+is used on both sides.
+
+Use the `equals()` method instead.
 
 Example(s):
 ```

@@ -18,12 +18,12 @@ public class CodacyInMemoryRenderer extends AbstractIncrementingRenderer {
 
     private static final String NAME = "codacy";
 
-    private List<RuleViolation> ruleViolations = new LinkedList<RuleViolation>();
+    private List<RuleViolation> ruleViolations = new LinkedList<>();
 
     public CodacyInMemoryRenderer() {
         super(NAME, "Codacy In Memory.");
         // Using a stub writer since we are saving the violations in memory
-        Writer writer = new Writer() {
+        new Writer() {
             @Override
             public void write(char[] cbuf, int off, int len) throws IOException {
                 // Ignore

@@ -2,8 +2,7 @@ package com.codacy.pmd
 
 import java.io.{File => JavaFile}
 import java.nio.file.{Files, Path, Paths}
-import java.util.Collections
-import java.util.Arrays
+import java.util.{Arrays, Collections}
 
 import com.codacy.plugins.api.results.{Parameter, Pattern, Result, Tool}
 import com.codacy.plugins.api.{ErrorMessage, Options, Source}

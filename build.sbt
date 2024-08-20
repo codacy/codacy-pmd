@@ -24,8 +24,10 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd-xml" % toolVersion,
     "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion,
     "net.sourceforge.pmd" % "pmd-apex" % toolVersion,
-    // Workaround for https://github.com/pmd/pmd/issues/2081
-    "org.mozilla" % "rhino" % "1.7.8" force ()
+    "net.sourceforge.pmd" % "pmd" % toolVersion,
+    "net.sourceforge.pmd" % "pmd-kotlin" % toolVersion,
+    "net.sourceforge.pmd" % "pmd-velocity" % toolVersion,
+    "org.mozilla" % "rhino" % "1.7.15"
   )
 }
 
@@ -56,7 +58,7 @@ val dockerGroup = "docker"
 
 Docker / daemonUser := dockerUser
 Docker / daemonGroup := dockerGroup
-dockerBaseImage := "amazoncorretto:8-alpine3.18-jre"
+dockerBaseImage := "amazoncorretto:8-alpine3.20-jre"
 Compile / mainClass := Some("com.codacy.Engine")
 dockerEntrypoint := Seq("/sbin/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
 dockerCommands := dockerCommands.value.flatMap {

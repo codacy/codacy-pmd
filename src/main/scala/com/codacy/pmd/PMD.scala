@@ -8,10 +8,8 @@ import com.codacy.plugins.api.results.{Parameter, Pattern, Result, Tool}
 import com.codacy.plugins.api.{ErrorMessage, Options, Source}
 import com.codacy.tools.scala.seed.utils.FileHelper
 import net.sourceforge.pmd
-import net.sourceforge.pmd.lang.Language
 import net.sourceforge.pmd.renderers.Renderer
 import net.sourceforge.pmd.{PMDConfiguration}
-import net.sourceforge.pmd.reporting.RuleContext
 import net.sourceforge.pmd.lang.rule.{RuleSet, RuleSetLoader} //, RuleSets => PMDRuleSets
 import play.api.libs.json.{JsString, JsValue, Json}
 
@@ -114,12 +112,12 @@ object PMD extends Tool {
 
         val ruleViolations = codacyRenderer.getRulesViolations.asScala.view.flatMap { violation =>
           patternIdByRuleNameAndRuleSet(
-            violation.getRule.getLanguage.getId,
+            violation.getRule.getLanguage.getTerseName,
             violation.getRule.getName,
             violation.getRule.getRuleSetName
           ).map { patternId =>
             Result.Issue(
-              relativizeToolOutputPath(source, violation.getFileId.getFileName),
+              relativizeToolOutputPath(source, violation.getFilename),
               Result.Message(violation.getDescription),
               patternId,
               Source.Line(violation.getBeginLine)

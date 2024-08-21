@@ -3,7 +3,7 @@ import sjsonnew.BasicJsonProtocol._
 
 organization := "codacy"
 name := "codacy-pmd"
-scalaVersion := "2.13.14"
+scalaVersion := "2.13.11"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
 toolVersionKey := "7.4.0"

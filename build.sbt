@@ -3,7 +3,7 @@ import sjsonnew.BasicJsonProtocol._
 
 organization := "codacy"
 name := "codacy-pmd"
-scalaVersion := "2.13.11"
+scalaVersion := "2.13.14"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
 toolVersionKey := "7.4.0"
@@ -12,9 +12,9 @@ libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
 
   Seq(
-    "org.playframework" %% "play-json" % "3.0.4",
-    "com.codacy" %% "codacy-engine-scala-seed" % "6.1.3",
-    "org.scala-lang.modules" %% "scala-xml" % "1.3.0",
+    "com.typesafe.play" %% "play-json" % "2.7.4",
+    "com.codacy" %% "codacy-engine-scala-seed" % "5.0.1",
+    "org.scala-lang.modules" %% "scala-xml" % "1.2.0",
     "net.sourceforge.pmd" % "pmd-core" % toolVersion,
     "net.sourceforge.pmd" % "pmd-java" % toolVersion,
     "net.sourceforge.pmd" % "pmd-jsp" % toolVersion,

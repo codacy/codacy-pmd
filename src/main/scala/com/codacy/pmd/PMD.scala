@@ -110,7 +110,7 @@ object PMD extends Tool {
             violation.getRule.getRuleSetName
           ).map { patternId =>
             Result.Issue(
-              relativizeToolOutputPath(source, violation.getFileId.getFileName),
+              Source.File(violation.getFileId.getFileName.toString),
               Result.Message(violation.getDescription),
               patternId,
               Source.Line(violation.getBeginLine)
@@ -136,12 +136,6 @@ object PMD extends Tool {
         case patternDef if patternDef.patternId == patternId => patternDef.patternId
       }
     }
-  }
-
-  private def relativizeToolOutputPath(root: Source.Directory, file: String): Source.File = {
-    val rootPath = Paths.get(root.path).normalize()
-    val filePath = Paths.get(file).normalize()
-    Source.File(rootPath.relativize(filePath).toString)
   }
 
   private def configFile(conf: List[Pattern.Definition])(implicit specification: Tool.Specification): Try[Path] = {

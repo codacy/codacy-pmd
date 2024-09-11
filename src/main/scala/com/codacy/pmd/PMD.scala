@@ -93,8 +93,6 @@ object PMD extends Tool {
     ruleSetsOpt.fold[Try[List[Result]]] {
       Failure(new Exception("No rulesets found"))
     } { ruleSets: java.util.List[RuleSet] =>
-
-
       Try {
         val codacyRenderer = new CodacyInMemoryRenderer()
         val renderer: Renderer = codacyRenderer
@@ -143,8 +141,8 @@ object PMD extends Tool {
   private def relativizeToolOutputPath(root: Source.Directory, file: String): Source.File = {
     val rootPath = Paths.get(root.path)
     val filePath = Paths.get(file)
-    print(root.path+"\n")
-    print(file+"\n")
+    print(root.path + "\n")
+    print(file + "\n")
     Source.File(rootPath.relativize(filePath).toString)
   }
 

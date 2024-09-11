@@ -139,8 +139,8 @@ object PMD extends Tool {
   }
 
   private def relativizeToolOutputPath(root: Source.Directory, file: String): Source.File = {
-    val rootPath = Paths.get(root.path)
-    val filePath = Paths.get(file)
+    val rootPath = Paths.get(root.path).normalize()
+    val filePath = Paths.get(file).normalize()
     Source.File(rootPath.relativize(filePath).toString)
   }
 

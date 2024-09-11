@@ -3,13 +3,13 @@
 import java.lang.Thread;
 import org.junit.Test;
 
-public class Foo {
+public class MyTest {
     @Test
     public void foo() throws Throwable {
         TypeSet.Resolver r = new TypeSet.ImplicitImportResolver();
+        //#Warn: category_java_bestpractices_JUnitUseExpected
         try {
             r.resolve("PMD");
-            //#Warn: category_java_bestpractices_JUnitUseExpected
             fail("Should have thrown an exception");
         } catch (ClassNotFoundException cnfe) {
         }

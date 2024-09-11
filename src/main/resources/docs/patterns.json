@@ -1,6 +1,6 @@
 {
   "name" : "pmd",
-  "version" : "7.4.0",
+  "version" : "7.5.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
     "level" : "Warning",
@@ -609,6 +609,13 @@
     "patternId" : "category_ecmascript_errorprone_InaccurateNumericLiteral",
     "level" : "Warning",
     "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Javascript" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_ecmascript_performance_AvoidConsoleStatements",
+    "level" : "Warning",
+    "category" : "Performance",
     "parameters" : [ ],
     "languages" : [ "Javascript" ],
     "enabled" : false
@@ -2439,6 +2446,13 @@
     "enabled" : true
   }, {
     "patternId" : "category_java_multithreading_AvoidSynchronizedAtMethodLevel",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_java_multithreading_AvoidSynchronizedStatement",
     "level" : "Warning",
     "category" : "ErrorProne",
     "parameters" : [ ],

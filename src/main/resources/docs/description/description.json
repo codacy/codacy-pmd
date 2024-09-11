@@ -395,9 +395,14 @@
   "description" : "Avoid using java.lang.ThreadGroup; it is not thread safe",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_java_multithreading_AvoidSynchronizedStatement",
+  "title" : "Avoid Synchronized Statement",
+  "description" : "Use ReentrantLock rather than synchronization",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_java_multithreading_AvoidSynchronizedAtMethodLevel",
   "title" : "Avoid Synchronized At Method Level",
-  "description" : "Use block level rather than method level synchronization",
+  "description" : "Use block level locking rather than method level synchronization",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_UselessOperationOnImmutable",
@@ -1741,6 +1746,11 @@
   "patternId" : "category_java_bestpractices_AbstractClassWithoutAbstractMethod",
   "title" : "Abstract Class Without Abstract Method",
   "description" : "This abstract class does not have any abstract methods",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_ecmascript_performance_AvoidConsoleStatements",
+  "title" : "Avoid Console Statements",
+  "description" : "Avoid console statements since they negatively impact performance",
   "parameters" : [ ]
 }, {
   "patternId" : "category_ecmascript_errorprone_InaccurateNumericLiteral",

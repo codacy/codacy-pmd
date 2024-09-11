@@ -1,6 +1,6 @@
 //#Patterns: category_java_errorprone_UnusedNullCheckInEquals
 
-public class Foo {
+public class Test {
     public String bar() {
         return "ok";
     }
@@ -13,7 +13,7 @@ public class Foo {
         
         //#Warn: category_java_errorprone_UnusedNullCheckInEquals
         if (a != null && bar().equals(a)) {  }
-
+        //#Warn: category_java_errorprone_UnusedNullCheckInEquals
         if (bar().equals(a) && a != null) {  }
     }
 }

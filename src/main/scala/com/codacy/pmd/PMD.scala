@@ -45,7 +45,7 @@ object PMD extends Tool {
 
     // Files could be empty when given explicitly by configuration a set of empty files to run.
     // Confirm what happens in this case / what is the else that is missing from this flow (?)
-    if (filesStr.isEmpty) {
+    if (!filesStr.isEmpty) {
       pmdConfig.setInputPathList(filesStr)
     }
 
@@ -93,31 +93,26 @@ object PMD extends Tool {
     ruleSetsOpt.fold[Try[List[Result]]] {
       Failure(new Exception("No rulesets found"))
     } { ruleSets: java.util.List[RuleSet] =>
-      //val languages = getApplicableLanguages(pmdConfig, ruleSets)
 
-      //val files = pmd.PMD.getApplicableFiles(pmdConfig, languages)
 
       Try {
         val codacyRenderer = new CodacyInMemoryRenderer()
         val renderer: Renderer = codacyRenderer
         val renderers = Collections.singletonList(renderer)
-
-        //pmd.PMD.processFiles(pmdConfig, ruleSetFactory, files, new RuleContext, renderers)
-
         val pmdAnalysis = pmd.PmdAnalysis.create(pmdConfig)
+
         pmdAnalysis.addRenderers(renderers)
         pmdAnalysis.addRuleSets(ruleSets)
-        //pmdAnalysis.files()
         pmdAnalysis.performAnalysis()
 
         val ruleViolations = codacyRenderer.getRulesViolations.asScala.view.flatMap { violation =>
           patternIdByRuleNameAndRuleSet(
-            violation.getRule.getLanguage.getTerseName,
+            violation.getRule.getLanguage.getId,
             violation.getRule.getName,
             violation.getRule.getRuleSetName
           ).map { patternId =>
             Result.Issue(
-              relativizeToolOutputPath(source, violation.getFilename),
+              relativizeToolOutputPath(source, violation.getFileId.getFileName),
               Result.Message(violation.getDescription),
               patternId,
               Source.Line(violation.getBeginLine)
@@ -134,21 +129,6 @@ object PMD extends Tool {
     }
   }
 
-  // private def getApplicableLanguages(configuration: PMDConfiguration, ruleSets: PMDRuleSets) = {
-  //   val languages = new java.util.HashSet[Language]
-  //   val discoverer = configuration.getLanguageVersionDiscoverer
-  //   for (rule <- ruleSets.getAllRules.asScala) {
-  //     val language = rule.getLanguage
-  //     if (!languages.contains(language)) {
-  //       val version = discoverer.getDefaultLanguageVersion(language)
-  //       if (RuleSet.applies(rule, version)) {
-  //         languages.add(language)
-  //       }
-  //     }
-  //   }
-  //   languages
-  // }
-
   private def patternIdByRuleNameAndRuleSet(langAlias: String, ruleName: String, ruleSet: String)(
       implicit specification: Tool.Specification
   ): Option[Pattern.Id] = {
@@ -163,6 +143,8 @@ object PMD extends Tool {
   private def relativizeToolOutputPath(root: Source.Directory, file: String): Source.File = {
     val rootPath = Paths.get(root.path)
     val filePath = Paths.get(file)
+    print(root.path+"\n")
+    print(file+"\n")
     Source.File(rootPath.relativize(filePath).toString)
   }
 

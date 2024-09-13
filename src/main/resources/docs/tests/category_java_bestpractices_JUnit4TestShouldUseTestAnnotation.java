@@ -5,6 +5,7 @@ public class MyTest {
     public void testBad() {
         doSomething();
     }
+    //#Warn: category_java_bestpractices_JUnit4TestShouldUseTestAnnotation
     @Test public void testGood() {
         doSomething();
     }

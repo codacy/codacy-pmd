@@ -2,7 +2,7 @@ Since: PMD 6.0.0
 
 The FileInputStream and FileOutputStream classes contains a finalizer method which will cause garbage
 collection pauses.
-See [JDK-8080225](https://bugs.openjdk.java.net/browse/JDK-8080225) for details.
+See [JDK-8080225](https://bugs.openjdk.org/browse/JDK-8080225) for details.
 
 The FileReader and FileWriter constructors instantiate FileInputStream and FileOutputStream,
 again causing garbage collection issues while finalizer methods are called.

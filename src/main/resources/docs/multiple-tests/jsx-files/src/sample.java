@@ -5,4 +5,3 @@ public class Foo {
         System.out.println(foo);
     }
 }
-

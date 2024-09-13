@@ -2,15 +2,15 @@ package com.codacy.pmd
 
 import java.io.{File => JavaFile}
 import java.nio.file.{Files, Path, Paths}
-import java.util.Collections
+import java.util.{Arrays, Collections}
 
 import com.codacy.plugins.api.results.{Parameter, Pattern, Result, Tool}
 import com.codacy.plugins.api.{ErrorMessage, Options, Source}
 import com.codacy.tools.scala.seed.utils.FileHelper
 import net.sourceforge.pmd
-import net.sourceforge.pmd.lang.Language
 import net.sourceforge.pmd.renderers.Renderer
-import net.sourceforge.pmd.{PMDConfiguration, RuleContext, RuleSet, RulesetsFactoryUtils, RuleSets => PMDRuleSets}
+import net.sourceforge.pmd.{PMDConfiguration}
+import net.sourceforge.pmd.lang.rule.{RuleSet, RuleSetLoader} //, RuleSets => PMDRuleSets
 import play.api.libs.json.{JsString, JsValue, Json}
 
 import scala.jdk.CollectionConverters._
@@ -32,20 +32,21 @@ object PMD extends Tool {
     val pmdConfig = new PMDConfiguration()
     pmdConfig.setIgnoreIncrementalAnalysis(true)
 
-    val filesStr = files match {
+    val filesStr: java.util.List[java.nio.file.Path] = files match {
       case None =>
-        source.path
+        Arrays.asList(Paths.get(source.path))
       case Some(files) =>
         files
-          .map(_.path)
-          .filter(filename => !Languages.invalidExtensions.exists(filename.endsWith))
-          .mkString(",")
+          .map(file => Paths.get(file.path))
+          .filter(path => !Languages.invalidExtensions.exists(path.toString.endsWith))
+          .toList
+          .asJava
     }
 
     // Files could be empty when given explicitly by configuration a set of empty files to run.
     // Confirm what happens in this case / what is the else that is missing from this flow (?)
-    if (filesStr.nonEmpty) {
-      pmdConfig.setInputPaths(filesStr)
+    if (!filesStr.isEmpty) {
+      pmdConfig.setInputPathList(filesStr)
     }
 
     // Side effectful code to make a pmdConfig with rules which at the start is null:
@@ -57,7 +58,7 @@ object PMD extends Tool {
         // RulesetsFactoryUtils.getRuleSets checks if rules are != 0...
         configFile(config) match {
           case Success(ruleset) =>
-            pmdConfig.setRuleSets(ruleset.toString)
+            pmdConfig.setRuleSets(Arrays.asList(ruleset.toString))
 
           case Failure(_) =>
         }
@@ -72,45 +73,44 @@ object PMD extends Tool {
           .fold {
             configFile(DefaultPatterns.list.map(patternId => Pattern.Definition(Pattern.Id(patternId))))
               .foreach { defaultCodacyRuleSetFile =>
-                pmdConfig.setRuleSets(defaultCodacyRuleSetFile.toString)
+                pmdConfig.setRuleSets(Arrays.asList(defaultCodacyRuleSetFile.toString))
               }
           } { ruleset =>
-            pmdConfig.setRuleSets(ruleset.toString)
+            pmdConfig.setRuleSets(Arrays.asList(ruleset.toString))
           }
     }
 
     // Check that we defined the rules to run, if not getRuleSets is null, we should terminate since this is an error.
     // Forcing a RETURN. This should only happen when we failed to generate a temporary configuration file.
-    if (pmdConfig.getRuleSets == null) {
+    if (pmdConfig.getRuleSetPaths == null) {
       return Failure(new Exception("No rulesets were configured to initialize PMD tool"))
     }
 
     // Load the RuleSets
-    val ruleSetFactory = RulesetsFactoryUtils.createFactory(pmdConfig)
-    val ruleSetsOpt = Option(RulesetsFactoryUtils.getRuleSets(pmdConfig.getRuleSets, ruleSetFactory))
+    val ruleSetLoader = RuleSetLoader.fromPmdConfig(pmdConfig)
+    val ruleSetsOpt = Option(ruleSetLoader.loadFromResources(pmdConfig.getRuleSetPaths))
 
     ruleSetsOpt.fold[Try[List[Result]]] {
       Failure(new Exception("No rulesets found"))
-    } { ruleSets: PMDRuleSets =>
-      val languages = getApplicableLanguages(pmdConfig, ruleSets)
-
-      val files = pmd.PMD.getApplicableFiles(pmdConfig, languages)
-
+    } { ruleSets: java.util.List[RuleSet] =>
       Try {
         val codacyRenderer = new CodacyInMemoryRenderer()
         val renderer: Renderer = codacyRenderer
         val renderers = Collections.singletonList(renderer)
-
-        pmd.PMD.processFiles(pmdConfig, ruleSetFactory, files, new RuleContext, renderers)
+        val pmdAnalysis = pmd.PmdAnalysis.create(pmdConfig)
+        pmdAnalysis.addRenderers(renderers)
+        pmdAnalysis.addRuleSets(ruleSets)
+        pmdAnalysis.performAnalysis()
 
         val ruleViolations = codacyRenderer.getRulesViolations.asScala.view.flatMap { violation =>
+          //println(s"Violation: ${violation.getDescription} in ${violation.getFileId.getFileName.toString}")
           patternIdByRuleNameAndRuleSet(
-            violation.getRule.getLanguage.getTerseName,
+            violation.getRule.getLanguage.getId,
             violation.getRule.getName,
             violation.getRule.getRuleSetName
           ).map { patternId =>
             Result.Issue(
-              relativizeToolOutputPath(source, violation.getFilename),
+              Source.File(violation.getFileId.getFileName.toString),
               Result.Message(violation.getDescription),
               patternId,
               Source.Line(violation.getBeginLine)
@@ -119,27 +119,12 @@ object PMD extends Tool {
         }
 
         val errors = codacyRenderer.getErrors.asScala.view.map { error =>
-          Result.FileError(Source.File(error.getFile), Some(ErrorMessage(error.getMsg)))
+          Result.FileError(Source.File(error.getFileId.getAbsolutePath), Some(ErrorMessage(error.getMsg)))
         }
 
         (ruleViolations ++ errors).to(List)
       }
     }
-  }
-
-  private def getApplicableLanguages(configuration: PMDConfiguration, ruleSets: PMDRuleSets) = {
-    val languages = new java.util.HashSet[Language]
-    val discoverer = configuration.getLanguageVersionDiscoverer
-    for (rule <- ruleSets.getAllRules.asScala) {
-      val language = rule.getLanguage
-      if (!languages.contains(language)) {
-        val version = discoverer.getDefaultLanguageVersion(language)
-        if (RuleSet.applies(rule, version)) {
-          languages.add(language)
-        }
-      }
-    }
-    languages
   }
 
   private def patternIdByRuleNameAndRuleSet(langAlias: String, ruleName: String, ruleSet: String)(
@@ -151,12 +136,6 @@ object PMD extends Tool {
         case patternDef if patternDef.patternId == patternId => patternDef.patternId
       }
     }
-  }
-
-  private def relativizeToolOutputPath(root: Source.Directory, file: String): Source.File = {
-    val rootPath = Paths.get(root.path)
-    val filePath = Paths.get(file)
-    Source.File(rootPath.relativize(filePath).toString)
   }
 
   private def configFile(conf: List[Pattern.Definition])(implicit specification: Tool.Specification): Try[Path] = {
@@ -190,11 +169,11 @@ object PMD extends Tool {
 
     val xmlConfiguration =
       <ruleset name="Codacy Ruleset"
-               xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
-               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
-        <description>Codacy UI Ruleset</description>{rules}
-      </ruleset>
+                xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+          <description>Codacy UI Ruleset</description>{rules}
+        </ruleset>
 
     fileForConfig(xmlConfiguration)
   }
@@ -228,10 +207,10 @@ object PMD extends Tool {
           .map(generateParameter)
 
         <rule ref={ruleId}>
-          <properties>
-            {xmlProperties}
-          </properties>
-        </rule>
+            <properties>
+              {xmlProperties}
+            </properties>
+          </rule>
 
       case ruleId =>
         <rule ref={ruleId}/>
@@ -247,10 +226,10 @@ object PMD extends Tool {
 
     if (paramValue.contains(Properties.lineSeparator)) {
       <property name={parameter.name.value}>
-        <value>
-          {PCData(paramValue)}
-        </value>
-      </property>
+          <value>
+            {PCData(paramValue)}
+          </value>
+        </property>
     } else {
       <property name={parameter.name.value} value={paramValue}/>
     }

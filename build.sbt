@@ -3,10 +3,10 @@ import sjsonnew.BasicJsonProtocol._
 
 organization := "codacy"
 name := "codacy-pmd"
-scalaVersion := "2.13.11"
+scalaVersion := "2.13.14"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
-toolVersionKey := "6.55.0"
+toolVersionKey := "7.5.0"
 
 libraryDependencies ++= {
   val toolVersion = toolVersionKey.value
@@ -20,12 +20,14 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd-jsp" % toolVersion,
     "net.sourceforge.pmd" % "pmd-javascript" % toolVersion,
     "net.sourceforge.pmd" % "pmd-plsql" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-vm" % toolVersion,
+    // "net.sourceforge.pmd" % "pmd-vm" % toolVersion, No official support yet only rc
     "net.sourceforge.pmd" % "pmd-xml" % toolVersion,
     "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion,
     "net.sourceforge.pmd" % "pmd-apex" % toolVersion,
-    // Workaround for https://github.com/pmd/pmd/issues/2081
-    "org.mozilla" % "rhino" % "1.7.8" force ()
+    "net.sourceforge.pmd" % "pmd" % toolVersion,
+    "net.sourceforge.pmd" % "pmd-kotlin" % toolVersion,
+    "net.sourceforge.pmd" % "pmd-velocity" % toolVersion,
+    "org.mozilla" % "rhino" % "1.7.15"
   )
 }
 
@@ -56,7 +58,7 @@ val dockerGroup = "docker"
 
 Docker / daemonUser := dockerUser
 Docker / daemonGroup := dockerGroup
-dockerBaseImage := "amazoncorretto:8-alpine3.18-jre"
+dockerBaseImage := "amazoncorretto:22-alpine3.20"
 Compile / mainClass := Some("com.codacy.Engine")
 dockerEntrypoint := Seq("/sbin/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
 dockerCommands := dockerCommands.value.flatMap {

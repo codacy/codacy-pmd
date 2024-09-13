@@ -4,6 +4,7 @@ Consider replacing Vector usages with the newer java.util.ArrayList if expensive
 
 Example(s):
 ```
+import java.util.Vector;
 public class Foo {
     void bar() {
         Vector v = new Vector();

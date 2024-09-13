@@ -1,7 +1,7 @@
 Since: PMD 3.5
 
-The null check here is misplaced. If the variable is null a NullPointerException will be thrown.
-Either the check is useless (the variable will never be &quot;null&quot;) or it is incorrect.
+The null check here is misplaced. If the variable is null a `NullPointerException` will be thrown.
+Either the check is useless (the variable will never be `null`) or it is incorrect.
 
 Example(s):
 ```

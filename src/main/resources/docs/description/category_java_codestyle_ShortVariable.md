@@ -1,6 +1,6 @@
 Since: PMD 0.3
 
-Fields, local variables, or parameter names that are very short are not helpful to the reader.
+Fields, local variables, enum constant names or parameter names that are very short are not helpful to the reader.
 
 Example(s):
 ```

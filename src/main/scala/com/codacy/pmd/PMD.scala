@@ -89,7 +89,6 @@ object PMD extends Tool {
     // Load the RuleSets
     val ruleSetLoader = RuleSetLoader.fromPmdConfig(pmdConfig)
     val ruleSetsOpt = Option(ruleSetLoader.loadFromResources(pmdConfig.getRuleSetPaths))
-    
 
     ruleSetsOpt.fold[Try[List[Result]]] {
       Failure(new Exception("No rulesets found"))
@@ -122,7 +121,7 @@ object PMD extends Tool {
         val errors = codacyRenderer.getErrors.asScala.view.map { error =>
           Result.FileError(Source.File(error.getFileId.getAbsolutePath), Some(ErrorMessage(error.getMsg)))
         }
-        
+
         (ruleViolations ++ errors).to(List)
       }
     }

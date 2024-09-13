@@ -64,12 +64,21 @@ public class CodacyInMemoryRenderer extends AbstractIncrementingRenderer {
 
     @Override
     public void renderFileViolations(Iterator<RuleViolation> violations) throws IOException {
-        if (violations.hasNext()) {
+        while (violations.hasNext()) {
             RuleViolation rv = violations.next();
-            ruleViolations.add(rv);
-            // Stop after adding the first violation
+            // Check if there's already a violation with the same rule, line, and file
+            boolean isDuplicate = ruleViolations.stream().anyMatch(existingViolation ->
+                existingViolation.getBeginLine() == rv.getBeginLine() &&
+                existingViolation.getRule().getName().equals(rv.getRule().getName()) &&
+                existingViolation.getFileId().equals(rv.getFileId())
+            );
+            
+            if (!isDuplicate) {
+                ruleViolations.add(rv);
+            }
         }
     }
+    
 
     @Override
     public void end() throws IOException {

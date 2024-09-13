@@ -89,6 +89,7 @@ object PMD extends Tool {
     // Load the RuleSets
     val ruleSetLoader = RuleSetLoader.fromPmdConfig(pmdConfig)
     val ruleSetsOpt = Option(ruleSetLoader.loadFromResources(pmdConfig.getRuleSetPaths))
+    
 
     ruleSetsOpt.fold[Try[List[Result]]] {
       Failure(new Exception("No rulesets found"))
@@ -98,12 +99,12 @@ object PMD extends Tool {
         val renderer: Renderer = codacyRenderer
         val renderers = Collections.singletonList(renderer)
         val pmdAnalysis = pmd.PmdAnalysis.create(pmdConfig)
-
         pmdAnalysis.addRenderers(renderers)
         pmdAnalysis.addRuleSets(ruleSets)
         pmdAnalysis.performAnalysis()
 
         val ruleViolations = codacyRenderer.getRulesViolations.asScala.view.flatMap { violation =>
+          //println(s"Violation: ${violation.getDescription} in ${violation.getFileId.getFileName.toString}")
           patternIdByRuleNameAndRuleSet(
             violation.getRule.getLanguage.getId,
             violation.getRule.getName,
@@ -121,7 +122,7 @@ object PMD extends Tool {
         val errors = codacyRenderer.getErrors.asScala.view.map { error =>
           Result.FileError(Source.File(error.getFileId.getAbsolutePath), Some(ErrorMessage(error.getMsg)))
         }
-
+        
         (ruleViolations ++ errors).to(List)
       }
     }

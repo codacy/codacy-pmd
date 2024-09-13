@@ -6,5 +6,5 @@
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
 
     <description>Rules concerning basic ECMAScript guidelines.</description>
-    <rule ref="category/ecmascript/codestyle.xml/AssignmentInOperand" deprecated="true" />
+    <rule ref="category/ecmascript/codestyle.xml/AssignmentInOperand" />
 </ruleset>

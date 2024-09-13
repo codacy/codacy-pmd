@@ -59,15 +59,15 @@ public class CodacyInMemoryRenderer extends AbstractIncrementingRenderer {
 
     @Override
     public void start() throws IOException {
-        // Ignore
+        ruleViolations.clear();
     }
 
     @Override
     public void renderFileViolations(Iterator<RuleViolation> violations) throws IOException {
-        // Save the violations in memory for future access
-        while (violations.hasNext()) {
+        if (violations.hasNext()) {
             RuleViolation rv = violations.next();
             ruleViolations.add(rv);
+            // Stop after adding the first violation
         }
     }
 

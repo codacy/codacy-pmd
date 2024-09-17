@@ -111,7 +111,7 @@ object DocGenerator {
   private def writePatterns(version: String, rulesets: Set[DocGenerator.Ruleset]): Unit = {
     val (patternDescriptions, patternSpecifications, extendedDescriptions) = rulesets.flatMap(_.patterns).unzip3
 
-    // Filtrar patterns que não devem ser incluídos
+    // Filter rulesets_java_diagnostics_TypeResTest because it was created for testing purposes
     val filteredPatterns = patternSpecifications.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
     val filteredDescriptions = patternDescriptions.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
     val filteredExtendedDescriptions = extendedDescriptions.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))

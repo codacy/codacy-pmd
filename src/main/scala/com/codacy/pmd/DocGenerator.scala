@@ -111,12 +111,17 @@ object DocGenerator {
   private def writePatterns(version: String, rulesets: Set[DocGenerator.Ruleset]): Unit = {
     val (patternDescriptions, patternSpecifications, extendedDescriptions) = rulesets.flatMap(_.patterns).unzip3
 
+    // Filtrar patterns que não devem ser incluídos
+    val filteredPatterns = patternSpecifications.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
+    val filteredDescriptions = patternDescriptions.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
+    val filteredExtendedDescriptions = extendedDescriptions.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
+
     val sortedPatternSpecifications =
-      ListSet(patternSpecifications.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
+      ListSet(filteredPatterns.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
         .map(p => p.copy(parameters = ListSet(p.parameters.toSeq.sortBy(_.name.value): _*)))
 
     val sortedPatternDescriptions =
-      ListSet(patternDescriptions.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
+      ListSet(filteredDescriptions.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
         .map(p => p.copy(parameters = ListSet(p.parameters.toSeq.sortBy(_.name.value): _*)))
 
     val spec = Tool.Specification(Tool.Name("pmd"), Some(Tool.Version(version)), sortedPatternSpecifications)
@@ -237,7 +242,7 @@ object DocGenerator {
 
     ResourceHelper.writeFile(patternsFile.toPath, jsonSpecifications)
     ResourceHelper.writeFile(descriptionsFile.toPath, jsonDescriptions)
-    extendedDescriptions.collect {
+    filteredExtendedDescriptions.collect {
       case extendedDescription if extendedDescription.extendedDescription.trim.nonEmpty =>
         val descriptionsFile = new java.io.File(descriptionsRoot, s"${extendedDescription.patternId}.md")
         ResourceHelper.writeFile(descriptionsFile.toPath, extendedDescription.extendedDescription)
@@ -245,6 +250,7 @@ object DocGenerator {
 
     ResourceHelper.writeFile(rulesetsCodeFile.toPath, rulesetsCodeStrFull)
   }
+
 
   private def parseDeprecated(rulesetsRoot: String, rulesetName: String, xml: Elem): Map[String, String] = {
     val res = for {

@@ -112,9 +112,12 @@ object DocGenerator {
     val (patternDescriptions, patternSpecifications, extendedDescriptions) = rulesets.flatMap(_.patterns).unzip3
 
     // Filter rulesets_java_diagnostics_TypeResTest because it was created for testing purposes
-    val filteredPatterns = patternSpecifications.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
-    val filteredDescriptions = patternDescriptions.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
-    val filteredExtendedDescriptions = extendedDescriptions.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
+    val filteredPatterns =
+      patternSpecifications.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
+    val filteredDescriptions =
+      patternDescriptions.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
+    val filteredExtendedDescriptions =
+      extendedDescriptions.filterNot(_.patternId.value.contains("rulesets_java_diagnostics_TypeResTest"))
 
     val sortedPatternSpecifications =
       ListSet(filteredPatterns.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
@@ -250,7 +253,6 @@ object DocGenerator {
 
     ResourceHelper.writeFile(rulesetsCodeFile.toPath, rulesetsCodeStrFull)
   }
-
 
   private def parseDeprecated(rulesetsRoot: String, rulesetName: String, xml: Elem): Map[String, String] = {
     val res = for {

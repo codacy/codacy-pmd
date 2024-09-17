@@ -1,9 +1,4 @@
 [ {
-  "patternId" : "rulesets_java_diagnostics_TypeResTest",
-  "title" : "Type Res Test",
-  "description" : "Type Resolution Test",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_xsl_performance_AvoidAxisNavigation",
   "title" : "Avoid Axis Navigation",
   "description" : "Axis navigation has the largest impact when writing an XPath query.",

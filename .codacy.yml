@@ -1,4 +1,4 @@
 ---
 exclude_paths:
-  - "src/main/resources/docs/description"
-  - "src/main/resources/docs/tests"
+  - "src/main/resources/docs/description/*"
+  - "src/main/resources/docs/tests/*"

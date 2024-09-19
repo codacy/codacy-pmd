@@ -10,6 +10,5 @@ public abstract class Foo {
         int i = 0;
         return i;
     }
-
 }
-
+ 

@@ -3001,5 +3001,12 @@
     } ],
     "languages" : [ "XML" ],
     "enabled" : true
+  }, {
+    "patternId" : "rulesets_java_diagnostics_TypeResTest",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Java" ],
+    "enabled" : false
   } ]
 }

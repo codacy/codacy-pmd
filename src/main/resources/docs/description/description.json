@@ -17,9 +17,67 @@
   "description" : "Potentially mistyped CDATA section with extra [ at beginning or ] at the end.",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_xml_bestpractices_MissingEncoding",
-  "title" : "Missing Encoding",
-  "description" : "Set an explicit XML encoding in the XML declaration to ensure proper parsing",
+  "patternId" : "category_vm_errorprone_EmptyIfStmt",
+  "title" : "Empty If Stmt",
+  "description" : "Avoid empty if statements",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_errorprone_EmptyForeachStmt",
+  "title" : "Empty Foreach Stmt",
+  "description" : "Avoid empty foreach loops",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_design_NoInlineStyles",
+  "title" : "No Inline Styles",
+  "description" : "Avoid inline styles",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_design_NoInlineJavaScript",
+  "title" : "No Inline JavaScript",
+  "description" : "Avoid inline JavaScript",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_design_ExcessiveTemplateLength",
+  "title" : "Excessive Template Length",
+  "description" : "Template is too long",
+  "parameters" : [ {
+    "name" : "minimum",
+    "description" : "minimum"
+  } ]
+}, {
+  "patternId" : "category_vm_design_CollapsibleIfStatements",
+  "title" : "Collapsible If Statements",
+  "description" : "These nested if statements could be combined",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_design_AvoidDeeplyNestedIfStmts",
+  "title" : "Avoid Deeply Nested If Stmts",
+  "description" : "Deeply nested if..then statements are hard to read",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_bestpractices_UnusedMacroParameter",
+  "title" : "Unused Macro Parameter",
+  "description" : "Avoid unused macro parameters.",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_bestpractices_AvoidReassigningParameters",
+  "title" : "Avoid Reassigning Parameters",
+  "description" : "Avoid reassigning macro parameters.",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vf_security_VfUnescapeEl",
+  "title" : "VF Unescape EL",
+  "description" : "Avoid unescaped user controlled content in EL",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vf_security_VfHtmlStyleTagXss",
+  "title" : "VF HTML Style Tag Xss",
+  "description" : "Use correct encoding for expressions within Style tag",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vf_security_VfCsrf",
+  "title" : "VF CSRF",
+  "description" : "Avoid calling VF action upon page load",
   "parameters" : [ ]
 }, {
   "patternId" : "category_pom_errorprone_ProjectVersionAsDependencyVersion",
@@ -65,7 +123,7 @@
 }, {
   "patternId" : "category_plsql_design_NcssObjectCount",
   "title" : "NCSS Object Count",
-  "description" : "The Oracle object {0} has a NCSS line count of {1}",
+  "description" : "The Oracle object has an NCSS line count of {0}",
   "parameters" : [ ]
 }, {
   "patternId" : "category_plsql_design_NcssMethodCount",
@@ -131,7 +189,7 @@
     "description" : "Ignore simple loops, that are not nested"
   }, {
     "name" : "cursorPattern",
-    "description" : "The pattern used for the cursor loop variable"
+    "description" : "The pattern used for the curosr loop variable"
   }, {
     "name" : "indexPattern",
     "description" : "The pattern used for the index loop variable"
@@ -229,7 +287,7 @@
 }, {
   "patternId" : "category_java_performance_UseStringBufferLength",
   "title" : "Use String Buffer Length",
-  "description" : "This is an inefficient use of CharSequence.toString; call CharSequence.length instead.",
+  "description" : "This is an inefficient use of StringBuffer.toString; call StringBuffer.length instead.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_performance_UseStringBufferForStringAppends",
@@ -312,7 +370,7 @@
 }, {
   "patternId" : "category_java_performance_BigIntegerInstantiation",
   "title" : "Big Integer Instantiation",
-  "description" : "Don''t create instances of already existing BigInteger and BigDecimal (ZERO, ONE, TEN)",
+  "description" : "Don't create instances of already existing BigInteger and BigDecimal (ZERO, ONE, TEN)",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_performance_AvoidInstantiatingObjectsInLoops",
@@ -327,12 +385,12 @@
 }, {
   "patternId" : "category_java_performance_AvoidCalendarDateCreation",
   "title" : "Avoid Calendar Date Creation",
-  "description" : "A Calendar is used to get the current time, this is expensive.",
+  "description" : "A Calendar is used to create a Date or DateTime, this is expensive.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_performance_AvoidArrayLoops",
   "title" : "Avoid Array Loops",
-  "description" : "Arrays.copyOf or System.arraycopy are more efficient",
+  "description" : "System.arraycopy is more efficient",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_performance_AppendCharacterWithChar",
@@ -390,14 +448,9 @@
   "description" : "Avoid using java.lang.ThreadGroup; it is not thread safe",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_multithreading_AvoidSynchronizedStatement",
-  "title" : "Avoid Synchronized Statement",
-  "description" : "Use ReentrantLock rather than synchronization",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_multithreading_AvoidSynchronizedAtMethodLevel",
   "title" : "Avoid Synchronized At Method Level",
-  "description" : "Use block level locking rather than method level synchronization",
+  "description" : "Use block level rather than method level synchronization",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_UselessOperationOnImmutable",
@@ -457,7 +510,7 @@
 }, {
   "patternId" : "category_java_errorprone_SuspiciousOctalEscape",
   "title" : "Suspicious Octal Escape",
-  "description" : "Suspicious decimal characters following octal escape in string literal: {0}",
+  "description" : "Suspicious decimal characters following octal escape in string literal",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_SuspiciousHashcodeMethodName",
@@ -472,7 +525,7 @@
 }, {
   "patternId" : "category_java_errorprone_StringBufferInstantiationWithChar",
   "title" : "String Buffer Instantiation With Char",
-  "description" : "Argument to `new StringBuilder()` or `new StringBuffer()` is implicitly converted from char to int",
+  "description" : "Do not instantiate a StringBuffer or StringBuilder with a char",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_StaticEJBFieldShouldBeFinal",
@@ -574,7 +627,7 @@
 }, {
   "patternId" : "category_java_errorprone_MethodWithSameNameAsEnclosingClass",
   "title" : "Method With Same Name As Enclosing Class",
-  "description" : "A method should not have the same name as its containing class",
+  "description" : "Classes should not have non-constructor methods with the same name as the class",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_JumbledIncrementer",
@@ -604,7 +657,7 @@
 }, {
   "patternId" : "category_java_errorprone_ImplicitSwitchFallThrough",
   "title" : "Implicit Switch Fall Through",
-  "description" : "This switch case may be reached by fallthrough from the previous case",
+  "description" : "A switch statement does not contain a break",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_IdempotentOperations",
@@ -698,11 +751,6 @@
   "description" : "Overridable {0} called during object construction{1}",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_errorprone_ConfusingArgumentToVarargsMethod",
-  "title" : "Confusing Argument To Varargs Method",
-  "description" : "Unclear if a varargs or non-varargs call is intended. Cast to {0} or {0}[], or pass varargs parameters separately to clarify intent.",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_errorprone_ComparisonWithNaN",
   "title" : "Comparison With Na N",
   "description" : "Comparisons with NaN always return false",
@@ -758,7 +806,7 @@
 }, {
   "patternId" : "category_java_errorprone_BrokenNullCheck",
   "title" : "Broken Null Check",
-  "description" : "This expression will throw a NullPointerException",
+  "description" : "Method call on object which may be null",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_AvoidUsingOctalValues",
@@ -778,7 +826,7 @@
 }, {
   "patternId" : "category_java_errorprone_AvoidLiteralsInIfCondition",
   "title" : "Avoid Literals In If Condition",
-  "description" : "Avoid using literals in if statements",
+  "description" : "Avoid using Literals in Conditional Statements",
   "parameters" : [ {
     "name" : "ignoreExpressions",
     "description" : "If true, only literals in simple if conditions are considered. Otherwise literals in expressions are checked, too."
@@ -849,7 +897,7 @@
 }, {
   "patternId" : "category_java_errorprone_AssignmentToNonFinalStatic",
   "title" : "Assignment To Non Final Static",
-  "description" : "Possible unsafe assignment to non-final static field ''{0}'' in a constructor.",
+  "description" : "Possible unsafe assignment to a non-final static field in a constructor.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_errorprone_AssignmentInOperand",
@@ -911,10 +959,7 @@
   "patternId" : "category_java_design_TooManyFields",
   "title" : "Too Many Fields",
   "description" : "Too many fields",
-  "parameters" : [ {
-    "name" : "maxfields",
-    "description" : "Max allowable fields"
-  } ]
+  "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_SwitchDensity",
   "title" : "Switch Density",
@@ -933,7 +978,7 @@
 }, {
   "patternId" : "category_java_design_SimplifyBooleanReturns",
   "title" : "Simplify Boolean Returns",
-  "description" : "This if statement can be replaced by `{0}`",
+  "description" : "Avoid unnecessary if..then..else statements when returning booleans",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_SimplifyBooleanExpressions",
@@ -943,7 +988,7 @@
 }, {
   "patternId" : "category_java_design_SimplifiedTernary",
   "title" : "Simplified Ternary",
-  "description" : "This conditional expression can be simplified with || or &&",
+  "description" : "Ternary operators that can be simplified with || or &&",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_SignatureDeclareThrowsException",
@@ -978,7 +1023,7 @@
 }, {
   "patternId" : "category_java_design_LawOfDemeter",
   "title" : "Law Of Demeter",
-  "description" : "Potential violation of the law of Demeter ({0})",
+  "description" : "Potential violation of Law of Demeter",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_InvalidJavaBean",
@@ -988,7 +1033,7 @@
 }, {
   "patternId" : "category_java_design_ImmutableField",
   "title" : "Immutable Field",
-  "description" : "Field ''{0}'' may be declared final",
+  "description" : "Private field ''{0}'' could be made final; it is only initialized in the declaration or constructor.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_GodClass",
@@ -1018,7 +1063,7 @@
 }, {
   "patternId" : "category_java_design_ExceptionAsFlowControl",
   "title" : "Exception As Flow Control",
-  "description" : "Exception thrown at line {0} is caught in this block.",
+  "description" : "Avoid using exceptions as flow control.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_DoNotExtendJavaLangError",
@@ -1043,7 +1088,7 @@
 }, {
   "patternId" : "category_java_design_CollapsibleIfStatements",
   "title" : "Collapsible If Statements",
-  "description" : "This if statement could be combined with its parent",
+  "description" : "These nested if statements could be combined",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_CognitiveComplexity",
@@ -1053,7 +1098,7 @@
 }, {
   "patternId" : "category_java_design_ClassWithOnlyPrivateConstructorsShouldBeFinal",
   "title" : "Class With Only Private Constructors Should Be Final",
-  "description" : "This class has only private constructors and may be final",
+  "description" : "A class which only has private constructors should be final",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_design_AvoidUncheckedExceptionsInSignatures",
@@ -1119,21 +1164,13 @@
   "description" : "Array initialization can be written shorter",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_codestyle_UseExplicitTypes",
-  "title" : "Use Explicit Types",
-  "description" : "Use Explicit Types",
-  "parameters" : [ {
-    "name" : "allowCtors",
-    "description" : "Allow when variables are directly initialized with a constructor call"
-  }, {
-    "name" : "allowLiterals",
-    "description" : "Allow when variables are directly initialized with literals"
-  } ]
-}, {
   "patternId" : "category_java_codestyle_UseDiamondOperator",
   "title" : "Use Diamond Operator",
-  "description" : "Explicit type arguments can be replaced by a diamond: `{0}`",
-  "parameters" : [ ]
+  "description" : "Explicit type arguments can be replaced by Diamond Operator",
+  "parameters" : [ {
+    "name" : "java7Compatibility",
+    "description" : "If disabled, the rule shows also violations that are applicable for java8+"
+  } ]
 }, {
   "patternId" : "category_java_codestyle_UnnecessarySemicolon",
   "title" : "Unnecessary Semicolon",
@@ -1142,7 +1179,7 @@
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryReturn",
   "title" : "Unnecessary Return",
-  "description" : "Unnecessary return statement",
+  "description" : "Avoid unnecessary return statements",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryModifier",
@@ -1162,7 +1199,7 @@
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryFullyQualifiedName",
   "title" : "Unnecessary Fully Qualified Name",
-  "description" : "Unnecessary qualifier ''{0}'': ''{1}'' is already in scope{2}",
+  "description" : "Unnecessary use of fully qualified name ''{0}'' due to existing {2}import ''{1}''",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryConstructor",
@@ -1172,21 +1209,13 @@
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryCast",
   "title" : "Unnecessary Cast",
-  "description" : "Unnecessary cast ({0})",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_codestyle_UnnecessaryBoxing",
-  "title" : "Unnecessary Boxing",
-  "description" : "Unnecessary {0}",
+  "description" : "Avoid unnecessary casts",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_codestyle_UnnecessaryAnnotationValueElement",
   "title" : "Unnecessary Annotation Value ELement",
   "description" : "Avoid the use of value in annotations when it's the only element",
-  "parameters" : [ {
-    "name" : "java7Compatibility",
-    "description" : "If disabled, the rule shows also violations that are applicable for java8+"
-  } ]
+  "parameters" : [ ]
 }, {
   "patternId" : "category_java_codestyle_TooManyStaticImports",
   "title" : "Too Many Static Imports",
@@ -1232,7 +1261,7 @@
 }, {
   "patternId" : "category_java_codestyle_PrematureDeclaration",
   "title" : "Premature Declaration",
-  "description" : "Declaration of ''{0}'' can be moved closer to its usages",
+  "description" : "Avoid declaring a variable if it is unreferenced before a possible exit point.",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_codestyle_PackageCase",
@@ -1314,11 +1343,6 @@
   "patternId" : "category_java_codestyle_LinguisticNaming",
   "title" : "Linguistic Naming",
   "description" : "Linguistics Antipattern - Method name and return type is inconsistent linguistically",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_java_codestyle_LambdaCanBeMethodReference",
-  "title" : "Lambda Can Be Method Reference",
-  "description" : "Lambda expression could be written as a method reference: `{0}`",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_codestyle_IdenticalCatchBranches",
@@ -1404,7 +1428,7 @@
 }, {
   "patternId" : "category_java_codestyle_CommentDefaultAccessModifier",
   "title" : "Comment Default Access Modifier",
-  "description" : "Missing commented default access modifier on {0} ''{1}''",
+  "description" : "Missing commented default access modifier",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_codestyle_ClassNamingConventions",
@@ -1491,11 +1515,6 @@
   "description" : "Please use StandardCharsets constants",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_bestpractices_UseEnumCollections",
-  "title" : "Use Enum Collections",
-  "description" : "This collection could be an {0}",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_bestpractices_UseCollectionIsEmpty",
   "title" : "Use Collection Is Empty",
   "description" : "Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()",
@@ -1526,14 +1545,9 @@
   "description" : "The value assigned to this variable is never used or always overwritten",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_java_bestpractices_UnnecessaryVarargsArrayCreation",
-  "title" : "Unnecessary Varargs Array Creation",
-  "description" : "Unnecessary explicit array creation for varargs method call",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_java_bestpractices_SystemPrintln",
   "title" : "System Println",
-  "description" : "Usage of System.out/err",
+  "description" : "{0} is used",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_bestpractices_SwitchStmtsShouldHaveDefault",
@@ -1568,7 +1582,7 @@
 }, {
   "patternId" : "category_java_bestpractices_PreserveStackTrace",
   "title" : "Preserve Stack Trace",
-  "description" : "Thrown exception does not preserve the stack trace of exception ''{0}'' on all code paths",
+  "description" : "New exception is thrown in catch block, original stack trace may be lost",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_bestpractices_OneDeclarationPerLine",
@@ -1612,7 +1626,10 @@
   "patternId" : "category_java_bestpractices_JUnitTestContainsTooManyAsserts",
   "title" : "JUnit Test Contains Too Many Asserts",
   "description" : "Unit tests should not contain more than ${maximumAsserts} assert(s).",
-  "parameters" : [ ]
+  "parameters" : [ {
+    "name" : "maximumAsserts",
+    "description" : "Maximum number of Asserts in a test method"
+  } ]
 }, {
   "patternId" : "category_java_bestpractices_JUnitAssertionsShouldIncludeMessage",
   "title" : "JUnit Assertions Should Include Message",
@@ -1626,7 +1643,7 @@
 }, {
   "patternId" : "category_java_bestpractices_JUnit4TestShouldUseTestAnnotation",
   "title" : "JUnit4 Test Should Use Test Annotation",
-  "description" : "Unit tests that execute tests should use the @Test annotation. In case of JUnit 5, test methods might use @RepeatedTest, @TestFactory, @TestTemplate or @ParameterizedTest annotations instead.",
+  "description" : "JUnit 4 tests that execute tests should use the @Test annotation, JUnit 5 tests should use @Test, @RepeatedTest, @TestFactory, @TestTemplate or @ParameterizedTest",
   "parameters" : [ {
     "name" : "testClassPattern",
     "description" : "The regex pattern used to identify test classes"
@@ -1677,7 +1694,7 @@
 }, {
   "patternId" : "category_java_bestpractices_ConstantsInInterface",
   "title" : "Constants In Interface",
-  "description" : "Using constants in interfaces is a bad practice.",
+  "description" : "Avoid constants in interfaces. Interfaces define types, constants are implementation details better placed in classes or enums. See Effective Java, item 19.",
   "parameters" : [ {
     "name" : "ignoreIfHasMethods",
     "description" : "Whether to ignore constants in interfaces if the interface defines any methods"
@@ -1730,7 +1747,7 @@
 }, {
   "patternId" : "category_java_bestpractices_AccessorMethodGeneration",
   "title" : "Accessor Method Generation",
-  "description" : "Consider giving this member package visibility to access it from {0} without a synthetic accessor method",
+  "description" : "Avoid autogenerated methods to access private fields and methods of inner / outer classes",
   "parameters" : [ ]
 }, {
   "patternId" : "category_java_bestpractices_AccessorClassGeneration",
@@ -1743,13 +1760,8 @@
   "description" : "This abstract class does not have any abstract methods",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_ecmascript_performance_AvoidConsoleStatements",
-  "title" : "Avoid Console Statements",
-  "description" : "Avoid console statements since they negatively impact performance",
-  "parameters" : [ ]
-}, {
-  "patternId" : "category_ecmascript_errorprone_InaccurateNumericLiteral",
-  "title" : "Inaccurate Numeric Literal",
+  "patternId" : "category_ecmascript_errorprone_InnaccurateNumericLiteral",
+  "title" : "Innaccurate Numeric Literal",
   "description" : "The numeric literal ''{0}'' will have at different value at runtime.",
   "parameters" : [ ]
 }, {
@@ -1912,11 +1924,6 @@
   "description" : "Avoid operations in loops that may hit governor limits",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_apex_performance_OperationWithHighCostInLoop",
-  "title" : "Operation With High Cost In Loop",
-  "description" : "Avoid operations in loops that may impact performances",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_apex_performance_EagerlyLoadedDescribeSObjectResult",
   "title" : "Eagerly Loaded Describe S Object Result",
   "description" : "DescribeSObjectResult could be being loaded eagerly with all child relationships.",
@@ -1924,11 +1931,6 @@
     "name" : "noDefault",
     "description" : "Do not allow SObjectDescribeOptions.DEFAULT option to ensure consistent results no matter where getDescribe is called"
   } ]
-}, {
-  "patternId" : "category_apex_performance_AvoidNonRestrictiveQueries",
-  "title" : "Avoid Non Restrictive Queries",
-  "description" : "Avoid {0} queries without a where or limit statement",
-  "parameters" : [ ]
 }, {
   "patternId" : "category_apex_performance_AvoidDebugStatements",
   "title" : "Avoid Debug Statements",
@@ -2017,11 +2019,6 @@
   "description" : "ApexDoc comment is missing or incorrect",
   "parameters" : [ ]
 }, {
-  "patternId" : "category_apex_design_UnusedMethod",
-  "title" : "Unused Method",
-  "description" : "Unused methods make understanding code harder",
-  "parameters" : [ ]
-}, {
   "patternId" : "category_apex_design_TooManyFields",
   "title" : "Too Many Fields",
   "description" : "Too many fields",
@@ -2039,7 +2036,7 @@
 }, {
   "patternId" : "category_apex_design_NcssMethodCount",
   "title" : "NCSS Method Count",
-  "description" : "The method ''{0}()'' has an NCSS line count of {1} (limit: {2})",
+  "description" : "The method ''{0}()'' has an NCSS line count of {1}",
   "parameters" : [ ]
 }, {
   "patternId" : "category_apex_design_NcssConstructorCount",
@@ -2049,7 +2046,7 @@
 }, {
   "patternId" : "category_apex_design_ExcessivePublicCount",
   "title" : "Excessive Public Count",
-  "description" : "The class {0} has {1} public methods, attributes, and properties (limit: {2})",
+  "description" : "This class has a bunch of public methods and attributes",
   "parameters" : [ ]
 }, {
   "patternId" : "category_apex_design_ExcessiveParameterList",

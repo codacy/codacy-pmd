@@ -1,7 +1,7 @@
 Since: PMD 5.0
 
-Java allows the use of several variables declaration of the same type on one line.
-However, it can lead to quite messy code. This rule looks for several declarations on the same line.
+Java allows the use of several variables declaration of the same type on one line. However, it
+can lead to quite messy code. This rule looks for several declarations on the same line.
 
 Example(s):
 ```

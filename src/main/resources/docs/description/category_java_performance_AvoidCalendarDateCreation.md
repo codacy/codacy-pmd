@@ -1,7 +1,6 @@
 Since: PMD 6.25.0
 
-Problem: `java.util.Calendar` is a heavyweight object and expensive to create. It should only be used, if
-calendar calculations are needed.
+Problem: A Calendar is a heavyweight object and expensive to create.
 
 Solution: Use `new Date()`, Java 8+ `java.time.LocalDateTime.now()` or `ZonedDateTime.now()`.
 

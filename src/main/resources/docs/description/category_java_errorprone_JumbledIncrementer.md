@@ -1,6 +1,6 @@
 Since: PMD 1.0
 
-Avoid jumbled loop incrementers - it's usually a mistake, and is confusing even if intentional.
+Avoid jumbled loop incrementers - its usually a mistake, and is confusing even if intentional.
 
 Example(s):
 ```

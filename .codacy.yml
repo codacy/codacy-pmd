@@ -1,3 +1,4 @@
 ---
 exclude_paths:
-  - "src/main/resources/docs/description/*.md"
+  - "src/main/resources/docs/description/*"
+  - "src/main/resources/docs/tests/*"

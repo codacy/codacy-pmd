@@ -1,24 +1,20 @@
 Since: PMD 3.1
 
-Reports nested 'if' statements that can be merged together by joining their
-conditions with a boolean `&amp;&amp;` operator in between.
+Sometimes two consecutive 'if' statements can be consolidated by separating their conditions with a boolean short-circuit operator.
 
 Example(s):
 ```
-class Foo {
-
-    void bar() {
-        if (x) {            // original implementation
-            if (y) {
-                // do stuff
-            }
-        }
-    }
-
-    void bar() {
-        if (x && y) {        // clearer implementation
+void bar() {
+    if (x) {            // original implementation
+        if (y) {
             // do stuff
         }
+    }
+}
+
+void bar() {
+    if (x && y) {        // optimized implementation
+        // do stuff
     }
 }
 ```

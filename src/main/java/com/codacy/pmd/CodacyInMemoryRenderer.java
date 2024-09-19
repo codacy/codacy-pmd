@@ -1,8 +1,7 @@
 package com.codacy.pmd;
 
-import net.sourceforge.pmd.reporting.Report.ProcessingError;
-import net.sourceforge.pmd.reporting.RuleViolation;
-import net.sourceforge.pmd.reporting.Report.SuppressedViolation;
+import net.sourceforge.pmd.Report;
+import net.sourceforge.pmd.RuleViolation;
 import net.sourceforge.pmd.renderers.AbstractIncrementingRenderer;
 
 import java.io.IOException;
@@ -23,7 +22,7 @@ public class CodacyInMemoryRenderer extends AbstractIncrementingRenderer {
     public CodacyInMemoryRenderer() {
         super(NAME, "Codacy In Memory.");
         // Using a stub writer since we are saving the violations in memory
-        new Writer() {
+        writer = new Writer() {
             @Override
             public void write(char[] cbuf, int off, int len) throws IOException {
                 // Ignore
@@ -41,11 +40,11 @@ public class CodacyInMemoryRenderer extends AbstractIncrementingRenderer {
         };
     }
 
-    public List<ProcessingError> getErrors() {
+    public List<Report.ProcessingError> getErrors() {
         return errors;
     }
 
-    public List<SuppressedViolation> getSuppressedViolations() {
+    public List<Report.SuppressedViolation> getSuppressedViolations() {
         return suppressed;
     }
 
@@ -59,26 +58,17 @@ public class CodacyInMemoryRenderer extends AbstractIncrementingRenderer {
 
     @Override
     public void start() throws IOException {
-        ruleViolations.clear();
+        // Ignore
     }
 
     @Override
     public void renderFileViolations(Iterator<RuleViolation> violations) throws IOException {
+        // Save the violations in memory for future access
         while (violations.hasNext()) {
             RuleViolation rv = violations.next();
-            // Check if there's already a violation with the same rule, line, and file
-            boolean isDuplicate = ruleViolations.stream().anyMatch(existingViolation ->
-                existingViolation.getBeginLine() == rv.getBeginLine() &&
-                existingViolation.getRule().getName().equals(rv.getRule().getName()) &&
-                existingViolation.getFileId().equals(rv.getFileId())
-            );
-            
-            if (!isDuplicate) {
-                ruleViolations.add(rv);
-            }
+            ruleViolations.add(rv);
         }
     }
-    
 
     @Override
     public void end() throws IOException {

@@ -22,6 +22,54 @@
   "description" : "Set an explicit XML encoding in the XML declaration to ensure proper parsing",
   "parameters" : [ ]
 }, {
+  "patternId" : "category_vm_errorprone_EmptyIfStmt",
+  "title" : "Empty If Stmt",
+  "description" : "Avoid empty if statements",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_errorprone_EmptyForeachStmt",
+  "title" : "Empty Foreach Stmt",
+  "description" : "Avoid empty foreach loops",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_design_NoInlineStyles",
+  "title" : "No Inline Styles",
+  "description" : "Avoid inline styles",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_design_NoInlineJavaScript",
+  "title" : "No Inline JavaScript",
+  "description" : "Avoid inline JavaScript",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_design_ExcessiveTemplateLength",
+  "title" : "Excessive Template Length",
+  "description" : "Template is too long",
+  "parameters" : [ {
+    "name" : "minimum",
+    "description" : "minimum"
+  } ]
+}, {
+  "patternId" : "category_vm_design_CollapsibleIfStatements",
+  "title" : "Collapsible If Statements",
+  "description" : "These nested if statements could be combined",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_design_AvoidDeeplyNestedIfStmts",
+  "title" : "Avoid Deeply Nested If Stmts",
+  "description" : "Deeply nested if..then statements are hard to read",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_bestpractices_UnusedMacroParameter",
+  "title" : "Unused Macro Parameter",
+  "description" : "Avoid unused macro parameters.",
+  "parameters" : [ ]
+}, {
+  "patternId" : "category_vm_bestpractices_AvoidReassigningParameters",
+  "title" : "Avoid Reassigning Parameters",
+  "description" : "Avoid reassigning macro parameters.",
+  "parameters" : [ ]
+}, {
   "patternId" : "category_pom_errorprone_ProjectVersionAsDependencyVersion",
   "title" : "Project Version As Dependency Version",
   "description" : "Do not use project.version to express a dependency version.",

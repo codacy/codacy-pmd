@@ -3,7 +3,4 @@
     <file name="category_java_bestpractices_UnusedLocalVariable.java">
         <error source="category_java_bestpractices_UnusedLocalVariable" line="6" message="Avoid unused local variables such as &apos;i&apos;." severity="warning" />
     </file>
-    <file name="category_java_bestpractices_UnusedPrivateField.java">
-        <error source="category_java_bestpractices_UnusedPrivateField" line="5" message="Avoid unused private fields such as &apos;bla&apos;." severity="warning" />
-    </file>
 </checkstyle>

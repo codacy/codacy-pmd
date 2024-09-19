@@ -1,8 +1,8 @@
 Since: PMD 3.4
 
 When deriving an array of a specific class from your Collection, one should provide an array of
-the same class as the parameter of the `toArray()` method. Doing otherwise will result
-in a `ClassCastException`.
+the same class as the parameter of the toArray() method. Doing otherwise you will will result
+in a ClassCastException.
 
 Example(s):
 ```
@@ -14,5 +14,5 @@ c.add(obj);
 Integer[] a = (Integer [])c.toArray();
 
    // this is fine and will not trigger the rule
-Integer[] b = (Integer [])c.toArray(new Integer[0]);
+Integer[] b = (Integer [])c.toArray(new Integer[c.size()]);
 ```

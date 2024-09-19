@@ -4,6 +4,11 @@ Reports test assertions that may be simplified using a more specific
             assertion method. This enables better error messages, and makes the
             assertions more readable.
 
+            The rule only applies within test classes for the moment. It replaces
+            the deprecated rules {% rule UseAssertEqualsInsteadOfAssertTrue %},
+            {% rule UseAssertNullInsteadOfAssertTrue %}, {% rule UseAssertSameInsteadOfAssertTrue %},
+            {% rule UseAssertTrueInsteadOfAssertEquals %}, and {% rule java/design/SimplifyBooleanAssertion %}.
+
 Example(s):
 ```
 import org.junit.Test;

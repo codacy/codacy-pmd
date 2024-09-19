@@ -1,6 +1,6 @@
 Since: PMD 5.4.0
 
-Reports ternary expression with the form `condition ? literalBoolean : foo`
+Look for ternary operators with the form `condition ? literalBoolean : foo`
 or `condition ? foo : literalBoolean`.
 
 These expressions can be simplified as follows:

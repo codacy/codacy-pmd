@@ -1,8 +1,7 @@
 Since: PMD 4.1
 
-Reports classes that may be made final because they cannot be extended from outside
-their compilation unit anyway. This is because all their constructors are private,
-so a subclass could not call the super constructor.
+A class with only private constructors should be final, unless the private constructor
+is invoked by an inner class.
 
 Example(s):
 ```

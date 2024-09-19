@@ -1,7 +1,7 @@
 Since: PMD 5.5
 
-Using constants in interfaces is a bad practice. Interfaces define types, constants are implementation details better placed in classes or enums. If the constants are best viewed as members of an enumerated type, you should export them with an enum type.
-For other scenarios, consider using a utility class. See Effective Java's 'Use interfaces only to define types'.
+Avoid constants in interfaces. Interfaces should define types, constants are implementation details
+better placed in classes or enums. See Effective Java, item 19.
 
 Example(s):
 ```

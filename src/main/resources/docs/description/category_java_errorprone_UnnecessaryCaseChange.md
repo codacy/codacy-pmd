@@ -4,7 +4,7 @@ Using equalsIgnoreCase() is faster than using toUpperCase/toLowerCase().equals()
 
 Example(s):
 ```
-boolean answer1 = buz.toUpperCase().equals("BAZ");              // should be buz.equalsIgnoreCase("BAZ")
+boolean answer1 = buz.toUpperCase().equals("baz");              // should be buz.equalsIgnoreCase("baz")
 
-boolean answer2 = buz.toUpperCase().equalsIgnoreCase("BAZ");    // another unnecessary toUpperCase()
+boolean answer2 = buz.toUpperCase().equalsIgnoreCase("baz");    // another unnecessary toUpperCase()
 ```

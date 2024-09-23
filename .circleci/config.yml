@@ -16,7 +16,6 @@ workflows:
             sbt "runMain com.codacy.pmd.DocGenerator"
             sbt "scalafmt / test;
                  Test / scalafmt / test;
-                 Sbt / scalafmt / test;
                  set Docker / version := \"latest\";
                  Docker / publishLocal;"
             docker save --output docker-image.tar $CIRCLE_PROJECT_REPONAME:latest

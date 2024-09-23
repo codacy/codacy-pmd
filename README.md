@@ -12,20 +12,13 @@ Check the **Docs** section for more information.
 #### Publish the docker
 
 ```
-sbt 'set version in Docker := "dev"' 'set name := "pmd"' docker:publishLocal
+sbt 'set version in Docker := "dev"' 'set name := "pmd-7"' docker:publishLocal
 ```
-
-##### Docker Image Versioning
-
-Repository Branch | Docker Image
---- | ---
-master | codacy-pmd
-pmd-legacy | codacy-pmdjava
 
 #### Run the docker
 
 ```
-docker run --user=docker --rm=true -v <PATH-TO-CODE>:/src -v <PATH-TO>/ruleset.xml:/src/ruleset.xml codacy/pmd:dev
+docker run --user=docker --rm=true -v <PATH-TO-CODE>:/src -v <PATH-TO>/ruleset.xml:/src/ruleset.xml pmd-7:dev
 ```
 > Make sure all the volumes mounted have the right permissions for user `docker`
 

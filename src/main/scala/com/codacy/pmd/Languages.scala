@@ -7,10 +7,12 @@ object Languages {
     "jsp" -> Set("jsp"),
     "javascript" -> Set("ecmascript"),
     "plsql" -> Set("plsql"),
-    "velocity" -> Set("vm"),
+    "velocity" -> Set("velocity"),
     "xml" -> Set("xml", "pom", "wsdl", "xsl"),
     "apex" -> Set("apex"),
-    "visualforce" -> Set("vf")
+    "swift" -> Set("swift"),
+    "kotlin" -> Set("kotlin"),
+    "visualforce" -> Set("visualforce")
   )
 
   val invalidExtensions = Set(".jsx", ".jsm", ".vue")

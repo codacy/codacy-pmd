@@ -1,5 +1,5 @@
 {
-  "name" : "pmd",
+  "name" : "pmd-7",
   "version" : "7.5.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",
@@ -2795,6 +2795,20 @@
     "languages" : [ "JSP" ],
     "enabled" : true
   }, {
+    "patternId" : "category_kotlin_bestpractices_FunctionNameTooShort",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Kotlin" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_kotlin_errorprone_OverrideBothEqualsAndHashcode",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Kotlin" ],
+    "enabled" : false
+  }, {
     "patternId" : "category_plsql_bestpractices_TomKytesDespair",
     "level" : "Warning",
     "category" : "CodeStyle",
@@ -2971,15 +2985,106 @@
     "languages" : [ "XML" ],
     "enabled" : true
   }, {
-    "patternId" : "category_vf_security_VfCsrf",
+    "patternId" : "category_swift_bestpractices_ProhibitedInterfaceBuilder",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Swift" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_swift_bestpractices_UnavailableFunction",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Swift" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_swift_errorprone_ForceCast",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Swift" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_swift_errorprone_ForceTry",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Swift" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_velocity_bestpractices_AvoidReassigningParameters",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_velocity_bestpractices_UnusedMacroParameter",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_velocity_design_AvoidDeeplyNestedIfStmts",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_velocity_design_CollapsibleIfStatements",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_velocity_design_ExcessiveTemplateLength",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_velocity_design_NoInlineJavaScript",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_velocity_design_NoInlineStyles",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_velocity_errorprone_EmptyForeachStmt",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_velocity_errorprone_EmptyIfStmt",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_visualforce_security_VfCsrf",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "CSRF",
     "parameters" : [ ],
     "languages" : [ "VisualForce" ],
-    "enabled" : true
+    "enabled" : false
   }, {
-    "patternId" : "category_vf_security_VfHtmlStyleTagXss",
+    "patternId" : "category_visualforce_security_VfHtmlStyleTagXss",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "XSS",
@@ -2987,79 +3092,13 @@
     "languages" : [ "VisualForce" ],
     "enabled" : false
   }, {
-    "patternId" : "category_vf_security_VfUnescapeEl",
+    "patternId" : "category_visualforce_security_VfUnescapeEl",
     "level" : "Error",
     "category" : "Security",
     "subcategory" : "XSS",
     "parameters" : [ ],
     "languages" : [ "VisualForce" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_vm_bestpractices_AvoidReassigningParameters",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
-    "languages" : [ "Velocity" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_vm_bestpractices_UnusedMacroParameter",
-    "level" : "Warning",
-    "category" : "CodeStyle",
-    "parameters" : [ ],
-    "languages" : [ "Velocity" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_vm_design_AvoidDeeplyNestedIfStmts",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Velocity" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_vm_design_CollapsibleIfStatements",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Velocity" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_vm_design_ExcessiveTemplateLength",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ {
-      "name" : "minimum",
-      "default" : "1000"
-    } ],
-    "languages" : [ "Velocity" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_vm_design_NoInlineJavaScript",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Velocity" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_vm_design_NoInlineStyles",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Velocity" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_vm_errorprone_EmptyForeachStmt",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Velocity" ],
-    "enabled" : true
-  }, {
-    "patternId" : "category_vm_errorprone_EmptyIfStmt",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "parameters" : [ ],
-    "languages" : [ "Velocity" ],
-    "enabled" : true
+    "enabled" : false
   }, {
     "patternId" : "category_xml_bestpractices_MissingEncoding",
     "level" : "Warning",

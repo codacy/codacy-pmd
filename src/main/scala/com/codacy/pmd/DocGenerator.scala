@@ -128,7 +128,7 @@ object DocGenerator {
       ListSet(filteredDescriptions.toSeq.sortBy(_.patternId.value)(Ordering[String].reverse): _*)
         .map(p => p.copy(parameters = ListSet(p.parameters.toSeq.sortBy(_.name.value): _*)))
 
-    val spec = Tool.Specification(Tool.Name("pmd-7"), Some(Tool.Version(version)), sortedPatternSpecifications)
+    val spec = Tool.Specification(Tool.Name("pmd7"), Some(Tool.Version(version)), sortedPatternSpecifications)
 
     val jsonSpecifications = Json.prettyPrint(Json.toJson(spec))
     val jsonDescriptions = Json.prettyPrint(Json.toJson(sortedPatternDescriptions))

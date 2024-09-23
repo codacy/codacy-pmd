@@ -1,5 +1,5 @@
 {
-  "name" : "pmd-7",
+  "name" : "pmd7",
   "version" : "7.5.0",
   "patterns" : [ {
     "patternId" : "category_apex_bestpractices_ApexAssertionsShouldIncludeMessage",

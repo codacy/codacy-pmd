@@ -2,7 +2,7 @@ import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
 import sjsonnew.BasicJsonProtocol._
 
 organization := "codacy"
-name := "codacy-pmd-7"
+name := "codacy-pmd7"
 scalaVersion := "2.13.14"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
@@ -57,7 +57,7 @@ val dockerGroup = "docker"
 
 Docker / daemonUser := dockerUser
 Docker / daemonGroup := dockerGroup
-dockerBaseImage := "amazoncorretto:22-alpine3.20"
+dockerBaseImage := "amazoncorretto:23-alpine3.20"
 Compile / mainClass := Some("com.codacy.Engine")
 dockerEntrypoint := Seq("/sbin/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
 dockerCommands := dockerCommands.value.flatMap {

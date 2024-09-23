@@ -27,7 +27,7 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd" % toolVersion,
     "net.sourceforge.pmd" % "pmd-kotlin" % toolVersion,
     "net.sourceforge.pmd" % "pmd-velocity" % toolVersion,
-    "org.mozilla" % "rhino" % "1.7.15"
+    "org.mozilla" % "rhino" % "1.7.15" 
   )
 }
 

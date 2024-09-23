@@ -2,7 +2,7 @@ import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
 import sjsonnew.BasicJsonProtocol._
 
 organization := "codacy"
-name := "codacy-pmd"
+name := "codacy-pmd-7"
 scalaVersion := "2.13.14"
 
 lazy val toolVersionKey = SettingKey[String]("version of the underlying tool")
@@ -27,7 +27,7 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd" % toolVersion,
     "net.sourceforge.pmd" % "pmd-kotlin" % toolVersion,
     "net.sourceforge.pmd" % "pmd-velocity" % toolVersion,
-    "org.mozilla" % "rhino" % "1.7.15" 
+    "org.mozilla" % "rhino" % "1.7.15"
   )
 }
 

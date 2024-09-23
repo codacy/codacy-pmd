@@ -69,7 +69,7 @@ object DocGenerator {
       (rulesetsRoot, propertiesFile) <- rulesetsRoots
       languageRulesetsPath = s"$rulesetsRoot/$langAlias"
       propertiesFilePath = s"$languageRulesetsPath/$propertiesFile"
-      
+
     } yield {
       val markedRulesets = ResourceHelper
         .getResourceStream(propertiesFilePath)

@@ -20,9 +20,9 @@ libraryDependencies ++= {
     "net.sourceforge.pmd" % "pmd-jsp" % toolVersion,
     "net.sourceforge.pmd" % "pmd-javascript" % toolVersion,
     "net.sourceforge.pmd" % "pmd-plsql" % toolVersion,
-    // "net.sourceforge.pmd" % "pmd-vm" % toolVersion, No official support yet only rc
+    "net.sourceforge.pmd" % "pmd-vm" % "6.55.0", //using old version because it's not well supported yet in pmd 7
     "net.sourceforge.pmd" % "pmd-xml" % toolVersion,
-    "net.sourceforge.pmd" % "pmd-visualforce" % toolVersion,
+    "net.sourceforge.pmd" % "pmd-visualforce" % "6.55.0", //using old version because it's not well supported yet in pmd 7
     "net.sourceforge.pmd" % "pmd-apex" % toolVersion,
     "net.sourceforge.pmd" % "pmd" % toolVersion,
     "net.sourceforge.pmd" % "pmd-kotlin" % toolVersion,

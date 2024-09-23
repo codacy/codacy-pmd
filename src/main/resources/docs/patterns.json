@@ -2971,6 +2971,96 @@
     "languages" : [ "XML" ],
     "enabled" : true
   }, {
+    "patternId" : "category_vf_security_VfCsrf",
+    "level" : "Error",
+    "category" : "Security",
+    "subcategory" : "CSRF",
+    "parameters" : [ ],
+    "languages" : [ "VisualForce" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vf_security_VfHtmlStyleTagXss",
+    "level" : "Error",
+    "category" : "Security",
+    "subcategory" : "XSS",
+    "parameters" : [ ],
+    "languages" : [ "VisualForce" ],
+    "enabled" : false
+  }, {
+    "patternId" : "category_vf_security_VfUnescapeEl",
+    "level" : "Error",
+    "category" : "Security",
+    "subcategory" : "XSS",
+    "parameters" : [ ],
+    "languages" : [ "VisualForce" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vm_bestpractices_AvoidReassigningParameters",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vm_bestpractices_UnusedMacroParameter",
+    "level" : "Warning",
+    "category" : "CodeStyle",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vm_design_AvoidDeeplyNestedIfStmts",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vm_design_CollapsibleIfStatements",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vm_design_ExcessiveTemplateLength",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ {
+      "name" : "minimum",
+      "default" : "1000"
+    } ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vm_design_NoInlineJavaScript",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vm_design_NoInlineStyles",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vm_errorprone_EmptyForeachStmt",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
+  }, {
+    "patternId" : "category_vm_errorprone_EmptyIfStmt",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "parameters" : [ ],
+    "languages" : [ "Velocity" ],
+    "enabled" : true
+  }, {
     "patternId" : "category_xml_bestpractices_MissingEncoding",
     "level" : "Warning",
     "category" : "CodeStyle",

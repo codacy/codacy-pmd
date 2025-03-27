@@ -994,7 +994,10 @@
   "patternId" : "category_java_design_SignatureDeclareThrowsException",
   "title" : "Signature Declare Throws Exception",
   "description" : "A method/constructor should not explicitly throw java.lang.Exception",
-  "parameters" : [ ]
+  "parameters" : [ {
+    "name" : "IgnoreJUnitCompletely",
+    "description" : "Allow all methods in a JUnit3 TestCase to throw Exceptions"
+  } ]
 }, {
   "patternId" : "category_java_design_NcssCount",
   "title" : "NCSS Count",

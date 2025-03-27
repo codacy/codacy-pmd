@@ -1625,7 +1625,10 @@
     "patternId" : "category_java_design_SignatureDeclareThrowsException",
     "level" : "Warning",
     "category" : "ErrorProne",
-    "parameters" : [ ],
+    "parameters" : [ {
+      "name" : "IgnoreJUnitCompletely",
+      "default" : "False"
+    } ],
     "languages" : [ "Java" ],
     "enabled" : false
   }, {

@@ -996,7 +996,7 @@
   "description" : "A method/constructor should not explicitly throw java.lang.Exception",
   "parameters" : [ {
     "name" : "IgnoreJUnitCompletely",
-    "description" : "Allow all methods in a JUnit3 TestCase to throw Exceptions"
+    "description" : "Ignore methods that look like JUnit tests completely."
   } ]
 }, {
   "patternId" : "category_java_design_NcssCount",

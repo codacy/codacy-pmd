@@ -1627,7 +1627,7 @@
     "category" : "ErrorProne",
     "parameters" : [ {
       "name" : "IgnoreJUnitCompletely",
-      "default" : "False"
+      "default" : false
     } ],
     "languages" : [ "Java" ],
     "enabled" : false
@@ -2902,6 +2902,7 @@
     "patternId" : "category_vf_security_VfHtmlStyleTagXss",
     "level" : "Error",
     "category" : "Security",
+    "subcategory" : "XSS",
     "parameters" : [ ],
     "languages" : [ "VisualForce" ],
     "enabled" : false

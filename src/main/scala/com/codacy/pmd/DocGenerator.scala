@@ -282,6 +282,7 @@ object DocGenerator {
       val parameters = (name, langAlias) match {
         case ("ClassNamingConventions", "java") => parametersClassNamingConventions()
         case ("MethodNamingConventions", "java") => parametersMethodNamingConventions()
+        case ("SignatureDeclareThrowsException", "java") => parametersSignatureDeclareThrowsException()
         case _ => parseParameters(rule)
       }
 
@@ -334,6 +335,22 @@ object DocGenerator {
             |```${Properties.lineSeparator}""".stripMargin)
       )
     }).to(List)
+  }
+
+  private def parametersSignatureDeclareThrowsException(): List[(Parameter.Description, Parameter.Specification)] = {
+
+    val rawData: List[(String, String, String)] = List(
+      ("IgnoreJUnitCompletely", "Ignore methods that look like JUnit tests completely.", "false")
+    )
+
+    val parametersList: List[(Parameter.Description, Parameter.Specification)] = rawData.map {
+      case (name, description, defaultValue) =>
+        (
+          Parameter.Description(Parameter.Name(name), Parameter.DescriptionText(description)),
+          Parameter.Specification(Parameter.Name(name), Parameter.Value(defaultValue))
+        )
+    }
+    parametersList
   }
 
   private def cleanDescription(description: String) =

@@ -56,7 +56,7 @@ val dockerGroup = "docker"
 
 Docker / daemonUser := dockerUser
 Docker / daemonGroup := dockerGroup
-dockerBaseImage := "amazoncorretto:8-alpine3.18-jre"
+dockerBaseImage := "amazoncorretto:11-alpine3.18"
 Compile / mainClass := Some("com.codacy.Engine")
 dockerEntrypoint := Seq("/sbin/tini", "-g", "--", s"/opt/docker/bin/${name.value}")
 dockerCommands := dockerCommands.value.flatMap {

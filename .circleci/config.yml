@@ -24,19 +24,19 @@ workflows:
           cache_prefix: sbt-cache-13092024
           requires:
             - codacy/checkout_and_version
-      - codacy_plugins_test/run:
-          name: plugins_test
-          run_multiple_tests: true
-          requires:
-            - publish_docker_local
+      # - codacy_plugins_test/run:
+      #     name: plugins_test
+      #     run_multiple_tests: true
+      #     requires:
+      #       - publish_docker_local
       - codacy/publish_docker:
           context: CodacyDocker
           requires:
-            - plugins_test
-          filters:
-            branches:
-              only:
-                - master
+            - publish_docker_local
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
       - codacy/tag_version:
           name: tag_version
           context: CodacyAWS

@@ -321,6 +321,7 @@ object DocGenerator {
           level,
           category,
           getSecurityCategory(name, category),
+          scanType = None,
           parameterSpecifications,
           com.codacy.plugins.api.languages.Languages.fromName(language).toSet,
           enabled = DefaultPatterns.list.contains(patternId.value)
